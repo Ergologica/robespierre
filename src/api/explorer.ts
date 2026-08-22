@@ -44,6 +44,25 @@ export const api = {
 }
 
 
+
+/** Statistiche del nodo (supply, hashrate, media transazioni): endpoint v0 /info. */
+export interface NetworkStats { supply: number; hashRate: number; transactionAverage: number }
+export async function networkStats(): Promise<NetworkStats | null> {
+  try {
+    const r = await fetch('https://api.ergoplatform.com/info')
+    return r.ok ? await r.json() : null
+  } catch { return null }
+}
+
+/** Mempool completa (endpoint v0), con dimensione e output per calcolare le commissioni. */
+export interface UnconfirmedTx { id: string; creationTimestamp: number; size: number; outputs: { address?: string; value: number | string }[] }
+export async function mempoolFull(limit = 8): Promise<{ items: UnconfirmedTx[]; total: number } | null> {
+  try {
+    const r = await fetch('https://api.ergoplatform.com/transactions/unconfirmed?limit=' + limit)
+    return r.ok ? await r.json() : null
+  } catch { return null }
+}
+
 /** Conteggio della mempool completa: endpoint v0, verificato con CORS aperto il 22/08/2026. */
 export async function mempoolCount(): Promise<number | null> {
   try {

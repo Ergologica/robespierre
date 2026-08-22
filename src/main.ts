@@ -1,8 +1,10 @@
 import './style.css'
-import { netView } from './views/net'
-import { txView } from './views/tx'
+import { netView, mountNetCharts } from './views/net'
+import { networkStats } from './api/explorer'
+import { txView, mountTxSchema } from './views/tx'
+import { api as apiClient } from './api/explorer'
 import { addressView } from './views/address'
-import { tokenView } from './views/token'
+import { tokenView, computeHolders } from './views/token'
 import { api } from './api/explorer'
 import { classifyQuery } from './lib/format'
 import { esc } from './views/html'
@@ -37,8 +39,16 @@ async function route() {
   const [head, a, b] = hash.split('/')
   app.innerHTML = '<div class="loading">carico dalla catena…</div>'
   try {
-    if (!head) { document.title = 'Robespierre — l\'explorer che interpreta'; app.innerHTML = await netView() }
-    else if (head === 'tx' && a) app.innerHTML = await txView(a)
+    if (!head) {
+      document.title = 'Robespierre — l\'explorer che interpreta'
+      app.innerHTML = await netView()
+      const st = await networkStats()
+      if (st) mountNetCharts(BigInt(Math.round(st.supply)))
+    }
+    else if (head === 'tx' && a) {
+      app.innerHTML = await txView(a)
+      mountTxSchema(await apiClient.tx(a))   // già in cache: nessuna seconda chiamata
+    }
     else if (head === 'address' && a) app.innerHTML = await addressView(a, b ? parseInt(b, 10) || 0 : 0)
     else if (head === 'token' && a) app.innerHTML = await tokenView(a)
     else app.innerHTML = `<div class="errorbox"><h2>Pagina non trovata</h2>
@@ -81,6 +91,8 @@ document.addEventListener('click', e => {
   const t = e.target as HTMLElement
   const copy = t.closest('[data-copy]') as HTMLElement | null
   if (copy) { navigator.clipboard?.writeText(copy.dataset.copy ?? ''); copy.textContent = 'copiato ✓'; setTimeout(() => (copy.textContent = 'copia'), 1200) }
+  const hold = t.closest('[data-holders]') as HTMLElement | null
+  if (hold) computeHolders(hold.dataset.holders ?? '')
   const nav = t.closest('[data-nav]') as HTMLElement | null
   if (nav && !nav.hasAttribute('disabled')) location.hash = nav.dataset.nav ?? '#/'
 })

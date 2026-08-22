@@ -83,3 +83,17 @@ describe('rosen-bridge — fixture reale', () => {
     expect(d?.kind).toBe('transfer')
   })
 })
+
+import { countHomonyms } from '../views/token'
+describe('pagella — omonimi', () => {
+  const items = [
+    { id: 'aaa', name: 'COMET' }, { id: 'bbb', name: 'comet' },
+    { id: 'ccc', name: 'COMET ' }, { id: 'ddd', name: 'Comete' },
+  ]
+  it('conta gli altri token con lo stesso nome, ignorando maiuscole e spazi', () => {
+    expect(countHomonyms(items, 'COMET', 'aaa')).toBe(2)
+  })
+  it('non conta se stesso né i nomi simili ma diversi', () => {
+    expect(countHomonyms(items, 'Comete', 'ddd')).toBe(0)
+  })
+})
