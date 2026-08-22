@@ -59,11 +59,15 @@ src/
 - [x] **Fase 3**: pagella del token (v2) + pagina `/protocolli` — riserva SigmaUSD letta
       dal box col Bank NFT, circolante = emissione − banca, tasso di riserva indicativo
       dichiarato come tale (prezzo di mercato, non oracolo), fondi hot wallet Rosen
-- [ ] Fase 3.1: lettura dell'oracolo ERG/USD del protocollo per il tasso ufficiale
+- [x] **Fase 3.1**: oracolo ERG/USD letto dal box in catena (NFT derivato dai dataInput
+      di una tx reale della banca): tasso ufficiale accanto a quello di mercato
 - [ ] **Lancio**: post a forum/Telegram con tre link e la domanda "lo usereste, per cosa?"
 
 ## Palette
 
-Cinabro `#e2593f/#cf4526` (accento, uscite, serie 1) · Petrolio `#16a396/#00998a` (entrate, serie 2)
-· Glicine `#9b7ae6/#7a4fbf` (serie 3). Validata per daltonismo e contrasto in entrambi i temi
-(ΔE CVD ≥ 11,9; ΔE visione piena ≥ 20,9; contrasto ≥ 3:1 — tutte le coppie).
+Blu `#3987e5/#2a78d6` (accento, serie 1) · Verde `#0ca30c/#008300` (entrate, serie 2)
+· Magenta `#d55181/#c2417f` (serie 3) · Rosso solo per le uscite/negativi.
+Validata per daltonismo e contrasto in entrambi i temi su tutte le coppie
+(ΔE CVD ≥ 9,9; visione piena ≥ 25,6; contrasto ≥ 3:1). Il viola scuro era stato
+scartato dal validatore: ΔE 1,9 dal blu sotto protanopia. Icone SVG originali
+in `src/icons.ts` (tratto 1,8, griglia 24).

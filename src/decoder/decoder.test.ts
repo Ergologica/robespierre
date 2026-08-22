@@ -122,3 +122,51 @@ describe('protocolli — SigmaUSD, numeri reali della banca (22/08/2026)', () =>
     expect(computeAgeUsd({ ...real, priceUsd: null }).reserveRatioPct).toBeNull()
   })
 })
+
+import { computeOracleRatio } from '../views/protocols'
+describe('protocolli — tasso ufficiale dal box dell\'oracolo (R4 reale del 22/08/2026)', () => {
+  it('R4 = 4.773.652.507 nanoERG/USD → tasso ≈ 194%', () => {
+    const r = computeOracleRatio({
+      bankErg: 1_685_533_129_871_118n,
+      circUsdUnits: 18_160_026n,
+      oracleNanoPerUsd: 4_773_652_507n,
+    })
+    expect(r).toBeGreaterThan(190); expect(r).toBeLessThan(199)
+  })
+  it('con zero circolante o oracolo assente: null, mai inventato', () => {
+    expect(computeOracleRatio({ bankErg: 1n, circUsdUnits: 0n, oracleNanoPerUsd: 1n })).toBeNull()
+    expect(computeOracleRatio({ bankErg: 1n, circUsdUnits: 1n, oracleNanoPerUsd: 0n })).toBeNull()
+  })
+})
+
+import { aggregateHolders, topHolders } from '../views/token'
+describe('detentori — aggregazione pura', () => {
+  const T = 'tok'
+  const boxes = [
+    { address: 'A', assets: [{ tokenId: T, amount: 600 }] },
+    { address: 'A', assets: [{ tokenId: T, amount: '100' }] },   // stringa: arriva così dal JSON
+    { address: 'B', assets: [{ tokenId: T, amount: 200 }] },
+    { address: 'C', assets: [{ tokenId: 'altro', amount: 999 }] }, // token diverso: ignorato
+    { address: 'D', assets: [{ tokenId: T, amount: 100 }] },
+  ]
+  it('somma per indirizzo, ignora gli altri token', () => {
+    const m = aggregateHolders(boxes, T)
+    expect(m.get('A')).toBe(700n)
+    expect(m.get('B')).toBe(200n)
+    expect(m.has('C')).toBe(false)
+    expect(m.size).toBe(3)
+  })
+  it('top N + resto con quote sul totale letto', () => {
+    const { top, rest, holders, total } = topHolders(aggregateHolders(boxes, T), 2)
+    expect(total).toBe(1000n)
+    expect(holders).toBe(3)
+    expect(top[0]).toMatchObject({ address: 'A', amount: 700n, pct: 70 })
+    expect(top[1]).toMatchObject({ address: 'B', pct: 20 })
+    expect(rest?.amount).toBe(100n)
+    expect(rest?.pct).toBe(10)
+  })
+  it('senza box: totale zero, nessun resto', () => {
+    const { total, rest, holders } = topHolders(aggregateHolders([], T), 5)
+    expect(total).toBe(0n); expect(rest).toBeNull(); expect(holders).toBe(0)
+  })
+})

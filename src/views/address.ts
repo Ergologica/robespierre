@@ -47,7 +47,7 @@ export async function addressView(addr: string, offset = 0): Promise<string> {
   document.title = `${label ?? shortId(addr, 10)} · Robespierre`
 
   const tokenRows = tokens.slice(0, 12).map(t =>
-    `<tr><td>${esc(t.name ?? shortId(t.tokenId, 8))}</td>
+    `<tr><td><a href="#/token/${esc(t.tokenId)}" title="apri la pagella del token">${esc(t.name?.trim() || shortId(t.tokenId, 8))}</a></td>
      <td class="num">${formatTokenAmount(BigInt(t.amount), t.decimals ?? 0)}</td></tr>`).join('')
 
   return `

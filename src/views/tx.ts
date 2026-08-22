@@ -14,7 +14,7 @@ function boxHtml(b: BoxLike, spentLabel: string): string {
   const shown = assets.slice(0, MAX_TOKENS_SHOWN)
   const hidden = assets.length - shown.length
   const tokens = shown.map(a =>
-    `${esc(a.name ?? shortId(a.tokenId, 8))} ${formatTokenAmount(BigInt(a.amount), a.decimals ?? 0)}`,
+    `<a href="#/token/${esc(a.tokenId)}">${esc(a.name?.trim() || shortId(a.tokenId, 8))}</a> ${formatTokenAmount(BigInt(a.amount), a.decimals ?? 0)}`,
   ).join(' · ')
   return `<div class="box">
     <div class="head"><span class="mono">${esc(shortId(b.boxId, 8))}</span>
@@ -47,7 +47,7 @@ function flowCard(tx: import('../api/types').Tx): string {
     <div class="party"><div class="role">A</div>
       <div class="pname">${addrLink(main.address)}</div>
       <div class="amt in">+${formatErg(amount, 2)}</div>
-      <div>${toTokens.map(a => `<span class="tokchip">${esc(formatTokenAmount(BigInt(a.amount), a.decimals ?? 0))} ${esc(a.name ?? shortId(a.tokenId, 8))}</span>`).join('')}${(main.assets ?? []).length > 3 ? `<span class="tokchip">+${(main.assets ?? []).length - 3} altri</span>` : ''}</div></div>
+      <div>${toTokens.map(a => `<span class="tokchip">${esc(formatTokenAmount(BigInt(a.amount), a.decimals ?? 0))} <a href="#/token/${esc(a.tokenId)}">${esc(a.name?.trim() || shortId(a.tokenId, 8))}</a></span>`).join('')}${(main.assets ?? []).length > 3 ? `<span class="tokchip">+${(main.assets ?? []).length - 3} altri</span>` : ''}</div></div>
   </div></div>`
 }
 

@@ -1,20 +1,52 @@
 /* Robespierre — sistema di colore validato (vedi README §palette) */
 :root{
-  --bg:#171413; --surface:#211d1c; --surface-2:#2a2523; --line:#3a3330; --line-soft:#302a28;
-  --text:#f1ece9; --text-2:#b2a7a1; --text-3:#847a75;
-  --accent:#e2593f; --accent-soft:rgba(226,89,63,.14);
-  --pos:#16a396; --neg:#e2593f; --info:#16a396;
-  --s1:#e2593f; --s2:#16a396; --s3:#9b7ae6; --s-rest:#57504c;
-  --radius:12px; --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  /* superfici fredde, tema blu/verde — palette validata (vedi README §Palette) */
+  --bg:#12161a;
+  --surface:#1a2026;
+  --surface-2:#222a32;
+  --line:#2f3a44;
+  --line-soft:#28313a;
+  --text:#eaeef2;
+  --text-2:#a4afba;
+  --text-3:#75818d;
+  --accent:#3987e5;
+  --accent-soft:rgba(57,135,229,.14);
+  --pos:#0ca30c;      /* entrate: verde — convenzione ripristinata */
+  --neg:#e34948;      /* uscite: rosso */
+  --info:#3987e5;
+  --s1:#3987e5;       /* blu */
+  --s2:#0ca30c;       /* verde */
+  --s3:#d55181;       /* magenta */
+  --s-rest:#4d5763;
+  --grid:#27313b;
+  --axis:#38434e;
+  --track:rgba(57,135,229,.20);
+  --radius:12px;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
   --shadow:0 1px 2px rgba(0,0,0,.32);
 }
 html[data-theme="light"]{
-  --bg:#f6f3f1; --surface:#fffdfc; --surface-2:#f8f4f1; --line:#e5ddd8; --line-soft:#efe9e5;
-  --text:#1b1614; --text-2:#5e534e; --text-3:#8b7f79;
-  --accent:#cf4526; --accent-soft:rgba(207,69,38,.10);
-  --pos:#0a7d71; --neg:#c03d20; --info:#0a7d71;
-  --s1:#cf4526; --s2:#00998a; --s3:#7a4fbf; --s-rest:#c3b8b2;
-  --shadow:0 1px 2px rgba(27,22,20,.07);
+  --bg:#f2f5f8;
+  --surface:#ffffff;
+  --surface-2:#f4f7fa;
+  --line:#dde4ea;
+  --line-soft:#e9eef3;
+  --text:#141a20;
+  --text-2:#525e6a;
+  --text-3:#82909d;
+  --accent:#2a78d6;
+  --accent-soft:rgba(42,120,214,.10);
+  --pos:#008300;
+  --neg:#c2372c;
+  --info:#2a78d6;
+  --s1:#2a78d6;
+  --s2:#008300;
+  --s3:#c2417f;
+  --s-rest:#bcc6cf;
+  --grid:#edf1f5;
+  --axis:#d5dde4;
+  --track:rgba(42,120,214,.16);
+  --shadow:0 1px 2px rgba(20,26,32,.07);
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);
@@ -153,9 +185,15 @@ svg text.c-node{fill:var(--text);font-size:12.5px;font-weight:600}
 .check{display:flex;gap:10px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--line-soft);font-size:14px}
 .check:last-child{border-bottom:0}
 .check .sig{width:20px;text-align:center}
-.check .sig.ok{color:var(--pos)} .check .sig.warn{color:#e0a355} .check .sig.info{color:var(--text-3)}
+.check .sig.ok{color:var(--pos)} .check .sig.warn{color:#d98f2b} .check .sig.info{color:var(--text-3)}
 @media (max-width:880px){ .flow{grid-template-columns:1fr} .arrow{transform:rotate(90deg);padding:4px 0} }
 
 .topnav{display:flex;gap:4px;margin-left:6px}
 .topnav a{color:var(--text-2);padding:6px 11px;border-radius:8px;font-size:14px}
 .topnav a:hover{background:var(--surface-2);color:var(--text);text-decoration:none}
+
+.ic{vertical-align:-3px;margin-right:7px;color:var(--text-3)}
+.topnav a .ic{margin-right:6px}
+.topnav a:hover .ic{color:var(--accent)}
+.card-head h2 .ic{color:var(--accent);margin-right:9px;vertical-align:-2px}
+.ghost .ic,.search .ic{margin:0}

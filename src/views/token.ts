@@ -1,13 +1,15 @@
 import { api } from '../api/explorer'
-import { esc } from './html'
+import { esc, labelOf } from './html'
 import { formatTokenAmount, groupThousands, shortId } from '../lib/format'
 import { hbars } from '../charts'
 import type { HBar } from '../charts'
 
 /** Soglie della pagella: dichiarate qui, discutibili via PR come tutto il resto. */
 export const SOGLIE = {
-  topHolderWarnPct: 60,   // ⚠ se i primi 10 detengono più di questa quota
-  maxBoxesForHolders: 3000, // oltre questo numero di box il calcolo live non parte
+  topHolderWarnPct: 60,     // ⚠ se i primi 10 detengono più di questa quota
+  maxBoxesForHolders: 8000, // tetto di box letti dal browser; oltre, il calcolo è dichiarato parziale
+  holdersConcurrency: 8,    // richieste parallele verso l'API
+  topShown: 10,
 } as const
 
 /** Controllo omonimi: quanti altri token portano lo stesso nome. Funzione pura sui dati dell'API. */
@@ -73,49 +75,120 @@ export async function tokenView(id: string): Promise<string> {
   </div>`
 }
 
-/** Concentrazione live: aggrega i box non spesi. Con tetto dichiarato — mai fingere completezza. */
+/* ---------------- concentrazione dei detentori ---------------- */
+
+export interface HolderBox { address: string; assets?: { tokenId: string; amount: number | string }[] }
+
+/** Parte PURA: aggrega i box per indirizzo. Testata su casi sintetici. */
+export function aggregateHolders(boxes: HolderBox[], tokenId: string): Map<string, bigint> {
+  const m = new Map<string, bigint>()
+  for (const b of boxes) {
+    const amt = BigInt(b.assets?.find(a => a.tokenId === tokenId)?.amount ?? 0)
+    if (amt > 0n) m.set(b.address, (m.get(b.address) ?? 0n) + amt)
+  }
+  return m
+}
+
+export interface HolderShare { address: string; amount: bigint; pct: number }
+
+/** Parte PURA: primi N per quantità + resto, con quote sul totale letto. */
+export function topHolders(m: Map<string, bigint>, topN: number): { top: HolderShare[]; rest: HolderShare | null; holders: number; total: bigint } {
+  const total = [...m.values()].reduce((a, b) => a + b, 0n)
+  const sorted = [...m.entries()].sort((a, b) => (b[1] > a[1] ? 1 : -1))
+  const pct = (v: bigint) => total > 0n ? Number((v * 10000n) / total) / 100 : 0
+  const top = sorted.slice(0, topN).map(([address, amount]) => ({ address, amount, pct: pct(amount) }))
+  const restAmt = sorted.slice(topN).reduce((a, [, v]) => a + v, 0n)
+  const rest = sorted.length > topN
+    ? { address: `altri ${groupThousands(String(sorted.length - topN))} detentori`, amount: restAmt, pct: pct(restAmt) }
+    : null
+  return { top, rest, holders: sorted.length, total }
+}
+
+/** Cache di sessione: rifare 68 richieste per rivisitare una pagina è maleducazione. */
+interface HoldersResult { bars: HBar[]; note: string }
+const holdersCache = new Map<string, HoldersResult>()
+
+function renderHolders(r: HoldersResult): void {
+  const chartHost = document.querySelector('[data-holders-chart]') as HTMLElement | null
+  const note = document.querySelector('[data-holders-note]') as HTMLElement | null
+  if (!chartHost || !note) return
+  hbars(chartHost, r.bars)
+  chartHost.classList.remove('hidden')
+  note.textContent = r.note
+  note.classList.remove('hidden')
+}
+
+/** Se il risultato è in cache, mostralo subito al caricamento della pagina. */
+export function mountHoldersIfCached(tokenId: string): boolean {
+  const hit = holdersCache.get(tokenId)
+  if (!hit) return false
+  renderHolders(hit)
+  const btn = document.querySelector(`[data-holders="${CSS.escape(tokenId)}"]`) as HTMLElement | null
+  if (btn) btn.textContent = 'ricalcola'
+  return true
+}
+
 export async function computeHolders(tokenId: string): Promise<void> {
+  try { await computeHoldersInner(tokenId) } catch {
+    const note = document.querySelector('[data-holders-note]') as HTMLElement | null
+    const btn = document.querySelector(`[data-holders="${CSS.escape(tokenId)}"]`) as HTMLElement | null
+    if (note) { note.textContent = 'Calcolo non riuscito: la fonte non risponde. Riprova tra poco — i dati restano sulla catena.'; note.classList.remove('hidden') }
+    if (btn) btn.textContent = 'riprova'
+  }
+}
+
+async function computeHoldersInner(tokenId: string): Promise<void> {
   const chartHost = document.querySelector('[data-holders-chart]') as HTMLElement | null
   const note = document.querySelector('[data-holders-note]') as HTMLElement | null
   const btn = document.querySelector(`[data-holders="${CSS.escape(tokenId)}"]`) as HTMLElement | null
   if (!chartHost || !note) return
   if (btn) btn.textContent = 'calcolo…'
-  const base = `https://api.ergoplatform.com/api/v1/boxes/unspent/byTokenId/${tokenId}`
-  const first = await (await fetch(base + '?limit=100')).json()
+
+  const [tok, first] = await Promise.all([
+    api.token(tokenId),
+    fetch(`https://api.ergoplatform.com/api/v1/boxes/unspent/byTokenId/${tokenId}?limit=100`).then(r => r.json()),
+  ])
+  const decimals = tok?.decimals ?? 0
   const total: number = first.total ?? 0
   const capped = total > SOGLIE.maxBoxesForHolders
   const pages = Math.min(Math.ceil(total / 100), Math.ceil(SOGLIE.maxBoxesForHolders / 100))
-  const holders = new Map<string, bigint>()
-  const addPage = (items: { address: string; assets?: { tokenId: string; amount: number | string }[] }[]) => {
-    for (const b of items) {
-      const amt = BigInt(b.assets?.find(a => a.tokenId === tokenId)?.amount ?? 0)
-      holders.set(b.address, (holders.get(b.address) ?? 0n) + amt)
-    }
-  }
-  addPage(first.items ?? [])
-  for (let p = 1; p < pages; p += 5) {
+  const boxes: HolderBox[] = [...(first.items ?? [])]
+
+  for (let p = 1; p < pages; p += SOGLIE.holdersConcurrency) {
     const batch = await Promise.all(
-      Array.from({ length: Math.min(5, pages - p) }, (_, i) =>
-        fetch(`${base}?limit=100&offset=${(p + i) * 100}`).then(r => r.json()).catch(() => ({ items: [] }))),
+      Array.from({ length: Math.min(SOGLIE.holdersConcurrency, pages - p) }, (_, i) =>
+        fetch(`https://api.ergoplatform.com/api/v1/boxes/unspent/byTokenId/${tokenId}?limit=100&offset=${(p + i) * 100}`)
+          .then(r => r.json()).catch(() => ({ items: [] }))),
     )
-    batch.forEach(pg => addPage(pg.items ?? []))
-    if (btn) btn.textContent = `calcolo… ${Math.min(100, Math.round(100 * (p + 5) / pages))}%`
+    batch.forEach(pg => boxes.push(...(pg.items ?? [])))
+    if (btn) btn.textContent = `calcolo… ${Math.min(100, Math.round(100 * boxes.length / Math.min(total, SOGLIE.maxBoxesForHolders)))}%`
   }
-  const totAmt = [...holders.values()].reduce((a, b) => a + b, 0n)
+
+  const agg = aggregateHolders(boxes, tokenId)
+  const { top, rest, holders, total: totAmt } = topHolders(agg, SOGLIE.topShown)
   if (totAmt === 0n) { note.textContent = 'Nessun box non speso trovato.'; note.classList.remove('hidden'); return }
-  const sorted = [...holders.entries()].sort((a, b) => (b[1] > a[1] ? 1 : -1))
-  const top = sorted.slice(0, 8)
-  const pct = (v: bigint) => Number((v * 10000n) / totAmt) / 100
-  const bars: HBar[] = top.map(([addr, v]) => ({
-    label: shortId(addr, 8), value: pct(v), tipLine: pct(v).toFixed(2).replace('.', ',') + '% del totale nei box letti',
+
+  const nameOf = (addr: string) => {
+    const l = labelOf(addr)
+    if (l) return l
+    return shortId(addr, 8) + (addr.startsWith('9') ? '' : ' · contratto')
+  }
+  const bars: HBar[] = top.map(h => ({
+    label: nameOf(h.address), value: h.pct,
+    tipLine: `${formatTokenAmount(h.amount, decimals)} — ${h.pct.toFixed(2).replace('.', ',')}% del circolante letto`,
   }))
-  const restPct = 100 - top.reduce((s, [, v]) => s + pct(v), 0)
-  if (restPct > 0.01) bars.push({ label: `altri ${sorted.length - top.length} detentori`, value: restPct, rest: true, tipLine: restPct.toFixed(2).replace('.', ',') + '%' })
-  hbars(chartHost, bars)
-  chartHost.classList.remove('hidden')
-  note.textContent = capped
-    ? `Calcolo parziale: letti ${groupThousands(String(SOGLIE.maxBoxesForHolders))} box su ${groupThousands(String(total))} — le quote sono indicative.`
-    : `Calcolato ora su tutti i ${groupThousands(String(total))} box non spesi.`
-  note.classList.remove('hidden')
+  if (rest && rest.pct > 0.01) bars.push({ label: rest.address, value: rest.pct, rest: true,
+    tipLine: `${formatTokenAmount(rest.amount, decimals)} — ${rest.pct.toFixed(2).replace('.', ',')}%` })
+  const top10pct = top.reduce((s2, h) => s2 + h.pct, 0)
+  const concNote = top10pct > SOGLIE.topHolderWarnPct
+    ? ` ⚠ I primi ${top.length} detengono il ${top10pct.toFixed(1).replace('.', ',')}% (soglia di attenzione: ${SOGLIE.topHolderWarnPct}%).`
+    : ` I primi ${top.length} detengono il ${top10pct.toFixed(1).replace('.', ',')}%.`
+  const noteText = (capped
+    ? `Calcolo parziale: letti ${groupThousands(String(boxes.length))} box su ${groupThousands(String(total))} — le quote sono indicative.`
+    : `Letti tutti i ${groupThousands(String(total))} box non spesi: ${groupThousands(String(holders))} indirizzi distinti.`)
+    + concNote
+  const result: HoldersResult = { bars, note: noteText }
+  holdersCache.set(tokenId, result)
+  renderHolders(result)
   if (btn) btn.textContent = 'ricalcola'
 }

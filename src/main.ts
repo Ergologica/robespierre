@@ -1,16 +1,23 @@
 import './style.css'
+import { icons } from './icons'
 import { netView, mountNetCharts } from './views/net'
 import { networkStats } from './api/explorer'
 import { txView, mountTxSchema } from './views/tx'
 import { api as apiClient } from './api/explorer'
 import { addressView } from './views/address'
-import { tokenView, computeHolders } from './views/token'
+import { tokenView, computeHolders, mountHoldersIfCached } from './views/token'
 import { protocolsView, mountProtocolCharts } from './views/protocols'
 import { api } from './api/explorer'
 import { classifyQuery } from './lib/format'
 import { esc } from './views/html'
 
 const app = document.getElementById('app') as HTMLElement
+
+/* icone statiche dichiarate con data-ic */
+document.querySelectorAll<HTMLElement>('[data-ic]').forEach(e => {
+  const ic = icons[e.dataset.ic as keyof typeof icons]
+  if (ic) e.insertAdjacentHTML('afterbegin', ic)
+})
 
 /* ----- modalità Base/Avanzato: ricordata, riflessa nel DOM ----- */
 let advanced = false
@@ -51,7 +58,7 @@ async function route() {
       mountTxSchema(await apiClient.tx(a))   // già in cache: nessuna seconda chiamata
     }
     else if (head === 'address' && a) app.innerHTML = await addressView(a, b ? parseInt(b, 10) || 0 : 0)
-    else if (head === 'token' && a) app.innerHTML = await tokenView(a)
+    else if (head === 'token' && a) { app.innerHTML = await tokenView(a); mountHoldersIfCached(a) }
     else if (head === 'protocolli') { app.innerHTML = await protocolsView(); mountProtocolCharts() }
     else app.innerHTML = `<div class="errorbox"><h2>Pagina non trovata</h2>
       <p class="muted">Il percorso <span class="mono">${esc(hash)}</span> non esiste. La ricerca qui sopra riconosce da sola indirizzi, transazioni e token.</p></div>`
@@ -94,7 +101,7 @@ document.addEventListener('click', e => {
   const copy = t.closest('[data-copy]') as HTMLElement | null
   if (copy) { navigator.clipboard?.writeText(copy.dataset.copy ?? ''); copy.textContent = 'copiato ✓'; setTimeout(() => (copy.textContent = 'copia'), 1200) }
   const hold = t.closest('[data-holders]') as HTMLElement | null
-  if (hold) computeHolders(hold.dataset.holders ?? '')
+  if (hold) void computeHolders(hold.dataset.holders ?? '')
   const nav = t.closest('[data-nav]') as HTMLElement | null
   if (nav && !nav.hasAttribute('disabled')) location.hash = nav.dataset.nav ?? '#/'
 })
