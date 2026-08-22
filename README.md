@@ -56,7 +56,11 @@ src/
       costanti dei contratti derivate dalla catena, 8 fixture reali, 23 test + 7 dal vivo
 - [ ] Fase 2.1: pool T2T di Spectrum (token↔token), lock verso Rosen, mint SigUSD in fixture
       appena la banca ne emette una (il riconoscitore è già simmetrico)
-- [ ] Fase 3: pagella del token + pagina protocolli → lancio
+- [x] **Fase 3**: pagella del token (v2) + pagina `/protocolli` — riserva SigmaUSD letta
+      dal box col Bank NFT, circolante = emissione − banca, tasso di riserva indicativo
+      dichiarato come tale (prezzo di mercato, non oracolo), fondi hot wallet Rosen
+- [ ] Fase 3.1: lettura dell'oracolo ERG/USD del protocollo per il tasso ufficiale
+- [ ] **Lancio**: post a forum/Telegram con tre link e la domanda "lo usereste, per cosa?"
 
 ## Palette
 

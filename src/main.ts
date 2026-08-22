@@ -5,6 +5,7 @@ import { txView, mountTxSchema } from './views/tx'
 import { api as apiClient } from './api/explorer'
 import { addressView } from './views/address'
 import { tokenView, computeHolders } from './views/token'
+import { protocolsView, mountProtocolCharts } from './views/protocols'
 import { api } from './api/explorer'
 import { classifyQuery } from './lib/format'
 import { esc } from './views/html'
@@ -51,6 +52,7 @@ async function route() {
     }
     else if (head === 'address' && a) app.innerHTML = await addressView(a, b ? parseInt(b, 10) || 0 : 0)
     else if (head === 'token' && a) app.innerHTML = await tokenView(a)
+    else if (head === 'protocolli') { app.innerHTML = await protocolsView(); mountProtocolCharts() }
     else app.innerHTML = `<div class="errorbox"><h2>Pagina non trovata</h2>
       <p class="muted">Il percorso <span class="mono">${esc(hash)}</span> non esiste. La ricerca qui sopra riconosce da sola indirizzi, transazioni e token.</p></div>`
   } catch (e) {

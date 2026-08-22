@@ -97,3 +97,28 @@ describe('pagella — omonimi', () => {
     expect(countHomonyms(items, 'Comete', 'ddd')).toBe(0)
   })
 })
+
+import { computeAgeUsd } from '../views/protocols'
+describe('protocolli — SigmaUSD, numeri reali della banca (22/08/2026)', () => {
+  const real = {
+    bankErg: 1_685_533_129_871_118n,      // 1.685.533,13 ERG
+    bankUsdUnits: 9_999_981_839_975n,     // SigUSD rimasti in banca
+    emissionUsd: 10_000_000_000_001n,
+    bankRsvUnits: 9_994_707_218_873n,
+    emissionRsv: 10_000_000_000_001n,
+    priceUsd: 0.26,
+  }
+  it('circolante = emissione − banca (in centesimi)', () => {
+    const s = computeAgeUsd(real)
+    expect(s.circUsdUnits).toBe(18_160_026n)   // 181.600,26 SigUSD
+    expect(s.circRsvUnits).toBe(5_292_781_128n)
+  })
+  it('tasso di riserva ≈ 241% col prezzo di mercato: il mint è chiuso — coerente con le sole operazioni di riscatto viste in Fase 2', () => {
+    const s = computeAgeUsd(real)
+    expect(s.reserveRatioPct).toBeGreaterThan(230)
+    expect(s.reserveRatioPct).toBeLessThan(255)
+  })
+  it('senza prezzo il tasso è null, mai inventato', () => {
+    expect(computeAgeUsd({ ...real, priceUsd: null }).reserveRatioPct).toBeNull()
+  })
+})
