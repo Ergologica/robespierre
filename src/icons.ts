@@ -18,6 +18,10 @@ export const icons = {
   token: wrap('<circle cx="12" cy="12" r="8.5"/><path d="M15 8.5H9.6l3.4 3.5-3.4 3.5H15"/>', 'Token'),
   /** banca: colonne */
   bank: wrap('<path d="M3.5 9.5 12 4l8.5 5.5M5 10v7M9.7 10v7M14.3 10v7M19 10v7M3.5 19.5h17"/>', 'Banca'),
+  /** link esterno */
+  ext: wrap('<path d="M14 4h6v6M20 4l-9 9M11 5H6.5A2.5 2.5 0 0 0 4 7.5v11A2.5 2.5 0 0 0 6.5 21h11a2.5 2.5 0 0 0 2.5-2.5V14"/>', 'Link esterno'),
+  /** espandi */
+  down: wrap('<path d="m6 9.5 6 6 6-6"/>', 'Espandi'),
   /** ponte */
   bridge: wrap('<path d="M3 16c3-6 15-6 18 0M3 16v3M21 16v3M8 12.6V16M16 12.6V16M12 11.8V16"/>', 'Ponte'),
 }

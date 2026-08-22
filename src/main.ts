@@ -69,9 +69,21 @@ async function route() {
   }
   applyMode()
 }
-window.addEventListener('hashchange', route)
+window.addEventListener('hashchange', () => { searchHint(null); void route() })
 
 /* ----- ricerca: riconoscimento del tipo, tendina solo come ripiego ----- */
+function searchHint(msg: string | null): void {
+  let h = document.getElementById('searchHint')
+  if (!h) {
+    h = document.createElement('div')
+    h.id = 'searchHint'
+    h.className = 'search-hint'
+    document.querySelector('.searchrow')!.appendChild(h)
+  }
+  h.textContent = msg ?? ''
+  h.classList.toggle('hidden', !msg)
+}
+
 const form = document.getElementById('searchForm') as HTMLFormElement
 const input = document.getElementById('searchInput') as HTMLInputElement
 form.addEventListener('submit', async ev => {
@@ -85,10 +97,13 @@ form.addEventListener('submit', async ev => {
     try { await api.tx(q); location.hash = '#/tx/' + q }
     catch { location.hash = '#/token/' + q }
   } else if (kind === 'height') {
-    alert('La pagina del blocco per altezza arriva nella prossima iterazione.')
+    searchHint("La pagina del blocco per altezza non c'è ancora: nel frattempo la trovi tra gli Ultimi blocchi della pagina Rete.")
+    return
   } else {
-    alert('Non sembra un indirizzo (inizia con 9, ~51 caratteri), né un id di transazione o token (64 caratteri esadecimali).')
+    searchHint('Non sembra un indirizzo (inizia con 9, ~51 caratteri) né un id di transazione o token (64 caratteri esadecimali).')
+    return
   }
+  searchHint(null)
   input.value = ''
 })
 document.addEventListener('keydown', e => {
@@ -102,6 +117,17 @@ document.addEventListener('click', e => {
   if (copy) { navigator.clipboard?.writeText(copy.dataset.copy ?? ''); copy.textContent = 'copiato ✓'; setTimeout(() => (copy.textContent = 'copia'), 1200) }
   const hold = t.closest('[data-holders]') as HTMLElement | null
   if (hold) void computeHolders(hold.dataset.holders ?? '')
+  const tog = t.closest('[data-toggle-tokens]') as HTMLElement | null
+  if (tog) {
+    const rows = document.querySelectorAll('.tok-extra')
+    const first = rows[0]
+    const opening = !!first && first.classList.contains('hidden')
+    rows.forEach(r => r.classList.toggle('hidden', !opening))
+    const label = tog.querySelector('span[data-label]') as HTMLElement | null
+    if (label) label.textContent = opening ? 'comprimi la lista' : (tog.dataset.full ?? 'mostra tutti i token')
+  }
+  const sc = t.closest('[data-scroll]') as HTMLElement | null
+  if (sc) { e.preventDefault(); document.querySelector(sc.getAttribute('href') ?? '')?.scrollIntoView({ behavior: 'smooth' }) }
   const nav = t.closest('[data-nav]') as HTMLElement | null
   if (nav && !nav.hasAttribute('disabled')) location.hash = nav.dataset.nav ?? '#/'
 })

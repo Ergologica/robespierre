@@ -197,3 +197,15 @@ svg text.c-node{fill:var(--text);font-size:12.5px;font-weight:600}
 .topnav a:hover .ic{color:var(--accent)}
 .card-head h2 .ic{color:var(--accent);margin-right:9px;vertical-align:-2px}
 .ghost .ic,.search .ic{margin:0}
+
+/* ---- bottoni e link-azione ---- */
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--surface-2);border:1px solid var(--line);
+  color:var(--text);border-radius:8px;font:inherit;font-size:13.5px;padding:7px 13px;cursor:pointer}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn .ic{margin-right:0;color:inherit}
+.btn-link{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--text-2);
+  border:1px solid var(--line);border-radius:6px;padding:2px 9px;background:var(--surface-2)}
+.btn-link:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
+.btn-link .ic{margin-right:0;width:13px;height:13px;color:inherit}
+.search-hint{margin-top:8px;padding:9px 13px;border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:8px;background:var(--surface);color:var(--text-2);font-size:13.5px}

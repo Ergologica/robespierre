@@ -3,6 +3,7 @@ import { decode } from '../decoder/index'
 import { FEE_ADDRESS } from '../decoder/recognizers/simple-transfer'
 import { esc, addrLink, labelOf } from './html'
 import { utxoSchema } from '../charts'
+import { icons } from '../icons'
 import type { SchemaNode } from '../charts'
 import { formatErg, formatTokenAmount, groupThousands, relativeTime, isoUtc, shortId } from '../lib/format'
 import type { BoxLike } from '../api/types'
@@ -121,7 +122,9 @@ export async function txView(id: string): Promise<string> {
     </div>
     <div class="idrow"><h1>Transazione</h1>
       <span class="mono muted" title="${esc(id)}">${esc(shortId(id))}</span>
-      <button class="copy" data-copy="${esc(id)}">copia id</button></div>
+      <button class="copy" data-copy="${esc(id)}">copia id</button>
+      <a class="btn-link" href="https://api.ergoplatform.com/api/v1/transactions/${esc(id)}" target="_blank" rel="noopener">${icons.ext}JSON grezzo</a>
+      <a class="btn-link" href="https://explorer.ergoplatform.com/en/transactions/${esc(id)}" target="_blank" rel="noopener">${icons.ext}explorer ufficiale</a></div>
     ${headline}
     <div class="tiles" style="margin-top:14px">
       <div><div class="k">In uscita (totale box)</div><div class="v">${formatErg(totalOut)}</div>

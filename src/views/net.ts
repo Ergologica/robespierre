@@ -33,7 +33,7 @@ export async function netView(): Promise<string> {
       <td class="mono">${groupThousands(String(b.height))}</td>
       <td class="when" title="${isoUtc(b.timestamp)}">${relativeTime(b.timestamp)}</td>
       <td class="num dim" style="white-space:nowrap">${deltaStr}</td>
-      <td>${esc(miner)}</td>
+      <td>${b.miner?.address ? `<a href="#/address/${esc(b.miner.address)}">${esc(miner)}</a>` : esc(miner)}</td>
       <td class="num">${b.transactionsCount}</td>
     </tr>`
   }).join('')
@@ -42,7 +42,7 @@ export async function netView(): Promise<string> {
     const fee = t.outputs.filter(o => o.address?.startsWith(FEE_HEAD)).reduce((s, o) => s + BigInt(o.value), 0n)
     const perByte = t.size ? Number(fee) / t.size : 0
     return `<tr>
-      <td class="mono">${esc(shortId(t.id, 8))}</td>
+      <td class="mono"><a href="#/tx/${esc(t.id)}" title="apri appena confermata — in mempool i dettagli possono mancare">${esc(shortId(t.id, 8))}</a></td>
       <td class="when">${relativeTime(t.creationTimestamp)}</td>
       <td class="num">${formatErg(fee, 4)}</td>
       <td class="num dim">${perByte ? Math.round(perByte) + ' nano/B' : '—'}</td>

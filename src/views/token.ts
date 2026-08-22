@@ -2,6 +2,7 @@ import { api } from '../api/explorer'
 import { esc, labelOf } from './html'
 import { formatTokenAmount, groupThousands, shortId } from '../lib/format'
 import { hbars } from '../charts'
+import { icons } from '../icons'
 import type { HBar } from '../charts'
 
 /** Soglie della pagella: dichiarate qui, discutibili via PR come tutto il resto. */
@@ -52,6 +53,7 @@ export async function tokenView(id: string): Promise<string> {
       <span class="grow"></span>
       <span class="mono dim">${esc(shortId(id, 8))}</span>
       <button class="copy" data-copy="${esc(id)}">copia id</button>
+      <a class="btn-link" href="https://explorer.ergoplatform.com/en/token/${esc(id)}" target="_blank" rel="noopener">${icons.ext}explorer ufficiale</a>
     </div>
     <div class="tiles">
       <div><div class="k">Emissione</div>

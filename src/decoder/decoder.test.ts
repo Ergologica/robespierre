@@ -170,3 +170,15 @@ describe('detentori — aggregazione pura', () => {
     expect(total).toBe(0n); expect(rest).toBeNull(); expect(holders).toBe(0)
   })
 })
+
+import { sortWalletTokens } from '../views/address'
+describe('portafoglio — ordinamento dei token', () => {
+  it('con nome prima (alfabetico, senza maiuscole), senza nome in fondo per id', () => {
+    const out = sortWalletTokens([
+      { tokenId: 'zzz', name: null }, { tokenId: 'bbb', name: 'zeta' },
+      { tokenId: 'aaa', name: null }, { tokenId: 'ccc', name: 'Alfa' },
+      { tokenId: 'ddd', name: '  ' },
+    ])
+    expect(out.map(t => t.name?.trim() || t.tokenId)).toEqual(['Alfa', 'zeta', 'aaa', 'ddd', 'zzz'])
+  })
+})
