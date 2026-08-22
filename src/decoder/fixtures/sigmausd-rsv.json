@@ -1,0 +1,305 @@
+{
+ "id": "5c86d4d5d60b9858ca73af3d2a9ba9453f0b8e15d1310cc7aa51da2f5db08586",
+ "blockId": "3dc19e268fb1babe6c0f341e20c2893f9c5febe4823843a41f7ec28b74cb60cd",
+ "inclusionHeight": 1853186,
+ "timestamp": 1786968263803,
+ "index": 25,
+ "globalIndex": 109210,
+ "numConfirmations": 3447,
+ "inputs": [
+  {
+   "boxId": "22522957f97fec970d91b3293930489656fea579a480b8caa9e09feea9366a12",
+   "value": 1695099087163751,
+   "index": 0,
+   "outputBlockId": "0bcde040c49f484abddde20d2bdf6efee83a3acc253af2877c0b2c5eb159317e",
+   "outputTransactionId": "77b3affc3e3b2dad0cfefa664bcce1463a5c6bbde4c76afa5fcbf31dc34f2f90",
+   "outputIndex": 0,
+   "outputGlobalIndex": 397964,
+   "outputCreatedAt": 1853010,
+   "outputSettledAt": 1853012,
+   "address": "MUbV38YgqHy7XbsoXWF5z7EZm524Ybdwe5p9WDrbhruZRtehkRPT92imXer2eTkjwPDfboa1pR3zb3deVKVq3H7Xt98qcTqLuSBSbHb7izzo5jphEpcnqyKJ2xhmpNPVvmtbdJNdvdopPrHHDBbAGGeW7XYTQwEeoRfosXzcDtiGgw97b2aqjTsNFmZk7khBEQywjYfmoDc9nUCJMZ3vbSspnYo3LarLe55mh2Np8MNJqUN9APA6XkhZCrTTDRZb1B4krgFY1sVMswg2ceqguZRvC9pqt3tUUxmSnB24N6dowfVJKhLXwHPbrkHViBv1AKAJTmEaQW2DN1fRmD9ypXxZk8GXmYtxTtrj3BiunQ4qzUCu1eGzxSREjpkFSi2ATLSSDqUwxtRz639sHM6Lav4axoJNPCHbY8pvuBKUxgnGRex8LEGM8DeEJwaJCaoy8dBw9Lz49nq5mSsXLeoC4xpTUmp47Bh7GAZtwkaNreCu74m9rcZ8Di4w1cmdsiK1NWuDh9pJ2Bv7u3EfcurHFVqCkT3P86JUbKnXeNxCypfrWsFuYNKYqmjsix82g9vWcGMmAcu5nagxD4iET86iE2tMMfZZ5vqZNvntQswJyQqv2Wc6MTh4jQx1q2qJZCQe4QdEK63meTGbZNNKMctHQbp3gRkZYNrBtxQyVtNLR8xEY8zGp85GeQKbb37vqLXxRpGiigAdMe3XZA4hhYPmAAU5hpSMYaRAjtvvMT3bNiHRACGrfjvSsEG9G2zY5in2YWz5X9zXQLGTYRsQ4uNFkYoQRCBdjNxGv6R58Xq74zCgt19TxYZ87gPWxkXpWwTaHogG1eps8WXt8QzwJ9rVx6Vu9a5GjtcGsQxHovWmYixgBU8X9fPNJ9UQhYyAWbjtRSuVBtDAmoV1gCBEPwnYVP5GCGhCocbwoYhZkZjFZy6ws4uxVLid3FxuvhWvQrVEDYp7WRvGXbNdCbcSXnbeTrPMey1WPaXX",
+   "assets": [
+    {
+     "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+     "index": 0,
+     "amount": 9999981639975,
+     "name": "SigUSD",
+     "decimals": 2,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+     "index": 1,
+     "amount": 9994707268451,
+     "name": "SigRSV",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7d672d1def471720ca5782fd6473e47e796d9ac0c138d9911346f118b2f6d9d9",
+     "index": 2,
+     "amount": 1,
+     "name": "SUSD Bank V2 NFT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "05b49bc111",
+     "sigmaType": "SLong",
+     "renderedValue": "18360026"
+    },
+    "R5": {
+     "serializedValue": "05bcb2c5b727",
+     "sigmaType": "SLong",
+     "renderedValue": "5292731550"
+    }
+   }
+  },
+  {
+   "boxId": "11e9dfcece6dde0a766e995d393ccf926709c00a9e717e0c8213214e3b2568ec",
+   "value": 34451357972,
+   "index": 1,
+   "outputBlockId": "0bcde040c49f484abddde20d2bdf6efee83a3acc253af2877c0b2c5eb159317e",
+   "outputTransactionId": "77b3affc3e3b2dad0cfefa664bcce1463a5c6bbde4c76afa5fcbf31dc34f2f90",
+   "outputIndex": 4,
+   "outputGlobalIndex": 397968,
+   "outputCreatedAt": 1853010,
+   "outputSettledAt": 1853012,
+   "address": "9eXkK54fY59swDCRaZJDb9axYYebhmuE7LVCBkqZR8adw6AzqRD",
+   "assets": [
+    {
+     "tokenId": "a55b8735ed1a99e46c2c89f8994aacdf4b1109bdcf682f1e5b34479c6e392669",
+     "index": 0,
+     "amount": 1419,
+     "name": "USE",
+     "decimals": 3,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "d4f0192622b440afc09711aa0545eacd04d78ad3f8a063523f451e10d3d0e6ef",
+     "index": 1,
+     "amount": 86854,
+     "name": "MEOW",
+     "decimals": 2,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7a51950e5f548549ec1aa63ffdc38279505b11e7e803d01bcf8347e0123c88b0",
+     "index": 2,
+     "amount": 1619,
+     "name": "rsBTC",
+     "decimals": 8,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "abe0a3c2f646dcd430aac9c29d80feee865bd8b5231edb545a41105d4c8e4985",
+     "index": 3,
+     "amount": 37585099,
+     "name": "BUNS",
+     "decimals": 4,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  }
+ ],
+ "dataInputs": [
+  {
+   "boxId": "3d0e60a776b3b7ed4ac40715f674d81abc8455fdd7a41f661855f449d65ff216",
+   "value": 10558500000,
+   "index": 0,
+   "outputBlockId": "e7b191f77ebc41b1b0dda1c02d8daa75462a823ff805ca7b638f3907a9e29880",
+   "outputTransactionId": "f9b985076bba90fb2d5ed1c3add3b37dada4e0b0f3e1cbb73b38674250a40aa3",
+   "outputIndex": 0,
+   "ergoTree": "1014040004000e208c27dd9d8a35aac1e3167d58858c0a8b4059b277da790552e37eba22df9b903504000400040204020101040205a0c21e040204080500040c040204a0c21e0402050a05c8010402d806d601b2a5730000d602b5db6501fed9010263ed93e4c67202050ec5a7938cb2db63087202730100017302d603b17202d604e4c6b272027303000605d605d90105049590720573047204e4c6b272029972057305000605d606b07202860273067307d901063c400163d803d6088c720601d6098c720801d60a8c72060286029a72097308ededed8c72080293c2b2a5720900d0cde4c6720a040792c1b2a5720900730992da720501997209730ae4c6720a0605ea02d1ededededededed93cbc27201e4c6a7060e927203730b93db63087201db6308a793e4c6720104059db07202730cd9010741639a8c720701e4c68c72070206057e72030593e4c6720105049ae4c6a70504730d92c1720199c1a77e9c9a7203730e730f058c72060292da720501998c72060173109972049d9c720473117312b2ad7202d9010763cde4c672070407e4c6b2a5731300040400",
+   "address": "NTkuk55NdwCXkF1e2nCABxq7bHjtinX3wH13zYPZ6qYT71dCoZBe1gZkh9FAr7GeHo2EpFoibzpNQmoi89atUjKRrhZEYrTapdtXrWU4kq319oY7BEWmtmRU9cMohX69XMuxJjJP5hRM8WQLfFnffbjshhEP3ck9CKVEkFRw1JDYkqVke2JVqoMED5yxLVkScbBUiJJLWq9BSbE1JJmmreNVskmWNxWE6V7ksKPxFMoqh1SVePh3UWAaBgGQRZ7TWf4dTBF5KMVHmRXzmQqEu2Fz2yeSLy23sM3pfqa78VuvoFHnTFXYFFxn3DNttxwq3EU3Zv25SmgrWjLKiZjFcEcqGgH6DJ9FZ1DfucVtTXwyDJutY3ksUBaEStRxoUQyRu4EhDobixL3PUWRcxaRJ8JKA9b64ALErGepRHkAoVmS8DaE6VbroskyMuhkTo7LbrzhTyJbqKurEzoEfhYxus7bMpLTePgKcktgRRyB7MjVxjSpxWzZedvzbjzZaHLZLkWZESk1WtdM25My33wtVLNXiTvficEUbjA23sNd24pv1YQ72nY1aqUHa2",
+   "assets": [],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "05ea8aa2d724",
+     "sigmaType": "SLong",
+     "renderedValue": "4923343541"
+    },
+    "R5": {
+     "serializedValue": "04849ce201",
+     "sigmaType": "SInt",
+     "renderedValue": "1853186"
+    },
+    "R6": {
+     "serializedValue": "0e206bc478bd3202f2dc05836788513d1f6bf20f48b94efd9cabb7f7c8e38ea82527",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "6bc478bd3202f2dc05836788513d1f6bf20f48b94efd9cabb7f7c8e38ea82527"
+    }
+   }
+  }
+ ],
+ "outputs": [
+  {
+   "boxId": "c7de240b4516f0ebefef5561ddf16dffbaf27bf29fe7479bc6b83e1910e55a27",
+   "transactionId": "5c86d4d5d60b9858ca73af3d2a9ba9453f0b8e15d1310cc7aa51da2f5db08586",
+   "blockId": "3dc19e268fb1babe6c0f341e20c2893f9c5febe4823843a41f7ec28b74cb60cd",
+   "value": 1695106646402718,
+   "index": 0,
+   "globalIndex": 401927,
+   "creationHeight": 1853184,
+   "settlementHeight": 1853186,
+   "address": "MUbV38YgqHy7XbsoXWF5z7EZm524Ybdwe5p9WDrbhruZRtehkRPT92imXer2eTkjwPDfboa1pR3zb3deVKVq3H7Xt98qcTqLuSBSbHb7izzo5jphEpcnqyKJ2xhmpNPVvmtbdJNdvdopPrHHDBbAGGeW7XYTQwEeoRfosXzcDtiGgw97b2aqjTsNFmZk7khBEQywjYfmoDc9nUCJMZ3vbSspnYo3LarLe55mh2Np8MNJqUN9APA6XkhZCrTTDRZb1B4krgFY1sVMswg2ceqguZRvC9pqt3tUUxmSnB24N6dowfVJKhLXwHPbrkHViBv1AKAJTmEaQW2DN1fRmD9ypXxZk8GXmYtxTtrj3BiunQ4qzUCu1eGzxSREjpkFSi2ATLSSDqUwxtRz639sHM6Lav4axoJNPCHbY8pvuBKUxgnGRex8LEGM8DeEJwaJCaoy8dBw9Lz49nq5mSsXLeoC4xpTUmp47Bh7GAZtwkaNreCu74m9rcZ8Di4w1cmdsiK1NWuDh9pJ2Bv7u3EfcurHFVqCkT3P86JUbKnXeNxCypfrWsFuYNKYqmjsix82g9vWcGMmAcu5nagxD4iET86iE2tMMfZZ5vqZNvntQswJyQqv2Wc6MTh4jQx1q2qJZCQe4QdEK63meTGbZNNKMctHQbp3gRkZYNrBtxQyVtNLR8xEY8zGp85GeQKbb37vqLXxRpGiigAdMe3XZA4hhYPmAAU5hpSMYaRAjtvvMT3bNiHRACGrfjvSsEG9G2zY5in2YWz5X9zXQLGTYRsQ4uNFkYoQRCBdjNxGv6R58Xq74zCgt19TxYZ87gPWxkXpWwTaHogG1eps8WXt8QzwJ9rVx6Vu9a5GjtcGsQxHovWmYixgBU8X9fPNJ9UQhYyAWbjtRSuVBtDAmoV1gCBEPwnYVP5GCGhCocbwoYhZkZjFZy6ws4uxVLid3FxuvhWvQrVEDYp7WRvGXbNdCbcSXnbeTrPMey1WPaXX",
+   "assets": [
+    {
+     "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+     "index": 0,
+     "amount": 9999981639975,
+     "name": "SigUSD",
+     "decimals": 2,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+     "index": 1,
+     "amount": 9994707218873,
+     "name": "SigRSV",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7d672d1def471720ca5782fd6473e47e796d9ac0c138d9911346f118b2f6d9d9",
+     "index": 2,
+     "amount": 1,
+     "name": "SUSD Bank V2 NFT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "05b49bc111",
+     "sigmaType": "SLong",
+     "renderedValue": "18360026"
+    },
+    "R5": {
+     "serializedValue": "0590b9cbb727",
+     "sigmaType": "SLong",
+     "renderedValue": "5292781128"
+    }
+   },
+   "spentTransactionId": "933439d86279204b0b41e40caeaa85dff7b0acdfdf0a505ac3b013971528ed80",
+   "mainChain": true
+  },
+  {
+   "boxId": "09c9f9d7e3e85cf3738401055fd1d56685f2ab5aa4ddcef452bdac3893ecea64",
+   "transactionId": "5c86d4d5d60b9858ca73af3d2a9ba9453f0b8e15d1310cc7aa51da2f5db08586",
+   "blockId": "3dc19e268fb1babe6c0f341e20c2893f9c5febe4823843a41f7ec28b74cb60cd",
+   "value": 1000000,
+   "index": 1,
+   "globalIndex": 401928,
+   "creationHeight": 1853184,
+   "settlementHeight": 1853186,
+   "address": "9eXkK54fY59swDCRaZJDb9axYYebhmuE7LVCBkqZR8adw6AzqRD",
+   "assets": [
+    {
+     "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+     "index": 0,
+     "amount": 49578,
+     "name": "SigRSV",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "05d48606",
+     "sigmaType": "SLong",
+     "renderedValue": "49578"
+    },
+    "R5": {
+     "serializedValue": "05eed486a938",
+     "sigmaType": "SLong",
+     "renderedValue": "7559238967"
+    }
+   },
+   "spentTransactionId": "90e5fa826702381b3658f2f672bc459b6155d99d35e9c827e9d3724df74e8f54",
+   "mainChain": true
+  },
+  {
+   "boxId": "db29c4ca4bd10bb098c6d3fc9836fec557c776d1d863199164385cc5d1b48833",
+   "transactionId": "5c86d4d5d60b9858ca73af3d2a9ba9453f0b8e15d1310cc7aa51da2f5db08586",
+   "blockId": "3dc19e268fb1babe6c0f341e20c2893f9c5febe4823843a41f7ec28b74cb60cd",
+   "value": 18898097,
+   "index": 2,
+   "globalIndex": 401929,
+   "creationHeight": 1853184,
+   "settlementHeight": 1853186,
+   "address": "9f6PPoCYrvHQbS6U8s7y6wE1S6pFET712ajBCzH5Ep7mYTGBudy",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": null,
+   "mainChain": true
+  },
+  {
+   "boxId": "05cb0449ce64c3152b5fbcd10a2386748e894dac1045dd6e7528de2484eab1a4",
+   "transactionId": "5c86d4d5d60b9858ca73af3d2a9ba9453f0b8e15d1310cc7aa51da2f5db08586",
+   "blockId": "3dc19e268fb1babe6c0f341e20c2893f9c5febe4823843a41f7ec28b74cb60cd",
+   "value": 1100000,
+   "index": 3,
+   "globalIndex": 401930,
+   "creationHeight": 1853184,
+   "settlementHeight": 1853186,
+   "address": "2iHkR7CWvD1R4j1yZg5bkeDRQavjAaVPeTDFGGLZduHyfWMuYpmhHocX8GJoaieTx78FntzJbCBVL6rf96ocJoZdmWBL2fci7NqWgAirppPQmZ7fN9V6z13Ay6brPriBKYqLp1bT2Fk4FkFLCfdPpe",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "25c680e73c635f9178a424cb2001d7ea1efcecfc750650f4e9ef7712ca297b18",
+   "mainChain": true
+  },
+  {
+   "boxId": "9b577b88f338c9970e98bbbd5a2576d1f97ee25cf52f79ea8418e51f23dda43a",
+   "transactionId": "5c86d4d5d60b9858ca73af3d2a9ba9453f0b8e15d1310cc7aa51da2f5db08586",
+   "blockId": "3dc19e268fb1babe6c0f341e20c2893f9c5febe4823843a41f7ec28b74cb60cd",
+   "value": 26871120908,
+   "index": 4,
+   "globalIndex": 401931,
+   "creationHeight": 1853184,
+   "settlementHeight": 1853186,
+   "address": "9eXkK54fY59swDCRaZJDb9axYYebhmuE7LVCBkqZR8adw6AzqRD",
+   "assets": [
+    {
+     "tokenId": "a55b8735ed1a99e46c2c89f8994aacdf4b1109bdcf682f1e5b34479c6e392669",
+     "index": 0,
+     "amount": 1419,
+     "name": "USE",
+     "decimals": 3,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "d4f0192622b440afc09711aa0545eacd04d78ad3f8a063523f451e10d3d0e6ef",
+     "index": 1,
+     "amount": 86854,
+     "name": "MEOW",
+     "decimals": 2,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7a51950e5f548549ec1aa63ffdc38279505b11e7e803d01bcf8347e0123c88b0",
+     "index": 2,
+     "amount": 1619,
+     "name": "rsBTC",
+     "decimals": 8,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "abe0a3c2f646dcd430aac9c29d80feee865bd8b5231edb545a41105d4c8e4985",
+     "index": 3,
+     "amount": 37585099,
+     "name": "BUNS",
+     "decimals": 4,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {},
+   "spentTransactionId": "90e5fa826702381b3658f2f672bc459b6155d99d35e9c827e9d3724df74e8f54",
+   "mainChain": true
+  }
+ ],
+ "size": 1425
+}

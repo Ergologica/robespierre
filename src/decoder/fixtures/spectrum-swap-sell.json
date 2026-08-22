@@ -1,0 +1,256 @@
+{
+ "id": "f78f5bea1500e929a352c961afe8f6298fdde8f0ee5c9951b6753100f52d046a",
+ "blockId": "d46a33aa8fc8057e63bf08d75668865b7c910efaa2fb4df86fca62fc1c01f85b",
+ "inclusionHeight": 1856379,
+ "timestamp": 1787385918292,
+ "index": 7,
+ "globalIndex": 173234,
+ "numConfirmations": 254,
+ "inputs": [
+  {
+   "boxId": "f69626e37df39cd583beb9867bb3e7ca97d062900b5156706e5632bdf7fe6186",
+   "value": 7321826719425,
+   "index": 0,
+   "outputBlockId": "51f23cfe6ed7cfb805f4cfc0edbc8cba4f7c17bf45e7b24d7eea757ed4b9125a",
+   "outputTransactionId": "6a1708f69add9a72e60ac7483deb1dc2ced04cc83d9d9874fe75bdbc2304a663",
+   "outputIndex": 0,
+   "outputGlobalIndex": 707125,
+   "outputCreatedAt": 1856221,
+   "outputSettledAt": 1856223,
+   "address": "5vSUZRZbdVbnk4sJWjg2uhL94VZWRg4iatK9VgMChufzUgdihgvhR8yWSUEJKszzV7Vmi6K8hCyKTNhUaiP8p5ko6YEU9yfHpjVuXdQ4i5p4cRCzch6ZiqWrNukYjv7Vs5jvBwqg5hcEJ8u1eerr537YLWUoxxi1M4vQxuaCihzPKMt8NDXP4WcbN6mfNxxLZeGBvsHVvVmina5THaECosCWozKJFBnscjhpr3AJsdaL8evXAvPfEjGhVMoTKXAb2ZGGRmR8g1eZshaHmgTg2imSiaoXU5eiF3HvBnDuawaCtt674ikZ3oZdekqswcVPGMwqqUKVsGY4QuFeQoGwRkMqEYTdV2UDMMsfrjrBYQYKUBFMwsQGMNBL1VoY78aotXzdeqJCBVKbQdD3ZZWvukhSe4xrz8tcF3PoxpysDLt89boMqZJtGEHTV9UBTBEac6sDyQP693qT3nKaErN8TCXrJBUmHPqKozAg9bwxTqMYkpmb9iVKLSoJxG7MjAj72SRbcqQfNCVTztSwN3cRxSrVtz4p87jNFbVtFzhPg7UqDwNFTaasySCqM",
+   "assets": [
+    {
+     "tokenId": "ae97c5eccd59a065cd973a8d6afb8bb79f9cc70368a7dcdf73aaeab1cedf6f6b",
+     "index": 0,
+     "amount": 1,
+     "name": null,
+     "decimals": null,
+     "type": null
+    },
+    {
+     "tokenId": "e3d7cf6e0853ff8447c0d50775a12e199a899d158abe658e05dd5988755ea54a",
+     "index": 1,
+     "amount": 9223371809031988000,
+     "name": "Ergo_rsADA_LP",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "e023c5f382b6e96fbd878f6811aac73345489032157ad5affb84aefd4956c297",
+     "index": 2,
+     "amount": 8709889472,
+     "name": "rsADA",
+     "decimals": 6,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "04ca0f",
+     "sigmaType": "SInt",
+     "renderedValue": "997"
+    }
+   }
+  },
+  {
+   "boxId": "71835184ab592230a41b1d1e148b2f3b1a5963bfc51beca98b185e8a722377b6",
+   "value": 76456390376,
+   "index": 1,
+   "outputBlockId": "05499e9d98dece71ab8e6c986132b0d30cb2564c0c41ff6f67d67a462b16c49f",
+   "outputTransactionId": "1711e1e416bde356aa8554f5e00a9852c9393c936ab56c38b2e186cbe3c98eec",
+   "outputIndex": 2,
+   "outputGlobalIndex": 710278,
+   "outputCreatedAt": 1856375,
+   "outputSettledAt": 1856378,
+   "address": "9gE9WmtpVgr4zDddn8RcDE6fmsyhqhMwbDUDAMQcrTFEG1ijXg2",
+   "assets": [
+    {
+     "tokenId": "e023c5f382b6e96fbd878f6811aac73345489032157ad5affb84aefd4956c297",
+     "index": 0,
+     "amount": 2971074,
+     "name": "rsADA",
+     "decimals": 6,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "fffe6122886e3b0ab9b72b401b39bf8d3f13580c1335a41d91d19deb8038ccd4",
+     "index": 1,
+     "amount": 2,
+     "name": "BBC",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "d4f0192622b440afc09711aa0545eacd04d78ad3f8a063523f451e10d3d0e6ef",
+     "index": 2,
+     "amount": 1,
+     "name": "MEOW",
+     "decimals": 2,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7352542ea762cb2e9439af1b1ef1019fbf49d46e165535bc889fe61fa8002272",
+     "index": 3,
+     "amount": 1,
+     "name": "Jeeter",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "6c35aa395c7c75b0f67f7804d6930f0e11ef93c3387dc1faa86498d54af7962c",
+     "index": 4,
+     "amount": 1,
+     "name": "MEW",
+     "decimals": 2,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "843b5a2a0658550339c38f29827861fe459ce5206edaf17163113cccafc77af1",
+     "index": 5,
+     "amount": 1,
+     "name": "GIF",
+     "decimals": 6,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "a55b8735ed1a99e46c2c89f8994aacdf4b1109bdcf682f1e5b34479c6e392669",
+     "index": 6,
+     "amount": 133973,
+     "name": "USE",
+     "decimals": 3,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  }
+ ],
+ "dataInputs": [],
+ "outputs": [
+  {
+   "boxId": "55e4b7400fca308c014f3fb809a623efb824f3e4dde74fb17dbd44736bc510dd",
+   "transactionId": "f78f5bea1500e929a352c961afe8f6298fdde8f0ee5c9951b6753100f52d046a",
+   "blockId": "d46a33aa8fc8057e63bf08d75668865b7c910efaa2fb4df86fca62fc1c01f85b",
+   "value": 7319337476333,
+   "index": 0,
+   "globalIndex": 710312,
+   "creationHeight": 1856377,
+   "settlementHeight": 1856379,
+   "address": "5vSUZRZbdVbnk4sJWjg2uhL94VZWRg4iatK9VgMChufzUgdihgvhR8yWSUEJKszzV7Vmi6K8hCyKTNhUaiP8p5ko6YEU9yfHpjVuXdQ4i5p4cRCzch6ZiqWrNukYjv7Vs5jvBwqg5hcEJ8u1eerr537YLWUoxxi1M4vQxuaCihzPKMt8NDXP4WcbN6mfNxxLZeGBvsHVvVmina5THaECosCWozKJFBnscjhpr3AJsdaL8evXAvPfEjGhVMoTKXAb2ZGGRmR8g1eZshaHmgTg2imSiaoXU5eiF3HvBnDuawaCtt674ikZ3oZdekqswcVPGMwqqUKVsGY4QuFeQoGwRkMqEYTdV2UDMMsfrjrBYQYKUBFMwsQGMNBL1VoY78aotXzdeqJCBVKbQdD3ZZWvukhSe4xrz8tcF3PoxpysDLt89boMqZJtGEHTV9UBTBEac6sDyQP693qT3nKaErN8TCXrJBUmHPqKozAg9bwxTqMYkpmb9iVKLSoJxG7MjAj72SRbcqQfNCVTztSwN3cRxSrVtz4p87jNFbVtFzhPg7UqDwNFTaasySCqM",
+   "assets": [
+    {
+     "tokenId": "ae97c5eccd59a065cd973a8d6afb8bb79f9cc70368a7dcdf73aaeab1cedf6f6b",
+     "index": 0,
+     "amount": 1,
+     "name": null,
+     "decimals": null,
+     "type": null
+    },
+    {
+     "tokenId": "e3d7cf6e0853ff8447c0d50775a12e199a899d158abe658e05dd5988755ea54a",
+     "index": 1,
+     "amount": 9223371809031988000,
+     "name": "Ergo_rsADA_LP",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "e023c5f382b6e96fbd878f6811aac73345489032157ad5affb84aefd4956c297",
+     "index": 2,
+     "amount": 8712860546,
+     "name": "rsADA",
+     "decimals": 6,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "04ca0f",
+     "sigmaType": "SInt",
+     "renderedValue": "997"
+    }
+   },
+   "spentTransactionId": null,
+   "mainChain": true
+  },
+  {
+   "boxId": "61507a1af91ff06ea8e1cd9b84b9977704681e10f3396cfc2a581daa542cc89b",
+   "transactionId": "f78f5bea1500e929a352c961afe8f6298fdde8f0ee5c9951b6753100f52d046a",
+   "blockId": "d46a33aa8fc8057e63bf08d75668865b7c910efaa2fb4df86fca62fc1c01f85b",
+   "value": 78944533468,
+   "index": 1,
+   "globalIndex": 710313,
+   "creationHeight": 1856377,
+   "settlementHeight": 1856379,
+   "address": "9gE9WmtpVgr4zDddn8RcDE6fmsyhqhMwbDUDAMQcrTFEG1ijXg2",
+   "assets": [
+    {
+     "tokenId": "fffe6122886e3b0ab9b72b401b39bf8d3f13580c1335a41d91d19deb8038ccd4",
+     "index": 0,
+     "amount": 2,
+     "name": "BBC",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "d4f0192622b440afc09711aa0545eacd04d78ad3f8a063523f451e10d3d0e6ef",
+     "index": 1,
+     "amount": 1,
+     "name": "MEOW",
+     "decimals": 2,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7352542ea762cb2e9439af1b1ef1019fbf49d46e165535bc889fe61fa8002272",
+     "index": 2,
+     "amount": 1,
+     "name": "Jeeter",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "6c35aa395c7c75b0f67f7804d6930f0e11ef93c3387dc1faa86498d54af7962c",
+     "index": 3,
+     "amount": 1,
+     "name": "MEW",
+     "decimals": 2,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "843b5a2a0658550339c38f29827861fe459ce5206edaf17163113cccafc77af1",
+     "index": 4,
+     "amount": 1,
+     "name": "GIF",
+     "decimals": 6,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "a55b8735ed1a99e46c2c89f8994aacdf4b1109bdcf682f1e5b34479c6e392669",
+     "index": 5,
+     "amount": 133973,
+     "name": "USE",
+     "decimals": 3,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {},
+   "spentTransactionId": null,
+   "mainChain": true
+  },
+  {
+   "boxId": "74c80765e9eb6b90cd1df0b6ef356e8182ec55fe5bdc8c3102dedaaf0ea28d25",
+   "transactionId": "f78f5bea1500e929a352c961afe8f6298fdde8f0ee5c9951b6753100f52d046a",
+   "blockId": "d46a33aa8fc8057e63bf08d75668865b7c910efaa2fb4df86fca62fc1c01f85b",
+   "value": 1100000,
+   "index": 2,
+   "globalIndex": 710314,
+   "creationHeight": 1856377,
+   "settlementHeight": 1856379,
+   "address": "2iHkR7CWvD1R4j1yZg5bkeDRQavjAaVPeTDFGGLZduHyfWMuYpmhHocX8GJoaieTx78FntzJbCBVL6rf96ocJoZdmWBL2fci7NqWgAirppPQmZ7fN9V6z13Ay6brPriBKYqLp1bT2Fk4FkFLCfdPpe",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "3d55fb7299c80e9db73a2fdd337a9e0ab114474f1b5e9bd90252e6de52f0ab43",
+   "mainChain": true
+  }
+ ],
+ "size": 1035
+}

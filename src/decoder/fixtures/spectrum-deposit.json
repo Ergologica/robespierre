@@ -1,0 +1,189 @@
+{
+ "id": "deda97af864da048bae0b510fa4c9ad5aa72b97e4266882244e7a2a7a345dbbb",
+ "blockId": "91e5bd3800fd079e7b04afab98c911233ffb0cff479000e7920e3b5bc3653230",
+ "inclusionHeight": 1856464,
+ "timestamp": 1787395606484,
+ "index": 2,
+ "globalIndex": 173753,
+ "numConfirmations": 169,
+ "inputs": [
+  {
+   "boxId": "010adfad9c22c9e10d1836de3833cf5aedd53c10d970099df8d17cd0fd0cdb7f",
+   "value": 208121828,
+   "index": 0,
+   "outputBlockId": "fa7414db83af809a7bdbe4cd8ac7e5b5b36c9f085a046faffa2a34420b2a1642",
+   "outputTransactionId": "e22b15d8ae53c66b57b70dc7a42014acd9bd95e8e6dc207e39af3f780a6e1c37",
+   "outputIndex": 0,
+   "outputGlobalIndex": 20423869,
+   "outputCreatedAt": 1770240,
+   "outputSettledAt": 1770241,
+   "address": "5vSUZRZbdVbnk4sJWjg2uhL94VZWRg4iatK9VgMChufzUgdihgvhR8yWSUEJKszzV7Vmi6K8hCyKTNhUaiP8p5ko6YEU9yfHpjVuXdQ4i5p4cRCzch6ZiqWrNukYjv7Vs5jvBwqg5hcEJ8u1eerr537YLWUoxxi1M4vQxuaCihzPKMt8NDXP4WcbN6mfNxxLZeGBvsHVvVmina5THaECosCWozKJFBnscjhpr3AJsdaL8evXAvPfEjGhVMoTKXAb2ZGGRmR8g1eZshaHmgTg2imSiaoXU5eiF3HvBnDuawaCtt674ikZ3oZdekqswcVPGMwqqUKVsGY4QuFeQoGwRkMqEYTdV2UDMMsfrjrBYQYKUBFMwsQGMNBL1VoY78aotXzdeqJCBVKbQdD3ZZWvukhSe4xrz8tcF3PoxpysDLt89boMqZJtGEHTV9UBTBEac6sDyQP693qT3nKaErN8TCXrJBUmHPqKozAg9bwxTqMYkpmb9iVKLSoJxG7MjAj72SRbcqQfNCVTztSwN3cRxSrVtz4p87jNFbVtFzhPg7UqDwNFTaasySCqM",
+   "assets": [
+    {
+     "tokenId": "2b956852b49d40faef60d4dd31375e93768c20b7f34929d68e38ab67b9acdc4b",
+     "index": 0,
+     "amount": 1,
+     "name": null,
+     "decimals": null,
+     "type": null
+    },
+    {
+     "tokenId": "12ae367f1ef20b667496b133c9302ef27ca9b4632ad58afc50d3252c83309a01",
+     "index": 1,
+     "amount": 9223372036854746000,
+     "name": "Ergo_4ffdbf1b_LP",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "4ffdbf1bcc96c97fa0eb139d37469fa884d38cfc0f34681dd0b2da2b9a4e5016",
+     "index": 2,
+     "amount": 4,
+     "name": "Lump of coal",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "04940f",
+     "sigmaType": "SInt",
+     "renderedValue": "970"
+    }
+   }
+  },
+  {
+   "boxId": "0b6a339271f19090ca99a3aa5c13091fd835714f74562c022bd69db7f1e3fa51",
+   "value": 10006060000,
+   "index": 1,
+   "outputBlockId": "91e5bd3800fd079e7b04afab98c911233ffb0cff479000e7920e3b5bc3653230",
+   "outputTransactionId": "f292cc3b08e3a4067ba2e747fce3b7d309b24d0f9fbef18fab17eae6f92a2db7",
+   "outputIndex": 0,
+   "outputGlobalIndex": 712806,
+   "outputCreatedAt": 1856462,
+   "outputSettledAt": 1856464,
+   "address": "5KevXenwFg7RLZTU9Ttfh9dZGzmDVrBc7EbsnSwVNj3B8HQpehZSzb5XGUCqrCr2tJbH3A2D6sRaDvH8vABDH63PRPMrWQDzmvGxTMzmzD1Z6dUxvoP2pho8BSQMVwXb1bDHvKFXHYMfJSE5xFe21fHrC6jeManSTH8jJ5LRmZnRUQ9NbAjCd56cc4uDJmwasUe1xjUg4wxTJHZPy6pidQSYrAi8xn4xSZE2dshctJMhL5h2KM29KzrB8uZqPoXuVu1qCSrFezjvjxz1zs1w8bSekwz25w4Bu1rrB6JcBaqhvLoiJfagz43cKK5aQYvyYF2WQHFhuKJShbDEb9Gq4Q4biyLCX6dBMhCiqKNzaa5KYiwMJiA17iWTcmXVv1HJYFPwRYUy97KPjf4TcjUM43uq3DKMtkYQTkc2dHdf1Lax3XB2sNyxHZC1zg2R6Crfg33ZNdG1a9j1XvPMDc8c1c8M9eaHdSmNf1fz2Fqsrsazg7X9BMBENx6yER3MwuwBKKXY1UahGVDsAYzhkyoCFWbgo2sXM2qnjvSJnrn2QX4cdJxFQhUDbU2DeC3keH5i3esKuxSAw3NDTQ832eSCVUJ6v6LJ9TEr6bfxPq8MjQDMrPN8PBb3z2otTFt2G1SGWme8xqhLbfvR3UoRiSpgXFNmMvkLUJY6qrbrCYXGJzZe2EANNRDsaqPHTSTmGRLLBMbYd1jvpCb9W1BE4Q59f8eWAgTt5G1j2u1DuTgoKTG3uHHCMkEe5f5Rj2hzCqcn6Fssiky1aVsLyvHgUXeLqqvZR",
+   "assets": [
+    {
+     "tokenId": "4ffdbf1bcc96c97fa0eb139d37469fa884d38cfc0f34681dd0b2da2b9a4e5016",
+     "index": 0,
+     "amount": 192,
+     "name": "Lump of coal",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "0e034d6577",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "4d6577"
+    }
+   }
+  }
+ ],
+ "dataInputs": [],
+ "outputs": [
+  {
+   "boxId": "257150dae8c0c026329e9cee322ab0f4855a8835f3a1bad75df0cfbae0c02161",
+   "transactionId": "deda97af864da048bae0b510fa4c9ad5aa72b97e4266882244e7a2a7a345dbbb",
+   "blockId": "91e5bd3800fd079e7b04afab98c911233ffb0cff479000e7920e3b5bc3653230",
+   "value": 10197973011,
+   "index": 0,
+   "globalIndex": 712809,
+   "creationHeight": 1856462,
+   "settlementHeight": 1856464,
+   "address": "5vSUZRZbdVbnk4sJWjg2uhL94VZWRg4iatK9VgMChufzUgdihgvhR8yWSUEJKszzV7Vmi6K8hCyKTNhUaiP8p5ko6YEU9yfHpjVuXdQ4i5p4cRCzch6ZiqWrNukYjv7Vs5jvBwqg5hcEJ8u1eerr537YLWUoxxi1M4vQxuaCihzPKMt8NDXP4WcbN6mfNxxLZeGBvsHVvVmina5THaECosCWozKJFBnscjhpr3AJsdaL8evXAvPfEjGhVMoTKXAb2ZGGRmR8g1eZshaHmgTg2imSiaoXU5eiF3HvBnDuawaCtt674ikZ3oZdekqswcVPGMwqqUKVsGY4QuFeQoGwRkMqEYTdV2UDMMsfrjrBYQYKUBFMwsQGMNBL1VoY78aotXzdeqJCBVKbQdD3ZZWvukhSe4xrz8tcF3PoxpysDLt89boMqZJtGEHTV9UBTBEac6sDyQP693qT3nKaErN8TCXrJBUmHPqKozAg9bwxTqMYkpmb9iVKLSoJxG7MjAj72SRbcqQfNCVTztSwN3cRxSrVtz4p87jNFbVtFzhPg7UqDwNFTaasySCqM",
+   "assets": [
+    {
+     "tokenId": "2b956852b49d40faef60d4dd31375e93768c20b7f34929d68e38ab67b9acdc4b",
+     "index": 0,
+     "amount": 1,
+     "name": null,
+     "decimals": null,
+     "type": null
+    },
+    {
+     "tokenId": "12ae367f1ef20b667496b133c9302ef27ca9b4632ad58afc50d3252c83309a01",
+     "index": 1,
+     "amount": 9223372036853341000,
+     "name": "Ergo_4ffdbf1b_LP",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "4ffdbf1bcc96c97fa0eb139d37469fa884d38cfc0f34681dd0b2da2b9a4e5016",
+     "index": 2,
+     "amount": 196,
+     "name": "Lump of coal",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "04940f",
+     "sigmaType": "SInt",
+     "renderedValue": "970"
+    }
+   },
+   "spentTransactionId": null,
+   "mainChain": true
+  },
+  {
+   "boxId": "450f4c92f031a8c8e76b73f7a9ad5d386af11eddaa6a31ecb46ee5af9d340625",
+   "transactionId": "deda97af864da048bae0b510fa4c9ad5aa72b97e4266882244e7a2a7a345dbbb",
+   "blockId": "91e5bd3800fd079e7b04afab98c911233ffb0cff479000e7920e3b5bc3653230",
+   "value": 10208817,
+   "index": 1,
+   "globalIndex": 712810,
+   "creationHeight": 1856462,
+   "settlementHeight": 1856464,
+   "address": "9ehi4BDbc4pRjxkWioMi2TgHnengXK7y3ZPBdzQeNaHZFqFPyTu",
+   "assets": [
+    {
+     "tokenId": "12ae367f1ef20b667496b133c9302ef27ca9b4632ad58afc50d3252c83309a01",
+     "index": 0,
+     "amount": 1405632,
+     "name": "Ergo_4ffdbf1b_LP",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {},
+   "spentTransactionId": null,
+   "mainChain": true
+  },
+  {
+   "boxId": "c3a61351269345bf4182e775ea457c9c849318ee323637b519d464cc2cd12ec3",
+   "transactionId": "deda97af864da048bae0b510fa4c9ad5aa72b97e4266882244e7a2a7a345dbbb",
+   "blockId": "91e5bd3800fd079e7b04afab98c911233ffb0cff479000e7920e3b5bc3653230",
+   "value": 4000000,
+   "index": 2,
+   "globalIndex": 712811,
+   "creationHeight": 1856462,
+   "settlementHeight": 1856464,
+   "address": "9hBEYtXPZQaXGoM2ZQfKTwXTeKifLQ7xDbe4dw5qxT2p3BZTjLA",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": null,
+   "mainChain": true
+  },
+  {
+   "boxId": "01cb3c3783d6a87541b861fb49d4894025f0ba6b4964b139030cdf231a780a39",
+   "transactionId": "deda97af864da048bae0b510fa4c9ad5aa72b97e4266882244e7a2a7a345dbbb",
+   "blockId": "91e5bd3800fd079e7b04afab98c911233ffb0cff479000e7920e3b5bc3653230",
+   "value": 2000000,
+   "index": 3,
+   "globalIndex": 712812,
+   "creationHeight": 1856462,
+   "settlementHeight": 1856464,
+   "address": "2iHkR7CWvD1R4j1yZg5bkeDRQavjAaVPeTDFGGLZduHyfWMuYpmhHocX8GJoaieTx78FntzJbCBVL6rf96ocJoZdmWBL2fci7NqWgAirppPQmZ7fN9V6z13Ay6brPriBKYqLp1bT2Fk4FkFLCfdPpe",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "e53963ebbedeba88e305a3a8317f4bc5edf873ec1551e7e76572a4e4ebb0fe26",
+   "mainChain": true
+  }
+ ],
+ "size": 815
+}

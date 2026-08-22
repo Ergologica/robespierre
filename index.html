@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2715%27 fill=%27%23ec5f18%27/%3E%3Cpath d=%27M21.4 9.4H10.9l5.6 6.6-5.6 6.6h10.5%27 fill=%27none%27 stroke=%27white%27 stroke-width=%272.6%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+<title>Robespierre — l'explorer che interpreta</title>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#/">
+      <svg class="logo" viewBox="0 0 32 32" aria-label="Ergo" role="img">
+        <defs><linearGradient id="ergo" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ff8a3d"/><stop offset="1" stop-color="#e2560d"/>
+        </linearGradient></defs>
+        <circle cx="16" cy="16" r="15" fill="url(#ergo)"/>
+        <path d="M21.4 9.4H10.9l5.6 6.6-5.6 6.6h10.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="nm">Robespierre</span>
+      <span class="sub">explorer per Ergo</span>
+    </a>
+    <span class="grow"></span>
+    <div class="seg" role="group" aria-label="Livello di dettaglio">
+      <button type="button" id="modeBase" aria-pressed="true">Base</button>
+      <button type="button" id="modeAdv" aria-pressed="false">Avanzato</button>
+    </div>
+    <button class="ghost" id="themeBtn" type="button" aria-label="Cambia tema">◐</button>
+  </div>
+</header>
+<div class="wrap searchrow">
+  <form class="search" id="searchForm">
+    <span class="dim" aria-hidden="true">🔍</span>
+    <input id="searchInput" type="text" autocomplete="off" spellcheck="false"
+      placeholder="Indirizzo, transazione, token, blocco — riconosciuti automaticamente">
+    <span class="kbd">/</span>
+    <button class="go" type="submit" aria-label="Cerca">→</button>
+  </form>
+</div>
+<main class="wrap" id="app" aria-live="polite"></main>
+<footer class="wrap">
+  <span>Robespierre · prototipo — dati dall'Explorer API di Ergo · <span id="dataAge"></span></span>
+  <span>i saldi fanno fede sulla catena, non qui</span>
+</footer>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
