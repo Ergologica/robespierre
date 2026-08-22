@@ -1,0 +1,22 @@
+# Serie storica dei prezzi: parte dalla Fase 1 anche se serve alla Fase 4 —
+# i dati che non raccogli oggi non li avrai mai.
+name: prices
+on:
+  schedule: [{ cron: '17 3 * * *' }]   # una volta al giorno, minuto fuori dall'ora piena
+  workflow_dispatch:
+permissions: { contents: write }
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/collect-prices.mjs
+      - name: commit
+        run: |
+          git config user.name 'robespierre-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add data/prices
+          git diff --cached --quiet || git commit -m "prezzi $(date -u +%F)"
+          git push
