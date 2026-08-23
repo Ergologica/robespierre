@@ -209,3 +209,28 @@ svg text.c-node{fill:var(--text);font-size:12.5px;font-weight:600}
 .btn-link .ic{margin-right:0;width:13px;height:13px;color:inherit}
 .search-hint{margin-top:8px;padding:9px 13px;border:1px solid var(--line);border-left:3px solid var(--accent);
   border-radius:8px;background:var(--surface);color:var(--text-2);font-size:13.5px}
+
+/* ---- chips filtro movimenti ---- */
+.chips{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.chip{background:var(--surface-2);border:1px solid var(--line);color:var(--text-2);
+  border-radius:999px;font:inherit;font-size:13px;padding:4px 13px;cursor:pointer}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* ---- risultati della ricerca per nome ---- */
+.sr-head{color:var(--text-3);font-size:12.5px;margin-bottom:6px}
+.search-hint a.sr{display:flex;justify-content:space-between;gap:12px;padding:6px 4px;
+  border-bottom:1px solid var(--line-soft);color:var(--text)}
+.search-hint a.sr:last-child{border-bottom:0}
+.search-hint a.sr:hover{color:var(--accent);text-decoration:none}
+
+/* ---- attesa: pulsazione discreta, nessuna barra finta ---- */
+.loading{animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.45}50%{opacity:1}}
+
+/* ---- mobile: le tabelle scorrono dentro la card, la pagina no ---- */
+@media (max-width:640px){
+  .card{overflow-x:auto}
+  .card table{min-width:480px}
+  .idrow{flex-wrap:wrap}
+}

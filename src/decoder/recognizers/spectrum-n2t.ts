@@ -2,6 +2,7 @@ import type { Tx, BoxLike } from '../../api/types'
 import type { Recognizer, Decoded } from '../types'
 import { SPECTRUM } from '../protocols'
 import { formatErg, formatTokenAmount } from '../../lib/format'
+import { L } from '../../i18n'
 
 /**
  * Spectrum Finance — pool N2T (ERG ↔ token), contratto condiviso da tutti i pool.
@@ -43,15 +44,16 @@ export const spectrumN2T: Recognizer = {
     const user = tx.outputs.find(o => o.address.startsWith('9'))?.address
 
     let headline: string
+    const det = `${formatErg(abs(dErg), 2)} + ${formatTokenAmount(abs(dTok), tokDec)} ${tokName}`
     if (dLp === 0n) {
       if (dErg === 0n || dTok === 0n || (dErg > 0n) === (dTok > 0n)) return null // uno swap muove le riserve in direzioni opposte
       headline = dErg > 0n
-        ? `Swap su Spectrum: ${formatErg(dErg, 2)} → ${formatTokenAmount(abs(dTok), tokDec)} ${tokName}`
-        : `Swap su Spectrum: ${formatTokenAmount(abs(dTok), tokDec)} ${tokName} → ${formatErg(abs(dErg), 2)}`
+        ? L.dec_swap(formatErg(dErg, 2), `${formatTokenAmount(abs(dTok), tokDec)} ${tokName}`)
+        : L.dec_swap(`${formatTokenAmount(abs(dTok), tokDec)} ${tokName}`, formatErg(abs(dErg), 2))
     } else if (dLp < 0n) {
-      headline = `Spectrum: deposito di liquidità nel pool ERG/${tokName} (${formatErg(abs(dErg), 2)} + ${formatTokenAmount(abs(dTok), tokDec)} ${tokName})`
+      headline = L.dec_deposit(`ERG/${tokName}`, det)
     } else {
-      headline = `Spectrum: ritiro di liquidità dal pool ERG/${tokName} (${formatErg(abs(dErg), 2)} + ${formatTokenAmount(abs(dTok), tokDec)} ${tokName})`
+      headline = L.dec_redeem(`ERG/${tokName}`, det)
     }
     return { kind: 'spectrum-n2t', headline, to: user, confidence: 'certa' }
   },

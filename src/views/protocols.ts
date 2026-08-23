@@ -2,7 +2,8 @@ import { api, ergPrice } from '../api/explorer'
 import { SIGMAUSD, ROSEN, ORACLE } from '../decoder/protocols'
 import { decode } from '../decoder/index'
 import { esc } from './html'
-import { formatErg, formatTokenAmount, groupThousands, relativeTime, isoUtc, shortId } from '../lib/format'
+import { formatErg, formatTokenAmount, formatPct, groupThousands, relativeTime, shortId } from '../lib/format'
+import { L } from '../i18n'
 import { meter } from '../charts'
 import { icons } from '../icons'
 import type { Tx } from '../api/types'
@@ -72,7 +73,7 @@ async function lastBankOp(): Promise<{ tx: Tx; headline: string } | null> {
 }
 
 export async function protocolsView(): Promise<string> {
-  document.title = 'Protocolli · Robespierre'
+  document.title = L.nav_protocols + ' · Robespierre'
   const [bank, oracle, rosen, price, usdTok, rsvTok, lastOp] = await Promise.all([
     fetchBoxByNft(SIGMAUSD.bankNft, SIGMAUSD.bankAddress),
     fetchBoxByNft(ORACLE.ergUsdNft),
@@ -98,32 +99,31 @@ export async function protocolsView(): Promise<string> {
     const oracleErgUsd = oracleNano ? 1e9 / Number(oracleNano) : null
     const ratioShown = oracleRatio ?? stats.reserveRatioPct
     const state = ratioShown == null ? null
-      : ratioShown < 400 ? { sig: 'warn', text: 'Sotto il minimo del 400%: il mint di SigUSD è chiuso, i riscatti restano aperti' }
-      : ratioShown > 800 ? { sig: 'info', text: "Sopra l'800%: il mint di SigRSV è chiuso" }
-      : { sig: 'ok', text: 'Dentro la banda 400–800%: mint e riscatti aperti' }
+      : ratioShown < 400 ? { sig: 'warn', text: L.ratio_below }
+      : ratioShown > 800 ? { sig: 'info', text: L.ratio_above }
+      : { sig: 'ok', text: L.ratio_ok }
     ;(globalThis as Record<string, unknown>).__protoRatio = ratioShown
     sigmaSection = `
     <div class="tiles">
-      <div><div class="k">Riserva della banca</div><div class="v">${formatErg(stats.reserveErg, 0)}</div>
+      <div><div class="k">${L.reserve}</div><div class="v">${formatErg(stats.reserveErg, 0)}</div>
         <div class="s">${price ? '≈ ' + groupThousands(String(Math.round(Number(stats.reserveErg / 1_000_000n) / 1000 * price.usd))) + ' $' : ''}</div></div>
-      <div><div class="k">SigUSD in circolazione</div><div class="v">${formatTokenAmount(stats.circUsdUnits, 2)}</div>
-        <div class="s">emissione − quanto è in banca</div></div>
-      <div><div class="k">Tasso di riserva · oracolo</div>
+      <div><div class="k">${L.circ_sig}</div><div class="v">${formatTokenAmount(stats.circUsdUnits, 2)}</div>
+        <div class="s">${L.circ_sig_s}</div></div>
+      <div><div class="k">${L.ratio_oracle}</div>
         <div class="v">${oracleRatio != null ? oracleRatio.toFixed(0) + '%' : '—'}</div>
-        <div class="s">quello che usa il protocollo${oracleErgUsd ? ` · oracolo: 1 ERG = ${oracleErgUsd.toFixed(3).replace('.', ',')} $` : ''}</div></div>
-      <div><div class="k">Tasso · prezzo di mercato</div>
+        <div class="s">${L.ratio_oracle_s}${oracleErgUsd ? ` · ${L.oracle_rate} ${formatPct(oracleErgUsd, 3)} $` : ''}</div></div>
+      <div><div class="k">${L.ratio_market}</div>
         <div class="v">${stats.reserveRatioPct != null ? stats.reserveRatioPct.toFixed(0) + '%' : '—'}</div>
-        <div class="s">indicativo, per confronto</div></div>
+        <div class="s">${L.ratio_market_s}</div></div>
     </div>
     <div class="chart-wrap" data-ratio></div>
     ${state ? `<div class="card-pad" style="padding-top:0"><div class="check"><span class="sig ${state.sig}">${state.sig === 'ok' ? '✓' : state.sig === 'warn' ? '⚠' : '·'}</span><span>${esc(state.text)}</span></div></div>` : ''}
     ${lastOp ? `<div class="card-pad" style="padding-top:0"><div class="check"><span class="sig info">·</span>
-      <span>Ultima operazione: <a href="#/tx/${esc(lastOp.tx.id)}">${esc(lastOp.headline)}</a>
+      <span>${L.last_op} <a href="#/tx/${esc(lastOp.tx.id)}">${esc(lastOp.headline)}</a>
       <span class="dim">· ${relativeTime(lastOp.tx.timestamp)}</span></span></div></div>` : ''}
-    <div class="note">SigRSV in circolazione: ${formatTokenAmount(stats.circRsvUnits, 0)}. Il tasso "oracolo" usa il box dell'oracolo ERG/USD
-      (quello coi dataInput delle operazioni della banca); quello "di mercato" usa il prezzo degli exchange. Se divergono, è l'oracolo che comanda il protocollo.</div>`
+    <div class="note">${esc(L.sig_note(formatTokenAmount(stats.circRsvUnits, 0)))}</div>`
   } else {
-    sigmaSection = `<div class="card-pad dim">La banca non è raggiungibile in questo momento — i dati restano sulla catena, riprova tra poco.</div>`
+    sigmaSection = `<div class="card-pad dim">${L.bank_down}</div>`
   }
 
   const rosenErg = BigInt(rosen.nanoErgs)
@@ -138,23 +138,23 @@ export async function protocolsView(): Promise<string> {
   return `
   <div class="card">
     <div class="card-head"><h2>${icons.bank}SigmaUSD</h2>
-      <p>La stablecoin algoritmica di Ergo. Tutto letto ora dai box in catena — banca e oracolo compresi.</p></div>
+      <p>${L.proto_sig_p}</p></div>
     ${sigmaSection}
   </div>
   <div class="card">
-    <div class="card-head"><h2>${icons.bridge}Rosen Bridge — hot wallet</h2>
-      <p>I fondi operativi del ponte sul lato Ergo. Il grosso della custodia sta nel cold wallet multifirma, non qui.</p></div>
+    <div class="card-head"><h2>${icons.bridge}${L.rosen_h}</h2>
+      <p>${L.rosen_p}</p></div>
     <div class="tiles">
-      <div><div class="k">ERG nel hot wallet</div><div class="v">${formatErg(rosenErg, 0)}</div>
+      <div><div class="k">${L.rosen_erg}</div><div class="v">${formatErg(rosenErg, 0)}</div>
         <div class="s">${price ? '≈ ' + groupThousands(String(Math.round(Number(rosenErg / 1_000_000n) / 1000 * price.usd))) + ' $' : ''}</div></div>
-      <div><div class="k">Token custoditi</div><div class="v">${rosen.tokens?.length ?? 0} tipi</div>
-        <div class="s">token avvolti in transito</div></div>
-      <div style="grid-column:span 2"><div class="k">Indirizzo · <a href="#/address/${esc(ROSEN.hotWallet)}">apri la pagina</a></div>
+      <div><div class="k">${L.held_tokens}</div><div class="v">${rosen.tokens?.length ?? 0} ${L.kind_many}</div>
+        <div class="s">${L.in_transit}</div></div>
+      <div style="grid-column:span 2"><div class="k">${L.address_k} · <a href="#/address/${esc(ROSEN.hotWallet)}">${L.open_page}</a></div>
         <div class="s mono" style="margin-top:6px;word-break:break-all">${ROSEN.hotWallet.slice(0, 60)}…</div></div>
     </div>
-    ${rosenList ? `<div class="card-pad" style="padding-top:6px"><div class="k" style="margin-bottom:6px">I maggiori per quantità — ogni nome apre la pagella</div>${rosenList}</div>` : ''}
+    ${rosenList ? `<div class="card-pad" style="padding-top:6px"><div class="k" style="margin-bottom:6px">${L.biggest}</div>${rosenList}</div>` : ''}
   </div>
-  <div class="warnbox">Questa pagina non dà giudizi di solvibilità: mostra i numeri della catena e dichiara le proprie approssimazioni.</div>`
+  <div class="warnbox">${L.proto_warn}</div>`
 }
 
 export function mountProtocolCharts(): void {
@@ -162,12 +162,12 @@ export function mountProtocolCharts(): void {
   const ratio = (globalThis as Record<string, unknown>).__protoRatio as number | null
   if (!host || ratio == null) return
   meter(host, {
-    label: 'Tasso di riserva (banda del protocollo: 400–800%)',
+    label: L.ratio_meter,
     big: ratio.toFixed(0) + '%',
     pct: Math.min(1, ratio / 800),
-    left: 'minimo per il mint: 400%',
-    right: 'massimo: 800%',
-    tipTitle: 'Tasso di riserva',
-    tipLine: "calcolato con l'oracolo del protocollo quando disponibile",
+    left: L.ratio_min,
+    right: L.ratio_max,
+    tipTitle: L.ratio_tip,
+    tipLine: L.ratio_tip_s,
   })
 }

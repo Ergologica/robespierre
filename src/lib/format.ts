@@ -6,6 +6,14 @@
 
 const NANO = 1_000_000_000n
 
+/* separatori correnti: it = 1.234,56 · en = 1,234.56 */
+let GROUP = '.'
+let DEC = ','
+export function setNumberLocale(lang: 'it' | 'en'): void {
+  GROUP = lang === 'it' ? '.' : ','
+  DEC = lang === 'it' ? ',' : '.'
+}
+
 /** nanoERG (BigInt o stringa) → stringa "1.234,5678 ERG" in it-IT, senza passare da Number sull'intero. */
 export function formatErg(nano: bigint | string | number, maxDecimals = 4): string {
   const n = typeof nano === 'bigint' ? nano : BigInt(nano)
@@ -17,7 +25,7 @@ export function formatErg(nano: bigint | string | number, maxDecimals = 4): stri
   const unit = 10n ** BigInt(maxDecimals)
   const wholeStr = groupThousands((rounded / unit).toString())
   const fracStr = (rounded % unit).toString().padStart(maxDecimals, '0').replace(/0+$/, '')
-  return sign + wholeStr + (fracStr ? ',' + fracStr : '') + ' ERG'
+  return sign + wholeStr + (fracStr ? DEC + fracStr : '') + ' ERG'
 }
 
 /** Importo grezzo di un token con i suoi decimali → stringa leggibile. */
@@ -27,12 +35,17 @@ export function formatTokenAmount(raw: bigint | string | number, decimals: numbe
   const base = 10n ** BigInt(decimals)
   const whole = n / base
   const frac = (n % base).toString().padStart(decimals, '0').replace(/0+$/, '')
-  return groupThousands(whole.toString()) + (frac ? ',' + frac : '')
+  return groupThousands(whole.toString()) + (frac ? DEC + frac : '')
 }
 
 /** Separatore delle migliaia (it-IT: punto) su una stringa di cifre. */
 export function groupThousands(digits: string): string {
-  return digits.replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+  return digits.replace(/\B(?=(\d{3})+(?!\d))/g, GROUP)
+}
+
+/** Percentuale (o numero) con separatore decimale coerente con la lingua corrente. */
+export function formatPct(v: number, digits = 2): string {
+  return v.toFixed(digits).replace('.', DEC)
 }
 
 /** Troncamento unico per hash e indirizzi: 6 + … + 4. */
@@ -41,17 +54,19 @@ export function shortId(id: string, head = 6, tail = 4): string {
   return id.slice(0, head) + '…' + id.slice(-tail)
 }
 
-/** Tempo relativo in italiano; il timestamp assoluto va sempre nel title/tooltip. */
+/** Tempo relativo; le parole sono iniettate da i18n (default italiano). */
+let REL = { now: 'ora', s: 's fa', min: 'min fa', h: 'ore fa', d: 'giorni fa' }
+export function setRelativeWords(words: typeof REL): void { REL = words }
 export function relativeTime(tsMs: number, now = Date.now()): string {
   const s = Math.floor((now - tsMs) / 1000)
-  if (s < 0) return 'ora'
-  if (s < 60) return s + ' s fa'
+  if (s < 0) return REL.now
+  if (s < 60) return s + ' ' + REL.s
   const m = Math.floor(s / 60)
-  if (m < 60) return m + ' min fa'
+  if (m < 60) return m + ' ' + REL.min
   const h = Math.floor(m / 60)
-  if (h < 48) return h + ' ore fa'
+  if (h < 48) return h + ' ' + REL.h
   const d = Math.floor(h / 24)
-  if (d < 60) return d + ' giorni fa'
+  if (d < 60) return d + ' ' + REL.d
   return new Date(tsMs).toISOString().slice(0, 10)
 }
 

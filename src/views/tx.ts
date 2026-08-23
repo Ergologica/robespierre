@@ -4,8 +4,9 @@ import { FEE_ADDRESS } from '../decoder/recognizers/simple-transfer'
 import { esc, addrLink, labelOf } from './html'
 import { utxoSchema } from '../charts'
 import { icons } from '../icons'
+import { L } from '../i18n'
 import type { SchemaNode } from '../charts'
-import { formatErg, formatTokenAmount, groupThousands, relativeTime, isoUtc, shortId } from '../lib/format'
+import { formatErg, formatTokenAmount, groupThousands, relativeTime, isoUtc, shortId , formatPct } from '../lib/format'
 import type { BoxLike } from '../api/types'
 
 const MAX_TOKENS_SHOWN = 8
@@ -19,10 +20,10 @@ function boxHtml(b: BoxLike, spentLabel: string): string {
   ).join(' · ')
   return `<div class="box">
     <div class="head"><span class="mono">${esc(shortId(b.boxId, 8))}</span>
-      ${addrLink(b.address)} <span class="tag ${spentLabel === 'non speso' ? 'unspent' : ''}">${spentLabel}</span></div>
+      ${addrLink(b.address)} <span class="tag ${spentLabel === L.unspent ? 'unspent' : ''}">${spentLabel}</span></div>
     <div class="kv">
-      <span class="kk">Valore</span><span>${formatErg(BigInt(b.value))}</span>
-      ${assets.length ? `<span class="kk">Token</span><span>${tokens}${hidden > 0 ? ` <span class="dim">· +${hidden} altri token di questo box</span>` : ''}</span>` : ''}
+      <span class="kk">${L.value_k}</span><span>${formatErg(BigInt(b.value))}</span>
+      ${assets.length ? `<span class="kk">${L.tokens_k}</span><span>${tokens}${hidden > 0 ? ` <span class="dim">· +${hidden} ${L.other_tokens}</span>` : ''}</span>` : ''}
     </div>
   </div>`
 }
@@ -41,11 +42,11 @@ function flowCard(tx: import('../api/types').Tx): string {
   const toTokens = (main.assets ?? []).slice(0, 3)
   const amount = BigInt(main.value)
   return `<div class="card"><div class="flow">
-    <div class="party"><div class="role">Da</div>
+    <div class="party"><div class="role">${L.from}</div>
       <div class="pname">${esc(partyName(from.address))}</div>
       <div class="amt out">−${formatErg(amount, 2)}</div></div>
     <div class="arrow">→</div>
-    <div class="party"><div class="role">A</div>
+    <div class="party"><div class="role">${L.to}</div>
       <div class="pname">${addrLink(main.address)}</div>
       <div class="amt in">+${formatErg(amount, 2)}</div>
       <div>${toTokens.map(a => `<span class="tokchip">${esc(formatTokenAmount(BigInt(a.amount), a.decimals ?? 0))} <a href="#/token/${esc(a.tokenId)}">${esc(a.name?.trim() || shortId(a.tokenId, 8))}</a></span>`).join('')}${(main.assets ?? []).length > 3 ? `<span class="tokchip">+${(main.assets ?? []).length - 3} altri</span>` : ''}</div></div>
@@ -66,9 +67,9 @@ export function mountTxSchema(tx: import('../api/types').Tx): void {
     const shown = boxes.slice(0, max - 1).map(box)
     const rest = boxes.slice(max - 1)
     shown.push({
-      title: `altri ${rest.length} box`,
-      sub: formatErg(rest.reduce((s2, b) => s2 + BigInt(b.value), 0n), 2) + ' (aggregati)',
-      tip: 'Aggregati per leggibilità: il dettaglio completo è nella sezione tecnica',
+      title: `${L.other_boxes} ${rest.length} ${L.box_w}`,
+      sub: formatErg(rest.reduce((s2, b) => s2 + BigInt(b.value), 0n), 2) + ` (${L.boxes_agg})`,
+      tip: L.boxes_agg_tip,
     })
     return shown
   }
@@ -85,8 +86,8 @@ export function mountTxSchema(tx: import('../api/types').Tx): void {
   })
   const first = outs[0]; if (first && !first.accent) first.accent = 'var(--s2)'
   utxoSchema(host, ins,
-    { title: shortId(tx.id, 8), sub: formatErg(tx.outputs.reduce((s2, o) => s2 + BigInt(o.value), 0n), 2), tip: 'Totale consumato e ricreato', accent: 'var(--s1)' },
-    outs)
+    { title: shortId(tx.id, 8), sub: formatErg(tx.outputs.reduce((s2, o) => s2 + BigInt(o.value), 0n), 2), tip: L.out_total, accent: 'var(--s1)' },
+    outs, { in: L.schema_in, tx: L.schema_tx, out: L.schema_out })
 }
 
 export async function txView(id: string): Promise<string> {
@@ -106,48 +107,48 @@ export async function txView(id: string): Promise<string> {
   const conf = tx.numConfirmations ?? 0
 
   const headline = decoded
-    ? `<div class="headline">${esc(decoded.headline)}<span class="conf">${decoded.confidence === 'certa' ? 'lettura certa' : 'lettura probabile'}</span></div>`
+    ? `<div class="headline">${esc(decoded.headline)}<span class="conf">${decoded.confidence === 'certa' ? L.reading_sure : L.reading_prob}</span></div>`
     : hasContract
-      ? `<div class="headline">Interazione con contratto non ancora catalogato <span class="conf">i riconoscitori di protocollo arrivano in Fase 2 — i dati completi sono qui sotto</span></div>`
+      ? `<div class="headline">${L.not_cataloged} <span class="conf">${L.not_cataloged_s}</span></div>`
       : ''
 
   document.title = `Tx ${shortId(id)} · Robespierre`
   return `
   <div class="card">
     <div class="statusline">
-      <span class="pill ${conf > 0 ? 'ok' : 'wait'}">${conf > 0 ? '✓ Confermata' : 'In mempool'}</span>
-      ${conf > 0 ? `<span class="muted">${groupThousands(String(conf))} conferme</span>` : ''}
+      <span class="pill ${conf > 0 ? 'ok' : 'wait'}">${conf > 0 ? '✓ ' + L.confirmed : L.in_mempool}</span>
+      ${conf > 0 ? `<span class="muted">${groupThousands(String(conf))} ${L.confirmations}</span>` : ''}
       <span class="dim">·</span><span class="muted">${relativeTime(tx.timestamp)}</span>
       <span class="grow"></span><span class="dim mono">${isoUtc(tx.timestamp)}</span>
     </div>
-    <div class="idrow"><h1>Transazione</h1>
+    <div class="idrow"><h1>${L.tx}</h1>
       <span class="mono muted" title="${esc(id)}">${esc(shortId(id))}</span>
-      <button class="copy" data-copy="${esc(id)}">copia id</button>
-      <a class="btn-link" href="https://api.ergoplatform.com/api/v1/transactions/${esc(id)}" target="_blank" rel="noopener">${icons.ext}JSON grezzo</a>
-      <a class="btn-link" href="https://explorer.ergoplatform.com/en/transactions/${esc(id)}" target="_blank" rel="noopener">${icons.ext}explorer ufficiale</a></div>
+      <button class="copy" data-copy="${esc(id)}">${L.copy_id}</button>
+      <a class="btn-link" href="https://api.ergoplatform.com/api/v1/transactions/${esc(id)}" target="_blank" rel="noopener">${icons.ext}${L.raw_json}</a>
+      <a class="btn-link" href="https://explorer.ergoplatform.com/en/transactions/${esc(id)}" target="_blank" rel="noopener">${icons.ext}${L.official_explorer}</a></div>
     ${headline}
     <div class="tiles" style="margin-top:14px">
-      <div><div class="k">In uscita (totale box)</div><div class="v">${formatErg(totalOut)}</div>
-        <div class="s">resto compreso — modello UTXO</div></div>
-      <div><div class="k">Token spostati</div><div class="v">${tokenIds.size} ${tokenIds.size === 1 ? 'tipo' : 'tipi'}</div><div class="s">&nbsp;</div></div>
-      <div><div class="k">Commissione</div><div class="v">${formatErg(fee)}</div><div class="s">&nbsp;</div></div>
-      <div><div class="k">Blocco</div><div class="v">${tx.inclusionHeight ? groupThousands(String(tx.inclusionHeight)) : '—'}</div>
-        <div class="s">${tx.size ? (tx.size / 1024).toFixed(2).replace('.', ',') + ' kB' : ''}</div></div>
+      <div><div class="k" title="${esc(L.out_total_tip)}" style="cursor:help">${L.out_total} ?</div><div class="v">${formatErg(totalOut)}</div>
+        <div class="s">${L.out_total_s}</div></div>
+      <div><div class="k">${L.tokens_moved}</div><div class="v">${tokenIds.size} ${tokenIds.size === 1 ? L.kind_one : L.kind_many}</div><div class="s">&nbsp;</div></div>
+      <div><div class="k">${L.fee}</div><div class="v">${formatErg(fee)}</div><div class="s">&nbsp;</div></div>
+      <div><div class="k">${L.block}</div><div class="v">${tx.inclusionHeight ? groupThousands(String(tx.inclusionHeight)) : '—'}</div>
+        <div class="s">${tx.size ? formatPct(tx.size / 1024) + ' kB' : ''}</div></div>
     </div>
   </div>
   ${flowCard(tx)}
   <div class="card">
-    <div class="card-head"><h2>Come si muove il valore — schema UTXO</h2>
-      <p>Una transazione Ergo consuma dei box e ne crea di nuovi: quello che non va al destinatario torna indietro come resto. È il motivo per cui il totale in uscita è più grande dell'importo inviato.</p></div>
+    <div class="card-head"><h2>${L.schema_h}</h2>
+      <p>${L.schema_p}</p></div>
     <div class="chart-wrap" data-schema></div>
   </div>
   <div class="card">
-    <details class="adv-open"><summary>Dettaglio dei box <span class="count">— ${tx.inputs.length} input, ${tx.outputs.length} output</span><span class="adv">tecnico</span></summary>
+    <details class="adv-open"><summary>${L.box_detail} <span class="count">— ${tx.inputs.length} input, ${tx.outputs.length} output</span><span class="adv">${L.technical}</span></summary>
       <div class="details-body">
-        <h2 style="font-size:14px;margin:6px 0 10px">Input</h2>
-        ${tx.inputs.map(b => boxHtml(b, 'speso')).join('')}
-        <h2 style="font-size:14px;margin:16px 0 10px">Output</h2>
-        ${tx.outputs.map(b => boxHtml(b, b.spentTransactionId ? 'speso' : 'non speso')).join('')}
+        <h2 style="font-size:14px;margin:6px 0 10px">${L.input}</h2>
+        ${tx.inputs.map(b => boxHtml(b, L.spent)).join('')}
+        <h2 style="font-size:14px;margin:16px 0 10px">${L.output}</h2>
+        ${tx.outputs.map(b => boxHtml(b, b.spentTransactionId ? L.spent : L.unspent)).join('')}
       </div>
     </details>
   </div>`

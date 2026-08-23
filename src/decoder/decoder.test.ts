@@ -182,3 +182,86 @@ describe('portafoglio — ordinamento dei token', () => {
     expect(out.map(t => t.name?.trim() || t.tokenId)).toEqual(['Alfa', 'zeta', 'aaa', 'ddd', 'zzz'])
   })
 })
+
+import { walletComposition } from '../views/address'
+describe('portafoglio — composizione del valore', () => {
+  const perErg = new Map([['sig', 0.25], ['comet', 180000]])  // 1 ERG = 0,25 SigUSD = 180k COMET
+  it('converte in ERG con i decimali giusti e dichiara i senza-prezzo', () => {
+    const c = walletComposition(10_000_000_000n, [                 // 10 ERG
+      { tokenId: 'sig', name: 'SigUSD', amount: 500, decimals: 2 },   // 5,00 SigUSD → 20 ERG
+      { tokenId: 'comet', name: 'COMET', amount: 360000, decimals: 0 }, // → 2 ERG
+      { tokenId: 'boh', name: 'Ignoto', amount: 999, decimals: 0 },  // senza prezzo
+    ], perErg)
+    expect(c.slices.map(s => s.label)).toEqual(['ERG', 'SigUSD', 'COMET'])
+    expect(c.slices[1]!.erg).toBeCloseTo(20, 6)
+    expect(c.slices[2]!.erg).toBeCloseTo(2, 6)
+    expect(c.totalErg).toBeCloseTo(32, 6)
+    expect(c.unpricedCount).toBe(1)
+  })
+  it('oltre il tetto aggrega in «altri N token con prezzo»', () => {
+    const many = Array.from({ length: 7 }, (_, i) => ({ tokenId: 'sig', name: 'T' + i, amount: 100 - i, decimals: 2 }))
+    const c = walletComposition(0n, many, perErg, 4)
+    expect(c.slices.at(-1)!.label).toBe('altri 3 token con prezzo')
+  })
+})
+
+import { hexToUtf8, eip4ImageUrl } from '../views/token'
+describe('EIP-4 — immagine dichiarata al conio', () => {
+  it('decodifica esadecimale → UTF-8 e rifiuta hex non valido', () => {
+    expect(hexToUtf8('68747470733a2f2f')).toBe('https://')
+    expect(hexToUtf8('7a')).toBe('z')
+    expect(hexToUtf8('7')).toBeNull()       // lunghezza dispari
+    expect(hexToUtf8('zz')).toBeNull()      // non hex
+    expect(hexToUtf8('')).toBeNull()
+  })
+  const hex = (s: string) => [...s].map(c => c.charCodeAt(0).toString(16).padStart(2, '0')).join('')
+  it('riconosce R7=immagine e converte ipfs:// nel gateway', () => {
+    const regs = {
+      R7: { serializedValue: '0e020101', renderedValue: '0101' },
+      R9: { renderedValue: hex('ipfs://QmABC/img.png') },
+    }
+    expect(eip4ImageUrl(regs)).toBe('https://ipfs.io/ipfs/QmABC/img.png')
+  })
+  it('accetta solo https; senza R7-immagine risponde null', () => {
+    expect(eip4ImageUrl({ R7: { renderedValue: '0101' }, R9: { renderedValue: hex('http://x.png') } })).toBeNull()
+    expect(eip4ImageUrl({ R9: { renderedValue: hex('https://x.png') } })).toBeNull()
+    expect(eip4ImageUrl({ R7: { renderedValue: '0102' }, R9: { renderedValue: hex('https://x.png') } })).toBeNull()
+    expect(eip4ImageUrl(undefined)).toBeNull()
+  })
+})
+
+import { classifyRent, RENT } from '../views/address'
+describe('storage rent — classificazione dei box per età', () => {
+  const tip = 1_600_000
+  it('separa: in riscossione (≥4 anni), presto (≥3,5), tranquilli', () => {
+    const { paying, soon } = classifyRent([
+      tip - RENT.periodBlocks,       // esattamente 4 anni → paga
+      tip - RENT.periodBlocks - 10,  // oltre → paga
+      tip - RENT.soonBlocks - 1,     // 3,5 anni → presto
+      tip - 100,                     // giovane
+    ], tip)
+    expect(paying).toBe(2)
+    expect(soon).toBe(1)
+  })
+  it('nessun box vecchio → nessun avviso', () => {
+    expect(classifyRent([tip - 5, tip - 1000], tip)).toEqual({ paying: 0, soon: 0 })
+  })
+})
+
+import { setLang, getLang, L as Ldict } from '../i18n'
+import { formatErg, formatPct } from '../lib/format'
+describe('i18n — cambio lingua completo e reversibile', () => {
+  it('EN cambia testi e separatori; IT li ripristina', () => {
+    try {
+      setLang('en')
+      expect(getLang()).toBe('en')
+      expect(formatErg(1_234_500_000_000n, 2)).toBe('1,234.5 ERG')
+      expect(formatPct(12.34)).toBe('12.34')
+    } finally {
+      setLang('it')
+    }
+    expect(formatErg(1_234_500_000_000n, 2)).toBe('1.234,5 ERG')
+    expect(formatPct(12.34)).toBe('12,34')
+    expect(Ldict.retry).toBe('riprova')
+  })
+})

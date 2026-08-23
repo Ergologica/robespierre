@@ -18,17 +18,18 @@
         <path d="M21.4 9.4H10.9l5.6 6.6-5.6 6.6h10.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <span class="nm">Robespierre</span>
-      <span class="sub">explorer per Ergo</span>
+      <span class="sub" data-t="sub_brand">explorer per Ergo</span>
     </a>
     <nav class="topnav">
-      <a href="#/" data-ic="net">Rete</a>
-      <a href="#/protocolli" data-ic="shield">Protocolli</a>
+      <a href="#/" data-ic="net"><span data-t="nav_net">Rete</span></a>
+      <a href="#/protocolli" data-ic="shield"><span data-t="nav_protocols">Protocolli</span></a>
     </nav>
     <span class="grow"></span>
     <div class="seg" role="group" aria-label="Livello di dettaglio">
-      <button type="button" id="modeBase" aria-pressed="true">Base</button>
-      <button type="button" id="modeAdv" aria-pressed="false">Avanzato</button>
+      <button type="button" id="modeBase" aria-pressed="true" data-t="base">Base</button>
+      <button type="button" id="modeAdv" aria-pressed="false" data-t="adv">Avanzato</button>
     </div>
+    <button class="ghost" id="langBtn" type="button" aria-label="Language / Lingua">EN</button>
     <button class="ghost" id="themeBtn" type="button" aria-label="Cambia tema" data-ic="theme"></button>
   </div>
 </header>
@@ -43,8 +44,8 @@
 </div>
 <main class="wrap" id="app" aria-live="polite"></main>
 <footer class="wrap">
-  <span>Robespierre · prototipo — dati dall'Explorer API di Ergo · <span id="dataAge"></span></span>
-  <span>i saldi fanno fede sulla catena, non qui</span>
+  <span>Robespierre · <span data-t="footer_src">prototipo — dati dall'Explorer API di Ergo</span> · <span id="dataAge"></span></span>
+  <span data-t="footer_truth">i saldi fanno fede sulla catena, non qui</span>
 </footer>
 <script type="module" src="/src/main.ts"></script>
 </body>

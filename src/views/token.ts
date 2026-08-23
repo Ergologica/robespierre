@@ -1,9 +1,11 @@
 import { api } from '../api/explorer'
 import { esc, labelOf } from './html'
-import { formatTokenAmount, groupThousands, shortId } from '../lib/format'
+import { formatTokenAmount, formatPct, groupThousands, shortId } from '../lib/format'
 import { hbars } from '../charts'
 import { icons } from '../icons'
+import { L } from '../i18n'
 import type { HBar } from '../charts'
+import type { RegValue } from '../api/types'
 
 /** Soglie della pagella: dichiarate qui, discutibili via PR come tutto il resto. */
 export const SOGLIE = {
@@ -19,6 +21,38 @@ export function countHomonyms(items: { id: string; name?: string | null }[], nam
   return items.filter(t => (t.name ?? '').trim().toLowerCase() === n && t.id !== selfId).length
 }
 
+/* ---------------- EIP-4: immagine dichiarata al conio ---------------- */
+
+/** PURA: esadecimale → testo UTF-8; null se la stringa non è hex valido. */
+export function hexToUtf8(hex: string): string | null {
+  if (!/^[0-9a-fA-F]*$/.test(hex) || hex.length % 2 !== 0 || hex.length === 0) return null
+  const bytes = new Uint8Array(hex.length / 2)
+  for (let i = 0; i < bytes.length; i++) bytes[i] = parseInt(hex.slice(i * 2, i * 2 + 2), 16)
+  try { return new TextDecoder('utf-8', { fatal: true }).decode(bytes) } catch { return null }
+}
+
+function regHex(reg: RegValue | undefined): string | null {
+  if (reg == null) return null
+  if (typeof reg === 'string') return reg
+  return reg.renderedValue ?? null
+}
+
+/** PURA: dai registri del box di conio (EIP-4) all'URL dell'immagine, o null.
+ *  R7 = tipo (0101 = immagine), R9 = URL. ipfs:// → gateway pubblico; solo https viene incorporato. */
+export function eip4ImageUrl(regs: Record<string, RegValue> | undefined): string | null {
+  if (!regs) return null
+  const r7 = regs['R7']
+  const r7hex = regHex(r7) ?? ''
+  const r7ser = (typeof r7 === 'object' && r7?.serializedValue) || ''
+  if (r7hex !== '0101' && r7ser !== '0e020101') return null
+  const r9 = regHex(regs['R9'])
+  if (!r9) return null
+  let url = hexToUtf8(r9)?.trim() ?? null
+  if (!url) return null
+  if (url.startsWith('ipfs://')) url = 'https://ipfs.io/ipfs/' + url.slice('ipfs://'.length).replace(/^ipfs\//, '')
+  return url.startsWith('https://') ? url : null
+}
+
 export async function tokenView(id: string): Promise<string> {
   const t = await api.token(id)
   const name = t.name?.trim() || null
@@ -28,49 +62,65 @@ export async function tokenView(id: string): Promise<string> {
   let homonyms: number | null = null
   if (name) {
     try {
-      const s = await fetch('https://api.ergoplatform.com/api/v1/tokens/search?query=' + encodeURIComponent(name))
-      if (s.ok) homonyms = countHomonyms((await s.json()).items ?? [], name, id)
+      const s = await api.tokenSearch(name)
+      homonyms = countHomonyms(s.items ?? [], name, id)
     } catch { /* il controllo resta "non verificabile" */ }
+  }
+
+  // immagine EIP-4: i metadati (registri del box di conio) si leggono subito,
+  // il contenuto di terzi si carica SOLO su richiesta esplicita
+  let imgUrl: string | null = null
+  if (t.boxId) {
+    try { imgUrl = eip4ImageUrl((await api.box(t.boxId)).additionalRegisters as Record<string, RegValue> | undefined) }
+    catch { /* nessun box leggibile: semplicemente niente immagine */ }
   }
 
   const checks = [
     homonyms == null
-      ? { sig: 'info', text: 'Omonimi: non verificabile in questo momento' }
+      ? { sig: 'info', text: L.homonyms_na }
       : homonyms === 0
-        ? { sig: 'ok', text: 'Nessun altro token usa questo nome' }
-        : { sig: 'warn', text: `${homonyms} altri token usano questo nome — l'unico identificatore affidabile è l'id` },
-    { sig: 'info', text: `Emissione dichiarata al conio: ${t.emissionAmount != null ? formatTokenAmount(BigInt(t.emissionAmount), t.decimals ?? 0) : 'sconosciuta'} · ${t.decimals ?? 0} decimali` },
+        ? { sig: 'ok', text: L.homonyms_zero }
+        : { sig: 'warn', text: L.homonyms_n(homonyms) },
+    { sig: 'info', text: L.emission_line(t.emissionAmount != null ? formatTokenAmount(BigInt(t.emissionAmount), t.decimals ?? 0) : '—', t.decimals ?? 0) },
     t.description
-      ? { sig: 'info', text: 'La descrizione è scritta da chi ha coniato il token: non è verificata da nessuno' }
-      : { sig: 'info', text: 'Nessuna descrizione dichiarata al conio' },
+      ? { sig: 'info', text: L.desc_unverified }
+      : { sig: 'info', text: L.desc_none },
   ]
 
   return `
   <div class="card">
     <div class="idrow" style="padding-top:18px">
-      <h1>${name ? esc(name) : '<span class="dim">token senza nome</span>'}</h1>
+      <h1>${name ? esc(name) : `<span class="dim">${L.unnamed}</span>`}</h1>
       ${t.type ? `<span class="tag">${esc(t.type)}</span>` : ''}
       <span class="grow"></span>
       <span class="mono dim">${esc(shortId(id, 8))}</span>
-      <button class="copy" data-copy="${esc(id)}">copia id</button>
-      <a class="btn-link" href="https://explorer.ergoplatform.com/en/token/${esc(id)}" target="_blank" rel="noopener">${icons.ext}explorer ufficiale</a>
+      <button class="copy" data-copy="${esc(id)}">${L.copy_id}</button>
+      <a class="btn-link" href="https://explorer.ergoplatform.com/en/token/${esc(id)}" target="_blank" rel="noopener">${icons.ext}${L.official_explorer}</a>
     </div>
     <div class="tiles">
-      <div><div class="k">Emissione</div>
+      <div><div class="k">${L.emission}</div>
         <div class="v">${t.emissionAmount != null ? formatTokenAmount(BigInt(t.emissionAmount), t.decimals ?? 0) : '—'}</div>
-        <div class="s">${t.decimals ?? 0} decimali</div></div>
-      <div style="grid-column:span 3"><div class="k">Descrizione dichiarata al conio (non verificata)</div>
-        <div class="s" style="font-size:14px;margin-top:6px">${t.description ? esc(t.description) : '<span class="dim">nessuna</span>'}</div></div>
+        <div class="s">${t.decimals ?? 0} ${L.decimals}</div></div>
+      <div style="grid-column:span 3"><div class="k">${L.token_desc}</div>
+        <div class="s" style="font-size:14px;margin-top:6px">${t.description ? esc(t.description) : `<span class="dim">${L.none_f}</span>`}</div></div>
     </div>
   </div>
+  ${imgUrl ? `
   <div class="card">
-    <div class="card-head"><h2>Pagella</h2>
-      <p>Fatti verificabili, non giudizi. Le soglie sono nel codice, discutibili via pull request.</p></div>
+    <div class="card-head"><h2>${L.img_h}</h2><p>${L.img_note}</p></div>
+    <div class="card-pad" data-img-slot>
+      <button class="copy" data-img="${esc(imgUrl)}">${L.img_show}</button>
+      <span class="dim mono" style="font-size:12px;margin-left:8px">${esc(shortId(imgUrl, 34, 12))}</span>
+    </div>
+  </div>` : ''}
+  <div class="card">
+    <div class="card-head"><h2>${L.card_h}</h2>
+      <p>${L.card_p}</p></div>
     <div class="card-pad" style="padding-top:4px">
       ${checks.map(c => `<div class="check"><span class="sig ${c.sig}">${c.sig === 'ok' ? '✓' : c.sig === 'warn' ? '⚠' : '·'}</span><span>${esc(c.text)}</span></div>`).join('')}
       <div class="check"><span class="sig info">·</span>
-        <span>Concentrazione dei detentori: <button class="copy" data-holders="${esc(id)}">calcola adesso</button>
-        <span class="dim">— legge i box non spesi dalla catena; per i token molto diffusi arriverà dal job notturno</span></span></div>
+        <span>${L.holders_line} <button class="copy" data-holders="${esc(id)}">${L.compute_now}</button>
+        <span class="dim">— ${L.holders_note}</span></span></div>
     </div>
     <div class="chart-wrap hidden" data-holders-chart></div>
     <div class="note hidden" data-holders-note></div>
@@ -101,7 +151,7 @@ export function topHolders(m: Map<string, bigint>, topN: number): { top: HolderS
   const top = sorted.slice(0, topN).map(([address, amount]) => ({ address, amount, pct: pct(amount) }))
   const restAmt = sorted.slice(topN).reduce((a, [, v]) => a + v, 0n)
   const rest = sorted.length > topN
-    ? { address: `altri ${groupThousands(String(sorted.length - topN))} detentori`, amount: restAmt, pct: pct(restAmt) }
+    ? { address: `${L.others_d} ${groupThousands(String(sorted.length - topN))} ${L.holders_w}`, amount: restAmt, pct: pct(restAmt) }
     : null
   return { top, rest, holders: sorted.length, total }
 }
@@ -126,7 +176,7 @@ export function mountHoldersIfCached(tokenId: string): boolean {
   if (!hit) return false
   renderHolders(hit)
   const btn = document.querySelector(`[data-holders="${CSS.escape(tokenId)}"]`) as HTMLElement | null
-  if (btn) btn.textContent = 'ricalcola'
+  if (btn) btn.textContent = L.recompute
   return true
 }
 
@@ -134,8 +184,8 @@ export async function computeHolders(tokenId: string): Promise<void> {
   try { await computeHoldersInner(tokenId) } catch {
     const note = document.querySelector('[data-holders-note]') as HTMLElement | null
     const btn = document.querySelector(`[data-holders="${CSS.escape(tokenId)}"]`) as HTMLElement | null
-    if (note) { note.textContent = 'Calcolo non riuscito: la fonte non risponde. Riprova tra poco — i dati restano sulla catena.'; note.classList.remove('hidden') }
-    if (btn) btn.textContent = 'riprova'
+    if (note) { note.textContent = L.holders_fail; note.classList.remove('hidden') }
+    if (btn) btn.textContent = L.retry
   }
 }
 
@@ -144,7 +194,7 @@ async function computeHoldersInner(tokenId: string): Promise<void> {
   const note = document.querySelector('[data-holders-note]') as HTMLElement | null
   const btn = document.querySelector(`[data-holders="${CSS.escape(tokenId)}"]`) as HTMLElement | null
   if (!chartHost || !note) return
-  if (btn) btn.textContent = 'calcolo…'
+  if (btn) btn.textContent = L.computing
 
   const [tok, first] = await Promise.all([
     api.token(tokenId),
@@ -163,34 +213,34 @@ async function computeHoldersInner(tokenId: string): Promise<void> {
           .then(r => r.json()).catch(() => ({ items: [] }))),
     )
     batch.forEach(pg => boxes.push(...(pg.items ?? [])))
-    if (btn) btn.textContent = `calcolo… ${Math.min(100, Math.round(100 * boxes.length / Math.min(total, SOGLIE.maxBoxesForHolders)))}%`
+    if (btn) btn.textContent = `${L.computing} ${Math.min(100, Math.round(100 * boxes.length / Math.min(total, SOGLIE.maxBoxesForHolders)))}%`
   }
 
   const agg = aggregateHolders(boxes, tokenId)
   const { top, rest, holders, total: totAmt } = topHolders(agg, SOGLIE.topShown)
-  if (totAmt === 0n) { note.textContent = 'Nessun box non speso trovato.'; note.classList.remove('hidden'); return }
+  if (totAmt === 0n) { note.textContent = L.holders_none; note.classList.remove('hidden'); return }
 
   const nameOf = (addr: string) => {
     const l = labelOf(addr)
     if (l) return l
-    return shortId(addr, 8) + (addr.startsWith('9') ? '' : ' · contratto')
+    return shortId(addr, 8) + (addr.startsWith('9') ? '' : ' · ' + L.contract)
   }
   const bars: HBar[] = top.map(h => ({
     label: nameOf(h.address), value: h.pct,
-    tipLine: `${formatTokenAmount(h.amount, decimals)} — ${h.pct.toFixed(2).replace('.', ',')}% del circolante letto`,
+    tipLine: `${formatTokenAmount(h.amount, decimals)} — ${formatPct(h.pct)}% ${L.of_read}`,
   }))
   if (rest && rest.pct > 0.01) bars.push({ label: rest.address, value: rest.pct, rest: true,
-    tipLine: `${formatTokenAmount(rest.amount, decimals)} — ${rest.pct.toFixed(2).replace('.', ',')}%` })
+    tipLine: `${formatTokenAmount(rest.amount, decimals)} — ${formatPct(rest.pct)}%` })
   const top10pct = top.reduce((s2, h) => s2 + h.pct, 0)
   const concNote = top10pct > SOGLIE.topHolderWarnPct
-    ? ` ⚠ I primi ${top.length} detengono il ${top10pct.toFixed(1).replace('.', ',')}% (soglia di attenzione: ${SOGLIE.topHolderWarnPct}%).`
-    : ` I primi ${top.length} detengono il ${top10pct.toFixed(1).replace('.', ',')}%.`
+    ? L.holders_top_warn(top.length, formatPct(top10pct, 1), SOGLIE.topHolderWarnPct)
+    : L.holders_top(top.length, formatPct(top10pct, 1))
   const noteText = (capped
-    ? `Calcolo parziale: letti ${groupThousands(String(boxes.length))} box su ${groupThousands(String(total))} — le quote sono indicative.`
-    : `Letti tutti i ${groupThousands(String(total))} box non spesi: ${groupThousands(String(holders))} indirizzi distinti.`)
+    ? L.holders_partial(groupThousands(String(boxes.length)), groupThousands(String(total)))
+    : L.holders_full(groupThousands(String(total)), groupThousands(String(holders))))
     + concNote
   const result: HoldersResult = { bars, note: noteText }
   holdersCache.set(tokenId, result)
   renderHolders(result)
-  if (btn) btn.textContent = 'ricalcola'
+  if (btn) btn.textContent = L.recompute
 }

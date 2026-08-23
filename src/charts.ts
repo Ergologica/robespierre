@@ -1,3 +1,4 @@
+import { formatPct } from './lib/format'
 /**
  * Grafici SVG senza dipendenze. Palette validata per daltonismo e contrasto
  * (vedi README §Palette): --s1 cinabro, --s2 petrolio, --s3 glicine.
@@ -64,7 +65,7 @@ export function meter(host: HTMLElement, o: {
 /* ---- ciambella: parti di un intero (≤6 spicchi, etichetta ≥5%) ---- */
 export interface Slice { label: string; value: number; color: string; tipLine: string; approx?: string }
 export function donut(host: HTMLElement, slices: Slice[], centerBig: string, centerSmall: string): void {
-  const W = 520, H = 240, cx = 128, cy = 120, R = 88, r = 56
+  const W = 520, H = Math.max(240, 62 + slices.length * 46 + 12), cx = 128, cy = 120, R = 88, r = 56
   const tot = slices.reduce((a, b) => a + b.value, 0) || 1
   const s = svg(W, H)
   let a = -Math.PI / 2
@@ -85,7 +86,7 @@ export function donut(host: HTMLElement, slices: Slice[], centerBig: string, cen
       const am = a + sweep / 2, lx = cx + (R + 20) * Math.cos(am), ly = cy + (R + 20) * Math.sin(am)
       const anchor = Math.cos(am) < -0.2 ? 'end' : Math.cos(am) > 0.2 ? 'start' : 'middle'
       s.appendChild(el('text', { x: lx, y: ly + 4, class: 'c-val', 'text-anchor': anchor },
-        pc.toFixed(1).replace('.', ',') + '%'))
+        formatPct(pc, 1) + '%'))
     }
     a += sweep
   }
@@ -121,21 +122,22 @@ export function hbars(host: HTMLElement, bars: HBar[], maxPct?: number): void {
     const bar = el('path', { d: p, fill: b.rest ? 'var(--s-rest)' : 'var(--s1)' })
     bindTip(bar, b.label, b.tipLine)
     s.appendChild(bar)
-    s.appendChild(el('text', { x: x0 + w + 8, y: y + bh + 1, class: 'c-val' }, b.value.toFixed(2).replace('.', ',') + '%'))
+    s.appendChild(el('text', { x: x0 + w + 8, y: y + bh + 1, class: 'c-val' }, formatPct(b.value) + '%'))
   })
   host.replaceChildren(s)
 }
 
 /* ---- schema UTXO: input → transazione → output ---- */
 export interface SchemaNode { title: string; sub: string; tip: string; accent?: string }
-export function utxoSchema(host: HTMLElement, inputs: SchemaNode[], tx: SchemaNode, outputs: SchemaNode[]): void {
+export function utxoSchema(host: HTMLElement, inputs: SchemaNode[], tx: SchemaNode, outputs: SchemaNode[],
+  heads: { in: string; tx: string; out: string } = { in: 'BOX CONSUMATI (INPUT)', tx: 'TRANSAZIONE', out: 'BOX CREATI (OUTPUT)' }): void {
   const rowH = 74, colW = 316, W = 1024
   const rows = Math.max(inputs.length, outputs.length)
   const H = 30 + rows * rowH
   const s = svg(W, H)
-  s.appendChild(el('text', { x: 0, y: 12, class: 'c-small' }, 'BOX CONSUMATI (INPUT)'))
-  s.appendChild(el('text', { x: 424, y: 12, class: 'c-small' }, 'TRANSAZIONE'))
-  s.appendChild(el('text', { x: W - colW, y: 12, class: 'c-small' }, 'BOX CREATI (OUTPUT)'))
+  s.appendChild(el('text', { x: 0, y: 12, class: 'c-small' }, heads.in))
+  s.appendChild(el('text', { x: 424, y: 12, class: 'c-small' }, heads.tx))
+  s.appendChild(el('text', { x: W - colW, y: 12, class: 'c-small' }, heads.out))
   const node = (x: number, y: number, w: number, n: SchemaNode) => {
     const g = el('g', {})
     g.appendChild(el('rect', { x, y, width: w, height: 60, rx: 10, fill: 'var(--surface-2)',

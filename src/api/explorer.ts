@@ -1,4 +1,4 @@
-import type { NetworkInfo, BlockHeader, Tx, AddressBalance, Paged, TokenInfo } from './types'
+import type { NetworkInfo, BlockHeader, Tx, AddressBalance, Paged, TokenInfo, BoxLike, FullBlock } from './types'
 
 /**
  * Client dell'Explorer API.
@@ -41,6 +41,18 @@ export const api = {
     // e la controparte del movimento diventerebbe invisibile
     get<Paged<Tx>>(`/addresses/${addr}/transactions?offset=${offset}&limit=${limit}`),
   token: (id: string) => get<TokenInfo>(`/tokens/${id}`),
+  box: (id: string) => get<BoxLike>(`/boxes/${id}`, 300_000),
+  /** Header di lista a una data altezza (portano nome e indirizzo del minatore). */
+  blocksRange: (height: number) =>
+    get<Paged<BlockHeader>>(`/blocks?minHeight=${height}&maxHeight=${height}`, 60_000),
+  /** Blocco per altezza: prima l'header nell'intervallo, poi il blocco completo. */
+  blockAt: async (height: number): Promise<FullBlock | null> => {
+    const page = await get<Paged<BlockHeader>>(`/blocks?minHeight=${height}&maxHeight=${height}`, 60_000)
+    const id = page.items?.[0]?.id
+    return id ? get<FullBlock>(`/blocks/${id}`, 60_000) : null
+  },
+  blockById: (id: string) => get<FullBlock>(`/blocks/${id}`, 60_000),
+  tokenSearch: (q: string) => get<Paged<TokenInfo>>(`/tokens/search?query=${encodeURIComponent(q)}`, 60_000),
 }
 
 
@@ -71,6 +83,28 @@ export async function mempoolCount(): Promise<number | null> {
     const j = await r.json()
     return typeof j.total === 'number' ? j.total : null
   } catch { return null }
+}
+
+
+/** Prezzi dei token dai pool Spectrum: token per 1 ERG (unità decimalizzate).
+ *  Per ogni token si usa il pool col volume maggiore. Stima indicativa per natura:
+ *  la pagina che la mostra lo dichiara. */
+export async function spectrumTokenPerErg(): Promise<Map<string, number>> {
+  const out = new Map<string, number>()
+  try {
+    const r = await fetch('https://api.spectrum.fi/v1/price-tracking/markets')
+    if (!r.ok) return out
+    const markets = await r.json() as { baseId: string; quoteId: string; lastPrice: number; baseVolume?: { value?: number } }[]
+    const best = new Map<string, { price: number; vol: number }>()
+    for (const m of markets) {
+      if (!/^0+$/.test(m.baseId) || !(m.lastPrice > 0)) continue // solo coppie con base ERG
+      const vol = m.baseVolume?.value ?? 0
+      const cur = best.get(m.quoteId)
+      if (!cur || vol > cur.vol) best.set(m.quoteId, { price: m.lastPrice, vol })
+    }
+    best.forEach((v, k) => out.set(k, v.price))
+  } catch { /* nessun prezzo: il grafico semplicemente non si mostra */ }
+  return out
 }
 
 /** Prezzo ERG in USD/EUR: opzionale per definizione — se fallisce, il sito mostra i soli ERG. */

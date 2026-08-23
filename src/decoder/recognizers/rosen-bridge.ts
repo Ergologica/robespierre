@@ -3,6 +3,7 @@ import type { Recognizer, Decoded } from '../types'
 import { ROSEN } from '../protocols'
 import { FEE_ADDRESS } from './simple-transfer'
 import { formatErg, shortId } from '../../lib/format'
+import { L } from '../../i18n'
 
 /**
  * Rosen Bridge — pagamenti dal bridge verso Ergo.
@@ -25,7 +26,7 @@ export const rosenBridge: Recognizer = {
       const tokens = tokenNames.length ? ` + ${tokenNames.slice(0, 2).join(', ')}${tokenNames.length > 2 ? '…' : ''}` : ''
       return {
         kind: 'rosen-in',
-        headline: `Rosen Bridge: arrivo di ${formatErg(BigInt(main.value), 2)}${tokens} a ${shortId(main.address, 8)}`,
+        headline: L.dec_rosen_in(formatErg(BigInt(main.value), 2), tokens, shortId(main.address, 8)),
         to: main.address,
         confidence: 'certa',
       }
@@ -35,7 +36,7 @@ export const rosenBridge: Recognizer = {
         .reduce((s, o) => s + BigInt(o.value), 0n)
       return {
         kind: 'rosen-out',
-        headline: `Verso Rosen Bridge: ${formatErg(sent, 2)} al hot wallet del bridge`,
+        headline: L.dec_rosen_out(formatErg(sent, 2)),
         confidence: 'probabile',
       }
     }

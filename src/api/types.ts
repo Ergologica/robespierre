@@ -33,6 +33,16 @@ export interface AddressBalance { nanoErgs: number | string; tokens?: Asset[] }
 export interface Paged<T> { items: T[]; total: number }
 
 export interface TokenInfo {
-  id: string; name?: string | null; decimals?: number | null
+  id: string; boxId?: string; name?: string | null; decimals?: number | null
   emissionAmount?: number | string | null; description?: string | null; type?: string | null
+}
+
+/** Registro di un box come lo restituisce /boxes/{id} (oggetto) o una tx (stringa). */
+export type RegValue = string | { serializedValue?: string; renderedValue?: string; sigmaType?: string }
+
+export interface FullBlock {
+  block: {
+    header: BlockHeader & { difficulty?: number | string; minerReward?: number }
+    blockTransactions: Tx[]
+  }
 }

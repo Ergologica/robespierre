@@ -3,20 +3,43 @@ import { icons } from './icons'
 import { netView, mountNetCharts } from './views/net'
 import { networkStats } from './api/explorer'
 import { txView, mountTxSchema } from './views/tx'
-import { api as apiClient } from './api/explorer'
-import { addressView } from './views/address'
+import { addressView, mountWalletChart, mountRentCheck } from './views/address'
 import { tokenView, computeHolders, mountHoldersIfCached } from './views/token'
 import { protocolsView, mountProtocolCharts } from './views/protocols'
+import { blockView } from './views/block'
 import { api } from './api/explorer'
-import { classifyQuery } from './lib/format'
+import { classifyQuery, shortId } from './lib/format'
 import { esc } from './views/html'
+import { L, initLang, setLang, getLang } from './i18n'
 
 const app = document.getElementById('app') as HTMLElement
+
+/* ----- lingua: inizializzata PRIMA di ogni render ----- */
+initLang()
 
 /* icone statiche dichiarate con data-ic */
 document.querySelectorAll<HTMLElement>('[data-ic]').forEach(e => {
   const ic = icons[e.dataset.ic as keyof typeof icons]
   if (ic) e.insertAdjacentHTML('afterbegin', ic)
+})
+
+/** Testi statici di header/footer/ricerca: elementi marcati con data-t. */
+function applyLang(): void {
+  document.querySelectorAll<HTMLElement>('[data-t]').forEach(e => {
+    const v = L[e.dataset.t as keyof typeof L]
+    if (typeof v === 'string') e.textContent = v
+  })
+  const input = document.getElementById('searchInput') as HTMLInputElement | null
+  if (input) input.placeholder = L.search_ph
+  const btn = document.getElementById('langBtn')
+  if (btn) btn.textContent = getLang() === 'it' ? 'EN' : 'IT'
+}
+applyLang()
+
+document.getElementById('langBtn')!.addEventListener('click', () => {
+  setLang(getLang() === 'it' ? 'en' : 'it')
+  applyLang()
+  void route() // la pagina corrente si ridisegna nella nuova lingua
 })
 
 /* ----- modalità Base/Avanzato: ricordata, riflessa nel DOM ----- */
@@ -45,34 +68,40 @@ document.getElementById('themeBtn')!.addEventListener('click', () => {
 async function route() {
   const hash = location.hash.replace(/^#\/?/, '')
   const [head, a, b] = hash.split('/')
-  app.innerHTML = '<div class="loading">carico dalla catena…</div>'
+  app.innerHTML = `<div class="loading">${L.loading}</div>`
   try {
     if (!head) {
-      document.title = 'Robespierre — l\'explorer che interpreta'
+      document.title = 'Robespierre — ' + L.tagline
       app.innerHTML = await netView()
       const st = await networkStats()
       if (st) mountNetCharts(BigInt(Math.round(st.supply)))
     }
     else if (head === 'tx' && a) {
       app.innerHTML = await txView(a)
-      mountTxSchema(await apiClient.tx(a))   // già in cache: nessuna seconda chiamata
+      mountTxSchema(await api.tx(a))   // già in cache: nessuna seconda chiamata
     }
-    else if (head === 'address' && a) app.innerHTML = await addressView(a, b ? parseInt(b, 10) || 0 : 0)
+    else if (head === 'address' && a) {
+      app.innerHTML = await addressView(a, b ? parseInt(b, 10) || 0 : 0)
+      mountWalletChart()
+      void mountRentCheck(a)
+    }
     else if (head === 'token' && a) { app.innerHTML = await tokenView(a); mountHoldersIfCached(a) }
+    else if (head === 'block' && a) { app.innerHTML = await blockView(a) }
     else if (head === 'protocolli') { app.innerHTML = await protocolsView(); mountProtocolCharts() }
-    else app.innerHTML = `<div class="errorbox"><h2>Pagina non trovata</h2>
-      <p class="muted">Il percorso <span class="mono">${esc(hash)}</span> non esiste. La ricerca qui sopra riconosce da sola indirizzi, transazioni e token.</p></div>`
+    else app.innerHTML = `<div class="errorbox"><h2>${L.notfound_title}</h2>
+      <p class="muted"><span class="mono">${esc(hash)}</span></p></div>`
   } catch (e) {
-    app.innerHTML = `<div class="errorbox"><h2>Non sono riuscito a caricare</h2>
+    app.innerHTML = `<div class="errorbox"><h2>${L.err_title}</h2>
       <p class="muted">${esc(e instanceof Error ? e.message : String(e))}</p>
-      <p class="dim">La fonte potrebbe essere momentaneamente giù: i dati restano sulla catena, riprova tra poco.</p></div>`
+      <p class="dim">${L.err_hint}</p>
+      <p><button class="btn" data-retry type="button">${icons.net}${L.retry}</button></p></div>`
   }
   applyMode()
 }
 window.addEventListener('hashchange', () => { searchHint(null); void route() })
 
-/* ----- ricerca: riconoscimento del tipo, tendina solo come ripiego ----- */
-function searchHint(msg: string | null): void {
+/* ----- ricerca: riconoscimento del tipo; per il resto, ricerca token per nome ----- */
+function searchHint(msg: string | null, html = false): void {
   let h = document.getElementById('searchHint')
   if (!h) {
     h = document.createElement('div')
@@ -80,8 +109,24 @@ function searchHint(msg: string | null): void {
     h.className = 'search-hint'
     document.querySelector('.searchrow')!.appendChild(h)
   }
-  h.textContent = msg ?? ''
+  if (html && msg) h.innerHTML = msg
+  else h.textContent = msg ?? ''
   h.classList.toggle('hidden', !msg)
+}
+
+/** A2: chi scrive "COMET" non sta sbagliando — sta cercando un token per nome. */
+async function searchByName(q: string): Promise<void> {
+  try {
+    const res = await api.tokenSearch(q)
+    const items = (res.items ?? []).slice(0, 8)
+    if (!items.length) { searchHint(L.search_name_hint + L.search_bad); return }
+    const list = items.map(t =>
+      `<a class="sr" href="#/token/${esc(t.id)}"><strong>${esc(t.name?.trim() || L.unnamed)}</strong>
+       <span class="mono dim">${esc(shortId(t.id, 8))}</span></a>`).join('')
+    searchHint(`<div class="sr-head">${esc(L.search_results)}</div>${list}`, true)
+  } catch {
+    searchHint(L.search_bad)
+  }
 }
 
 const form = document.getElementById('searchForm') as HTMLFormElement
@@ -97,10 +142,9 @@ form.addEventListener('submit', async ev => {
     try { await api.tx(q); location.hash = '#/tx/' + q }
     catch { location.hash = '#/token/' + q }
   } else if (kind === 'height') {
-    searchHint("La pagina del blocco per altezza non c'è ancora: nel frattempo la trovi tra gli Ultimi blocchi della pagina Rete.")
-    return
+    location.hash = '#/block/' + q
   } else {
-    searchHint('Non sembra un indirizzo (inizia con 9, ~51 caratteri) né un id di transazione o token (64 caratteri esadecimali).')
+    await searchByName(q)
     return
   }
   searchHint(null)
@@ -108,15 +152,46 @@ form.addEventListener('submit', async ev => {
 })
 document.addEventListener('keydown', e => {
   if (e.key === '/' && document.activeElement !== input) { e.preventDefault(); input.focus() }
+  if (e.key === 'Escape') searchHint(null)
 })
 
-/* ----- pulsanti copia e paginazione (deleghe globali) ----- */
+/* ----- deleghe globali: copia, holders, filtri, immagini, retry ----- */
 document.addEventListener('click', e => {
   const t = e.target as HTMLElement
   const copy = t.closest('[data-copy]') as HTMLElement | null
-  if (copy) { navigator.clipboard?.writeText(copy.dataset.copy ?? ''); copy.textContent = 'copiato ✓'; setTimeout(() => (copy.textContent = 'copia'), 1200) }
+  if (copy) {
+    navigator.clipboard?.writeText(copy.dataset.copy ?? '')
+    const prev = copy.textContent
+    copy.textContent = L.copied
+    setTimeout(() => (copy.textContent = prev), 1200)
+  }
   const hold = t.closest('[data-holders]') as HTMLElement | null
   if (hold) void computeHolders(hold.dataset.holders ?? '')
+  const retry = t.closest('[data-retry]') as HTMLElement | null
+  if (retry) void route()
+  const img = t.closest('[data-img]') as HTMLElement | null
+  if (img) {
+    // contenuto di terzi: caricato SOLO adesso, su richiesta esplicita
+    const url = img.dataset.img ?? ''
+    const slot = document.querySelector('[data-img-slot]') as HTMLElement | null
+    if (slot && url.startsWith('https://')) {
+      const el = document.createElement('img')
+      el.src = url
+      el.alt = ''
+      el.loading = 'lazy'
+      el.referrerPolicy = 'no-referrer'
+      el.style.cssText = 'max-width:min(420px,100%);border-radius:10px;display:block'
+      el.onerror = () => { slot.innerHTML = `<span class="dim">${L.img_fail}</span>` }
+      slot.replaceChildren(el)
+    }
+  }
+  const mov = t.closest('[data-mov]') as HTMLElement | null
+  if (mov) {
+    const dir = mov.dataset.mov ?? 'all'
+    document.querySelectorAll<HTMLElement>('[data-mov]').forEach(c => c.setAttribute('aria-pressed', String(c === mov)))
+    document.querySelectorAll<HTMLElement>('tr[data-dir]').forEach(r =>
+      r.classList.toggle('hidden', dir !== 'all' && r.dataset.dir !== dir))
+  }
   const tog = t.closest('[data-toggle-tokens]') as HTMLElement | null
   if (tog) {
     const rows = document.querySelectorAll('.tok-extra')
@@ -124,7 +199,7 @@ document.addEventListener('click', e => {
     const opening = !!first && first.classList.contains('hidden')
     rows.forEach(r => r.classList.toggle('hidden', !opening))
     const label = tog.querySelector('span[data-label]') as HTMLElement | null
-    if (label) label.textContent = opening ? 'comprimi la lista' : (tog.dataset.full ?? 'mostra tutti i token')
+    if (label) label.textContent = opening ? L.collapse : (tog.dataset.full ?? '')
   }
   const sc = t.closest('[data-scroll]') as HTMLElement | null
   if (sc) { e.preventDefault(); document.querySelector(sc.getAttribute('href') ?? '')?.scrollIntoView({ behavior: 'smooth' }) }

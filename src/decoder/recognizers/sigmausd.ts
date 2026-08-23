@@ -2,6 +2,7 @@ import type { Tx } from '../../api/types'
 import type { Recognizer, Decoded } from '../types'
 import { SIGMAUSD } from '../protocols'
 import { formatErg, formatTokenAmount, shortId } from '../../lib/format'
+import { L } from '../../i18n'
 
 /**
  * SigmaUSD (AgeUSD) — mint e riscatto di SigUSD/SigRSV contro la riserva.
@@ -39,13 +40,13 @@ export const sigmaUsd: Recognizer = {
     if (dUsd !== 0n) {
       const amt = formatTokenAmount(abs(dUsd), SIGMAUSD.sigUsdDecimals) + ' SigUSD'
       headline = dUsd < 0n
-        ? `SigmaUSD: mint di ${amt} contro ${formatErg(abs(dErg), 2)} di riserva`
-        : `SigmaUSD: riscatto di ${amt} per ${formatErg(abs(dErg), 2)}`
+        ? L.dec_mint(amt, formatErg(abs(dErg), 2))
+        : L.dec_redeem_usd(amt, formatErg(abs(dErg), 2))
     } else if (dRsv !== 0n) {
       const amt = formatTokenAmount(abs(dRsv), 0) + ' SigRSV'
       headline = dRsv < 0n
-        ? `SigmaUSD: mint di ${amt} (quota di riserva) contro ${formatErg(abs(dErg), 2)}`
-        : `SigmaUSD: riscatto di ${amt} per ${formatErg(abs(dErg), 2)}`
+        ? L.dec_mint_rsv(amt, formatErg(abs(dErg), 2))
+        : L.dec_redeem_rsv(amt, formatErg(abs(dErg), 2))
     }
     if (!headline) return null // la banca è passata di mano senza emettere né ritirare: non è un'operazione utente
 

@@ -61,6 +61,15 @@ src/
       dichiarato come tale (prezzo di mercato, non oracolo), fondi hot wallet Rosen
 - [x] **Fase 3.1**: oracolo ERG/USD letto dal box in catena (NFT derivato dai dataInput
       di una tx reale della banca): tasso ufficiale accanto a quello di mercato
+- [x] **Pacchetto pre-lancio**: bilingue IT/EN (`src/i18n.ts`, italiano lingua sorgente e
+      inglese tipato su di esso: una chiave mancante non compila; separatori numerici e
+      tempi relativi seguono la lingua) · ricerca token per nome con risultati in linea ·
+      pagina del blocco (`#/block/altezza-o-id`, navigazione ‹ › tra blocchi) · filtri
+      Ricevuti/Inviati sui movimenti (dichiarati: valgono sulla pagina corrente) ·
+      avviso storage rent (unicità di Ergo: box fermi da 4 anni; controllo dichiarato
+      sui primi 300 box) · immagine EIP-4 dal box di conio, caricata SOLO su richiesta
+      esplicita (R7=0101, R9→URL, solo https; ipfs→gateway) · riprova negli errori ·
+      tabelle scorrevoli su mobile
 - [ ] **Lancio**: post a forum/Telegram con tre link e la domanda "lo usereste, per cosa?"
 
 ## Palette

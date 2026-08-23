@@ -1,6 +1,7 @@
 import type { Tx, BoxLike } from '../../api/types'
 import type { Recognizer, Decoded } from '../types'
 import { formatErg, shortId } from '../../lib/format'
+import { L } from '../../i18n'
 
 /** Indirizzo del contratto fee del protocollo (mainnet). */
 export const FEE_ADDRESS =
@@ -35,10 +36,9 @@ export const simpleTransfer: Recognizer = {
 
     return {
       kind: 'transfer',
-      headline:
-        `Trasferimento: ${shortId(from, 8)} → ` +
-        (recipients.length === 1 ? shortId(to, 8) : `${recipients.length} destinatari`) +
-        `, ${formatErg(total)}`,
+      headline: recipients.length === 1
+        ? L.dec_transfer(shortId(from, 8), shortId(to, 8), formatErg(total))
+        : L.dec_transfer_n(shortId(from, 8), recipients.length, formatErg(total)),
       from, to,
       confidence: 'certa',
     }
