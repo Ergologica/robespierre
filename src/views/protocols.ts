@@ -1,10 +1,11 @@
-import { api, ergPrice } from '../api/explorer'
+import { api, ergPrice, protocolsLog } from '../api/explorer'
+import type { ProtocolPoint } from '../api/explorer'
 import { SIGMAUSD, ROSEN, ORACLE } from '../decoder/protocols'
 import { decode } from '../decoder/index'
 import { esc } from './html'
 import { formatErg, formatTokenAmount, formatPct, groupThousands, relativeTime, shortId } from '../lib/format'
 import { L } from '../i18n'
-import { meter } from '../charts'
+import { meter, sparkline } from '../charts'
 import { icons } from '../icons'
 import type { Tx } from '../api/types'
 
@@ -74,13 +75,14 @@ async function lastBankOp(): Promise<{ tx: Tx; headline: string } | null> {
 
 export async function protocolsView(): Promise<string> {
   document.title = L.nav_protocols + ' · Robespierre'
-  const [bank, oracle, rosen, price, usdTok, rsvTok, lastOp] = await Promise.all([
+  const [bank, oracle, rosen, price, usdTok, rsvTok, lastOp, log] = await Promise.all([
     fetchBoxByNft(SIGMAUSD.bankNft, SIGMAUSD.bankAddress),
     fetchBoxByNft(ORACLE.ergUsdNft),
     api.addressBalance(ROSEN.hotWallet), ergPrice(),
     api.token(SIGMAUSD.sigUsd), api.token(SIGMAUSD.sigRsv),
-    lastBankOp(),
+    lastBankOp(), protocolsLog(),
   ])
+  sparkPoints = (log ?? []).filter(p => p.ratioOracle != null || p.ratioMarket != null)
 
   let sigmaSection: string
   if (bank && usdTok?.emissionAmount != null && rsvTok?.emissionAmount != null) {
@@ -109,14 +111,14 @@ export async function protocolsView(): Promise<string> {
         <div class="s">${price ? '≈ ' + groupThousands(String(Math.round(Number(stats.reserveErg / 1_000_000n) / 1000 * price.usd))) + ' $' : ''}</div></div>
       <div><div class="k">${L.circ_sig}</div><div class="v">${formatTokenAmount(stats.circUsdUnits, 2)}</div>
         <div class="s">${L.circ_sig_s}</div></div>
-      <div><div class="k">${L.ratio_oracle}</div>
-        <div class="v">${oracleRatio != null ? oracleRatio.toFixed(0) + '%' : '—'}</div>
-        <div class="s">${L.ratio_oracle_s}${oracleErgUsd ? ` · ${L.oracle_rate} ${formatPct(oracleErgUsd, 3)} $` : ''}</div></div>
       <div><div class="k">${L.ratio_market}</div>
         <div class="v">${stats.reserveRatioPct != null ? stats.reserveRatioPct.toFixed(0) + '%' : '—'}</div>
         <div class="s">${L.ratio_market_s}</div></div>
     </div>
     <div class="chart-wrap" data-ratio></div>
+    ${oracleErgUsd ? `<div class="card-pad t-note dim" style="padding-top:0">${L.ratio_oracle_s} · ${L.oracle_rate} ${formatPct(oracleErgUsd, 3)} $</div>` : ''}
+    ${sparkPoints.length >= 2 ? `<div class="chart-wrap" data-spark></div>
+    <div class="note">${esc(L.spark_note(sparkPoints[0]!.at.slice(0, 10), sparkPoints.length))}</div>` : ''}
     ${state ? `<div class="card-pad" style="padding-top:0"><div class="check"><span class="sig ${state.sig}">${state.sig === 'ok' ? '✓' : state.sig === 'warn' ? '⚠' : '·'}</span><span>${esc(state.text)}</span></div></div>` : ''}
     ${lastOp ? `<div class="card-pad" style="padding-top:0"><div class="check"><span class="sig info">·</span>
       <span>${L.last_op} <a href="#/tx/${esc(lastOp.tx.id)}">${esc(lastOp.headline)}</a>
@@ -133,7 +135,7 @@ export async function protocolsView(): Promise<string> {
     .slice(0, 8)
   const rosenList = rosenTokens.map(t =>
     `<div class="arow"><span><a href="#/token/${esc(t.tokenId)}">${esc(t.name?.trim() || shortId(t.tokenId, 8))}</a></span>
-     <span>${formatTokenAmount(BigInt(t.amount), t.decimals ?? 0)}</span></div>`).join('')
+     <span>${formatTokenAmount(BigInt(t.amount), t.decimals ?? 0, 2)}</span></div>`).join('')
 
   return `
   <div class="card">
@@ -149,15 +151,26 @@ export async function protocolsView(): Promise<string> {
         <div class="s">${price ? '≈ ' + groupThousands(String(Math.round(Number(rosenErg / 1_000_000n) / 1000 * price.usd))) + ' $' : ''}</div></div>
       <div><div class="k">${L.held_tokens}</div><div class="v">${rosen.tokens?.length ?? 0} ${L.kind_many}</div>
         <div class="s">${L.in_transit}</div></div>
-      <div style="grid-column:span 2"><div class="k">${L.address_k} · <a href="#/address/${esc(ROSEN.hotWallet)}">${L.open_page}</a></div>
-        <div class="s mono" style="margin-top:6px;word-break:break-all">${ROSEN.hotWallet.slice(0, 60)}…</div></div>
     </div>
-    ${rosenList ? `<div class="card-pad" style="padding-top:6px"><div class="k" style="margin-bottom:6px">${L.biggest}</div>${rosenList}</div>` : ''}
+    <div class="card-pad addr-row" style="padding-bottom:0">
+      <span class="k">${L.address_k}</span>
+      <span class="mono dim t-note">${esc(shortId(ROSEN.hotWallet, 16, 10))}</span>
+      <a class="btn-link" href="#/address/${esc(ROSEN.hotWallet)}">${L.open_page}</a>
+      <button class="copy" data-copy="${esc(ROSEN.hotWallet)}">${L.copy}</button>
+    </div>
+    ${rosenList ? `<div class="card-pad"><div class="k" style="margin-bottom:var(--sp-2)">${L.biggest}</div>${rosenList}</div>` : ''}
   </div>
   <div class="warnbox">${L.proto_warn}</div>`
 }
 
+let sparkPoints: ProtocolPoint[] = []
+
 export function mountProtocolCharts(): void {
+  const sHost = document.querySelector('[data-spark]') as HTMLElement | null
+  if (sHost && sparkPoints.length >= 2) {
+    sparkline(sHost, sparkPoints.map(p => ({ t: Date.parse(p.at), v: (p.ratioOracle ?? p.ratioMarket)! })),
+      { label: L.spark_h, unit: '%', band: [400, 800] })
+  }
   const host = document.querySelector('[data-ratio]') as HTMLElement | null
   const ratio = (globalThis as Record<string, unknown>).__protoRatio as number | null
   if (!host || ratio == null) return

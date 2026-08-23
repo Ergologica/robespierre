@@ -28,13 +28,24 @@ export function formatErg(nano: bigint | string | number, maxDecimals = 4): stri
   return sign + wholeStr + (fracStr ? DEC + fracStr : '') + ' ERG'
 }
 
-/** Importo grezzo di un token con i suoi decimali → stringa leggibile. */
-export function formatTokenAmount(raw: bigint | string | number, decimals: number): string {
-  const n = typeof raw === 'bigint' ? raw : BigInt(raw)
-  if (decimals === 0) return groupThousands(n.toString())
-  const base = 10n ** BigInt(decimals)
+/** Importo grezzo di un token con i suoi decimali → stringa leggibile.
+ *  `maxDecimals` taglia la coda nelle LISTE di riepilogo (arrotondando, non
+ *  troncando): «1.030.446.883,81097088» in un elenco non si legge. */
+export function formatTokenAmount(raw: bigint | string | number, decimals: number, maxDecimals?: number): string {
+  let n = typeof raw === 'bigint' ? raw : BigInt(raw)
+  let dec = decimals
+  if (maxDecimals != null && decimals > maxDecimals) {
+    const scale = 10n ** BigInt(decimals - maxDecimals)
+    const neg = n < 0n
+    const abs = neg ? -n : n
+    n = (abs + scale / 2n) / scale        // arrotonda a metà in su, in BigInt
+    if (neg) n = -n
+    dec = maxDecimals
+  }
+  if (dec === 0) return groupThousands(n.toString())
+  const base = 10n ** BigInt(dec)
   const whole = n / base
-  const frac = (n % base).toString().padStart(decimals, '0').replace(/0+$/, '')
+  const frac = (n % base).toString().padStart(dec, '0').replace(/0+$/, '')
   return groupThousands(whole.toString()) + (frac ? DEC + frac : '')
 }
 

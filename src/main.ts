@@ -4,13 +4,17 @@ import { netView, mountNetCharts } from './views/net'
 import { networkStats } from './api/explorer'
 import { txView, mountTxSchema } from './views/tx'
 import { addressView, mountWalletChart, mountRentCheck } from './views/address'
-import { tokenView, computeHolders, mountHoldersIfCached } from './views/token'
+import { tokenView, computeHolders, mountHoldersIfCached, mountPrecomputedHolders } from './views/token'
+import { marketsView } from './views/markets'
+import { tokensDirView } from './views/tokens-dir'
+import { exportAddressCsv } from './views/address'
 import { protocolsView, mountProtocolCharts } from './views/protocols'
 import { blockView } from './views/block'
 import { api } from './api/explorer'
 import { classifyQuery, shortId } from './lib/format'
 import { esc } from './views/html'
 import { L, initLang, setLang, getLang } from './i18n'
+import { newNav, isCurrent, currentNav } from './lib/nav'
 
 const app = document.getElementById('app') as HTMLElement
 
@@ -66,37 +70,60 @@ document.getElementById('themeBtn')!.addEventListener('click', () => {
 
 /* ----- router hash: URL condivisibili senza configurazione server ----- */
 async function route() {
+  const gen = newNav()                       // questa navigazione ha un numero…
+  const show = (html: string) => {           // …e nessuno scrive se non è più la sua
+    if (isCurrent(gen)) app.innerHTML = html
+    return isCurrent(gen)
+  }
   const hash = location.hash.replace(/^#\/?/, '')
   const [head, a, b] = hash.split('/')
-  app.innerHTML = `<div class="loading">${L.loading}</div>`
+  show(`<div class="loading">${L.loading}</div>`)
   try {
     if (!head) {
       document.title = 'Robespierre — ' + L.tagline
-      app.innerHTML = await netView()
+      if (!show(await netView())) return
       const st = await networkStats()
-      if (st) mountNetCharts(BigInt(Math.round(st.supply)))
+      if (st && isCurrent(gen)) mountNetCharts(BigInt(Math.round(st.supply)))
     }
     else if (head === 'tx' && a) {
-      app.innerHTML = await txView(a)
-      mountTxSchema(await api.tx(a))   // già in cache: nessuna seconda chiamata
+      if (!show(await txView(a))) return
+      const tx = await api.tx(a)             // già in cache: nessuna seconda chiamata
+      if (isCurrent(gen)) mountTxSchema(tx)
     }
     else if (head === 'address' && a) {
-      app.innerHTML = await addressView(a, b ? parseInt(b, 10) || 0 : 0)
+      if (!show(await addressView(a, b ? parseInt(b, 10) || 0 : 0))) return
       mountWalletChart()
-      void mountRentCheck(a)
+      void mountRentCheck(a, gen)
     }
-    else if (head === 'token' && a) { app.innerHTML = await tokenView(a); mountHoldersIfCached(a) }
-    else if (head === 'block' && a) { app.innerHTML = await blockView(a) }
-    else if (head === 'protocolli') { app.innerHTML = await protocolsView(); mountProtocolCharts() }
-    else app.innerHTML = `<div class="errorbox"><h2>${L.notfound_title}</h2>
-      <p class="muted"><span class="mono">${esc(hash)}</span></p></div>`
+    else if (head === 'token' && a) {
+      if (!show(await tokenView(a))) return
+      if (!mountHoldersIfCached(a)) void mountPrecomputedHolders(a, gen)
+    }
+    else if (head === 'mercati') { if (!show(await marketsView())) return }
+    else if (head === 'tokens') { if (!show(await tokensDirView(a ? parseInt(a, 10) || 0 : 0))) return }
+    else if (head === 'block' && a) { if (!show(await blockView(a))) return }
+    else if (head === 'protocolli') { if (!show(await protocolsView())) return; mountProtocolCharts() }
+    else show(`<div class="errorbox"><h2>${L.notfound_title}</h2>
+      <p class="muted"><span class="mono">${esc(hash)}</span></p></div>`)
   } catch (e) {
+    if (!isCurrent(gen)) return              // errore di una pagina abbandonata: non disturba
     app.innerHTML = `<div class="errorbox"><h2>${L.err_title}</h2>
       <p class="muted">${esc(e instanceof Error ? e.message : String(e))}</p>
       <p class="dim">${L.err_hint}</p>
       <p><button class="btn" data-retry type="button">${icons.net}${L.retry}</button></p></div>`
   }
-  applyMode()
+  if (isCurrent(gen)) { applyMode(); markCurrentNav(head ?? "") }
+}
+
+/** La voce di navigazione della sezione aperta si distingue: prima nulla diceva
+ *  in che parte del sito ci si trovasse. */
+function markCurrentNav(head: string): void {
+  const target = head === '' ? '#/' : head === 'mercati' ? '#/mercati'
+    : head === 'tokens' ? '#/tokens' : head === 'protocolli' ? '#/protocolli' : null
+  document.querySelectorAll<HTMLAnchorElement>('.topnav a').forEach(a => {
+    if (target && a.getAttribute('href') === target) a.setAttribute('aria-current', 'page')
+    else a.removeAttribute('aria-current')
+  })
 }
 window.addEventListener('hashchange', () => { searchHint(null); void route() })
 
@@ -166,9 +193,11 @@ document.addEventListener('click', e => {
     setTimeout(() => (copy.textContent = prev), 1200)
   }
   const hold = t.closest('[data-holders]') as HTMLElement | null
-  if (hold) void computeHolders(hold.dataset.holders ?? '')
+  if (hold) void computeHolders(hold.dataset.holders ?? '', currentNav())
   const retry = t.closest('[data-retry]') as HTMLElement | null
   if (retry) void route()
+  const exp = t.closest('[data-export]') as HTMLElement | null
+  if (exp) void exportAddressCsv(exp.dataset.export ?? '')
   const img = t.closest('[data-img]') as HTMLElement | null
   if (img) {
     // contenuto di terzi: caricato SOLO adesso, su richiesta esplicita

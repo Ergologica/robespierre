@@ -42,3 +42,36 @@ describe('classifyQuery', () => {
 describe('relativeTime', () => {
   it('minuti', () => { expect(relativeTime(0, 3 * 60_000)).toBe('3 min fa') })
 })
+
+import { newNav, isCurrent, currentNav } from './nav'
+describe('guardia di navigazione', () => {
+  it('solo l\'ultima navigazione può scrivere nel DOM', () => {
+    const primaPagina = newNav()
+    expect(isCurrent(primaPagina)).toBe(true)
+    const secondaPagina = newNav()          // l'utente cambia pagina
+    expect(isCurrent(primaPagina)).toBe(false)   // la prima ora tace
+    expect(isCurrent(secondaPagina)).toBe(true)
+    expect(currentNav()).toBe(secondaPagina)
+  })
+  it('un click parte dalla navigazione corrente e resta valido finché non si cambia', () => {
+    const pagina = newNav()
+    const click = currentNav()
+    expect(isCurrent(click)).toBe(true)
+    expect(click).toBe(pagina)
+    newNav()
+    expect(isCurrent(click)).toBe(false)
+  })
+})
+
+describe('importi dei token — tetto ai decimali nelle liste', () => {
+  it('arrotonda (non tronca) alla cifra richiesta', () => {
+    // 1.030.446.883,81097088 con 8 decimali → due decimali
+    expect(formatTokenAmount(103044688381097088n, 8, 2)).toBe('1.030.446.883,81')
+    expect(formatTokenAmount(199n, 2, 1)).toBe('2')          // 1,99 → 2,0 → zeri finali via
+    expect(formatTokenAmount(-199n, 2, 1)).toBe('-2')
+  })
+  it('senza tetto, o con tetto più alto dei decimali, non cambia nulla', () => {
+    expect(formatTokenAmount(103044688381097088n, 8)).toBe('1.030.446.883,81097088')
+    expect(formatTokenAmount(12345n, 2, 8)).toBe('123,45')
+  })
+})

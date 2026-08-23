@@ -5,7 +5,7 @@ import { meter } from '../charts'
 import { L } from '../i18n'
 
 const MAX_SUPPLY = 97_739_924n * 1_000_000_000n
-const FEE_HEAD = '2iHkR7CWvD1R' // prefisso dell'indirizzo fee, per il calcolo della commissione in mempool
+import { FEE_ADDRESS } from '../decoder/recognizers/simple-transfer'
 
 export function mountNetCharts(supplyNano: bigint): void {
   const host = document.querySelector('[data-supply]') as HTMLElement | null
@@ -40,7 +40,7 @@ export async function netView(): Promise<string> {
   }).join('')
 
   const mrows = (memp?.items ?? []).map(t => {
-    const fee = t.outputs.filter(o => o.address?.startsWith(FEE_HEAD)).reduce((s, o) => s + BigInt(o.value), 0n)
+    const fee = t.outputs.filter(o => o.address === FEE_ADDRESS).reduce((s, o) => s + BigInt(o.value), 0n)
     const perByte = t.size ? Number(fee) / t.size : 0
     return `<tr>
       <td class="mono"><a href="#/tx/${esc(t.id)}" title="${L.mempool_tip}">${esc(shortId(t.id, 8))}</a></td>

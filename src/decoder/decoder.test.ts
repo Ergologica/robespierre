@@ -298,3 +298,134 @@ describe('movimenti — variazione token per indirizzo', () => {
     expect(tokenDeltas(swapBuy as unknown as Tx, '9xNessuno')).toHaveLength(0)
   })
 })
+
+import { fmtPrice } from '../views/markets'
+import { buildPrices, THIN_POOL_ERG } from '../lib/prices'
+describe('prezzi — fonte unica per mercati e wallet', () => {
+  const ERG0 = '0'.repeat(64)
+  const mk = (q: string, sym: string, lastPrice: number, vol: number) =>
+    ({ baseId: ERG0, quoteId: q, quoteSymbol: sym, lastPrice, baseVolume: { value: vol } })
+  it('sceglie il pool col volume storico maggiore e usa il prezzo fresco delle 24h', () => {
+    const p = buildPrices([
+      mk('aa', 'SigUSD', 4, 100e9),      // pool piccolo: scartato
+      mk('aa', 'SigUSD', 5, 900e9),      // pool grande: vince
+      { baseId: 'cc', quoteId: 'dd', lastPrice: 3, baseVolume: { value: 1e15 } }, // non-ERG: fuori
+    ], new Map([['aa', { volNano: 42e9, lastPrice: 8 }]]))
+    const sig = p.get('aa')!
+    expect(sig.ergPerToken).toBeCloseTo(1 / 8, 12)   // prezzo FRESCO, non 1/5
+    expect(sig.fresh).toBe(true)
+    expect(sig.vol24Erg).toBeCloseTo(42, 6)
+    expect(sig.volCumErg).toBeCloseTo(900, 6)
+    expect(p.has('dd')).toBe(false)
+  })
+  it('senza scambi nelle 24h il prezzo è quello storico e NON è dichiarato fresco', () => {
+    const p = buildPrices([mk('aa', 'X', 4, 500e9)], new Map())
+    expect(p.get('aa')!.fresh).toBe(false)
+    expect(p.get('aa')!.ergPerToken).toBeCloseTo(0.25, 12)
+  })
+  it('marca i pool sottili: la soglia è dichiarata, non nascosta', () => {
+    const p = buildPrices([mk('a', 'GROSSO', 2, (THIN_POOL_ERG + 1) * 1e9), mk('b', 'PICCOLO', 2, 1e9)], new Map())
+    expect(p.get('a')!.thin).toBe(false)
+    expect(p.get('b')!.thin).toBe(true)
+  })
+  it('conta gli omonimi: il caso RSN visto vivo sui mercati il 23/08/2026', () => {
+    const p = buildPrices([
+      mk('vero', 'RSN', 30, 2_400_000e9),   // l'originale
+      mk('finto', 'rsn', 30, 2e9),          // l'imitazione, maiuscole diverse
+      mk('solo', 'NETA', 1, 5e9),
+    ], new Map())
+    expect(p.get('vero')!.sharedName).toBe(1)
+    expect(p.get('finto')!.sharedName).toBe(1)   // entrambi marcati: chi è l'originale non lo decide un explorer
+    expect(p.get('solo')!.sharedName).toBe(0)
+  })
+})
+
+describe('formato dei prezzi', () => {
+  it('mai uno zero che sarebbe una bugia: sotto la soglia dice «meno di»', () => {
+    expect(fmtPrice(1.234e-15)).toBe('< 0,000000001')   // BBC, vivo sui mercati
+    expect(fmtPrice(5.07e-12)).toBe('< 0,000000001')
+    expect(fmtPrice(0)).toBe('0')                        // zero vero: zero
+  })
+  it('cifre sensate secondo la grandezza, zeri finali via, mai notazione scientifica', () => {
+    expect(fmtPrice(0.269528)).toBe('0,269528')
+    expect(fmtPrice(1234.5)).toBe('1234,5')
+    expect(fmtPrice(0.000001234)).toBe('0,000001234')
+    expect(fmtPrice(2)).toBe('2')
+    expect(fmtPrice(3.5e-7)).not.toContain('e')
+  })
+})
+
+import { buildAddressCsv } from '../views/address'
+import type { CsvRow } from '../views/address'
+describe('export CSV — costruzione pura', () => {
+  const rows: CsvRow[] = [
+    { dateUtc: '2026-08-20 10:00:00', day: '2026-08-20', txId: 'abc', dirIn: true,
+      who: 'Rosen Bridge', ergNet: 9_950_990_000_000n, tokens: '' },
+    { dateUtc: '2026-08-21 11:00:00', day: '2026-08-21', txId: 'def', dirIn: false,
+      who: '9h5K"strano"', ergNet: -1_600_000_000_000n, tokens: '+62 DORT | -1 COMET' },
+    { dateUtc: '2020-01-01 00:00:00', day: '2020-01-01', txId: 'old', dirIn: true,
+      who: '', ergNet: 1_000_000_000n, tokens: '' },
+  ]
+  const prices = new Map([['2026-08-20', 0.25], ['2026-08-21', 0.3]])
+  it('it: separatore ; virgola decimale, virgolette raddoppiate, prezzo mancante = cella vuota', () => {
+    const csv = buildAddressCsv(rows, prices, 'it', 3)
+    const lines = csv.split('\r\n')
+    expect(lines[2]).toContain('9950,99')            // ERG con virgola
+    expect(lines[2]).toContain('2487,75')            // 9950,99 × 0,25
+    expect(lines[3]).toContain('"9h5K""strano"""')   // quoting CSV corretto
+    expect(lines[4]!.endsWith(';;')).toBe(true)      // 2020: fuori serie → prezzo e valore VUOTI
+    expect(csv).not.toContain('undefined')
+  })
+  it('un nome di token coniato come formula NON diventa una formula in Excel', () => {
+    const evil: CsvRow[] = [{ dateUtc: '2026-08-23 00:00:00', day: '2026-08-23', txId: 'x', dirIn: true,
+      who: '=HYPERLINK("http://male.example","clicca")', ergNet: 1n, tokens: '+1 =CMD|calc!A1 | -2 @SUM(1)' }]
+    const csv = buildAddressCsv(evil, new Map(), 'it', 1)
+    const line = csv.split('\r\n')[2]!
+    expect(line).toContain(' =HYPERLINK')   // spazio davanti: testo, non formula
+    expect(line).toContain('; +1 =CMD')     // anche la colonna token è neutralizzata
+    expect(line.startsWith('2026')).toBe(true)
+  })
+  it('en: separatore virgola e punto decimale; il tetto è dichiarato', () => {
+    const csv = buildAddressCsv(rows.slice(0, 1), prices, 'en', 100)
+    expect(csv.split('\r\n')[2]).toContain('9950.99')
+    expect(csv).toContain('100')                     // nota "1 su 100"
+  })
+})
+
+import { sparkDomain } from '../charts'
+describe('serie storica — la scala la decidono i dati', () => {
+  it('una banda lontana NON schiaccia i dati (il caso 243–257% con banda 400–800)', () => {
+    const d = sparkDomain([243, 250, 257], [400, 800])
+    expect(d.y1).toBeLessThan(300)          // il grafico resta sui dati…
+    expect(d.y0).toBeGreaterThan(230)
+    expect(d.bandVisible).toBeNull()        // …e la banda semplicemente non si disegna
+  })
+  it('una banda dentro la scala si disegna, tagliata alla parte visibile', () => {
+    const d = sparkDomain([380, 420, 450], [400, 800])
+    expect(d.bandVisible).not.toBeNull()
+    expect(d.bandVisible![0]).toBe(400)                 // parte dal minimo…
+    expect(d.bandVisible![1]).toBeLessThanOrEqual(d.y1) // …e non esce dalla scala
+  })
+  it('serie piatta: la scala si apre lo stesso, niente divisione per zero', () => {
+    const d = sparkDomain([250, 250, 250])
+    expect(d.y1).toBeGreaterThan(d.y0)
+    expect(Number.isFinite(d.y0) && Number.isFinite(d.y1)).toBe(true)
+  })
+})
+
+import { niceScale } from '../charts'
+describe('scale dei grafici — tacche leggibili', () => {
+  it('arrotonda a passi 1·2·5 invece di dividere il massimo in cinque', () => {
+    expect(niceScale(48.9)).toEqual({ max: 50, step: 10 })   // prima: 0·10·21·31·41·51
+    expect(niceScale(7)).toEqual({ max: 8, step: 2 })      // 0·2·4·6·8
+    expect(niceScale(230)).toEqual({ max: 250, step: 50 })
+    expect(niceScale(0.42)).toEqual({ max: 0.5, step: 0.1 })
+  })
+  it('il massimo arrotondato non taglia mai il dato più grande', () => {
+    for (const v of [1, 3.3, 17, 99, 101, 4321]) expect(niceScale(v).max).toBeGreaterThanOrEqual(v)
+  })
+  it('zero o valori assurdi non rompono la scala', () => {
+    expect(niceScale(0).max).toBe(1)
+    expect(niceScale(-5).max).toBe(1)
+  })
+})

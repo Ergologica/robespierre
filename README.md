@@ -4,7 +4,7 @@ Front-end per la blockchain **Ergo**. Gli altri explorer elencano dati; Robespie
 Il nome viene dal soprannome storico — *l'Incorruttibile* — che è anche la regola del progetto:
 il decodificatore **tace piuttosto che indovinare**, e ogni etichetta cita una fonte.
 
-Prototipo in Fase 1 del piano operativo (vedi il progetto "Ergo" su claude.ai).
+Prototipo con Fasi 0–3.1 complete più il pacchetto pre-lancio (piano operativo nel progetto "Ergo" su claude.ai). Sito: https://ergologica.github.io/robespierre/
 
 ## Avvio
 
@@ -42,6 +42,14 @@ src/
    sbagliato — l'ha scoperto la fixture, non un occhio umano.)
 5. **Etichette**: fonte pubblica citata; indirizzi personali con nomi di persona, mai.
 6. Ogni dato precalcolato mostra la propria età ("aggiornato N ore fa").
+7. **Una scrittura asincrona nel DOM deve dimostrare di essere ancora la pagina
+   corrente** (`lib/nav.ts`). Trovato riproducendo il difetto: con l'URL su
+   `#/token/B` si vedeva il contenuto di A, e i dati notturni di A comparivano
+   sotto la pagella di B. Mostrare il dato di un altro con sicurezza è il
+   peggiore dei difetti per un explorer che promette di non indovinare.
+8. **Un solo prezzo per token in tutto il sito** (`lib/prices.ts`): prima Mercati
+   e wallet ne mostravano due diversi. E ogni prezzo dichiara da dove viene:
+   pool sottile (< 100 ERG di volume storico) e nome condiviso con altri token.
 
 ## Stato — Fase 0 e 1
 
@@ -70,7 +78,49 @@ src/
       sui primi 300 box) · immagine EIP-4 dal box di conio, caricata SOLO su richiesta
       esplicita (R7=0101, R9→URL, solo https; ipfs→gateway) · riprova negli errori ·
       tabelle scorrevoli su mobile
+- [x] **Movimenti interpretati (v5)**: ogni riga mostra la cosa più grande che si è mossa
+      (token col nome quando l'ERG è ~0), tag di protocollo al posto dell'indirizzo del contratto
+- [x] **Mercati + lista token + F4 (v6)**: #/mercati (prezzi Spectrum col volume 24h reale,
+      ERG da CoinGecko), #/tokens (tutti i token, paginati), prezzo/valore nel wallet,
+      export CSV con controvalore alla data (tetto e approssimazioni dichiarati nel file),
+      job dati (holders notturno, protocolli ogni 6h) letti da raw.githubusercontent
+- [x] **Valore totale del wallet**: ERG + token con prezzo, in $ — con i token
+      senza prezzo dichiarati ed ESCLUSI dalla somma (non valgono zero: non si sanno)
 - [ ] **Lancio**: post a forum/Telegram con tre link e la domanda "lo usereste, per cosa?"
+
+## Sistema visivo
+
+**Caratteri.** IBM Plex Sans (variabile) e IBM Plex Mono, ospitati in `src/fonts/`
+— nessuna richiesta a terzi, coerente con la promessa "nessun tracciamento".
+Plex perché metà di questo sito sono indirizzi e hash: il mono è disegnato
+insieme al sans, non accostato a caso. Con `system-ui` il peso 650 usato prima
+era una scommessa diversa su ogni sistema operativo.
+
+**Scala tipografica — sette gradini** (`--fs-display` 28 · `--fs-xl` 22 ·
+`--fs-lg` 17 · `--fs-md` 15 · `--fs-sm` 13 · `--fs-xs` 12 · `--fs-2xs` 11).
+Prima erano quattordici misure decise una alla volta, coi mezzi pixel
+(12,5 · 13,5 · 15,5 · 16,5): non una scala, un mucchio. **Tre pesi** invece di
+cinque. **Spazi su base 4** (`--sp-1`…`--sp-6`) invece di quattordici valori
+a occhio. Nessuna misura di carattere vive più dentro un `style=` nelle viste:
+i ruoli hanno un nome (`.t-title`, `.t-sub`, `.t-note`, `.t-cap`, `.t-micro`).
+
+**Una sola lingua di etichette**: le etichette delle tessere e le intestazioni
+di tabella usano lo stesso trattamento (maiuscoletto 11 px, spaziatura .075em,
+colore terziario). **Cifre tabellari ovunque** (`tabular-nums`): in un explorer
+le colonne di importi devono incolonnarsi davvero.
+
+**Impaginazione.** Corpo a colonna piena: il piè di pagina resta in fondo anche
+sulle pagine corte (prima restavano 227 px di vuoto sotto). Stacco fra schede
+(24 px) ≥ padding interno, mai il contrario. I grafici si **ridisegnano** alla
+larghezza della scheda invece di essere stirati: stirare un SVG con viewBox
+ingrandisce anche il testo, e prima metà scheda restava vuota. Le tacche delle
+scale usano passi 1·2·5 (`niceScale`), non il massimo diviso cinque.
+
+**Contrasto verificato**, non dichiarato: ogni ruolo di testo ≥ 4,5:1 sul
+proprio fondo in entrambi i temi. Tre valori sono stati corretti perché non
+passavano — `--text-3` in entrambi i temi e un `--link` più scuro per il testo
+nel tema chiaro (l'accento delle serie resta quello validato per il daltonismo).
+**Fuoco da tastiera** visibile su ogni comando: prima non esisteva alcuno stile.
 
 ## Palette
 

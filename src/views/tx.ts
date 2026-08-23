@@ -128,7 +128,7 @@ export async function txView(id: string): Promise<string> {
       <a class="btn-link" href="https://explorer.ergoplatform.com/en/transactions/${esc(id)}" target="_blank" rel="noopener">${icons.ext}${L.official_explorer}</a></div>
     ${headline}
     <div class="tiles" style="margin-top:14px">
-      <div><div class="k" title="${esc(L.out_total_tip)}" style="cursor:help">${L.out_total} ?</div><div class="v">${formatErg(totalOut)}</div>
+      <div><div class="k"><span class="help" title="${esc(L.out_total_tip)}">${L.out_total}</span></div><div class="v">${formatErg(totalOut)}</div>
         <div class="s">${L.out_total_s}</div></div>
       <div><div class="k">${L.tokens_moved}</div><div class="v">${tokenIds.size} ${tokenIds.size === 1 ? L.kind_one : L.kind_many}</div><div class="s">&nbsp;</div></div>
       <div><div class="k">${L.fee}</div><div class="v">${formatErg(fee)}</div><div class="s">&nbsp;</div></div>
@@ -145,9 +145,9 @@ export async function txView(id: string): Promise<string> {
   <div class="card">
     <details class="adv-open"><summary>${L.box_detail} <span class="count">— ${tx.inputs.length} input, ${tx.outputs.length} output</span><span class="adv">${L.technical}</span></summary>
       <div class="details-body">
-        <h2 style="font-size:14px;margin:6px 0 10px">${L.input}</h2>
+        <h2 class="t-sub" style="margin:var(--sp-2) 0 var(--sp-3)">${L.input}</h2>
         ${tx.inputs.map(b => boxHtml(b, L.spent)).join('')}
-        <h2 style="font-size:14px;margin:16px 0 10px">${L.output}</h2>
+        <h2 class="t-sub" style="margin:var(--sp-5) 0 var(--sp-3)">${L.output}</h2>
         ${tx.outputs.map(b => boxHtml(b, b.spentTransactionId ? L.spent : L.unspent)).join('')}
       </div>
     </details>

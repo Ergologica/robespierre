@@ -6,6 +6,7 @@ import { icons } from '../icons'
 import { L } from '../i18n'
 import type { HBar } from '../charts'
 import type { RegValue } from '../api/types'
+import { isCurrent } from '../lib/nav'
 
 /** Soglie della pagella: dichiarate qui, discutibili via PR come tutto il resto. */
 export const SOGLIE = {
@@ -60,10 +61,12 @@ export async function tokenView(id: string): Promise<string> {
 
   // omonimi: ricerca per nome sull'API — l'unico controllo anti-imitazione possibile senza indice
   let homonyms: number | null = null
+  let homonymsCapped = false
   if (name) {
     try {
-      const s = await api.tokenSearch(name)
+      const s = await api.tokenSearch(name)          // fino a 100 risultati
       homonyms = countHomonyms(s.items ?? [], name, id)
+      homonymsCapped = (s.total ?? 0) > (s.items?.length ?? 0)  // oltre 100: conteggio per difetto
     } catch { /* il controllo resta "non verificabile" */ }
   }
 
@@ -80,7 +83,7 @@ export async function tokenView(id: string): Promise<string> {
       ? { sig: 'info', text: L.homonyms_na }
       : homonyms === 0
         ? { sig: 'ok', text: L.homonyms_zero }
-        : { sig: 'warn', text: L.homonyms_n(homonyms) },
+        : { sig: 'warn', text: homonymsCapped ? L.homonyms_min(homonyms) : L.homonyms_n(homonyms) },
     { sig: 'info', text: L.emission_line(t.emissionAmount != null ? formatTokenAmount(BigInt(t.emissionAmount), t.decimals ?? 0) : '—', t.decimals ?? 0) },
     t.description
       ? { sig: 'info', text: L.desc_unverified }
@@ -90,11 +93,11 @@ export async function tokenView(id: string): Promise<string> {
   return `
   <div class="card">
     <div class="idrow" style="padding-top:18px">
-      <h1>${name ? esc(name) : `<span class="dim">${L.unnamed}</span>`}</h1>
+      <h1 class="t-title">${name ? esc(name) : `<span class="dim">${L.unnamed}</span>`}</h1>
+      <span class="mono dim id-beside">${esc(shortId(id, 10, 6))}</span>
+      <button class="copy" data-copy="${esc(id)}">${L.copy_id}</button>
       ${t.type ? `<span class="tag">${esc(t.type)}</span>` : ''}
       <span class="grow"></span>
-      <span class="mono dim">${esc(shortId(id, 8))}</span>
-      <button class="copy" data-copy="${esc(id)}">${L.copy_id}</button>
       <a class="btn-link" href="https://explorer.ergoplatform.com/en/token/${esc(id)}" target="_blank" rel="noopener">${icons.ext}${L.official_explorer}</a>
     </div>
     <div class="tiles">
@@ -102,7 +105,7 @@ export async function tokenView(id: string): Promise<string> {
         <div class="v">${t.emissionAmount != null ? formatTokenAmount(BigInt(t.emissionAmount), t.decimals ?? 0) : '—'}</div>
         <div class="s">${t.decimals ?? 0} ${L.decimals}</div></div>
       <div style="grid-column:span 3"><div class="k">${L.token_desc}</div>
-        <div class="s" style="font-size:14px;margin-top:6px">${t.description ? esc(t.description) : `<span class="dim">${L.none_f}</span>`}</div></div>
+        <div class="t-body" style="margin-top:var(--sp-2)">${t.description ? esc(t.description) : `<span class="dim">${L.none_f}</span>`}</div></div>
     </div>
   </div>
   ${imgUrl ? `
@@ -110,16 +113,16 @@ export async function tokenView(id: string): Promise<string> {
     <div class="card-head"><h2>${L.img_h}</h2><p>${L.img_note}</p></div>
     <div class="card-pad" data-img-slot>
       <button class="copy" data-img="${esc(imgUrl)}">${L.img_show}</button>
-      <span class="dim mono" style="font-size:12px;margin-left:8px">${esc(shortId(imgUrl, 34, 12))}</span>
+      <span class="dim mono t-cap" style="margin-left:var(--sp-2)">${esc(shortId(imgUrl, 34, 12))}</span>
     </div>
   </div>` : ''}
   <div class="card">
     <div class="card-head"><h2>${L.card_h}</h2>
       <p>${L.card_p}</p></div>
     <div class="card-pad" style="padding-top:4px">
-      ${checks.map(c => `<div class="check"><span class="sig ${c.sig}">${c.sig === 'ok' ? '✓' : c.sig === 'warn' ? '⚠' : '·'}</span><span>${esc(c.text)}</span></div>`).join('')}
-      <div class="check"><span class="sig info">·</span>
-        <span>${L.holders_line} <button class="copy" data-holders="${esc(id)}">${L.compute_now}</button>
+      ${checks.map(c => `<div class="check check-${c.sig}"><span class="sig ${c.sig}">${c.sig === 'ok' ? '✓' : c.sig === 'warn' ? '⚠' : 'i'}</span><span>${esc(c.text)}</span></div>`).join('')}
+      <div class="check check-info"><span class="sig info">i</span>
+        <span>${L.holders_line} <button class="btn btn-sm" data-holders="${esc(id)}">${L.compute_now}</button>
         <span class="dim">— ${L.holders_note}</span></span></div>
     </div>
     <div class="chart-wrap hidden" data-holders-chart></div>
@@ -156,17 +159,30 @@ export function topHolders(m: Map<string, bigint>, topN: number): { top: HolderS
   return { top, rest, holders: sorted.length, total }
 }
 
-/** Cache di sessione: rifare 68 richieste per rivisitare una pagina è maleducazione. */
-interface HoldersResult { bars: HBar[]; note: string }
+/** Cache di sessione: rifare 68 richieste per rivisitare una pagina è maleducazione.
+ *  Si conservano i DATI, non la frase: così la nota si ricompone nella lingua corrente
+ *  anche se il calcolo è stato fatto prima del cambio IT/EN. */
+interface HoldersResult {
+  bars: HBar[]
+  note: { capped: boolean; read: string; total: string; holders: string; topN: number; topPct: string }
+}
 const holdersCache = new Map<string, HoldersResult>()
+
+function noteText(n: HoldersResult['note']): string {
+  const head = n.capped ? L.holders_partial(n.read, n.total) : L.holders_full(n.total, n.holders)
+  const conc = Number(n.topPct.replace(',', '.')) > SOGLIE.topHolderWarnPct
+    ? L.holders_top_warn(n.topN, n.topPct, SOGLIE.topHolderWarnPct)
+    : L.holders_top(n.topN, n.topPct)
+  return head + conc
+}
 
 function renderHolders(r: HoldersResult): void {
   const chartHost = document.querySelector('[data-holders-chart]') as HTMLElement | null
   const note = document.querySelector('[data-holders-note]') as HTMLElement | null
   if (!chartHost || !note) return
+  chartHost.classList.remove('hidden')   // prima di disegnare: da nascosto il contenitore misura 0
   hbars(chartHost, r.bars)
-  chartHost.classList.remove('hidden')
-  note.textContent = r.note
+  note.textContent = noteText(r.note)
   note.classList.remove('hidden')
 }
 
@@ -180,8 +196,9 @@ export function mountHoldersIfCached(tokenId: string): boolean {
   return true
 }
 
-export async function computeHolders(tokenId: string): Promise<void> {
-  try { await computeHoldersInner(tokenId) } catch {
+export async function computeHolders(tokenId: string, gen?: number): Promise<void> {
+  try { await computeHoldersInner(tokenId, gen) } catch {
+    if (gen != null && !isCurrent(gen)) return
     const note = document.querySelector('[data-holders-note]') as HTMLElement | null
     const btn = document.querySelector(`[data-holders="${CSS.escape(tokenId)}"]`) as HTMLElement | null
     if (note) { note.textContent = L.holders_fail; note.classList.remove('hidden') }
@@ -189,7 +206,8 @@ export async function computeHolders(tokenId: string): Promise<void> {
   }
 }
 
-async function computeHoldersInner(tokenId: string): Promise<void> {
+async function computeHoldersInner(tokenId: string, gen?: number): Promise<void> {
+  const mine = () => gen == null || isCurrent(gen)
   const chartHost = document.querySelector('[data-holders-chart]') as HTMLElement | null
   const note = document.querySelector('[data-holders-note]') as HTMLElement | null
   const btn = document.querySelector(`[data-holders="${CSS.escape(tokenId)}"]`) as HTMLElement | null
@@ -212,10 +230,12 @@ async function computeHoldersInner(tokenId: string): Promise<void> {
         fetch(`https://api.ergoplatform.com/api/v1/boxes/unspent/byTokenId/${tokenId}?limit=100&offset=${(p + i) * 100}`)
           .then(r => r.json()).catch(() => ({ items: [] }))),
     )
+    if (!mine()) return
     batch.forEach(pg => boxes.push(...(pg.items ?? [])))
     if (btn) btn.textContent = `${L.computing} ${Math.min(100, Math.round(100 * boxes.length / Math.min(total, SOGLIE.maxBoxesForHolders)))}%`
   }
 
+  if (!mine()) return
   const agg = aggregateHolders(boxes, tokenId)
   const { top, rest, holders, total: totAmt } = topHolders(agg, SOGLIE.topShown)
   if (totAmt === 0n) { note.textContent = L.holders_none; note.classList.remove('hidden'); return }
@@ -232,15 +252,57 @@ async function computeHoldersInner(tokenId: string): Promise<void> {
   if (rest && rest.pct > 0.01) bars.push({ label: rest.address, value: rest.pct, rest: true,
     tipLine: `${formatTokenAmount(rest.amount, decimals)} — ${formatPct(rest.pct)}%` })
   const top10pct = top.reduce((s2, h) => s2 + h.pct, 0)
-  const concNote = top10pct > SOGLIE.topHolderWarnPct
-    ? L.holders_top_warn(top.length, formatPct(top10pct, 1), SOGLIE.topHolderWarnPct)
-    : L.holders_top(top.length, formatPct(top10pct, 1))
-  const noteText = (capped
-    ? L.holders_partial(groupThousands(String(boxes.length)), groupThousands(String(total)))
-    : L.holders_full(groupThousands(String(total)), groupThousands(String(holders))))
-    + concNote
-  const result: HoldersResult = { bars, note: noteText }
+  const result: HoldersResult = {
+    bars,
+    note: {
+      capped, read: groupThousands(String(boxes.length)), total: groupThousands(String(total)),
+      holders: groupThousands(String(holders)), topN: top.length, topPct: formatPct(top10pct, 1),
+    },
+  }
   holdersCache.set(tokenId, result)
   renderHolders(result)
   if (btn) btn.textContent = L.recompute
+}
+
+/* ---------------- concentrazione precalcolata (job notturno) ---------------- */
+
+import { precomputedHolders } from '../api/explorer'
+
+/** Se il job notturno ha già calcolato questo token, mostra subito il risultato
+ *  con la sua data. Il bottone resta: "ricalcola dal vivo" è sempre possibile. */
+export async function mountPrecomputedHolders(tokenId: string, gen?: number): Promise<boolean> {
+  const pre = await precomputedHolders(tokenId)
+  if (!pre?.top?.length) return false
+  // la pagina può essere cambiata durante la lettura: i dati di un token
+  // non devono MAI comparire sotto la pagella di un altro
+  if (gen != null && !isCurrent(gen)) return false
+  const chartHost = document.querySelector('[data-holders-chart]') as HTMLElement | null
+  const note = document.querySelector('[data-holders-note]') as HTMLElement | null
+  const btn = document.querySelector(`[data-holders="${CSS.escape(tokenId)}"]`) as HTMLElement | null
+  if (!chartHost || !note) return false
+  let decimals = 0
+  try { decimals = (await api.token(tokenId)).decimals ?? 0 } catch { /* resta 0 */ }
+  if (gen != null && !isCurrent(gen)) return false
+  const nameOf = (addr: string) => {
+    const l = labelOf(addr)
+    return l ?? shortId(addr, 8) + (addr.startsWith('9') ? '' : ' · ' + L.contract)
+  }
+  const bars: HBar[] = pre.top.map(h => ({
+    label: nameOf(h.address), value: h.pct,
+    tipLine: `${formatTokenAmount(BigInt(h.amount), decimals)} — ${formatPct(h.pct)}% ${L.of_read}`,
+  }))
+  if (pre.restPct > 0.01) bars.push({
+    label: `${L.others_d} ${groupThousands(String(pre.restCount))} ${L.holders_w}`,
+    value: pre.restPct, rest: true, tipLine: `${formatPct(pre.restPct)}%`,
+  })
+  const topPct = pre.top.reduce((s2, h) => s2 + h.pct, 0)
+  const conc = topPct > SOGLIE.topHolderWarnPct
+    ? L.holders_top_warn(pre.top.length, formatPct(topPct, 1), SOGLIE.topHolderWarnPct)
+    : L.holders_top(pre.top.length, formatPct(topPct, 1))
+  chartHost.classList.remove('hidden')
+  hbars(chartHost, bars)
+  note.textContent = L.holders_pre(pre.at.slice(0, 10), groupThousands(String(pre.total))) + conc
+  note.classList.remove('hidden')
+  if (btn) btn.textContent = L.recompute_live
+  return true
 }
