@@ -265,3 +265,36 @@ describe('i18n — cambio lingua completo e reversibile', () => {
     expect(Ldict.retry).toBe('riprova')
   })
 })
+
+import { tokenDeltas } from '../views/address'
+describe('movimenti — variazione token per indirizzo', () => {
+  it('su uno swap reale: chi compra riceve +61 DORT, chi esegue paga solo la fee', () => {
+    const tx = swapBuy as unknown as Tx
+    const buyer = tx.outputs[1]!.address               // il contratto di buyback: è lui che compra
+    const bot = tx.outputs[2]!.address                 // l'esecutore P2PK: muove ERG, nessun token
+    const d = tokenDeltas(tx, buyer)
+    expect(d).toHaveLength(1)
+    expect(d[0]!.delta).toBe(61n)                      // 54.476 − 54.415, dal vivo della catena
+    expect(d[0]!.name).toBe('DORT')
+    expect(tokenDeltas(tx, bot)).toHaveLength(0)
+  })
+  it('aggrega più box e scarta i delta nulli (token passato invariato)', () => {
+    const tx = {
+      inputs: [
+        { boxId: 'i1', value: 1000, address: 'me', assets: [{ tokenId: 'A', amount: 50 }, { tokenId: 'B', amount: 7 }] },
+        { boxId: 'i2', value: 1000, address: 'me', assets: [{ tokenId: 'A', amount: 50 }] },
+      ],
+      outputs: [
+        { boxId: 'o1', value: 900, address: 'me', assets: [{ tokenId: 'A', amount: 30, name: 'Alfa', decimals: 1 }, { tokenId: 'B', amount: 7 }] },
+        { boxId: 'o2', value: 1100, address: 'other', assets: [{ tokenId: 'A', amount: 70 }] },
+      ],
+      id: 't', timestamp: 0,
+    } as unknown as Tx
+    const d = tokenDeltas(tx, 'me')
+    expect(d).toHaveLength(1)                          // B è invariato: non compare
+    expect(d[0]).toMatchObject({ tokenId: 'A', delta: -70n, name: 'Alfa', decimals: 1 })
+  })
+  it('per chi non è nella transazione: nessun delta', () => {
+    expect(tokenDeltas(swapBuy as unknown as Tx, '9xNessuno')).toHaveLength(0)
+  })
+})

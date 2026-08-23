@@ -6,6 +6,7 @@ import { L, getLang } from '../i18n'
 import type { Slice, HBar } from '../charts'
 import { formatErg, formatTokenAmount, groupThousands, relativeTime, isoUtc, shortId } from '../lib/format'
 import { FEE_ADDRESS } from '../decoder/recognizers/simple-transfer'
+import { decode } from '../decoder/index'
 import type { Tx } from '../api/types'
 
 const loc = () => getLang() === 'it' ? 'it-IT' : 'en-US'
@@ -94,6 +95,29 @@ function netFlow(tx: Tx, addr: string): bigint {
   return outSum - inSum
 }
 
+/** PURA: variazione dei token per QUESTO indirizzo (ricevuti − spesi), per token.
+ *  È quello che rende leggibile un acquisto: l'ERG netto è ~0, i token no. */
+export interface TokenDelta { tokenId: string; name: string | null; decimals: number; delta: bigint }
+export function tokenDeltas(tx: Tx, addr: string): TokenDelta[] {
+  const m = new Map<string, TokenDelta>()
+  const add = (assets: { tokenId: string; amount: number | string; name?: string | null; decimals?: number | null }[] | undefined, sign: 1n | -1n) => {
+    for (const a of assets ?? []) {
+      const cur = m.get(a.tokenId) ?? { tokenId: a.tokenId, name: null, decimals: a.decimals ?? 0, delta: 0n }
+      cur.delta += sign * BigInt(a.amount)
+      if (a.name?.trim() && !cur.name) cur.name = a.name.trim()
+      m.set(a.tokenId, cur)
+    }
+  }
+  for (const b of tx.outputs) if (b.address === addr) add(b.assets, 1n)
+  for (const b of tx.inputs) if (b.address === addr) add(b.assets, -1n)
+  return [...m.values()].filter(d => d.delta !== 0n)
+}
+
+/** Etichetta corta di protocollo per la lista movimenti (il dettaglio sta nel title). */
+const PROTO_LABEL: Record<string, string> = {
+  'spectrum-n2t': 'Spectrum', sigmausd: 'SigmaUSD', 'rosen-in': 'Rosen Bridge', 'rosen-out': 'Rosen Bridge',
+}
+
 /** La controparte "protagonista": il maggiore box dell'altro lato, fee esclusa. */
 function counterparty(tx: Tx, addr: string, incoming: boolean): string | null {
   const side = incoming ? tx.inputs : tx.outputs
@@ -111,15 +135,44 @@ export async function addressView(addr: string, offset = 0): Promise<string> {
   const tokens = balance.tokens ?? []
   const label = labelOf(addr)
 
+  // solo per ORDINARE i token per grandezza percepita: la precisione qui non conta
+  const unitMag = (t: TokenDelta) => Math.abs(Number(t.delta)) / 10 ** t.decimals
+  const tokName = (t: TokenDelta) => t.name ? esc(t.name) : shortId(t.tokenId, 6, 4)
+  const tokAmt = (t: TokenDelta) => (t.delta > 0n ? '+' : '') + formatTokenAmount(t.delta, t.decimals)
+
   const rows = txs.items.map(tx => {
     const net = netFlow(tx, addr)
-    const incoming = net > 0n
+    const deltas = tokenDeltas(tx, addr).sort((a, b) => unitMag(b) - unitMag(a))
+    // l'ERG comanda la riga solo se si vede a 2 decimali; sennò comanda il token più grande
+    const ergVisible = net >= 5_000_000n || net <= -5_000_000n
+    const dom = !ergVisible && deltas.length ? deltas[0]! : null
+    const incoming = dom ? dom.delta > 0n : net > 0n
+    const d = decode(tx)
+    const proto = d ? PROTO_LABEL[d.kind] : undefined
+
+    // movimento: per i protocolli riconosciuti il tag batte l'indirizzo del contratto
+    const isSwap = d?.kind === 'spectrum-n2t'
+    const arrow = isSwap ? '<span class="a swap">⇄</span>'
+      : `<span class="a ${incoming ? 'in' : 'out'}">${incoming ? '↓' : '↑'}</span>`
     const cp = counterparty(tx, addr, incoming)
+    const who = proto
+      ? `<span class="tag proto" title="${esc(d!.headline)}">${proto}</span>`
+      : `${incoming ? L.from_w : L.to_w} ${cp ? addrLink(cp) : `<span class="dim">${L.many_parties}</span>`}`
+
+    // importo: la cosa più grande in evidenza, il resto in piccolo — mai un "+0 ERG" muto
+    const main = dom
+      ? `<span class="val ${incoming ? 'in' : 'out'}">${tokAmt(dom)} ${tokName(dom)}</span>`
+      : `<span class="val ${incoming ? 'in' : 'out'}">${net > 0n ? '+' : ''}${formatErg(net, ergVisible ? 2 : 4)}</span>`
+    const rest = deltas.filter(t => t !== dom).slice(0, 2)
+    const more = deltas.length - (dom ? 1 : 0) - rest.length
+    const sub = rest.length
+      ? `<div class="tokd">${rest.map(t => `<span class="${t.delta > 0n ? 'in' : 'out'}">${tokAmt(t)} ${tokName(t)}</span>`).join(' · ')}${more > 0 ? ` · +${more} ${L.others_d}` : ''}</div>`
+      : ''
+
     return `<tr data-dir="${incoming ? 'in' : 'out'}">
       <td class="when" title="${isoUtc(tx.timestamp)}"><a href="#/tx/${esc(tx.id)}" class="dim">${relativeTime(tx.timestamp)}</a></td>
-      <td class="dir"><span class="a ${incoming ? 'in' : 'out'}">${incoming ? '↓' : '↑'}</span>
-        ${incoming ? L.from_w : L.to_w} ${cp ? addrLink(cp) : `<span class="dim">${L.many_parties}</span>`}</td>
-      <td class="num"><span class="val ${incoming ? 'in' : 'out'}">${net > 0n ? '+' : ''}${formatErg(net, 2)}</span></td>
+      <td class="dir">${arrow} ${who}</td>
+      <td class="num">${main}${sub}</td>
     </tr>`
   }).join('')
 
