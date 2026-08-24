@@ -1,0 +1,26 @@
+# Una riga di storia dei protocolli ogni sei ore: riserva SigmaUSD, tasso
+# dell'oracolo e di mercato, fondi del bridge. Serve alla sparkline, che senza
+# almeno due punti non si disegna — e per averne due bisogna cominciare.
+name: protocols
+on:
+  schedule: [{ cron: '23 */6 * * *' }]   # 00:23 · 06:23 · 12:23 · 18:23 UTC
+  workflow_dispatch:
+permissions: { contents: write }
+concurrency: { group: protocols, cancel-in-progress: false }
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10                  # dura una quindicina di secondi: se si pianta, si chiude
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/collect-protocols.mjs
+      - name: commit
+        run: |
+          git config user.name 'robespierre-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add data/protocols
+          git diff --cached --quiet || git commit -m "protocolli $(date -u +%FT%H:%MZ)"
+          git pull --rebase --autostash origin main
+          git push
