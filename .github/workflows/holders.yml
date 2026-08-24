@@ -1,0 +1,30 @@
+# Concentrazione dei detentori: il calcolo che nel browser sarebbe parziale.
+# A TURNO, non tutti in una notte — vedi il commento in cima allo script:
+# l'endpoint dei box non spesi va a 8–30 secondi a pagina, e dodici token
+# vogliono più di millecinquecento pagine. Ogni notte parte dai file più
+# vecchi e si ferma dopo BUDGET_MIN; il sito dichiara la data di ogni calcolo,
+# quindi un ritardo si vede invece di essere nascosto.
+name: holders
+on:
+  schedule: [{ cron: '17 1 * * *' }]   # 01:17 UTC: lontano da prices (03:17)
+  workflow_dispatch:
+permissions: { contents: write }
+concurrency: { group: holders, cancel-in-progress: false }
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55                # il budget è 40: qui c'è solo il margine
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/collect-holders.mjs
+        env: { BUDGET_MIN: '40' }
+      - name: commit
+        run: |
+          git config user.name 'robespierre-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add data/holders
+          git diff --cached --quiet || git commit -m "detentori $(date -u +%F)"
+          git pull --rebase --autostash origin main
+          git push
