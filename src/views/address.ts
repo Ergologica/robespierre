@@ -245,6 +245,7 @@ export async function addressView(addr: string, offset = 0): Promise<string> {
     <table><thead><tr><th>${L.th_name}</th><th class="num">${L.th_qty}</th><th class="num">${L.price_w}</th><th class="num">${L.value_w}</th></tr></thead><tbody>${tokenRows}</tbody></table>
     ${tokens.length > TOKENS_COLLAPSED ? `<div class="card-pad" style="padding-top:10px">
       <button class="btn" data-toggle-tokens data-full="${L.show_all} ${tokens.length} ${L.tokens_w}" type="button">${icons.down}<span data-label>${L.show_all} ${tokens.length} ${L.tokens_w}</span></button></div>` : ''}</div>` : ''}
+  <div data-stake></div>
   <div data-rent></div>
   <div class="card">
     <div class="card-pad chips" style="padding-bottom:0">

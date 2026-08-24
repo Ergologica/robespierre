@@ -9,6 +9,8 @@ export interface BoxLike {
   assets?: Asset[]
   additionalRegisters?: Record<string, unknown>
   spentTransactionId?: string | null
+  /** presente su /boxes/{id}: la transazione che ha creato il box */
+  transactionId?: string
 }
 
 export interface Tx {

@@ -4,6 +4,7 @@ import { netView, mountNetCharts } from './views/net'
 import { networkStats } from './api/explorer'
 import { txView, mountTxSchema } from './views/tx'
 import { addressView, mountWalletChart, mountRentCheck } from './views/address'
+import { mountStakes } from './stake/card'
 import { tokenView, computeHolders, mountHoldersIfCached, mountPrecomputedHolders } from './views/token'
 import { marketsView } from './views/markets'
 import { tokensDirView } from './views/tokens-dir'
@@ -94,6 +95,7 @@ async function route() {
       if (!show(await addressView(a, b ? parseInt(b, 10) || 0 : 0))) return
       mountWalletChart()
       void mountRentCheck(a, gen)
+      void mountStakes(a, gen)
     }
     else if (head === 'token' && a) {
       if (!show(await tokenView(a))) return

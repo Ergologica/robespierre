@@ -1,0 +1,326 @@
+{
+ "id": "63d52e5503f73eea0e75fad4baea5501817dc657561d10b326224f9c4e0a7b5c",
+ "blockId": "0c02ae61e8b1978df6a1c4a8fd755b2cbeca25add6b999136ca07bb6bed8b510",
+ "inclusionHeight": 1173654,
+ "timestamp": 1704726814967,
+ "index": 7,
+ "globalIndex": 281457,
+ "numConfirmations": 684235,
+ "inputs": [
+  {
+   "boxId": "4679238680dadf89f6670c1d83563e87e16616407845ce7bdf5b9e3aee1ae8b8",
+   "value": 1000000,
+   "index": 0,
+   "spendingProof": null,
+   "outputBlockId": "9175984dfa2ac2b7f35c1d6f8f3b66e6d46a609acd82ca9e9b01d82590e9680c",
+   "outputTransactionId": "827d951edfdc547162709b7dcdd2f9580a9903df95b59806e081aad2fe369cf0",
+   "outputIndex": 2,
+   "outputGlobalIndex": 1449697,
+   "outputCreatedAt": 1173631,
+   "outputSettledAt": 1173633,
+   "ergoTree": "1032040004020e20deaecf5b64bad6f5570bad0a610c4e484957cf4782308400bc90404c1d1410da0e20039208bc4eef9a03e8d78b8663a301bb5faddca78be19d7fe535b3c64cbefe420e208830612c52355f6f280d1297f19f67b078c9daa7d7b04b459c91cc644957c2800e208bc78f1c6aaec91e628e15cf668c16cc1e9bd8e4b9b7e16d6318b5f523a5e9bd0e204fd8b0d6d98242726f57b3dfa686126792b8e5056e1d51b6e90d6880cf2dcdc50e20892e6f47a10d5c90b87ad4863355cead00c3e2983217ee15533253cd9a6025c20e203a11955c4719e588bce6a7611d27bd1fdfdb57385caee266d8040c894f1c2e1d0e2009820fcb8871fb450c3e06b7cb5e27b0455087a366621a9dde7582a019111e3e040004000e2038bc38514e1c2e8323230f40ea27d52b8acf425208ef8a0aa0f9e74be41b1c840400040c02000402040204420201040404020442020204060402044202030408040204420204040a040204420205040c040204420206040e040204420400040204420400040004020402d808d601b2db6501fe730000d602e4e30102d6037e720204d604b2a4730100d605dc640be4c6720104640283080e73027303730473057306730773087309e4e3000ed606b2a5730a00d607db63087206d608db6308a7d196830401938cb2db63087201730b0001730ced927203730d907203730e97830701ed937202730f93cbc27204b4e4b2720573100073117312ed937202731393cbc27204b4e4b2720573140073157316ed937202731793cbc27204b4e4b272057318007319731aed937202731b93cbc27204b4e4b27205731c00731d731eed937202731f93cbc27204b4e4b2720573200073217322ed937202732393cbc27204b4e4b2720573240073257326ed937202732793cbc27204b4e4b272057328007329732a9683030193cbc27206b4e4b27205732b00732c732d93b27207732e00b27208732f00938cb27207733000018cb2720873310001",
+   "ergoTreeConstants": "0: 0\n1: 1\n2: Coll(-34,-82,-49,91,100,-70,-42,-11,87,11,-83,10,97,12,78,72,73,87,-49,71,-126,48,-124,0,-68,-112,64,76,29,20,16,-38)\n3: Coll(3,-110,8,-68,78,-17,-102,3,-24,-41,-117,-122,99,-93,1,-69,95,-83,-36,-89,-117,-31,-99,127,-27,53,-77,-58,76,-66,-2,66)\n4: Coll(-120,48,97,44,82,53,95,111,40,13,18,-105,-15,-97,103,-80,120,-55,-38,-89,-41,-80,75,69,-100,-111,-52,100,73,87,-62,-128)\n5: Coll(-117,-57,-113,28,106,-82,-55,30,98,-114,21,-49,102,-116,22,-52,30,-101,-40,-28,-71,-73,-31,109,99,24,-75,-11,35,-91,-23,-67)\n6: Coll(79,-40,-80,-42,-39,-126,66,114,111,87,-77,-33,-90,-122,18,103,-110,-72,-27,5,110,29,81,-74,-23,13,104,-128,-49,45,-51,-59)\n7: Coll(-119,46,111,71,-95,13,92,-112,-72,122,-44,-122,51,85,-50,-83,0,-61,-30,-104,50,23,-18,21,83,50,83,-51,-102,96,37,-62)\n8: Coll(58,17,-107,92,71,25,-27,-120,-68,-26,-89,97,29,39,-67,31,-33,-37,87,56,92,-82,-30,102,-40,4,12,-119,79,28,46,29)\n9: Coll(9,-126,15,-53,-120,113,-5,69,12,62,6,-73,-53,94,39,-80,69,80,-121,-93,102,98,26,-99,-34,117,-126,-96,25,17,30,62)\n10: 0\n11: 0\n12: Coll(56,-68,56,81,78,28,46,-125,35,35,15,64,-22,39,-43,43,-118,-49,66,82,8,-17,-118,10,-96,-7,-25,75,-28,27,28,-124)\n13: 0\n14: 6\n15: 0\n16: 1\n17: 1\n18: 33\n19: 1\n20: 2\n21: 1\n22: 33\n23: 2\n24: 3\n25: 1\n26: 33\n27: 3\n28: 4\n29: 1\n30: 33\n31: 4\n32: 5\n33: 1\n34: 33\n35: 5\n36: 6\n37: 1\n38: 33\n39: 6\n40: 7\n41: 1\n42: 33\n43: 0\n44: 1\n45: 33\n46: 0\n47: 0\n48: 1\n49: 1",
+   "ergoTreeScript": "{\n  val box1 = CONTEXT.dataInputs(placeholder[Int](0))\n  val b2 = getVar[Byte](1.toByte).get\n  val i3 = b2.toInt\n  val box4 = INPUTS(placeholder[Int](1))\n  val coll5 = box1.R4[AvlTree].get.getMany(\n    Coll[Coll[Byte]](\n      placeholder[Coll[Byte]](2), placeholder[Coll[Byte]](3), placeholder[Coll[Byte]](4), placeholder[Coll[Byte]](5), placeholder[Coll[Byte]](6), placeholder[\n        Coll[Byte]\n      ](7), placeholder[Coll[Byte]](8), placeholder[Coll[Byte]](9)\n    ), getVar[Coll[Byte]](0.toByte).get\n  )\n  val box6 = OUTPUTS(placeholder[Int](10))\n  val coll7 = box6.tokens\n  val coll8 = SELF.tokens\n  sigmaProp(\n    allOf(\n      Coll[Boolean](\n        box1.tokens(placeholder[Int](11))._1 == placeholder[Coll[Byte]](12), (i3 >= placeholder[Int](13)) && (i3 <= placeholder[Int](14)), anyOf(\n          Coll[Boolean](\n            (b2 == placeholder[Byte](15)) && (\n              blake2b256(box4.propositionBytes) == coll5(placeholder[Int](16)).get.slice(placeholder[Int](17), placeholder[Int](18))\n            ), (b2 == placeholder[Byte](19)) && (\n              blake2b256(box4.propositionBytes) == coll5(placeholder[Int](20)).get.slice(placeholder[Int](21), placeholder[Int](22))\n            ), (b2 == placeholder[Byte](23)) && (\n              blake2b256(box4.propositionBytes) == coll5(placeholder[Int](24)).get.slice(placeholder[Int](25), placeholder[Int](26))\n            ), (b2 == placeholder[Byte](27)) && (\n              blake2b256(box4.propositionBytes) == coll5(placeholder[Int](28)).get.slice(placeholder[Int](29), placeholder[Int](30))\n            ), (b2 == placeholder[Byte](31)) && (\n              blake2b256(box4.propositionBytes) == coll5(placeholder[Int](32)).get.slice(placeholder[Int](33), placeholder[Int](34))\n            ), (b2 == placeholder[Byte](35)) && (\n              blake2b256(box4.propositionBytes) == coll5(placeholder[Int](36)).get.slice(placeholder[Int](37), placeholder[Int](38))\n            ), (b2 == placeholder[Byte](39)) && (\n              blake2b256(box4.propositionBytes) == coll5(placeholder[Int](40)).get.slice(placeholder[Int](41), placeholder[Int](42))\n            )\n          )\n        ), allOf(\n          Coll[Boolean](\n            blake2b256(box6.propositionBytes) == coll5(placeholder[Int](43)).get.slice(placeholder[Int](44), placeholder[Int](45)), coll7(\n              placeholder[Int](46)\n            ) == coll8(placeholder[Int](47)), coll7(placeholder[Int](48))._1 == coll8(placeholder[Int](49))._1\n          )\n        )\n      )\n    )\n  )\n}",
+   "address": "MUeEFF9n6rMZGwhMHSCUToqgZV77SPd7enUFfdMSt9BwbM2eVwCQ44yZjJRqxpgU8bJijkTjNhB7AH2wUM9UkZjHnyPDKFRDMozra8a3ptKsKvQXN3wBzXAwBaTFpdS2WuYqQTP4VzokiUjFsoesobW74Nh51uAqDTXKK4SZ4QnphLpCAVPBu9rEca48RLrMViEzYQKchqzyX2oA7cSzY8do7poc4Y6jPiNYuRbLyjifcNBqBVjRruuZr9N2KzVJWC8eNphZVuYkBay9tHp6qC6BMyN5Pr1YGnWDNMX8ivyrogza6wiJga8rvBSN2brt6tU5pWHpkBRRZYySTP69G5utxvkLKuk26xvvMuXJbW5TuTttKEDCLewsejh5yyijfiEkkXxNd6jWPUpVTKMespJ2pusyWH5ZqD8CVJPrPMpEEnFrgRwjRyGdwu9uvkKvUuLBRNMPAc7G4JWqsiqXvkjRj7WLDvjHZ3NEkD26xyT3nAT9ZnwEth4BvxMYE6EGoD9adNBqm8XzQ2heWNjpf9n56vjaNuSmLUwpwMr3XLwMMrggwhNUt7y8aYoZTYsbiRL4R4YhATwvwmikNbgWpuk1ckun66G88dyjmUGkpqME5Qd35AH1A1YV1X2cdnQEFwToo21A8e2A7x28qiugP4Y4fJSo51FxsAJL71VCRxExbWJKm512TF4ATDkrb5uqLrmhojeGjxzbHmb5SHBAPDnjEc6fJ7qNYXvMNqgV4vDkdcbJeuF7cmEs8sovqLx6eSAjEv1wUJJTTsLmPZZ7MhJe8FRH3f3aRT6ZYwMGY71Ga6ZHAWXcGYnmjYmqgh8sdN8bFS9Dxr6ANA8KjEUREnan4MX3eC1Yo2rQpTuG6AZYb3PfNdrkw5xdiXRyGpZJScpHhxhRWBCBP4nVk9qRuLs8VHXd7h388Q1JofAqXRoJmRWyeX6NWCmdS6QAq4HzYV7nVdrybPMrFS88tdgqhoseqrgnS1DZ",
+   "assets": [
+    {
+     "tokenId": "6f1a7c49a4e8cab3e877a46bf4ef7beb5ba1df4ece92c40cd0770b07ccb369ae",
+     "index": 0,
+     "amount": 1,
+     "name": "Sigmanauts Stake State",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "00b6f6e34943cef98f5302c54cf13a81f7ab5cd6af2d7b14cf51d835e4e8288c",
+     "index": 1,
+     "amount": 1,
+     "name": "Sigmanaut",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R5": {
+     "serializedValue": "1107bcd9dfcfa363000000000000",
+     "sigmaType": "Coll[SLong]",
+     "renderedValue": "[1705588291166,0,0,0,0,0,0]"
+    },
+    "R6": {
+     "serializedValue": "1d05020000020000020000020000020000",
+     "sigmaType": "Coll[Coll[SLong]]",
+     "renderedValue": "[[0,0],[0,0],[0,0],[0,0],[0,0]]"
+    },
+    "R8": {
+     "serializedValue": "11020000",
+     "sigmaType": "Coll[SLong]",
+     "renderedValue": "[0,0]"
+    },
+    "R7": {
+     "serializedValue": "0c3c6464024ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e1609000720004ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e1609000720004ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e1609000720004ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e160900072000",
+     "sigmaType": null,
+     "renderedValue": null
+    },
+    "R4": {
+     "serializedValue": "0c64024ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e1609000720004ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e160900072000",
+     "sigmaType": null,
+     "renderedValue": null
+    }
+   }
+  },
+  {
+   "boxId": "044fc3e859d139ed2fa05005927233f2e74dd88dec515b2192b5442f2181c474",
+   "value": 1000000,
+   "index": 1,
+   "spendingProof": null,
+   "outputBlockId": "9175984dfa2ac2b7f35c1d6f8f3b66e6d46a609acd82ca9e9b01d82590e9680c",
+   "outputTransactionId": "827d951edfdc547162709b7dcdd2f9580a9903df95b59806e081aad2fe369cf0",
+   "outputIndex": 4,
+   "outputGlobalIndex": 1449699,
+   "outputCreatedAt": 1173631,
+   "outputSettledAt": 1173633,
+   "ergoTree": "103b040004000e20039208bc4eef9a03e8d78b8663a301bb5faddca78be19d7fe535b3c64cbefe420e20efc4f603dea6041286a89f5bd516ac96ea5b25da4f08d76c6927e01d61b22adf0e204932c28754f2e4fab8e85af8ee3deb5bbe4924b7585466d20deed4c99e4191a2040004040400040004040400040c044a040a040c044a040a040c044a0402040805000410041004100400040204000e2038bc38514e1c2e8323230f40ea27d52b8acf425208ef8a0aa0f9e74be41b1c8404000402040c044c04040404040204020400040004060406050005000502040204020402040204020400040004020500040004020442040405020404d815d601b2db6501fe730000d602b2a4730100d603db63087202d604dc640be4c6720104640283030e730273037304e4e3000ed605b2a5730500d606db63087205d607e4c67205040c64d608e4c67202040c64d609e4c672050511d60ae4c672020511d60bb1720ad60cc57202d60d8cb2db6308b2a573060073070001d60ee4e3010c3c0e0ed60fb2720e730800d610e4b27204730900d611db0c0eb47210730a9d99b17210730b730cd612db0c0eb3b4720a730d720badb4ad7211d9011204b472109a9a730e9c730f721273109a73119c73129a7212731399720b7314b17211d901120e7315d613ad7212d9011304d801d6159a9c7213731673177cb48c720f0272159a72157318d614b27213731900d615b2a5731a00d196830a01938cb2db63087201731b0001731c96830901938cb27203731d0001b4e4b27204731e00731f732092c17205c1720293b472067321b17206b472037322b1720393b27207732300b2720873240093b27209732500b2720a73260093b472097327b17209b4720a7328720b93e4c67205061de4c67202061d93e4c67205070c3c6464e4c67202070c3c646493e4c672050811e4c672020811ed93720c720d93720c8c720f0193b0dc0c0fa501d9011663db630872167329d90116414d0ed801d6188c7216029a8c72160195938c721801720d8c721802732a732bed937214998cb27206732c00028cb27203732d000293721499b27209732e00b2720a732f0093b1720e733093db6401e4dc640cb2720873310002720ee4e3020edb6401b27207733200afb472137333b17212d901160593721673349683020193cbc27215b4e4b272047335007336733792c17215c1a7939ab2720a7338007339b27209733a00",
+   "ergoTreeConstants": "0: 0\n1: 0\n2: Coll(3,-110,8,-68,78,-17,-102,3,-24,-41,-117,-122,99,-93,1,-69,95,-83,-36,-89,-117,-31,-99,127,-27,53,-77,-58,76,-66,-2,66)\n3: Coll(-17,-60,-10,3,-34,-90,4,18,-122,-88,-97,91,-43,22,-84,-106,-22,91,37,-38,79,8,-41,108,105,39,-32,29,97,-78,42,-33)\n4: Coll(73,50,-62,-121,84,-14,-28,-6,-72,-24,90,-8,-18,61,-21,91,-66,73,36,-73,88,84,102,-46,13,-18,-44,-55,-98,65,-111,-94)\n5: 0\n6: 2\n7: 0\n8: 0\n9: 2\n10: 0\n11: 6\n12: 37\n13: 5\n14: 6\n15: 37\n16: 5\n17: 6\n18: 37\n19: 1\n20: 4\n21: 0\n22: 8\n23: 8\n24: 8\n25: 0\n26: 1\n27: 0\n28: Coll(56,-68,56,81,78,28,46,-125,35,35,15,64,-22,39,-43,43,-118,-49,66,82,8,-17,-118,10,-96,-7,-25,75,-28,27,28,-124)\n29: 0\n30: 1\n31: 6\n32: 38\n33: 2\n34: 2\n35: 1\n36: 1\n37: 0\n38: 0\n39: 3\n40: 3\n41: 0\n42: 0\n43: 1\n44: 1\n45: 1\n46: 1\n47: 1\n48: 1\n49: 0\n50: 0\n51: 1\n52: 0\n53: 0\n54: 1\n55: 33\n56: 2\n57: 1\n58: 2",
+   "ergoTreeScript": "{\n  val box1 = CONTEXT.dataInputs(placeholder[Int](0))\n  val box2 = INPUTS(placeholder[Int](1))\n  val coll3 = box2.tokens\n  val coll4 = box1.R4[AvlTree].get.getMany(\n    Coll[Coll[Byte]](placeholder[Coll[Byte]](2), placeholder[Coll[Byte]](3), placeholder[Coll[Byte]](4)), getVar[Coll[Byte]](0.toByte).get\n  )\n  val box5 = OUTPUTS(placeholder[Int](5))\n  val coll6 = box5.tokens\n  val coll7 = box5.R4[Coll[AvlTree]].get\n  val coll8 = box2.R4[Coll[AvlTree]].get\n  val coll9 = box5.R5[Coll[Long]].get\n  val coll10 = box2.R5[Coll[Long]].get\n  val i11 = coll10.size\n  val coll12 = box2.id\n  val coll13 = OUTPUTS(placeholder[Int](6)).tokens(placeholder[Int](7))._1\n  val coll14 = getVar[Coll[(Coll[Byte], Coll[Byte])]](1.toByte).get\n  val tuple15 = coll14(placeholder[Int](8))\n  val coll16 = coll4(placeholder[Int](9)).get\n  val coll17 = coll16.slice(placeholder[Int](10), coll16.size - placeholder[Int](11) / placeholder[Int](12)).indices\n  val coll18 = coll10.slice(placeholder[Int](13), i11).append(\n    coll17.map(\n      {(i18: Int) =>\n        coll16.slice(\n          placeholder[Int](14) + placeholder[Int](15) * i18 + placeholder[Int](16), placeholder[Int](17) + placeholder[Int](18) * i18 + placeholder[Int](19)\n        )\n      }\n    ).slice(i11 - placeholder[Int](20), coll17.size).map({(coll18: Coll[Byte]) => placeholder[Long](21) })\n  ).indices\n  val coll19 = coll18.map({(i19: Int) =>\n      val i21 = i19 * placeholder[Int](22) + placeholder[Int](23)\n      byteArrayToLong(tuple15._2.slice(i21, i21 + placeholder[Int](24)))\n    })\n  val l20 = coll19(placeholder[Int](25))\n  val box21 = OUTPUTS(placeholder[Int](26))\n  sigmaProp(\n    allOf(\n      Coll[Boolean](\n        box1.tokens(placeholder[Int](27))._1 == placeholder[Coll[Byte]](28), allOf(\n          Coll[Boolean](\n            coll3(placeholder[Int](29))._1 == coll4(placeholder[Int](30)).get.slice(\n              placeholder[Int](31), placeholder[Int](32)\n            ), box5.value >= box2.value, coll6.slice(placeholder[Int](33), coll6.size) == coll3.slice(placeholder[Int](34), coll3.size), coll7(\n              placeholder[Int](35)\n            ) == coll8(placeholder[Int](36)), coll9(placeholder[Int](37)) == coll10(placeholder[Int](38)), coll9.slice(\n              placeholder[Int](39), coll9.size\n            ) == coll10.slice(placeholder[Int](40), i11), box5.R6[Coll[Coll[Long]]].get == box2.R6[Coll[Coll[Long]]].get, box5.R7[\n              Coll[(AvlTree, AvlTree)]\n            ].get == box2.R7[Coll[(AvlTree, AvlTree)]].get, box5.R8[Coll[Long]].get == box2.R8[Coll[Long]].get\n          )\n        ), (coll12 == coll13) && (coll12 == tuple15._1), OUTPUTS.flatMap({(box22: Box) => box22.tokens }).fold(\n          placeholder[Long](41), {(tuple22: (Long, (Coll[Byte], Long))) =>\n            val tuple24 = tuple22._2\n            tuple22._1 + if (tuple24._1 == coll13) { tuple24._2 } else { placeholder[Long](42) }\n          }\n        ) == placeholder[Long](43), (l20 == coll6(placeholder[Int](44))._2 - coll3(placeholder[Int](45))._2) && (\n          l20 == coll9(placeholder[Int](46)) - coll10(placeholder[Int](47))\n        ), coll14.size == placeholder[Int](48), coll8(placeholder[Int](49)).insert(coll14, getVar[Coll[Byte]](2.toByte).get).get.digest == coll7(\n          placeholder[Int](50)\n        ).digest, coll19.slice(placeholder[Int](51), coll18.size).forall({(l22: Long) => l22 == placeholder[Long](52) }), allOf(\n          Coll[Boolean](\n            blake2b256(box21.propositionBytes) == coll4(placeholder[Int](53)).get.slice(placeholder[Int](54), placeholder[Int](55)), box21.value >= SELF.value\n          )\n        ), coll10(placeholder[Int](56)) + placeholder[Long](57) == coll9(placeholder[Int](58))\n      )\n    )\n  )\n}",
+   "address": "D8NB7dQJ2vzW32bzvtaELrgdfWwECP5QTB1ZycRmdko3nQncCmFivpqxQtoK9wSraymtxJnABzkxRD2ZYtkzMeB2MsrGXS4G5X4ZSUYKA4kFZeywLu3i8ka4eqbbaS9xumgxTa5ngNWUk5eDi7AsttpbFDPjAPWKREtGAY1m7hscD4qwPtoNXjoNi7WjXnb5z4aXFGziTbhM5Vfu1oSMtSmZayokZmozAUsWDP5TsqJkSp2fhg1UCLWEKnUeor47E4yRPM5KZpJACoWWkwtY5Vn83BUw3QWy2fzE2kqjrUTMLUxsRJztvqG3HRWcyQUD7MJxdVDUi1zAFN86ZVkcB8EJcbFvHATUE48NDLTwHEpyWPPwFC6pKQicdddcPWsjBF9GXrsVvygr8VasmUAxjSrbywoXg7kcNSSCaUwQsGk9oSeU7NrJwtkpaU1GXDa6oYZXTKEMU4F9gVhRCeRXd25yR8Kue3or9R1jDg4DZLRPb1QbtRYtBFw7xVFZyCCUxkgqEyFNypi4X1ahsTfx29wxxufk7iLd896531bEuTCwWT1fDDfx6giKnhJ7mc4n5cnEC4jXS4JFukBiFsmbtpfzgaMB9CejjktcfSszMhGx7mshA8AUvVoxUGoFrKyakCtd3q8uPBooFg4V7KvfFhtJTnzZQV3eSdm1Nz6Uz4VC2xcmsvDBieSp8YEFjVfsi65ZteS9B135Uth82xgZmRa8VnwkTcH4USe438gBv3ksD3PwiiegFss8FAzP5V1ueawZHi2BHLXAVVkkvbEF2AWyFD77n46CMwmkGBunPAoY9NTYRxcU2QWEnvHWKe9hh61hWzxM3bx5UhyUHxLGCm3PdjwTuVVwizwyKprB8sxK6yNq5ifCD8LjFNDsz8FCzMrrqUBEuYg4V7aWxskLm1rH5R2DeYdCtwE8WW1vT1fdi6s2vWDBxGNWtcK7k9fLYHqshB2ahNXCGPBeH57WJ8VHvwgfK3XHN5AKi8u5U1XG65FWyP59spftPL333W4RSFS2DpmUtQaaNchSWwUfHxEVppNUth22b4Gz1wrPMSUPPJ6VtLSQYUjRZTTKWYQnLMqQGLeHF3N6PGJEuxtZHAGcWupkfgmzU3svSTF9X56SEf5TDCnrm1u7eqAonWkPd36UQxnGmpoFyfQqVGBMxtn1a5vhZGrWTSPBrBos3cricEWgvy6fxzdpCRyH",
+   "assets": [],
+   "additionalRegisters": {}
+  },
+  {
+   "boxId": "0b73534e5619c4a82b5feab14cbd7d36b8c4a4d60ab99e2dbfe9f6d239dfb198",
+   "value": 3500000,
+   "index": 2,
+   "spendingProof": null,
+   "outputBlockId": "0c02ae61e8b1978df6a1c4a8fd755b2cbeca25add6b999136ca07bb6bed8b510",
+   "outputTransactionId": "cd7bf904b209499c95dd7e99a5cfbbb99f9c9b4de64bc5cddb7ee37f8c8c93f8",
+   "outputIndex": 0,
+   "outputGlobalIndex": 1450063,
+   "outputCreatedAt": 1173652,
+   "outputSettledAt": 1173654,
+   "ergoTree": "1025040004000580897a043c04000e20efc4f603dea6041286a89f5bd516ac96ea5b25da4f08d76c6927e01d61b22adf0e2025b59a7400ddb4d9253a145371b7cc8ed86163d8fea92cd5708c8612f3d693af0404040004020400040a04000e2038bc38514e1c2e8323230f40ea27d52b8acf425208ef8a0aa0f9e74be41b1c8404000400040c044c0400040a0e0a205374616b65204b65790e12506f77657265642062792050616964656961023005000502040204020402040204020400040004100410041004020500d802d601b2a4730000d602c57201d195937202c5a7d801d603b2a57301009683040192c1720399c1a7730293db63087203db6308a793c27203e4c6a7040e92db6905db6503fe9a8cc7a7017303d80bd603b2db6501fe730400d604db63087201d605dc640be4c6720304640283020e73057306e4e3000ed606b2a5730700d607e4e3010c3c0e0ed608b27207730800d609e4b27205730900d60ae4c6a70505d60bb2a5730a00d60ce4c672010511d60ddb0c0eb4720c730bb1720c96830901938cb2db63087203730c0001730d938cb27204730e0001b4e4b27205730f0073107311968305019372028cb2db63087206731200019372028c72080193e4c67206040eb3b472097313b17209731493e4c67206050e731593e4c67206060e830102731693b0dc0c0fa501d9010e63db6308720e7317d9010e414d0ed802d6108c720e02d6118c720e0195938c72100172029a72118c721002721173189683020193720a998cb2db6308720b731900028cb27204731a000293720a99b2e4c6720b0511731b00b2720c731c0093b17207731d93db6401e4dc640cb2e4c67201040c64731e00027207e4e3020edb6401b2e4c6720b040c64731f00afb4ad720dd9010e04d801d6109a9c720e732073217cb48c72080272109a721073227323b1720dd9010e0593720e732493c27206e4c6a7040e",
+   "ergoTreeConstants": "0: 0\n1: 0\n2: 1000000\n3: 30\n4: 0\n5: Coll(-17,-60,-10,3,-34,-90,4,18,-122,-88,-97,91,-43,22,-84,-106,-22,91,37,-38,79,8,-41,108,105,39,-32,29,97,-78,42,-33)\n6: Coll(37,-75,-102,116,0,-35,-76,-39,37,58,20,83,113,-73,-52,-114,-40,97,99,-40,-2,-87,44,-43,112,-116,-122,18,-13,-42,-109,-81)\n7: 2\n8: 0\n9: 1\n10: 0\n11: 5\n12: 0\n13: Coll(56,-68,56,81,78,28,46,-125,35,35,15,64,-22,39,-43,43,-118,-49,66,82,8,-17,-118,10,-96,-7,-25,75,-28,27,28,-124)\n14: 0\n15: 0\n16: 6\n17: 38\n18: 0\n19: 5\n20: Coll(32,83,116,97,107,101,32,75,101,121)\n21: Coll(80,111,119,101,114,101,100,32,98,121,32,80,97,105,100,101,105,97)\n22: 48\n23: 0\n24: 1\n25: 1\n26: 1\n27: 1\n28: 1\n29: 1\n30: 0\n31: 0\n32: 8\n33: 8\n34: 8\n35: 1\n36: 0",
+   "ergoTreeScript": "{\n  val box1 = INPUTS(placeholder[Int](0))\n  val coll2 = box1.id\n  sigmaProp(if (coll2 == SELF.id) {(\n      val box3 = OUTPUTS(placeholder[Int](1))\n      allOf(Coll[Boolean](box3.value >= SELF.value - placeholder[Long](2), box3.tokens == SELF.tokens, box3.propositionBytes == SELF.R4[Coll[Byte]].get, CONTEXT.preHeader.height >= SELF.creationInfo._1 + placeholder[Int](3)))\n    )} else {(\n      val box3 = CONTEXT.dataInputs(placeholder[Int](4))\n      val coll4 = box1.tokens\n      val coll5 = box3.R4[AvlTree].get.getMany(Coll[Coll[Byte]](placeholder[Coll[Byte]](5), placeholder[Coll[Byte]](6)), getVar[Coll[Byte]](0.toByte).get)\n      val box6 = OUTPUTS(placeholder[Int](7))\n      val coll7 = getVar[Coll[(Coll[Byte], Coll[Byte])]](1.toByte).get\n      val tuple8 = coll7(placeholder[Int](8))\n      val coll9 = coll5(placeholder[Int](9)).get\n      val l10 = SELF.R5[Long].get\n      val box11 = OUTPUTS(placeholder[Int](10))\n      val coll12 = box1.R5[Coll[Long]].get\n      val coll13 = coll12.slice(placeholder[Int](11), coll12.size).indices\n      allOf(Coll[Boolean](box3.tokens(placeholder[Int](12))._1 == placeholder[Coll[Byte]](13), coll4(placeholder[Int](14))._1 == coll5(placeholder[Int](15)).get.slice(placeholder[Int](16), placeholder[Int](17)), allOf(Coll[Boolean](coll2 == box6.tokens(placeholder[Int](18))._1, coll2 == tuple8._1, box6.R4[Coll[Byte]].get == coll9.slice(placeholder[Int](19), coll9.size).append(placeholder[Coll[Byte]](20)), box6.R5[Coll[Byte]].get == placeholder[Coll[Byte]](21), box6.R6[Coll[Byte]].get == Coll[Byte](placeholder[Byte](22)))), OUTPUTS.flatMap({(box14: Box) => box14.tokens }).fold(placeholder[Long](23), {(tuple14: (Long, (Coll[Byte], Long))) =>\n              val tuple16 = tuple14._2\n              val l17 = tuple14._1\n              if (tuple16._1 == coll2) { l17 + tuple16._2 } else { l17 }\n            }) == placeholder[Long](24), allOf(Coll[Boolean](l10 == box11.tokens(placeholder[Int](25))._2 - coll4(placeholder[Int](26))._2, l10 == box11.R5[Coll[Long]].get(placeholder[Int](27)) - coll12(placeholder[Int](28)))), coll7.size == placeholder[Int](29), box1.R4[Coll[AvlTree]].get(placeholder[Int](30)).insert(coll7, getVar[Coll[Byte]](2.toByte).get).get.digest == box11.R4[Coll[AvlTree]].get(placeholder[Int](31)).digest, coll13.map({(i14: Int) =>\n              val i16 = i14 * placeholder[Int](32) + placeholder[Int](33)\n              byteArrayToLong(tuple8._2.slice(i16, i16 + placeholder[Int](34)))\n            }).slice(placeholder[Int](35), coll13.size).forall({(l14: Long) => l14 == placeholder[Long](36) }), box6.propositionBytes == SELF.R4[Coll[Byte]].get))\n    )})\n}",
+   "address": "4sbgpybfo2VfDq7XSJe1eSyupky9dyE5uxJ4RHwQu9vPA29jwPB81ztJBfAVBqBpEAVTDgVvBrCRdh8mXBP4UZk6rqqzKMx8X17brMPk96bC6hVZnyJyFcVBgueYAF5cK45uFmsJBfwaBb2qyhZwehCy8JtPjoRtYdM63veYYu57FYt1gjkF8gtKKRyMgikxjDWCH9ngnvFDCxeuRR3udZMQCpWpLJuHARGqDNczyEVL4mjquNAprJquTrrZoCFWCTvpqp21E18mphj8cWMHGRn8JXaGCDKaXDznASuLoJB4nJFu5WEnvKfJncHKUJvrr5ESSqozf3x1bsyQzq5qy5356VXawbTLmzwTMeb94WKAEzuCjdQLVmhVgqqn9EaB7FkgBsAuW4gSTjngKd8oufq8PUBWLv2JjvSNd5EiR6b2QAhbaBSnXXkHgbpCizbfeDxahdzjT9Qh999i4p5dwHmu4R5WysjdVcaVsLTFyxBZ3JphGDQFCW77YbjSjCuJxVoDvNXFCGXWe61GkD4VeVaHtBrGPmZZuvFWwhHnoJ4dnheVRXdWosdpzhHrj5EZYu9H5MPRfAeaB8JRaqvSgC2b9LCyjc9TU71o6bk3dZv9wx6X9xpQ9yr7YXKepyJcT2CbLxNcGFvfxx4PAqofGsrVyjCa2DiAgvpky5mwanKdNFzPE3sGYUfK7mDtxoDHwsFrZtUvJzwCyCHxftKNXSrgRN34MW6AjU1wJA5LoRKENpy2T2AT6MrqNBeSKEFrGuDo1Dk54XYHenQpW5Uio1zppp5JPj5fYC8wrALcXvN4xHpcxYaTL3E57KyJCdfTHHFxkiGRCqoKmDzAo3ntqk7oDLupNdDSz9X9CHUNU2Qjj8roGHiC8rQmVSFJjdxEuFGt9phmyaSmKhGn722oDCVrbfWxrfi7MRqej3ur6oM8ukPq6XZFuQS9BujoW8Kt8",
+   "assets": [
+    {
+     "tokenId": "00b6f6e34943cef98f5302c54cf13a81f7ab5cd6af2d7b14cf51d835e4e8288c",
+     "index": 0,
+     "amount": 1,
+     "name": "Sigmanaut",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "0040ae650c4ed77bcd20391493abe84c1a9bb58ee88e87f15670c801e2fc5983",
+     "index": 1,
+     "amount": 1000,
+     "name": "bPaideia",
+     "decimals": 4,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "0e240008cd02e4cb952261186ec0fd2dc4c2baa8dbfd9c8f6012c5efa9f702f9450a58fe221e",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "0008cd02e4cb952261186ec0fd2dc4c2baa8dbfd9c8f6012c5efa9f702f9450a58fe221e"
+    },
+    "R5": {
+     "serializedValue": "0502",
+     "sigmaType": "SLong",
+     "renderedValue": "1"
+    }
+   }
+  }
+ ],
+ "dataInputs": [
+  {
+   "boxId": "6b0b12bf7250b9665959194961f89327b56dd8fb44436c0a70ca0bf0bae0f50f",
+   "value": 1000000,
+   "index": 0,
+   "outputBlockId": "9175984dfa2ac2b7f35c1d6f8f3b66e6d46a609acd82ca9e9b01d82590e9680c",
+   "outputTransactionId": "827d951edfdc547162709b7dcdd2f9580a9903df95b59806e081aad2fe369cf0",
+   "outputIndex": 1,
+   "ergoTree": "100904000e20a9558e4186cbd5aa5723a852d4c1dc657d9e814382ff888d5a8aec521531301d040004020442040004000e205b8b5d70bac147f182950cc352a1aabe79c9c3a66500a9684c1ef182fdb7473f0100d801d601b2a5730000d19683040193db6308a7db6308720190c1a7c1720193cbc27201b4e4b2dc640be4c6720104640283010e7301e4e3000e73020073037304aea4d9010263d801d604db630872029591b172047305938cb272047306000173077308",
+   "address": "FDdVv3XcPnh67Hm9GfPJpFCLuVeaYKY9MGf67RZfgNcGhsxDZPTz5JVn86hKGoSf3aCbfjFnGQtD8YobxJEaqgNzhHkXs7cJLF4fpeG9Rc7e7MhMxf2heSgkXQZo6HXoH9e9V8dPLHnnuBtS4cdn4hm8o6m1ZTJkNea4S7ge2EAn3mVRfGTRehPjp2HWqX613K1LMRmB3k1skpk3X388c6aAcNSxwhtbMbeoCqAA6HP7U2gyANsbdAyp8y56yQqP",
+   "assets": [],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "6445d8740d3e0927df4e5d0be8cbf74f01c517dbc91256de18e375c1345f79c81f06072000",
+     "sigmaType": null,
+     "renderedValue": null
+    }
+   }
+  }
+ ],
+ "outputs": [
+  {
+   "boxId": "202449864d2adf533cbb6003e6c6e77cd3ad79d7bb2fd486d092804ace4a062f",
+   "transactionId": "63d52e5503f73eea0e75fad4baea5501817dc657561d10b326224f9c4e0a7b5c",
+   "blockId": "0c02ae61e8b1978df6a1c4a8fd755b2cbeca25add6b999136ca07bb6bed8b510",
+   "value": 1000000,
+   "index": 0,
+   "globalIndex": 1450077,
+   "creationHeight": 1173652,
+   "settlementHeight": 1173654,
+   "ergoTree": "1032040004020e20deaecf5b64bad6f5570bad0a610c4e484957cf4782308400bc90404c1d1410da0e20039208bc4eef9a03e8d78b8663a301bb5faddca78be19d7fe535b3c64cbefe420e208830612c52355f6f280d1297f19f67b078c9daa7d7b04b459c91cc644957c2800e208bc78f1c6aaec91e628e15cf668c16cc1e9bd8e4b9b7e16d6318b5f523a5e9bd0e204fd8b0d6d98242726f57b3dfa686126792b8e5056e1d51b6e90d6880cf2dcdc50e20892e6f47a10d5c90b87ad4863355cead00c3e2983217ee15533253cd9a6025c20e203a11955c4719e588bce6a7611d27bd1fdfdb57385caee266d8040c894f1c2e1d0e2009820fcb8871fb450c3e06b7cb5e27b0455087a366621a9dde7582a019111e3e040004000e2038bc38514e1c2e8323230f40ea27d52b8acf425208ef8a0aa0f9e74be41b1c840400040c02000402040204420201040404020442020204060402044202030408040204420204040a040204420205040c040204420206040e040204420400040204420400040004020402d808d601b2db6501fe730000d602e4e30102d6037e720204d604b2a4730100d605dc640be4c6720104640283080e73027303730473057306730773087309e4e3000ed606b2a5730a00d607db63087206d608db6308a7d196830401938cb2db63087201730b0001730ced927203730d907203730e97830701ed937202730f93cbc27204b4e4b2720573100073117312ed937202731393cbc27204b4e4b2720573140073157316ed937202731793cbc27204b4e4b272057318007319731aed937202731b93cbc27204b4e4b27205731c00731d731eed937202731f93cbc27204b4e4b2720573200073217322ed937202732393cbc27204b4e4b2720573240073257326ed937202732793cbc27204b4e4b272057328007329732a9683030193cbc27206b4e4b27205732b00732c732d93b27207732e00b27208732f00938cb27207733000018cb2720873310001",
+   "ergoTreeConstants": "0: 0\n1: 1\n2: Coll(-34,-82,-49,91,100,-70,-42,-11,87,11,-83,10,97,12,78,72,73,87,-49,71,-126,48,-124,0,-68,-112,64,76,29,20,16,-38)\n3: Coll(3,-110,8,-68,78,-17,-102,3,-24,-41,-117,-122,99,-93,1,-69,95,-83,-36,-89,-117,-31,-99,127,-27,53,-77,-58,76,-66,-2,66)\n4: Coll(-120,48,97,44,82,53,95,111,40,13,18,-105,-15,-97,103,-80,120,-55,-38,-89,-41,-80,75,69,-100,-111,-52,100,73,87,-62,-128)\n5: Coll(-117,-57,-113,28,106,-82,-55,30,98,-114,21,-49,102,-116,22,-52,30,-101,-40,-28,-71,-73,-31,109,99,24,-75,-11,35,-91,-23,-67)\n6: Coll(79,-40,-80,-42,-39,-126,66,114,111,87,-77,-33,-90,-122,18,103,-110,-72,-27,5,110,29,81,-74,-23,13,104,-128,-49,45,-51,-59)\n7: Coll(-119,46,111,71,-95,13,92,-112,-72,122,-44,-122,51,85,-50,-83,0,-61,-30,-104,50,23,-18,21,83,50,83,-51,-102,96,37,-62)\n8: Coll(58,17,-107,92,71,25,-27,-120,-68,-26,-89,97,29,39,-67,31,-33,-37,87,56,92,-82,-30,102,-40,4,12,-119,79,28,46,29)\n9: Coll(9,-126,15,-53,-120,113,-5,69,12,62,6,-73,-53,94,39,-80,69,80,-121,-93,102,98,26,-99,-34,117,-126,-96,25,17,30,62)\n10: 0\n11: 0\n12: Coll(56,-68,56,81,78,28,46,-125,35,35,15,64,-22,39,-43,43,-118,-49,66,82,8,-17,-118,10,-96,-7,-25,75,-28,27,28,-124)\n13: 0\n14: 6\n15: 0\n16: 1\n17: 1\n18: 33\n19: 1\n20: 2\n21: 1\n22: 33\n23: 2\n24: 3\n25: 1\n26: 33\n27: 3\n28: 4\n29: 1\n30: 33\n31: 4\n32: 5\n33: 1\n34: 33\n35: 5\n36: 6\n37: 1\n38: 33\n39: 6\n40: 7\n41: 1\n42: 33\n43: 0\n44: 1\n45: 33\n46: 0\n47: 0\n48: 1\n49: 1",
+   "ergoTreeScript": "{\n  val box1 = CONTEXT.dataInputs(placeholder[Int](0))\n  val b2 = getVar[Byte](1.toByte).get\n  val i3 = b2.toInt\n  val box4 = INPUTS(placeholder[Int](1))\n  val coll5 = box1.R4[AvlTree].get.getMany(\n    Coll[Coll[Byte]](\n      placeholder[Coll[Byte]](2), placeholder[Coll[Byte]](3), placeholder[Coll[Byte]](4), placeholder[Coll[Byte]](5), placeholder[Coll[Byte]](6), placeholder[\n        Coll[Byte]\n      ](7), placeholder[Coll[Byte]](8), placeholder[Coll[Byte]](9)\n    ), getVar[Coll[Byte]](0.toByte).get\n  )\n  val box6 = OUTPUTS(placeholder[Int](10))\n  val coll7 = box6.tokens\n  val coll8 = SELF.tokens\n  sigmaProp(\n    allOf(\n      Coll[Boolean](\n        box1.tokens(placeholder[Int](11))._1 == placeholder[Coll[Byte]](12), (i3 >= placeholder[Int](13)) && (i3 <= placeholder[Int](14)), anyOf(\n          Coll[Boolean](\n            (b2 == placeholder[Byte](15)) && (\n              blake2b256(box4.propositionBytes) == coll5(placeholder[Int](16)).get.slice(placeholder[Int](17), placeholder[Int](18))\n            ), (b2 == placeholder[Byte](19)) && (\n              blake2b256(box4.propositionBytes) == coll5(placeholder[Int](20)).get.slice(placeholder[Int](21), placeholder[Int](22))\n            ), (b2 == placeholder[Byte](23)) && (\n              blake2b256(box4.propositionBytes) == coll5(placeholder[Int](24)).get.slice(placeholder[Int](25), placeholder[Int](26))\n            ), (b2 == placeholder[Byte](27)) && (\n              blake2b256(box4.propositionBytes) == coll5(placeholder[Int](28)).get.slice(placeholder[Int](29), placeholder[Int](30))\n            ), (b2 == placeholder[Byte](31)) && (\n              blake2b256(box4.propositionBytes) == coll5(placeholder[Int](32)).get.slice(placeholder[Int](33), placeholder[Int](34))\n            ), (b2 == placeholder[Byte](35)) && (\n              blake2b256(box4.propositionBytes) == coll5(placeholder[Int](36)).get.slice(placeholder[Int](37), placeholder[Int](38))\n            ), (b2 == placeholder[Byte](39)) && (\n              blake2b256(box4.propositionBytes) == coll5(placeholder[Int](40)).get.slice(placeholder[Int](41), placeholder[Int](42))\n            )\n          )\n        ), allOf(\n          Coll[Boolean](\n            blake2b256(box6.propositionBytes) == coll5(placeholder[Int](43)).get.slice(placeholder[Int](44), placeholder[Int](45)), coll7(\n              placeholder[Int](46)\n            ) == coll8(placeholder[Int](47)), coll7(placeholder[Int](48))._1 == coll8(placeholder[Int](49))._1\n          )\n        )\n      )\n    )\n  )\n}",
+   "address": "MUeEFF9n6rMZGwhMHSCUToqgZV77SPd7enUFfdMSt9BwbM2eVwCQ44yZjJRqxpgU8bJijkTjNhB7AH2wUM9UkZjHnyPDKFRDMozra8a3ptKsKvQXN3wBzXAwBaTFpdS2WuYqQTP4VzokiUjFsoesobW74Nh51uAqDTXKK4SZ4QnphLpCAVPBu9rEca48RLrMViEzYQKchqzyX2oA7cSzY8do7poc4Y6jPiNYuRbLyjifcNBqBVjRruuZr9N2KzVJWC8eNphZVuYkBay9tHp6qC6BMyN5Pr1YGnWDNMX8ivyrogza6wiJga8rvBSN2brt6tU5pWHpkBRRZYySTP69G5utxvkLKuk26xvvMuXJbW5TuTttKEDCLewsejh5yyijfiEkkXxNd6jWPUpVTKMespJ2pusyWH5ZqD8CVJPrPMpEEnFrgRwjRyGdwu9uvkKvUuLBRNMPAc7G4JWqsiqXvkjRj7WLDvjHZ3NEkD26xyT3nAT9ZnwEth4BvxMYE6EGoD9adNBqm8XzQ2heWNjpf9n56vjaNuSmLUwpwMr3XLwMMrggwhNUt7y8aYoZTYsbiRL4R4YhATwvwmikNbgWpuk1ckun66G88dyjmUGkpqME5Qd35AH1A1YV1X2cdnQEFwToo21A8e2A7x28qiugP4Y4fJSo51FxsAJL71VCRxExbWJKm512TF4ATDkrb5uqLrmhojeGjxzbHmb5SHBAPDnjEc6fJ7qNYXvMNqgV4vDkdcbJeuF7cmEs8sovqLx6eSAjEv1wUJJTTsLmPZZ7MhJe8FRH3f3aRT6ZYwMGY71Ga6ZHAWXcGYnmjYmqgh8sdN8bFS9Dxr6ANA8KjEUREnan4MX3eC1Yo2rQpTuG6AZYb3PfNdrkw5xdiXRyGpZJScpHhxhRWBCBP4nVk9qRuLs8VHXd7h388Q1JofAqXRoJmRWyeX6NWCmdS6QAq4HzYV7nVdrybPMrFS88tdgqhoseqrgnS1DZ",
+   "assets": [
+    {
+     "tokenId": "6f1a7c49a4e8cab3e877a46bf4ef7beb5ba1df4ece92c40cd0770b07ccb369ae",
+     "index": 0,
+     "amount": 1,
+     "name": "Sigmanauts Stake State",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "00b6f6e34943cef98f5302c54cf13a81f7ab5cd6af2d7b14cf51d835e4e8288c",
+     "index": 1,
+     "amount": 2,
+     "name": "Sigmanaut",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R5": {
+     "serializedValue": "1107bcd9dfcfa363020200000000",
+     "sigmaType": "Coll[SLong]",
+     "renderedValue": "[1705588291166,1,1,0,0,0,0]"
+    },
+    "R6": {
+     "serializedValue": "1d05020000020000020000020000020000",
+     "sigmaType": "Coll[Coll[SLong]]",
+     "renderedValue": "[[0,0],[0,0],[0,0],[0,0],[0,0]]"
+    },
+    "R8": {
+     "serializedValue": "11020000",
+     "sigmaType": "Coll[SLong]",
+     "renderedValue": "[0,0]"
+    },
+    "R7": {
+     "serializedValue": "0c3c6464024ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e1609000720004ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e1609000720004ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e1609000720004ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e160900072000",
+     "sigmaType": null,
+     "renderedValue": null
+    },
+    "R4": {
+     "serializedValue": "0c64023faa0bcd9127af0c5cdd436363f60a7aadba8ca6c23e8e993ccf570c88c50a23010720004ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e160900072000",
+     "sigmaType": null,
+     "renderedValue": null
+    }
+   },
+   "spentTransactionId": "1006754bd74e01df16462c2174a90957fc1c7f0e369aa746b5a15fec4398cbd7",
+   "mainChain": true
+  },
+  {
+   "boxId": "04fb1683910882e4686b24d8a1609ed93fec9c6f7f903c05a02b3b0e48b71bcd",
+   "transactionId": "63d52e5503f73eea0e75fad4baea5501817dc657561d10b326224f9c4e0a7b5c",
+   "blockId": "0c02ae61e8b1978df6a1c4a8fd755b2cbeca25add6b999136ca07bb6bed8b510",
+   "value": 1000000,
+   "index": 1,
+   "globalIndex": 1450078,
+   "creationHeight": 1173652,
+   "settlementHeight": 1173654,
+   "ergoTree": "103b040004000e20039208bc4eef9a03e8d78b8663a301bb5faddca78be19d7fe535b3c64cbefe420e20efc4f603dea6041286a89f5bd516ac96ea5b25da4f08d76c6927e01d61b22adf0e204932c28754f2e4fab8e85af8ee3deb5bbe4924b7585466d20deed4c99e4191a2040004040400040004040400040c044a040a040c044a040a040c044a0402040805000410041004100400040204000e2038bc38514e1c2e8323230f40ea27d52b8acf425208ef8a0aa0f9e74be41b1c8404000402040c044c04040404040204020400040004060406050005000502040204020402040204020400040004020500040004020442040405020404d815d601b2db6501fe730000d602b2a4730100d603db63087202d604dc640be4c6720104640283030e730273037304e4e3000ed605b2a5730500d606db63087205d607e4c67205040c64d608e4c67202040c64d609e4c672050511d60ae4c672020511d60bb1720ad60cc57202d60d8cb2db6308b2a573060073070001d60ee4e3010c3c0e0ed60fb2720e730800d610e4b27204730900d611db0c0eb47210730a9d99b17210730b730cd612db0c0eb3b4720a730d720badb4ad7211d9011204b472109a9a730e9c730f721273109a73119c73129a7212731399720b7314b17211d901120e7315d613ad7212d9011304d801d6159a9c7213731673177cb48c720f0272159a72157318d614b27213731900d615b2a5731a00d196830a01938cb2db63087201731b0001731c96830901938cb27203731d0001b4e4b27204731e00731f732092c17205c1720293b472067321b17206b472037322b1720393b27207732300b2720873240093b27209732500b2720a73260093b472097327b17209b4720a7328720b93e4c67205061de4c67202061d93e4c67205070c3c6464e4c67202070c3c646493e4c672050811e4c672020811ed93720c720d93720c8c720f0193b0dc0c0fa501d9011663db630872167329d90116414d0ed801d6188c7216029a8c72160195938c721801720d8c721802732a732bed937214998cb27206732c00028cb27203732d000293721499b27209732e00b2720a732f0093b1720e733093db6401e4dc640cb2720873310002720ee4e3020edb6401b27207733200afb472137333b17212d901160593721673349683020193cbc27215b4e4b272047335007336733792c17215c1a7939ab2720a7338007339b27209733a00",
+   "ergoTreeConstants": "0: 0\n1: 0\n2: Coll(3,-110,8,-68,78,-17,-102,3,-24,-41,-117,-122,99,-93,1,-69,95,-83,-36,-89,-117,-31,-99,127,-27,53,-77,-58,76,-66,-2,66)\n3: Coll(-17,-60,-10,3,-34,-90,4,18,-122,-88,-97,91,-43,22,-84,-106,-22,91,37,-38,79,8,-41,108,105,39,-32,29,97,-78,42,-33)\n4: Coll(73,50,-62,-121,84,-14,-28,-6,-72,-24,90,-8,-18,61,-21,91,-66,73,36,-73,88,84,102,-46,13,-18,-44,-55,-98,65,-111,-94)\n5: 0\n6: 2\n7: 0\n8: 0\n9: 2\n10: 0\n11: 6\n12: 37\n13: 5\n14: 6\n15: 37\n16: 5\n17: 6\n18: 37\n19: 1\n20: 4\n21: 0\n22: 8\n23: 8\n24: 8\n25: 0\n26: 1\n27: 0\n28: Coll(56,-68,56,81,78,28,46,-125,35,35,15,64,-22,39,-43,43,-118,-49,66,82,8,-17,-118,10,-96,-7,-25,75,-28,27,28,-124)\n29: 0\n30: 1\n31: 6\n32: 38\n33: 2\n34: 2\n35: 1\n36: 1\n37: 0\n38: 0\n39: 3\n40: 3\n41: 0\n42: 0\n43: 1\n44: 1\n45: 1\n46: 1\n47: 1\n48: 1\n49: 0\n50: 0\n51: 1\n52: 0\n53: 0\n54: 1\n55: 33\n56: 2\n57: 1\n58: 2",
+   "ergoTreeScript": "{\n  val box1 = CONTEXT.dataInputs(placeholder[Int](0))\n  val box2 = INPUTS(placeholder[Int](1))\n  val coll3 = box2.tokens\n  val coll4 = box1.R4[AvlTree].get.getMany(\n    Coll[Coll[Byte]](placeholder[Coll[Byte]](2), placeholder[Coll[Byte]](3), placeholder[Coll[Byte]](4)), getVar[Coll[Byte]](0.toByte).get\n  )\n  val box5 = OUTPUTS(placeholder[Int](5))\n  val coll6 = box5.tokens\n  val coll7 = box5.R4[Coll[AvlTree]].get\n  val coll8 = box2.R4[Coll[AvlTree]].get\n  val coll9 = box5.R5[Coll[Long]].get\n  val coll10 = box2.R5[Coll[Long]].get\n  val i11 = coll10.size\n  val coll12 = box2.id\n  val coll13 = OUTPUTS(placeholder[Int](6)).tokens(placeholder[Int](7))._1\n  val coll14 = getVar[Coll[(Coll[Byte], Coll[Byte])]](1.toByte).get\n  val tuple15 = coll14(placeholder[Int](8))\n  val coll16 = coll4(placeholder[Int](9)).get\n  val coll17 = coll16.slice(placeholder[Int](10), coll16.size - placeholder[Int](11) / placeholder[Int](12)).indices\n  val coll18 = coll10.slice(placeholder[Int](13), i11).append(\n    coll17.map(\n      {(i18: Int) =>\n        coll16.slice(\n          placeholder[Int](14) + placeholder[Int](15) * i18 + placeholder[Int](16), placeholder[Int](17) + placeholder[Int](18) * i18 + placeholder[Int](19)\n        )\n      }\n    ).slice(i11 - placeholder[Int](20), coll17.size).map({(coll18: Coll[Byte]) => placeholder[Long](21) })\n  ).indices\n  val coll19 = coll18.map({(i19: Int) =>\n      val i21 = i19 * placeholder[Int](22) + placeholder[Int](23)\n      byteArrayToLong(tuple15._2.slice(i21, i21 + placeholder[Int](24)))\n    })\n  val l20 = coll19(placeholder[Int](25))\n  val box21 = OUTPUTS(placeholder[Int](26))\n  sigmaProp(\n    allOf(\n      Coll[Boolean](\n        box1.tokens(placeholder[Int](27))._1 == placeholder[Coll[Byte]](28), allOf(\n          Coll[Boolean](\n            coll3(placeholder[Int](29))._1 == coll4(placeholder[Int](30)).get.slice(\n              placeholder[Int](31), placeholder[Int](32)\n            ), box5.value >= box2.value, coll6.slice(placeholder[Int](33), coll6.size) == coll3.slice(placeholder[Int](34), coll3.size), coll7(\n              placeholder[Int](35)\n            ) == coll8(placeholder[Int](36)), coll9(placeholder[Int](37)) == coll10(placeholder[Int](38)), coll9.slice(\n              placeholder[Int](39), coll9.size\n            ) == coll10.slice(placeholder[Int](40), i11), box5.R6[Coll[Coll[Long]]].get == box2.R6[Coll[Coll[Long]]].get, box5.R7[\n              Coll[(AvlTree, AvlTree)]\n            ].get == box2.R7[Coll[(AvlTree, AvlTree)]].get, box5.R8[Coll[Long]].get == box2.R8[Coll[Long]].get\n          )\n        ), (coll12 == coll13) && (coll12 == tuple15._1), OUTPUTS.flatMap({(box22: Box) => box22.tokens }).fold(\n          placeholder[Long](41), {(tuple22: (Long, (Coll[Byte], Long))) =>\n            val tuple24 = tuple22._2\n            tuple22._1 + if (tuple24._1 == coll13) { tuple24._2 } else { placeholder[Long](42) }\n          }\n        ) == placeholder[Long](43), (l20 == coll6(placeholder[Int](44))._2 - coll3(placeholder[Int](45))._2) && (\n          l20 == coll9(placeholder[Int](46)) - coll10(placeholder[Int](47))\n        ), coll14.size == placeholder[Int](48), coll8(placeholder[Int](49)).insert(coll14, getVar[Coll[Byte]](2.toByte).get).get.digest == coll7(\n          placeholder[Int](50)\n        ).digest, coll19.slice(placeholder[Int](51), coll18.size).forall({(l22: Long) => l22 == placeholder[Long](52) }), allOf(\n          Coll[Boolean](\n            blake2b256(box21.propositionBytes) == coll4(placeholder[Int](53)).get.slice(placeholder[Int](54), placeholder[Int](55)), box21.value >= SELF.value\n          )\n        ), coll10(placeholder[Int](56)) + placeholder[Long](57) == coll9(placeholder[Int](58))\n      )\n    )\n  )\n}",
+   "address": "D8NB7dQJ2vzW32bzvtaELrgdfWwECP5QTB1ZycRmdko3nQncCmFivpqxQtoK9wSraymtxJnABzkxRD2ZYtkzMeB2MsrGXS4G5X4ZSUYKA4kFZeywLu3i8ka4eqbbaS9xumgxTa5ngNWUk5eDi7AsttpbFDPjAPWKREtGAY1m7hscD4qwPtoNXjoNi7WjXnb5z4aXFGziTbhM5Vfu1oSMtSmZayokZmozAUsWDP5TsqJkSp2fhg1UCLWEKnUeor47E4yRPM5KZpJACoWWkwtY5Vn83BUw3QWy2fzE2kqjrUTMLUxsRJztvqG3HRWcyQUD7MJxdVDUi1zAFN86ZVkcB8EJcbFvHATUE48NDLTwHEpyWPPwFC6pKQicdddcPWsjBF9GXrsVvygr8VasmUAxjSrbywoXg7kcNSSCaUwQsGk9oSeU7NrJwtkpaU1GXDa6oYZXTKEMU4F9gVhRCeRXd25yR8Kue3or9R1jDg4DZLRPb1QbtRYtBFw7xVFZyCCUxkgqEyFNypi4X1ahsTfx29wxxufk7iLd896531bEuTCwWT1fDDfx6giKnhJ7mc4n5cnEC4jXS4JFukBiFsmbtpfzgaMB9CejjktcfSszMhGx7mshA8AUvVoxUGoFrKyakCtd3q8uPBooFg4V7KvfFhtJTnzZQV3eSdm1Nz6Uz4VC2xcmsvDBieSp8YEFjVfsi65ZteS9B135Uth82xgZmRa8VnwkTcH4USe438gBv3ksD3PwiiegFss8FAzP5V1ueawZHi2BHLXAVVkkvbEF2AWyFD77n46CMwmkGBunPAoY9NTYRxcU2QWEnvHWKe9hh61hWzxM3bx5UhyUHxLGCm3PdjwTuVVwizwyKprB8sxK6yNq5ifCD8LjFNDsz8FCzMrrqUBEuYg4V7aWxskLm1rH5R2DeYdCtwE8WW1vT1fdi6s2vWDBxGNWtcK7k9fLYHqshB2ahNXCGPBeH57WJ8VHvwgfK3XHN5AKi8u5U1XG65FWyP59spftPL333W4RSFS2DpmUtQaaNchSWwUfHxEVppNUth22b4Gz1wrPMSUPPJ6VtLSQYUjRZTTKWYQnLMqQGLeHF3N6PGJEuxtZHAGcWupkfgmzU3svSTF9X56SEf5TDCnrm1u7eqAonWkPd36UQxnGmpoFyfQqVGBMxtn1a5vhZGrWTSPBrBos3cricEWgvy6fxzdpCRyH",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "1006754bd74e01df16462c2174a90957fc1c7f0e369aa746b5a15fec4398cbd7",
+   "mainChain": true
+  },
+  {
+   "boxId": "14a672c21ac73f3ab10fac27513043a94f8ce2992739ac622c9dd8580b904a6c",
+   "transactionId": "63d52e5503f73eea0e75fad4baea5501817dc657561d10b326224f9c4e0a7b5c",
+   "blockId": "0c02ae61e8b1978df6a1c4a8fd755b2cbeca25add6b999136ca07bb6bed8b510",
+   "value": 1000000,
+   "index": 2,
+   "globalIndex": 1450079,
+   "creationHeight": 1173652,
+   "settlementHeight": 1173654,
+   "ergoTree": "0008cd02e4cb952261186ec0fd2dc4c2baa8dbfd9c8f6012c5efa9f702f9450a58fe221e",
+   "ergoTreeConstants": "",
+   "ergoTreeScript": "{SigmaProp(ProveDlog(ECPoint(e4cb95,7c781d,...)))}",
+   "address": "9gFpnLUGwRyohhoh5CXQS8eNdranNyNVGreCmc4xFYHPg5JUGWL",
+   "assets": [
+    {
+     "tokenId": "4679238680dadf89f6670c1d83563e87e16616407845ce7bdf5b9e3aee1ae8b8",
+     "index": 0,
+     "amount": 1,
+     "name": "Sigmanauts Stake Key",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "0e145369676d616e61757473205374616b65204b6579",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "5369676d616e61757473205374616b65204b6579"
+    },
+    "R5": {
+     "serializedValue": "0e12506f77657265642062792050616964656961",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "506f77657265642062792050616964656961"
+    },
+    "R6": {
+     "serializedValue": "0e0130",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "30"
+    }
+   },
+   "spentTransactionId": "3540f32a89f68bfdf9e31c581ef4d18f9650cf129e0d4f6625ec6a11761a0664",
+   "mainChain": true
+  },
+  {
+   "boxId": "be32ae230f68bdc1f357309940d53a04691af9d01b1fe90db641f49db605859b",
+   "transactionId": "63d52e5503f73eea0e75fad4baea5501817dc657561d10b326224f9c4e0a7b5c",
+   "blockId": "0c02ae61e8b1978df6a1c4a8fd755b2cbeca25add6b999136ca07bb6bed8b510",
+   "value": 2460040,
+   "index": 3,
+   "globalIndex": 1450080,
+   "creationHeight": 1173652,
+   "settlementHeight": 1173654,
+   "ergoTree": "1005040004000e36100204a00b08cd0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798ea02d192a39a8cc7a701730073011001020402d19683030193a38cc7b2a57300000193c2b2a57301007473027303830108cdeeac93b1a57304",
+   "ergoTreeConstants": "0: 0\n1: 0\n2: Coll(16,2,4,-96,11,8,-51,2,121,-66,102,126,-7,-36,-69,-84,85,-96,98,-107,-50,-121,11,7,2,-101,-4,-37,45,-50,40,-39,89,-14,-127,91,22,-8,23,-104,-22,2,-47,-110,-93,-102,-116,-57,-89,1,115,0,115,1)\n3: Coll(1)\n4: 1",
+   "ergoTreeScript": "{sigmaProp(\n  allOf(\n    Coll[Boolean](\n      HEIGHT == OUTPUTS(placeholder[Int](0)).creationInfo._1, OUTPUTS(placeholder[Int](1)).propositionBytes == substConstants(\n        placeholder[Coll[Byte]](2), placeholder[Coll[Int]](3), Coll[SigmaProp](proveDlog(decodePoint(minerPubKey)))\n      ), OUTPUTS.size == placeholder[Int](4)\n    )\n  )\n)}",
+   "address": "2iHkR7CWvD1R4j1yZg5bkeDRQavjAaVPeTDFGGLZduHyfWMuYpmhHocX8GJoaieTx78FntzJbCBVL6rf96ocJoZdmWBL2fci7NqWgAirppPQmZ7fN9V6z13Ay6brPriBKYqLp1bT2Fk4FkFLCfdPpe",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "31ac1a529df6debaa00c1fe78ca816e68c0cde22bb579c55cce7db118a7bc766",
+   "mainChain": true
+  },
+  {
+   "boxId": "c0f34d26d18b58dffcff3905b59019b2b23976c383f7c245d9b8847da41366ef",
+   "transactionId": "63d52e5503f73eea0e75fad4baea5501817dc657561d10b326224f9c4e0a7b5c",
+   "blockId": "0c02ae61e8b1978df6a1c4a8fd755b2cbeca25add6b999136ca07bb6bed8b510",
+   "value": 39960,
+   "index": 4,
+   "globalIndex": 1450081,
+   "creationHeight": 1173652,
+   "settlementHeight": 1173654,
+   "ergoTree": "0008cd023812ba777e72f8e606cda4d4faa2288d439a16cd7c462dc12d3e10a317b019e7",
+   "ergoTreeConstants": "",
+   "ergoTreeScript": "{SigmaProp(ProveDlog(ECPoint(3812ba,bc1fbe,...)))}",
+   "address": "9ewkq1bvnTdmEc7zwmVBxN8rKri8cYNQbgJtMLUxLsFu5AcDCWE",
+   "assets": [
+    {
+     "tokenId": "0040ae650c4ed77bcd20391493abe84c1a9bb58ee88e87f15670c801e2fc5983",
+     "index": 0,
+     "amount": 1000,
+     "name": "bPaideia",
+     "decimals": 4,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {},
+   "spentTransactionId": "c6f5e1b68c0aa2fe708ba5bb429071afbd06f9e305f93ecaaa130461885dd613",
+   "mainChain": true
+  }
+ ],
+ "size": 5551
+}

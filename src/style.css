@@ -229,6 +229,9 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
   border-radius:var(--radius);background:var(--surface);color:var(--text-2);font-size:14px}
 .loading{padding:40px 20px;color:var(--text-3);text-align:center}
 .errorbox{margin:16px 0;padding:18px 20px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+/* un errore contiene quasi sempre un indirizzo o un hash: senza questo, su
+   telefono la riga non va a capo e tutta la pagina scorre di lato */
+.errorbox, .errorbox p, .errorbox code{overflow-wrap:anywhere}
 @media (max-width:880px){
   .tiles{grid-template-columns:repeat(2,1fr)}
   .tiles>div:nth-child(2){border-right:0}
@@ -240,6 +243,10 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 svg text{font-variant-numeric:tabular-nums}
 svg text.c-lab{fill:var(--text-3);font-size:var(--fs-2xs);font-weight:var(--fw-medium);
   text-transform:uppercase;letter-spacing:.075em}
+/* etichetta che viene DALLA CATENA (nome di token, indirizzo): niente
+   maiuscoletto — un indirizzo Ergo distingue maiuscole e minuscole, e un
+   explorer non deve mostrarlo diverso da com'è. */
+svg text.c-name{fill:var(--text-3);font-size:var(--fs-2xs);font-weight:var(--fw-medium)}
 svg text.c-val{fill:var(--text);font-size:var(--fs-xs);font-weight:var(--fw-medium)}
 svg text.c-big{fill:var(--text);font-size:var(--fs-xl);font-weight:var(--fw-bold);letter-spacing:-.02em}
 svg text.c-small{fill:var(--text-3);font-size:var(--fs-2xs)}
@@ -402,3 +409,10 @@ svg text.c-node{fill:var(--text);font-size:var(--fs-xs);font-weight:var(--fw-med
 
 /* marcatore di omonimia sui mercati: chiunque può coniare un token col nome di un altro */
 .tag.warn-tag{border-color:#d98f2b;color:#d98f2b;cursor:help}
+
+/* staking: ogni posizione è un blocco come la testata di un wallet */
+.stake-pos + .stake-pos{border-top:1px solid var(--line)}
+.stake-pos .idrow{padding-bottom:var(--sp-3)}
+.stake-pos .t-sub{margin:0}
+.tiles-s{grid-template-columns:1.6fr 1.2fr 1.2fr}
+@media (max-width:880px){ .tiles-s{grid-template-columns:1fr 1fr} .tiles-s .tile-hero{grid-column:1/-1} }

@@ -1,0 +1,2348 @@
+{
+ "id": "f10bc9c318ac2376214c7bd3834e65be2e9a2891ed67310efef0c47d81fba4b3",
+ "blockId": "57df99ac4548bfbd5eb6f752b0572df7f545f1fc6ce69d69d89842c6673d259e",
+ "inclusionHeight": 1462535,
+ "timestamp": 1739688762461,
+ "index": 2,
+ "globalIndex": 2437685,
+ "numConfirmations": 395354,
+ "inputs": [
+  {
+   "boxId": "492b42a3168e97da7b5132d50d21205357a5f9b8c5e0e169b3c721ed48262fc6",
+   "value": 1000000000,
+   "index": 0,
+   "spendingProof": null,
+   "outputBlockId": "daaac5ff3c4aff464c37ec5e9bc1b7e54dbe8028150d1414bb80a38496a6529f",
+   "outputTransactionId": "294bc0fa717b1d47a3f8a925ab6fa71a92df2bd9d08407817649e9a726f32a64",
+   "outputIndex": 0,
+   "outputGlobalIndex": 10817230,
+   "outputCreatedAt": 1430679,
+   "outputSettledAt": 1430683,
+   "ergoTree": "10010e2098ba6f0cfc7758633d52ea3082ae3b8b38b45dbfe8a7247de966dcb608b9008ed80ed60183200202de02ae02cf025b026402ba02d602f50257020b02ad020a0261020c024e02480249025702cf0247028202300284020002bc02900240024c021d0214021002dad602d9010263e4c672020464d603d901033c0c630eb58c720301d9010563aedb63087205d901074d0e938c7207018c720302d604b2da7203018602db6501fe7300040000d605e3010ed606d9010632b4e4720604020442d607d9010763b2db63087207040000d608da720701a7d609b2da7203018602a58c720801040000d60ad9010a63b2db6308720a040200d60bd9010b0ed801d60ddc640bda72020172040283020e7201720be472059683020193b1dad9010e3c0c630eb58c720e01d901106393cbc272108c720e02018602a4da720601b2720d0402000402dad9010e0e9683030193cbc27209720e93da72070172097208938cda720a017209018cda720a01a70101da720601b2720d040000d60ce4e30002d60ddc0c1aa402a70400d60ed9010e05958f720e0580020402958f720e058080020404958f720e05808080020406958f720e0580808080020408958f720e05808080808002040a958f720e0580808080808002040c958f720e058080808080808002040e958f720e0580808080808080800204100412d197830801dad9010f029593720f0200da720b0183200202030292020802bc024e02ef029a020302e802d7028b0286026302a3020102bb025f02ad02dc02a7028b02e1029d027f02e5023502b302c6024c02be02fe0242010001720cdad9010f029593720f0202da720b01832002028b02c7028f021c026a02ae02c9021e0262028e021502cf0266028c021602cc021e029b02d802e402b902b702e1026d0263021802b502f5022302a502e902bd010001720cdad9010f029593720f0201da720b01832002028802300261022c02520235025f026f0228020d0212029702f1029f026702b0027802c902da02a702d702b0024b0245029c029102cc02640249025702c20280010001720cdad9010f029593720f0203da720b01832002024f02d802b002d602d9028202420272026f025702b302df02a6028602120267029202b802e50205026e021d025102b602e9020d0268028002cf022d02cd02c5010001720cdad9010f029593720f0204da720b018320020289022e026f024702a1020d025c029002b8027a02d402860233025502ce02ad020002c302e202980232021702ee021502530232025302cd029a0260022502c2010001720cdad9010f029593720f0205da720b01832002023a02110295025c0247021902e5028802bc02e602a70261021d022702bd021f02df02db02570238025c02ae02e2026602d80204020c0289024f021c022e021d010001720cdad9010f029593720f0206da720b0183200202090282020f02cb0288027102fb0245020c023e020602b702cb025e022702b002450250028702a302660262021a029d02de0275028202a002190211021e023e010001720cdad9010f029593720f0207dad901113c0e639592720db1a50100d809d613b2a5720d00d614c17213d615c1a7d616c27213d617c4a7d618c2a7d6198cc7a701d61ac47213d61b8cc772130196830401927214997215058092f40193cb7216da720601b2dc640bda7202018c7211020283010e8c721101e5720583000204000093b472179a9ada720e017215b17218da720e017e721905b17217b4721a9a9ada720e017214b17216da720e017e721b05b1721a978302019299721b72190480c33d947218721601860272017204010001720c",
+   "ergoTreeConstants": "0: Coll(-104,-70,111,12,-4,119,88,99,61,82,-22,48,-126,-82,59,-117,56,-76,93,-65,-24,-89,36,125,-23,102,-36,-74,8,-71,0,-114)",
+   "ergoTreeScript": "{\n  val coll1 = Coll[Byte](\n    -34.toByte, -82.toByte, -49.toByte, 91.toByte, 100.toByte, -70.toByte, -42.toByte, -11.toByte, 87.toByte, 11.toByte, -83.toByte, 10.toByte, 97.toByte, 12.toByte, 78.toByte, 72.toByte, 73.toByte, 87.toByte, -49.toByte, 71.toByte, -126.toByte, 48.toByte, -124.toByte, 0.toByte, -68.toByte, -112.toByte, 64.toByte, 76.toByte, 29.toByte, 20.toByte, 16.toByte, -38.toByte\n  )\n  val func2 = {(box2: Box) => box2.R4[AvlTree].get }\n  val func3 = {(tuple3: (Coll[Box], Coll[Byte])) =>\n    tuple3._1.filter({(box5: Box) => box5.tokens.exists({(tuple7: (Coll[Byte], Long)) => tuple7._1 == tuple3._2 }) })\n  }\n  val box4 = func3((CONTEXT.dataInputs, placeholder[Coll[Byte]](0)))(0)\n  val opt5 = getVar[Coll[Byte]](1.toByte)\n  val func6 = {(opt6: Option[Coll[Byte]]) => opt6.get.slice(1, 33) }\n  val func7 = {(box7: Box) => box7.tokens(0) }\n  val tuple8 = func7(SELF)\n  val box9 = func3((OUTPUTS, tuple8._1))(0)\n  val func10 = {(box10: Box) => box10.tokens(1) }\n  val func11 = {(coll11: Coll[Byte]) =>\n    val coll13 = func2(box4).getMany(Coll[Coll[Byte]](coll1, coll11), opt5.get)\n    allOf(\n      Coll[Boolean](\n        {(tuple14: (Coll[Box], Coll[Byte])) => tuple14._1.filter({(box16: Box) => blake2b256(box16.propositionBytes) == tuple14._2 }) }(\n          (INPUTS, func6(coll13(1)))\n        ).size == 1, {(coll14: Coll[Byte]) =>\n          allOf(Coll[Boolean](blake2b256(box9.propositionBytes) == coll14, func7(box9) == tuple8, func10(box9)._1 == func10(SELF)._1))\n        }(func6(coll13(0)))\n      )\n    )\n  }\n  val b12 = getVar[Byte](0.toByte).get\n  val i13 = INPUTS.indexOf(SELF, 0)\n  val func14 = {(l14: Long) =>\n    if (l14 < 128L) { 1 } else {\n      if (l14 < 16384L) { 2 } else {\n        if (l14 < 2097152L) { 3 } else {\n          if (l14 < 268435456L) { 4 } else {\n            if (l14 < 34359738368L) { 5 } else {\n              if (l14 < 4398046511104L) { 6 } else { if (l14 < 562949953421312L) { 7 } else { if (l14 < 72057594037927936L) { 8 } else { 9 } } }\n            }\n          }\n        }\n      }\n    }\n  }\n  sigmaProp(\n    anyOf(\n      Coll[Boolean](\n        {(b15: Byte) =>\n          if (b15 == 0.toByte) {\n            func11(\n              Coll[Byte](\n                3.toByte, -110.toByte, 8.toByte, -68.toByte, 78.toByte, -17.toByte, -102.toByte, 3.toByte, -24.toByte, -41.toByte, -117.toByte, -122.toByte, 99.toByte, -93.toByte, 1.toByte, -69.toByte, 95.toByte, -83.toByte, -36.toByte, -89.toByte, -117.toByte, -31.toByte, -99.toByte, 127.toByte, -27.toByte, 53.toByte, -77.toByte, -58.toByte, 76.toByte, -66.toByte, -2.toByte, 66.toByte\n              )\n            )\n          } else { false }\n        }(b12), {(b15: Byte) =>\n          if (b15 == 2.toByte) {\n            func11(\n              Coll[Byte](\n                -117.toByte, -57.toByte, -113.toByte, 28.toByte, 106.toByte, -82.toByte, -55.toByte, 30.toByte, 98.toByte, -114.toByte, 21.toByte, -49.toByte, 102.toByte, -116.toByte, 22.toByte, -52.toByte, 30.toByte, -101.toByte, -40.toByte, -28.toByte, -71.toByte, -73.toByte, -31.toByte, 109.toByte, 99.toByte, 24.toByte, -75.toByte, -11.toByte, 35.toByte, -91.toByte, -23.toByte, -67.toByte\n              )\n            )\n          } else { false }\n        }(b12), {(b15: Byte) =>\n          if (b15 == 1.toByte) {\n            func11(\n              Coll[Byte](\n                -120.toByte, 48.toByte, 97.toByte, 44.toByte, 82.toByte, 53.toByte, 95.toByte, 111.toByte, 40.toByte, 13.toByte, 18.toByte, -105.toByte, -15.toByte, -97.toByte, 103.toByte, -80.toByte, 120.toByte, -55.toByte, -38.toByte, -89.toByte, -41.toByte, -80.toByte, 75.toByte, 69.toByte, -100.toByte, -111.toByte, -52.toByte, 100.toByte, 73.toByte, 87.toByte, -62.toByte, -128.toByte\n              )\n            )\n          } else { false }\n        }(b12), {(b15: Byte) =>\n          if (b15 == 3.toByte) {\n            func11(\n              Coll[Byte](\n                79.toByte, -40.toByte, -80.toByte, -42.toByte, -39.toByte, -126.toByte, 66.toByte, 114.toByte, 111.toByte, 87.toByte, -77.toByte, -33.toByte, -90.toByte, -122.toByte, 18.toByte, 103.toByte, -110.toByte, -72.toByte, -27.toByte, 5.toByte, 110.toByte, 29.toByte, 81.toByte, -74.toByte, -23.toByte, 13.toByte, 104.toByte, -128.toByte, -49.toByte, 45.toByte, -51.toByte, -59.toByte\n              )\n            )\n          } else { false }\n        }(b12), {(b15: Byte) =>\n          if (b15 == 4.toByte) {\n            func11(\n              Coll[Byte](\n                -119.toByte, 46.toByte, 111.toByte, 71.toByte, -95.toByte, 13.toByte, 92.toByte, -112.toByte, -72.toByte, 122.toByte, -44.toByte, -122.toByte, 51.toByte, 85.toByte, -50.toByte, -83.toByte, 0.toByte, -61.toByte, -30.toByte, -104.toByte, 50.toByte, 23.toByte, -18.toByte, 21.toByte, 83.toByte, 50.toByte, 83.toByte, -51.toByte, -102.toByte, 96.toByte, 37.toByte, -62.toByte\n              )\n            )\n          } else { false }\n        }(b12), {(b15: Byte) =>\n          if (b15 == 5.toByte) {\n            func11(\n              Coll[Byte](\n                58.toByte, 17.toByte, -107.toByte, 92.toByte, 71.toByte, 25.toByte, -27.toByte, -120.toByte, -68.toByte, -26.toByte, -89.toByte, 97.toByte, 29.toByte, 39.toByte, -67.toByte, 31.toByte, -33.toByte, -37.toByte, 87.toByte, 56.toByte, 92.toByte, -82.toByte, -30.toByte, 102.toByte, -40.toByte, 4.toByte, 12.toByte, -119.toByte, 79.toByte, 28.toByte, 46.toByte, 29.toByte\n              )\n            )\n          } else { false }\n        }(b12), {(b15: Byte) =>\n          if (b15 == 6.toByte) {\n            func11(\n              Coll[Byte](\n                9.toByte, -126.toByte, 15.toByte, -53.toByte, -120.toByte, 113.toByte, -5.toByte, 69.toByte, 12.toByte, 62.toByte, 6.toByte, -73.toByte, -53.toByte, 94.toByte, 39.toByte, -80.toByte, 69.toByte, 80.toByte, -121.toByte, -93.toByte, 102.toByte, 98.toByte, 26.toByte, -99.toByte, -34.toByte, 117.toByte, -126.toByte, -96.toByte, 25.toByte, 17.toByte, 30.toByte, 62.toByte\n              )\n            )\n          } else { false }\n        }(b12), {(b15: Byte) => if (b15 == 7.toByte) { {(tuple17: (Coll[Byte], Box)) => if (i13 >= OUTPUTS.size) { false } else {(\n                val box19 = OUTPUTS(i13)\n                val l20 = box19.value\n                val l21 = SELF.value\n                val coll22 = box19.propositionBytes\n                val coll23 = SELF.bytesWithoutRef\n                val coll24 = SELF.propositionBytes\n                val i25 = SELF.creationInfo._1\n                val coll26 = box19.bytesWithoutRef\n                val i27 = box19.creationInfo._1\n                allOf(Coll[Boolean](l20 >= l21 - 2000000L, blake2b256(coll22) == func6(func2(tuple17._2).getMany(Coll[Coll[Byte]](tuple17._1), opt5.getOrElse(Coll[Byte]()))(0)), coll23.slice(func14(l21) + coll24.size + func14(i25.toLong), coll23.size) == coll26.slice(func14(l20) + coll22.size + func14(i27.toLong), coll26.size), anyOf(Coll[Boolean](i27 - i25 >= 504000, coll24 != coll22))))\n              )} }((coll1, box4)) } else { false } }(b12)\n      )\n    )\n  )\n}",
+   "address": "3bseGyrL8c19T8TAJUAYyvfvvYbnQsZ9Mj5v268gLyjG8d753JNwPTFYsxHudjK11poGatNQ21rP71BR6wdP38HxXPZyo7AfYjEpv47oiUx27KXzoHhJ4nVy8tXPitzSBmuSwsT9PRUNkGQZ4ZVHcVRdHDT9Qo1gZfFn4JwHPHXWyS84i64hqhrnk5Epkq3EZvxdUrdY64zRJhBztdSnc6FqUAJoE2S4ZW2wYoBr6vBSa88UcioaJKHaktZBcapDFqHJKbRLDPhodZxAEXh27mJmKgxnzi1tkrwF5ae1mpXofjjw1zcRu8Y9J3waoBsqwCKf3N7Y4fLH2gdJasT8z51oZgP1G5hZgiD7YYtLZc6Y8cADWwxnji3ZmgvmRwtgPpRCnf4SUaneh7TuvQnn626GtSBkL6SUvjv6ewjAbKuKENsbQstK2WuvxEBD1gbP5h6Bd4gHtSKDzmDxhvM7FuaP3Er2KnFqth8cN92fckAXfpZrTLHUNpikyjcwuu9969UYBMLQ7RKigYggNRRKTMdED5oMQXPEJ3oAy5R8K1jRvvex2q9MC7KqPCaQZvnsyzP7LsFpRm7EUBqp59shV95M3tbcM8AezcaTmutJNqU8dWVsmrit2je96iJqS9g3hw3F9E4BCnKT9TBV8kNbQ3zoDxU8bJFUE8B2VL62yKfUPXvvS4AjkTLchhLwWcACnaJ4tUmrEpxCpEPB8AVwKxajr98cHbeyC3mC946vW28yb6FH4LuLBfjxy2BE9UwjeCWKw12pa2goJuCQyJxJei28Cett7j5u2gYvjCk1acSSXZ3TdNhqyCTsmWprisVFReezJjF3nQ383S8HjzJXYh3GaCkLyQ7BRSyuEm3mM213YLmn3MZ5LzMhN9xWZiYGAvrzJzsFibMgqDwsTcjiqYVXx77iEJqzndwWjEy8Y2xhi26Rrh21phmn1uzutvFKTkCyKLLdfiq2RSh3sGyBtveP6U4nyJy25fqeUe4Wg17L7R85zmUw2Z3kZXhknkCDhxm8T8SAPeSnGsYYr1nmHmv3aNqk75VcBBM4W562nQjn3G8KTZJ1e6PqS1wKnztgYiZBs4KMZ8SohQbX15EBZT8eZXZ4ggvPBP1szBtocHeqF7cY1zcB5CWHVbi9p1SnaY9HLB6QTT1Pbr84V2dyhCNny5mCjy1W6WhDStVJSXNfwGcoJckA3Ub6bnQ57FQjMLCeN3nHNxt6eTWb1hsmj2dMjY7vkAcVCCMNcm1tRpLMWGmeqCNLU6QiHoAx3NAPxmfksocvHwSXDF56bUJpYxt6kwuyAWCZAv6ijJDgg7imtHoju1oyjZQehmhMpyQKvuQmdthHcdsmGqp6oPbMr1RGLHKdmEucJvo888AVuTmVBN7nUSszUioJ2BhaNPyzZQtm9Sn9h9F7UjNo2eX551o9RGTk5r6dRj4VXHvGPP5vXkp6jodkG11BLaF9ur835oLpFAFetbeS9rQS7Mb4p2cvXwrZjh3YhMd8QHUKGt1x44D163rRbRh8ywiZVGim9uFwaZM5JjsF4fSHWBRqRCztNvMNr4NuTquVGynbn1JnjagmgVWLRixzx3PzL3PMDDtFVpz5FEhsGnbbHQn3zWcAZhgyu6YtfkqdUvDZVErysTiiXV6QFU6keq3z25z6zZ3hGZvRAjr1DucdnpGeyi41xrYfAEq4u6SwSvs8ZRffa5vHqgmCqapRihZ9Gt85eDKKzMY4VJv9ZyfxH9s5gaCrX42K5zEoUDPRLxhvFFSkXNrZiYtHjA6HMfyC1QU5HBqNfi9g3z3BaWdKbAUFfhL8",
+   "assets": [
+    {
+     "tokenId": "a7f6d4ccf1288a2b79e3d8741e1e203828135a12b92f8dc4f2d21e40738e0e01",
+     "index": 0,
+     "amount": 1,
+     "name": "Walrus DAO Stake State",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "59ee24951ce668f0ed32bdb2e2e5731b6c36128748a3b23c28407c5f8ccbf0f6",
+     "index": 1,
+     "amount": 186962,
+     "name": "WALRUS",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R5": {
+     "serializedValue": "1107ca918cdd8465a2e9160e069a82160000",
+     "sigmaType": "Coll[SLong]",
+     "renderedValue": "[1735801275493,186961,7,3,180365,0,0]"
+    },
+    "R6": {
+     "serializedValue": "1d05020000020000020000020000020000",
+     "sigmaType": "Coll[Coll[SLong]]",
+     "renderedValue": "[[0,0],[0,0],[0,0],[0,0],[0,0]]"
+    },
+    "R8": {
+     "serializedValue": "11020000",
+     "sigmaType": "Coll[SLong]",
+     "renderedValue": "[0,0]"
+    },
+    "R7": {
+     "serializedValue": "0c3c6464024ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e1609000720004ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e1609000720004ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e1609000720004ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e160900072000",
+     "sigmaType": null,
+     "renderedValue": null
+    },
+    "R4": {
+     "serializedValue": "0c640217adf78fa2b6a33b9af2311da21d5df3a9f4e9a024f0df1feda99baa7ff7160404072000d0da7b7e5287f8dfb048d28d2a4c5609275f7fc9734d4452e995a97e60aa267f02072000",
+     "sigmaType": null,
+     "renderedValue": null
+    }
+   }
+  },
+  {
+   "boxId": "17866855028f5b932ffed4e3517372f018c41b409f9d6cc510525368bcf2946f",
+   "value": 1000000,
+   "index": 1,
+   "spendingProof": null,
+   "outputBlockId": "daaac5ff3c4aff464c37ec5e9bc1b7e54dbe8028150d1414bb80a38496a6529f",
+   "outputTransactionId": "294bc0fa717b1d47a3f8a925ab6fa71a92df2bd9d08407817649e9a726f32a64",
+   "outputIndex": 1,
+   "outputGlobalIndex": 10817231,
+   "outputCreatedAt": 1430679,
+   "outputSettledAt": 1430683,
+   "ergoTree": "10020e2098ba6f0cfc7758633d52ea3082ae3b8b38b45dbfe8a7247de966dcb608b9008e0e20a7f6d4ccf1288a2b79e3d8741e1e203828135a12b92f8dc4f2d21e40738e0e01d81fd601e4e3010c3c0e0ed602b27201040000d6038c720201d604d901040e7cb4720404100420d6058c720202d606da7204017205d607d9010763b2e4c67207040c64040000d608d901083c0c630eb58c720801d9010a63aedb6308720ad9010c4d0e938c720c018c720802d6097301d60ab2da7208018602a47209040000d60bda720701720ad60ce4e3020ed60de4dc640a720b027203720cd60eda720401720dd60f997206720ed610d9011063b2db63087210040200d611b2da7208018602a57209040000d612d9011263b2e4c672120511040200d613d901130eaddb0c0eb4721304009d99b1721304200410d9011504d801d6179c721504107cb472139a721704209a9a721704100420d614b3830105720eda721301720dd615b38301057206da7213017205d616dc0c1d7214017215d617d9011763b2e4c67217040c64040200d618d9011863d801d61ae4c672180511b4721a040ab1721ad619d9011963b2e4c672190511040000d61ad9011a63b2e4c6721a0511040400d61bd9011b63b2e4c6721b0511040600d61cd9011c63b2e4c6721c0511040800d61dd9011d63e4c6721d061dd61ed9011e63e4c6721e070c3c6464d61fd9011f63e4c6721f0811d196830901dad901203c0c630eae8c722001d9012263aedb63087222d901244d0e938c7224018c722002018602a57203ed93720f998cda7210017211028cda721001720a0293720f99da7212017211da721201720a93b17201040293db6401e4dc640d720b027201720cdb6401da7207017211afb472160402b17216d9012059d801d6228c722002ed928c722001722292722205009399b27214040200b2721504020099c1720ac1721192c1b2dad901203c0c630eb58c722001d901226393cbc272228c722002018602a5dad9012032b4e472200402044201b2dc640bdad9012063e4c67220046401b2da7208018602db6501fe73000400000283010e832002028802300261022c02520235025f026f0228020d0212029702f1029f026702b0027802c902da02a702d702b0024b0245029c029102cc02640249025702c20280e4e3000e040000040000c1a79683090193da7217017211da721701720a93da7218017211da721801720a93da7219017211da721901720a93da721a017211da721a01720a93da721b017211da721b01720a93da721c017211da721c01720a93da721d017211da721d01720a93da721e017211da721e01720a93da721f017211da721f01720a927206720e",
+   "ergoTreeConstants": "0: Coll(-104,-70,111,12,-4,119,88,99,61,82,-22,48,-126,-82,59,-117,56,-76,93,-65,-24,-89,36,125,-23,102,-36,-74,8,-71,0,-114)\n1: Coll(-89,-10,-44,-52,-15,40,-118,43,121,-29,-40,116,30,30,32,56,40,19,90,18,-71,47,-115,-60,-14,-46,30,64,115,-114,14,1)",
+   "ergoTreeScript": "{\n  val coll1 = getVar[Coll[(Coll[Byte], Coll[Byte])]](1.toByte).get\n  val tuple2 = coll1(0)\n  val coll3 = tuple2._1\n  val func4 = {(coll4: Coll[Byte]) => byteArrayToLong(coll4.slice(8, 16)) }\n  val coll5 = tuple2._2\n  val l6 = func4(coll5)\n  val func7 = {(box7: Box) => box7.R4[Coll[AvlTree]].get(0) }\n  val func8 = {(tuple8: (Coll[Box], Coll[Byte])) =>\n    tuple8._1.filter({(box10: Box) => box10.tokens.exists({(tuple12: (Coll[Byte], Long)) => tuple12._1 == tuple8._2 }) })\n  }\n  val coll9 = placeholder[Coll[Byte]](1)\n  val box10 = func8((INPUTS, coll9))(0)\n  val avlTree11 = func7(box10)\n  val coll12 = getVar[Coll[Byte]](2.toByte).get\n  val coll13 = avlTree11.get(coll3, coll12).get\n  val l14 = func4(coll13)\n  val l15 = l6 - l14\n  val func16 = {(box16: Box) => box16.tokens(1) }\n  val box17 = func8((OUTPUTS, coll9))(0)\n  val func18 = {(box18: Box) => box18.R5[Coll[Long]].get(1) }\n  val func19 = {(coll19: Coll[Byte]) => coll19.slice(0, coll19.size - 16 / 8).indices.map({(i21: Int) =>\n        val i23 = i21 * 8\n        byteArrayToLong(coll19.slice(i23 + 16, i23 + 8 + 16))\n      }) }\n  val coll20 = Coll[Long](l14).append(func19(coll13))\n  val coll21 = Coll[Long](l6).append(func19(coll5))\n  val coll22 = coll20.zip(coll21)\n  val func23 = {(box23: Box) => box23.R4[Coll[AvlTree]].get(1) }\n  val func24 = {(box24: Box) =>\n    val coll26 = box24.R5[Coll[Long]].get\n    coll26.slice(5, coll26.size)\n  }\n  val func25 = {(box25: Box) => box25.R5[Coll[Long]].get(0) }\n  val func26 = {(box26: Box) => box26.R5[Coll[Long]].get(2) }\n  val func27 = {(box27: Box) => box27.R5[Coll[Long]].get(3) }\n  val func28 = {(box28: Box) => box28.R5[Coll[Long]].get(4) }\n  val func29 = {(box29: Box) => box29.R6[Coll[Coll[Long]]].get }\n  val func30 = {(box30: Box) => box30.R7[Coll[(AvlTree, AvlTree)]].get }\n  val func31 = {(box31: Box) => box31.R8[Coll[Long]].get }\n  sigmaProp(\n    allOf(\n      Coll[Boolean](\n        {(tuple32: (Coll[Box], Coll[Byte])) =>\n          tuple32._1.exists({(box34: Box) => box34.tokens.exists({(tuple36: (Coll[Byte], Long)) => tuple36._1 == tuple32._2 }) })\n        }((OUTPUTS, coll3)), (l15 == func16(box17)._2 - func16(box10)._2) && (l15 == func18(box17) - func18(box10)), coll1.size == 1, avlTree11.update(\n          coll1, coll12\n        ).get.digest == func7(box17).digest, coll22.slice(1, coll22.size).forall({(tuple32: (Long, Long)) =>\n            val l34 = tuple32._2\n            (tuple32._1 >= l34) && (l34 >= 0L)\n          }), coll20(1) - coll21(1) == box10.value - box17.value, {(tuple32: (Coll[Box], Coll[Byte])) =>\n          tuple32._1.filter({(box34: Box) => blake2b256(box34.propositionBytes) == tuple32._2 })\n        }(\n          (\n            OUTPUTS, {(opt32: Option[Coll[Byte]]) => opt32.get.slice(1, 33) }(\n              {(box32: Box) => box32.R4[AvlTree].get }(func8((CONTEXT.dataInputs, placeholder[Coll[Byte]](0)))(0)).getMany(\n                Coll[Coll[Byte]](\n                  Coll[Byte](\n                    -120.toByte, 48.toByte, 97.toByte, 44.toByte, 82.toByte, 53.toByte, 95.toByte, 111.toByte, 40.toByte, 13.toByte, 18.toByte, -105.toByte, -15.toByte, -97.toByte, 103.toByte, -80.toByte, 120.toByte, -55.toByte, -38.toByte, -89.toByte, -41.toByte, -80.toByte, 75.toByte, 69.toByte, -100.toByte, -111.toByte, -52.toByte, 100.toByte, 73.toByte, 87.toByte, -62.toByte, -128.toByte\n                  )\n                ), getVar[Coll[Byte]](0.toByte).get\n              )(0)\n            )\n          )\n        )(0).value >= SELF.value, allOf(\n          Coll[Boolean](\n            func23(box17) == func23(box10), func24(box17) == func24(box10), func25(box17) == func25(box10), func26(box17) == func26(box10), func27(\n              box17\n            ) == func27(box10), func28(box17) == func28(box10), func29(box17) == func29(box10), func30(box17) == func30(box10), func31(box17) == func31(box10)\n          )\n        ), l6 >= l14\n      )\n    )\n  )\n}",
+   "address": "KS83rEfyUEnKy212Vdj5o8LGv5ofZ7NLAsgL9d8jHFYQA8AJpkQ6g7wuz7M7VqMkWcXHXKfpmPsCr4wMJH3rR4jS1ALmDMbaM1yJgCTNKheRsUpM9LcPLqXuM3P8TkeGKhRa61knqehuMdEomDYdCfopHb34mLGF6Yep1EsKdpJ7KgnJ2bSSF6KkTF4nXanx6jxtwu5oA9kTugUDHiAXsTZMSmwTSQXqRvcjVLeRjcx7rwzsqmnu2wTcQDSwRBNEsvVnEe7n9qazT5CcQin3Q6hkF1GncboAthZoBAXmnw7oJBojaaWhd2co34FB8RV8MhcXnQUMFdbdDvQJJ5hecgRBQr5eq2V7jpumwfDKDmCLkqtpRa8vM5hx7Ni8zUupyFWMVJHhe918ujNKDkC1qLvaJiC8a3eHKxUMBsKnJ1Wrsd2jKL3pqvDtGuArf68UdXpcaUrjTJ3jC9eDUKcio6VRrxRxQLmzPciWuRG6AzwmDSGA8w1QdUyjFfy4MpmAdqoChQ55VJkB4nZ9NTPvhv7bcRdRTp6cPxFWvWMa7HZCuDzsTedFmMrGZSP4LDxe7DJKPVx6G9Eh1Ne4jvnh48eJ3P1YSKpdGec9T74nvYEdbKshdihQHp2e5Dw5dcGAfvvhmeErmtJF6XXwLgyqj8iQa1vP8xFJ5MbeEf9bTSjMrXtZHURsjgxkbqsRd7BVQQkCsiv8bWRYcQe8Hsf4vLURRD6cPq5LZo4dQY44XN3BfLGg5czrUsAmSMmKXShXLLDejwF4Zk51R4UfZgXAZxxxjuwiQrphgFiBmm4KAMzCWFF2QKyFT3SZhmZxgvvYwwDDWVhDnXagzjUjpeqBZf5GMnAgyiZDwFTQHTfSukLBxJwKUeyLUNyMJE8pceSa7myWo7TF4HG2HJircfVJ3pkGDYWjr9jdXSgpj19JSiGyqRw9tojxWs2o1Bch4sGKdtYwYwNXLafoJYnqnLAYN6gaRQnwjD15tmd9ATgEy6U8LZbriuCEzvSPyj8VmJNnxxmmVCWw46HsEqVQ61BVNQPLVExCPpq8UTvsmHReNoRZKVgbF7mBJKzrzhWLuUws8D9DPF36JKpT7g8zKevz7KFshQeHhBifzY6ymRJM2msnfx2SLdhNLS2ytbu7wKMohw8pcoeaiCczSxnDJtEwDgj5STW6Qdk6ScrzHwiFKUYULkFf86FKNBDoiPeaJiW7pN8MuDXT7xwkCVQhcT8qbhWBxfhtyzX1Rid8QRE945bRQv4xqoX91ij8EHqYPmyugSVHuADZWXcJRKryjYpEuuvxTBSdWszyXQhBC49Cf199KnjKNUmLsDZk3Cr1gqt",
+   "assets": [],
+   "additionalRegisters": {}
+  },
+  {
+   "boxId": "32455d9840cb6869fe4715ee1b7f13cb91d360c7d5509b9fafffcfd8cf8bbefb",
+   "value": 1000000,
+   "index": 2,
+   "spendingProof": "ba4c62ae39d1898788694cd64de1bc614a506629f0f96ff92245f13ab26eb39be5ef10ca17547443f00e69851e61948265bcdb5543c8b2c3",
+   "outputBlockId": "b6e66303f4c6c926bd2da836ab5c9e35b3b4031653982bf1d9cc90a496687a18",
+   "outputTransactionId": "f510c59c3b32add02272f4a33adb9ec982b24aab92099a5ec5f83a56723515d7",
+   "outputIndex": 0,
+   "outputGlobalIndex": 11714448,
+   "outputCreatedAt": 1457633,
+   "outputSettledAt": 1457636,
+   "ergoTree": "0008cd03b775aacf3f06a2d0835af6163add1355cbb8830dbcab9c903b35a103fc6f595c",
+   "ergoTreeConstants": "",
+   "ergoTreeScript": "{SigmaProp(ProveDlog(ECPoint(b775aa,5105d7,...)))}",
+   "address": "9hrbvQghJYNy3XCqFdK6Ci3To4NcrbULt8cgQziBozHadZ1RgPx",
+   "assets": [
+    {
+     "tokenId": "f3b45a221ec1971284b6f2f8274ba08dd633ae37f3dd70f6eea29bc92195840c",
+     "index": 0,
+     "amount": 1,
+     "name": "PoW WoW Girls #1260",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R5": {
+     "serializedValue": "0e1b506f5720576f57204769726c732062792057616c7275732044414f",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "506f5720576f57204769726c732062792057616c7275732044414f"
+    },
+    "R6": {
+     "serializedValue": "0e0130",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "30"
+    },
+    "R8": {
+     "serializedValue": "0e205b68db8d0f8ee9b55f85977bb25fc7bcf0e8c6edb8d0c85112f0fb57205b8b71",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "5b68db8d0f8ee9b55f85977bb25fc7bcf0e8c6edb8d0c85112f0fb57205b8b71"
+    },
+    "R7": {
+     "serializedValue": "0e020101",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "0101"
+    },
+    "R9": {
+     "serializedValue": "0e3f68747470733a2f2f617277656176652e6e65742f49674365584f6c4c57384849435f4c6537575a48305976706d48527432525250537470565f4f4136674e6f",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "68747470733a2f2f617277656176652e6e65742f49674365584f6c4c57384849435f4c6537575a48305976706d48527432525250537470565f4f4136674e6f"
+    },
+    "R4": {
+     "serializedValue": "0e13506f5720576f57204769726c73202331323630",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "506f5720576f57204769726c73202331323630"
+    }
+   }
+  },
+  {
+   "boxId": "d4f8088c4b7407eb3ad3f7c71cbdf498ae15c6366833d26eead2f690d39a8825",
+   "value": 997135028124,
+   "index": 3,
+   "spendingProof": "7959171567ee926488f89ef23eb27714592c63085b73c798b5c84482120cf9daddf5db0963288a99910259b3cbe6b4c8ba240425f7446888",
+   "outputBlockId": "b6e66303f4c6c926bd2da836ab5c9e35b3b4031653982bf1d9cc90a496687a18",
+   "outputTransactionId": "15871821b490d6f69da70796074f00058a7cc245ffedecb6edcc05ac9a72d916",
+   "outputIndex": 2,
+   "outputGlobalIndex": 11714465,
+   "outputCreatedAt": 1457633,
+   "outputSettledAt": 1457636,
+   "ergoTree": "0008cd03b775aacf3f06a2d0835af6163add1355cbb8830dbcab9c903b35a103fc6f595c",
+   "ergoTreeConstants": "",
+   "ergoTreeScript": "{SigmaProp(ProveDlog(ECPoint(b775aa,5105d7,...)))}",
+   "address": "9hrbvQghJYNy3XCqFdK6Ci3To4NcrbULt8cgQziBozHadZ1RgPx",
+   "assets": [
+    {
+     "tokenId": "2008f8378c98db569c52170cdebbd4089568bb3bc50f2d5415dbe158b1f9f836",
+     "index": 0,
+     "amount": 1,
+     "name": "Degen Divers #108",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "0040ae650c4ed77bcd20391493abe84c1a9bb58ee88e87f15670c801e2fc5983",
+     "index": 1,
+     "amount": 81000000,
+     "name": "bPaideia",
+     "decimals": 4,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "01dce8a5632d19799950ff90bca3b5d0ca3ebfa8aaafd06f0cc6dd1e97150e7f",
+     "index": 2,
+     "amount": 79075784,
+     "name": "CYPX",
+     "decimals": 4,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "2b6d675545c319214ef806bf0685974bcd49fffe385cde5703c41cc6cc71e12c",
+     "index": 3,
+     "amount": 1,
+     "name": "CyberVerse Skin - Nautilus",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "0264bd58f5fa83a619775867d2d5b853b767bdc100a1cb512221de62a6026493",
+     "index": 4,
+     "amount": 1,
+     "name": "Ritual Scroll #161",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "10e984d3a4b740460eed9930262526402a2344e6e4dae8dea24cc6a93f39ba4f",
+     "index": 5,
+     "amount": 1,
+     "name": "Gogo",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "98d703b10e246c977647ef347c0913f90b64380abcd407f1524a25704c41bb90",
+     "index": 6,
+     "amount": 1,
+     "name": "T-Rekt #0019",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "f42d9e7bb64cec4aedde06d5e92f67433803d14ea53f7a871f7e3f6860a4ed21",
+     "index": 7,
+     "amount": 1,
+     "name": "Ritual Scroll #98",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1eac52506988e173227d1b2cbf73e05dab7f6b1b14054b5fa19bc36a073aa055",
+     "index": 8,
+     "amount": 1,
+     "name": "Restless Nights",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "c0968ecbe5998c4daa897da0c29a78cbf66b2415d748f7fdb6f7d173a7a637d1",
+     "index": 9,
+     "amount": 1,
+     "name": "Ritual Scroll #95",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1bee3ee532f289b4b114f4a804ac8ded9543a62f6a72ec1640e078ada70b878b",
+     "index": 10,
+     "amount": 1,
+     "name": "Ritual Scroll #76",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "56366f97d193f8d72fb952b9106a3b97d6146c79bea928279804dc03dbefe759",
+     "index": 11,
+     "amount": 1,
+     "name": "Sigmanaut's Space Stars #120",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ca46ddc83cb50c0074b3abf8680f9f1ed2f81f061cdbacd71ffe29879dfa4fc7",
+     "index": 12,
+     "amount": 1,
+     "name": "T-Rekt #0221",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "00a030f66ecd81dc1682aabeb57b6b3f580214d3112c63c5218284409b171bc4",
+     "index": 13,
+     "amount": 3991444960,
+     "name": "Lend Token ERG-0a",
+     "decimals": 9,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7908edfc6fb960b2b30b9f68b7cf27d9bff72e729aa512426bca07b75bacc841",
+     "index": 14,
+     "amount": 1,
+     "name": "Degen Divers #243",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "fbbd18f78d12749b83943a55c783e86ff505e32c863d681fc8b462b8d6522ba0",
+     "index": 15,
+     "amount": 1,
+     "name": "Mini Champs #342",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "882c585aa636147d1153001b306c4e18095f2e68cf51f31d8323de59a1361f31",
+     "index": 16,
+     "amount": 1,
+     "name": "Tiger & Magpie #0660",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "258288425078024b9dbd816f597b94ce5be2efc07ef97818dc7b20f5bae6b2c6",
+     "index": 17,
+     "amount": 1,
+     "name": "T-Rekt #0205",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "aeb79fd6d004b6c2a0f7c6219aebe8f943311e716506e14f2c084c8295f98713",
+     "index": 18,
+     "amount": 22,
+     "name": "GNOMECOIN",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "cdc1aebec795ce9822492b5e62fdd93bb2a03653f7c3dfcfabbb0c98f6a33581",
+     "index": 19,
+     "amount": 23437,
+     "name": "Sigmanaut",
+     "decimals": 2,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "d3bca64bd3565ebb114b1ed45344a5627edd79907263b8cd9360acea3f9c08c6",
+     "index": 20,
+     "amount": 1,
+     "name": "Ritual Scroll #110",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "16560f6cadd5d3d4b910e366ce81dee82faff034bed8b66713b802482cd7877a",
+     "index": 21,
+     "amount": 1,
+     "name": "Rosen Trolls #291",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "174d45a073d955f950f15b3ad0f0d821fc0c9f4aec79d16e6f8e58850e2f20d9",
+     "index": 22,
+     "amount": 1,
+     "name": "Ergnome #180 Pedro, the Ripped Pirate Pellican",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "0dbfc7596cde3a81a2a968be7476f6bfa3277bf4de62854b1e916b84021edca4",
+     "index": 23,
+     "amount": 1,
+     "name": "Ultraclonger",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "f1e33c0b08bc13ce293e7604e37860e6fa45c2288d31da677a88c745a5fa4bd5",
+     "index": 24,
+     "amount": 1,
+     "name": "Ritual Scroll #151",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ed9417be1f40295bda879b94d9977d94c6f61506bf1452cfc5ab01ec2fe3916c",
+     "index": 25,
+     "amount": 1,
+     "name": "Draca",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7db49d27970769088e29827027d85cfa657fcb747ee43a6aa798450e460eb14b",
+     "index": 26,
+     "amount": 1,
+     "name": "Ritual Scroll #70",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "e99ec0001bb1d95f33eababba5251b782054a427ed1203c352c46166b615cf3f",
+     "index": 27,
+     "amount": 1,
+     "name": "Mic Battle Champion #1",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "fcfca7654fb0da57ecf9a3f489bcbeb1d43b56dce7e73b352f7bc6f2561d2a1b",
+     "index": 28,
+     "amount": 143128028619,
+     "name": "ErgOne",
+     "decimals": 8,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "2e59555f055c1341e64d51267a381f6dbbe572cb725cfc471b35e84bbc258b75",
+     "index": 29,
+     "amount": 140000,
+     "name": "hodlCOMET10",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "36c40cb2d2d7496c0c49ce57deef8eb5d055b793eaec93c427b3edbaf338edcc",
+     "index": 30,
+     "amount": 1,
+     "name": "Ritual Scroll #79",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "90153dc9a7f77003c543ea15cbd935f00fbe99839088099d32b0c4c40dedf76b",
+     "index": 31,
+     "amount": 1,
+     "name": "Ritual Scroll #89",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "59ee24951ce668f0ed32bdb2e2e5731b6c36128748a3b23c28407c5f8ccbf0f6",
+     "index": 32,
+     "amount": 11793,
+     "name": "WALRUS",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "3b986b0d994092936d6d70961e34ffee72184583e964bf37d572fcf955d5bba6",
+     "index": 33,
+     "amount": 1,
+     "name": "T-Rekt #0164",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "b91f7d8e8c2db9b7f1f61f6fa9efeb347400a8007c5a76406a45fa89b64510c7",
+     "index": 34,
+     "amount": 1,
+     "name": "Ritual Scroll #42",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "b3f4f1a54c655435865d17bcb33db0652a50d488e5e2f718d5788a198544f2ef",
+     "index": 35,
+     "amount": 1,
+     "name": "Ritual Scroll #100",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "aa4513cbd8668cf008b29338769e7e198f0a005bbdfecbd39541a092e633cb27",
+     "index": 36,
+     "amount": 1,
+     "name": "Mage Champions #321",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "8fbb4821d794459443a2426f91e01321e4e932848b9f141860d15ce3f065779e",
+     "index": 37,
+     "amount": 1,
+     "name": "Cybercitizen #4000",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "f7cf16e6eed0d11ffd3f55186e00085748e78f487cb6e517b2f610e0045509fe",
+     "index": 38,
+     "amount": 67909635,
+     "name": "ERG_Ergopad_LP",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "333c4441209436490974e946587dc3d114a899efb30da9abcef9f91ccac96d4e",
+     "index": 39,
+     "amount": 1,
+     "name": "DURGΣ",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "da6d9b58c69a7a1146761414ec1fe403f44b1816b65d1cd76b33a8b5ecf0d7a4",
+     "index": 40,
+     "amount": 1,
+     "name": "Degen Divers #150",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "90e4a05cc9e17dd44759dd18a5b3986e1a2407983652752d5dc9fb874586e715",
+     "index": 41,
+     "amount": 1,
+     "name": "Ritual Scroll #171",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "dad359fdde0c06866fbd745a1850db3e176ceefc09af67529fd5d899f08567dd",
+     "index": 42,
+     "amount": 1,
+     "name": "Psycobill, the Dazed Traveler #PL_009_420SP",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "4f7a1ade7091be907160ff1235039c7addd136aef6d4e45a7ce1b6a0be56e87a",
+     "index": 43,
+     "amount": 1,
+     "name": "ErgoHack VIII Community Awards Stake Key",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "940835ad45be2583819a88fd6ee620284ef565f77563bca722a309e31f3cd70b",
+     "index": 44,
+     "amount": 1,
+     "name": "Ritual Scroll #117",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+     "index": 45,
+     "amount": 10,
+     "name": "SigUSD",
+     "decimals": 2,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "6e7ddfdd30a3964535581b74fc324a41288d9a92be15bb0e245e5138b65219ae",
+     "index": 46,
+     "amount": 1,
+     "name": "Punk Rocker #4",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "970c65d63bc73927368fb8c1af0cf0546a799ccb06b9b4f82cdbaba0965c28d5",
+     "index": 47,
+     "amount": 1,
+     "name": "Ultrampest",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "11424d80ae12a9051da5c18d5e96f3e4fef955055dbb78f4c5d66bb9d258d1fc",
+     "index": 48,
+     "amount": 1,
+     "name": "Ritual Scroll #96",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "92e848f2a06b68f690b5650d333919c1ebb36346e7795d9746f886ab5864833c",
+     "index": 49,
+     "amount": 119039454,
+     "name": "Ergo_59ee2495_LP",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "469abf8b9c9d28807d11a9a018c75ce7879b77748c3e22182cfc34e3cf8a5338",
+     "index": 50,
+     "amount": 4376448159,
+     "name": "Ergo_8b08cdd5_LP",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "d3d82a4014dfe8e033e6510621d4aa8e12d3a2b7e6d44de3bfdabefa209eb826",
+     "index": 51,
+     "amount": 1,
+     "name": "Ritual Scroll #43",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "735186806113fb96ec982f3f1c3d60ce3f87a229fd7ff38909a2c08757764848",
+     "index": 52,
+     "amount": 1,
+     "name": "Cybercitizen #2151",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "6267fe295ebf3143abe788c2f8f268394dceaca840e4a5be3d9c5bfda7c1caf4",
+     "index": 53,
+     "amount": 9223372036854776000,
+     "name": "Spectrum YF staking bundle",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "fcd29e4928d1db3146a5cb4a8096da3d7d16ae4ff29c87551ddfc9c05c174a2b",
+     "index": 54,
+     "amount": 1,
+     "name": "Ritual Scroll #77",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "90f68daea8b521b68ad19e0bf6a1ca8e6e566a50ae2d023c4eca6f96ea279c57",
+     "index": 55,
+     "amount": 1,
+     "name": "Ritual Scroll #152",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "5ff653cea2d12a6a8cfd7f8f2ae5c8b0b9353554ecd49dcf6387441c002741dc",
+     "index": 56,
+     "amount": 1,
+     "name": "CyberCar #43",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "f6313d450539d6f60eeb91cbfc2e2111895013d6e7faf8c68f7db175d8c10f52",
+     "index": 57,
+     "amount": 1,
+     "name": "Paideia Stake Key",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "2b497694f995f005f67843073b9d13ba748004ab1b0afcb10c1113bb6e47aea6",
+     "index": 58,
+     "amount": 1,
+     "name": "Walrus DAO Logo #1",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "f2fa22745e6495500521cb60fcb850226b672a2875a0430e7c243c9146434205",
+     "index": 59,
+     "amount": 1,
+     "name": "Champion Wizard Lycan",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1c51c3a53abfe87e6db9a03c649e8360f255ffc4bd34303d30fc7db23ae551db",
+     "index": 60,
+     "amount": 61039373,
+     "name": null,
+     "decimals": null,
+     "type": null
+    },
+    {
+     "tokenId": "210f8b7a46cb3597e7f822953252ccbf5dd2e4f9f0310a69530a60bbefca3693",
+     "index": 61,
+     "amount": 1,
+     "name": "Comet #002",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "fa6326a26334f5e933b96470b53b45083374f71912b0d7597f00c2c7ebeb5da6",
+     "index": 62,
+     "amount": 1573892423,
+     "name": null,
+     "decimals": null,
+     "type": null
+    },
+    {
+     "tokenId": "0d42064152d15e88e71aaaf6017cda7dc0963b0a6cf49c907fb9807135f29ea3",
+     "index": 63,
+     "amount": 1,
+     "name": "Ergnome #037 Bubba, the Dog Instructor",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+     "index": 64,
+     "amount": 3995,
+     "name": "SigRSV",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "8bf0435c7e1b1d5168a14f37def9efe5cb066fba308f5fdd623298da4246d21a",
+     "index": 65,
+     "amount": 1,
+     "name": "Ritual Scroll #85",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "3382258dc3dd6b7af24e1d40453fcf94d4e8119f65d7ade843cc26063eb94c98",
+     "index": 66,
+     "amount": 1,
+     "name": "CyberCar #698",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7e9cabe6c6ae7efffd7064233d8c4a72fbda09ab855f5bcbed7c1237f3f76f45",
+     "index": 67,
+     "amount": 1,
+     "name": "Cybercitizen #2514",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "def9ef3cc2ca190c00d17e8dd4b0c34d27631d23cf8a1b77cd10a51b9d010e51",
+     "index": 68,
+     "amount": 1,
+     "name": "Ritual Scroll #78",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "8de945d136248be4d632b50b7529a2b60acc0ee62a914071b865619f733b2f8b",
+     "index": 69,
+     "amount": 1,
+     "name": "[Cyberia] Apartment #63",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "0cd8c9f416e5b1ca9f986a7f10a84191dfb85941619e49e53c0dc30ebf83324b",
+     "index": 70,
+     "amount": 1000007,
+     "name": "COMET",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "fc97687ab4d6f34dfe99a14a0586cb1652e7ec427b264c136a9ef08a844651bc",
+     "index": 71,
+     "amount": 1,
+     "name": "420 Sloth #1",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "aa8a0110bcc0301eb30a438c812782651727acbcf26346dce4241e26dc0c5aa8",
+     "index": 72,
+     "amount": 1,
+     "name": "Ritual Scroll #47",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "76e9c50ee914e53aa0ec20d213402cd257f5e268f231c70c9e756f09c133e0a3",
+     "index": 73,
+     "amount": 1,
+     "name": "Cybercitizen #2645",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "79a98e31c9835133866bdadece89b60721a008c3456d2ed4a2373e21e744a6e3",
+     "index": 74,
+     "amount": 1,
+     "name": "CyberCar #305",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ba25d53012410b0a0555f5b96a626c0e22d772627aa15b858c13589401255049",
+     "index": 75,
+     "amount": 1,
+     "name": "Aurora of Dystopian World",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7cb6d4df5303d90dd2082c982949950d86418a453d01960f742ea7a4d741eed7",
+     "index": 76,
+     "amount": 1,
+     "name": "Ritual Scroll #115",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7025b298e4ac5c440fe301a1f14e856942ff3a4deba1ab654b94cab040e8e157",
+     "index": 77,
+     "amount": 1,
+     "name": "Radianre",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "4de9e7e628e4f473f954ee74c622033cf03005198293d0d2cd4ccc64288da17e",
+     "index": 78,
+     "amount": 819871271100,
+     "name": "Satoshi",
+     "decimals": 6,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "77b80107acbbca2a1d7e3142f533af21d51d1aeaad8264255236ec9cc6e1d588",
+     "index": 79,
+     "amount": 1,
+     "name": "Cybercitizen #1206",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "8b86706e4f4a928fe50a8280db8b06a113e43962d046e574652c99ab33f7f256",
+     "index": 80,
+     "amount": 1,
+     "name": "HiPPoWPoWs - Space Farmers 023# ",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1dfd90519e1166c9b278c9afafec9e341892251b56d35d13df36a6306a71acac",
+     "index": 81,
+     "amount": 1,
+     "name": "Ergoats #00231",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "62a87b20ff33a7c016ba10f81034aea0fde5d885264c256080f3e90a9c7e1fb7",
+     "index": 82,
+     "amount": 1,
+     "name": "Tiger & Magpie #0871",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "e1ac43f16f41e9f1d2241425f8901cc2a016103ed42c02c39a44d28e5014165e",
+     "index": 83,
+     "amount": 1,
+     "name": "Ritual Scroll #44",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "afa2073ea10a567d2c219e8c76886762ce6c54fd52afee6c6368219a4452b00c",
+     "index": 84,
+     "amount": 1,
+     "name": "Spectrum Finance Staker Vesting Key",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "94697d7c722a987edf3e223151f06a977b4cb40138f1f722222a1dfe015455d5",
+     "index": 85,
+     "amount": 1,
+     "name": "T-Rekt #0183",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "40419ae16651e21a4ccca73ff78f9e3ab0a9d3f58c8a97a12321069b16a0fba0",
+     "index": 86,
+     "amount": 1,
+     "name": "Joteor",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "cbd75cfe1a4f37f9a22eaee516300e36ea82017073036f07a09c1d2e10277cda",
+     "index": 87,
+     "amount": 290000000000,
+     "name": "hodlERG3",
+     "decimals": 9,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "833f7e90c8c5145faf2ae30580574a0d410aa90abd9175bcfb29cebe0d26a46e",
+     "index": 88,
+     "amount": 1,
+     "name": "EGIO Stake Key",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "e1dfddb209d4ab03ca49d7f18d242e8c1566722b0b039a782557517fbc8fccf6",
+     "index": 89,
+     "amount": 1,
+     "name": "Ritual Scroll #125",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "a0ceb83d9f4c90078e4eb408b49828dc5d5ed1b60c34f33ea26b722b37d35de4",
+     "index": 90,
+     "amount": 1,
+     "name": "Ritual Scroll #126",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "aeb94140830751a6c35f7cf9c38c270e5bd91846af01eb703072457af847f5e1",
+     "index": 91,
+     "amount": 1,
+     "name": "AHT Stake Key",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "c2b0faae5b0d29b25b0aec54efc5333b4a716fe986c72cca238e4292f0a64889",
+     "index": 92,
+     "amount": 1,
+     "name": "Ritual Scroll #142",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "df42e588bcb16465348cbbc3fe39de07743403d03a504d4b6eb6233946f7d093",
+     "index": 93,
+     "amount": 1,
+     "name": "Zephyr",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "0db131baefd31213d2f87e3ecc18ce3a83521ff82b305a65d9f0624005691114",
+     "index": 94,
+     "amount": 1,
+     "name": "Tiger & Magpie #0041",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "3eb8310ccc21cfeb4ad65087168aa6e76a4a2d44e1fc070230ec819477f2c9a4",
+     "index": 95,
+     "amount": 9223372036854776000,
+     "name": "Spectrum YF staking bundle",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "3cf5022868561b4a478aa5546a0c7156bd9fc7ba3c2aa279447e3d0d16f5e567",
+     "index": 96,
+     "amount": 1,
+     "name": "Degen Divers #237",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "191db0280e63acecff99e4138336756c0083fc509dae1c1fbb0bc9a93c5bcb4d",
+     "index": 97,
+     "amount": 1,
+     "name": "Fado",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "db2b531973337af2eb287e97552a183bd6ede7f0249a84307cf989438b41fb7a",
+     "index": 98,
+     "amount": 1,
+     "name": "T-Rekt #0291",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  },
+  {
+   "boxId": "bbdbd631ec42e89db9a51a96b5e811dd48f883775e901421feda1adaae49f180",
+   "value": 7514715622,
+   "index": 4,
+   "spendingProof": "c717412fc6a5369fb0efb2d598978b24538adea2b7376a91e2bbd664fcf34036039d7a4740be5a524b613215b0d2aeab45c8cfe025b88aa7",
+   "outputBlockId": "034e0188dbbe79686992b280eb7e098a2b7cf445d8993007db080b3b327c7ccc",
+   "outputTransactionId": "dbb148a347c34bdaaee608b14cf7a7da2703cd57ffa77ae113bd4e9652235cf6",
+   "outputIndex": 2,
+   "outputGlobalIndex": 11714488,
+   "outputCreatedAt": 1457636,
+   "outputSettledAt": 1457638,
+   "ergoTree": "0008cd03b775aacf3f06a2d0835af6163add1355cbb8830dbcab9c903b35a103fc6f595c",
+   "ergoTreeConstants": "",
+   "ergoTreeScript": "{SigmaProp(ProveDlog(ECPoint(b775aa,5105d7,...)))}",
+   "address": "9hrbvQghJYNy3XCqFdK6Ci3To4NcrbULt8cgQziBozHadZ1RgPx",
+   "assets": [
+    {
+     "tokenId": "13d998a9c02ece50c64cbec2924c8d483f9e0faf02db2fe9a55ab5cb32d52a3d",
+     "index": 0,
+     "amount": 1,
+     "name": "T-Rekt #0113",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "d4eb6637f9c4a6f63238c3957a36bf2901c33c5f9750408af3c9e72ff15dadf7",
+     "index": 1,
+     "amount": 1,
+     "name": "Minwha Tiger #4",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "48239ff2588591d2ee3fc03f5571558b6d4a33ec97d5671eb2a540276efd526a",
+     "index": 2,
+     "amount": 268158105382,
+     "name": "Ergo_34d449dc_LP",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "b6c42f702ff8250de903907352d17f48f5f09a3d74ea92ee94c918c9206e8736",
+     "index": 3,
+     "amount": 1,
+     "name": "Ergonium Jackhammer #892",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "59ee24951ce668f0ed32bdb2e2e5731b6c36128748a3b23c28407c5f8ccbf0f6",
+     "index": 4,
+     "amount": 5000,
+     "name": "WALRUS",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  },
+  {
+   "boxId": "ed4f7253ec1d2c62ebd68231d29af180c3beb5010b579bae5d3a4ebb39a8c8b4",
+   "value": 1000000,
+   "index": 5,
+   "spendingProof": "d1ed1b72af0acb49486db0eb9af8734fd57891fbf0fe036ff16824cc4a7d401da2e46248f4bb1cb724ee8b8eb76d4f7d4eb38ec218f8bbce",
+   "outputBlockId": "b3fcd5ee3ab408176f091b52b72647b862289e251aa1be996572dc6901315759",
+   "outputTransactionId": "607972cc4ed92e20b0dc3bf87302fd06e772c974cf84339a69e84b4eb775ce3e",
+   "outputIndex": 0,
+   "outputGlobalIndex": 11725617,
+   "outputCreatedAt": 1458106,
+   "outputSettledAt": 1458110,
+   "ergoTree": "0008cd03b775aacf3f06a2d0835af6163add1355cbb8830dbcab9c903b35a103fc6f595c",
+   "ergoTreeConstants": "",
+   "ergoTreeScript": "{SigmaProp(ProveDlog(ECPoint(b775aa,5105d7,...)))}",
+   "address": "9hrbvQghJYNy3XCqFdK6Ci3To4NcrbULt8cgQziBozHadZ1RgPx",
+   "assets": [
+    {
+     "tokenId": "59ee24951ce668f0ed32bdb2e2e5731b6c36128748a3b23c28407c5f8ccbf0f6",
+     "index": 0,
+     "amount": 1000,
+     "name": "WALRUS",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  },
+  {
+   "boxId": "e8cbc228ace3d28d32ab85049c3d6492c01ce2cc90b8dec4c94412c974334ea0",
+   "value": 146215787500,
+   "index": 6,
+   "spendingProof": "7fc2fed4642bc67219e438f852e044d78069183cb743dba62de54279d4b214ea1355834edc347b73c6f7aa817a0be998e68abeb4471e062d",
+   "outputBlockId": "734d0bc5f10e30d5274acec160fc35db735eab812404f4553451295402605dd6",
+   "outputTransactionId": "f748462fdfd98ee45db9783847c1214a1ac5e08a404d3a09b294f36b1dc3eb0d",
+   "outputIndex": 2,
+   "outputGlobalIndex": 11749339,
+   "outputCreatedAt": 1459008,
+   "outputSettledAt": 1459011,
+   "ergoTree": "0008cd03b775aacf3f06a2d0835af6163add1355cbb8830dbcab9c903b35a103fc6f595c",
+   "ergoTreeConstants": "",
+   "ergoTreeScript": "{SigmaProp(ProveDlog(ECPoint(b775aa,5105d7,...)))}",
+   "address": "9hrbvQghJYNy3XCqFdK6Ci3To4NcrbULt8cgQziBozHadZ1RgPx",
+   "assets": [
+    {
+     "tokenId": "59ee24951ce668f0ed32bdb2e2e5731b6c36128748a3b23c28407c5f8ccbf0f6",
+     "index": 0,
+     "amount": 1000,
+     "name": "WALRUS",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  },
+  {
+   "boxId": "d4951cd4c5a18972c8ed30fd6e168cb3b78d3c8f8eb02e2e0aad6f964059b28f",
+   "value": 1000000,
+   "index": 7,
+   "spendingProof": "0cc0b97fd3028af4aa93fc92c5ee32cd35df43ff8450e2787f7ee709401b24a4e3e735938ab432b7bdf9fdd7038945bad89d3401d4a5c1b4",
+   "outputBlockId": "17e420811284c6ae3f88c3a6cbac7dd904efc27a163535b432ec65e2989b9b48",
+   "outputTransactionId": "338f31b8cb4fcf6c85ddb54445eab01b5b1177692c939650f13c03330f492181",
+   "outputIndex": 3,
+   "outputGlobalIndex": 11820641,
+   "outputCreatedAt": 1462474,
+   "outputSettledAt": 1462476,
+   "ergoTree": "0008cd03b775aacf3f06a2d0835af6163add1355cbb8830dbcab9c903b35a103fc6f595c",
+   "ergoTreeConstants": "",
+   "ergoTreeScript": "{SigmaProp(ProveDlog(ECPoint(b775aa,5105d7,...)))}",
+   "address": "9hrbvQghJYNy3XCqFdK6Ci3To4NcrbULt8cgQziBozHadZ1RgPx",
+   "assets": [
+    {
+     "tokenId": "895ca7298ca635899ef9e1f871047eba15696557ad3ffe8a9ec678165f8bcb27",
+     "index": 0,
+     "amount": 1,
+     "name": "Walrus DAO Membership",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  },
+  {
+   "boxId": "b472d55b4ab0516654bd04b3a55441936b7e78360d225f8637ccbd93029e3796",
+   "value": 1010495045336,
+   "index": 8,
+   "spendingProof": "547b3efc245c82063ce5fb59ee5a76d776f64a1dcee0a3f7022335d3607aaaa0607f6836cae53a7d88a6cec098774a4cd60e20ad0af77877",
+   "outputBlockId": "17e420811284c6ae3f88c3a6cbac7dd904efc27a163535b432ec65e2989b9b48",
+   "outputTransactionId": "338f31b8cb4fcf6c85ddb54445eab01b5b1177692c939650f13c03330f492181",
+   "outputIndex": 6,
+   "outputGlobalIndex": 11820644,
+   "outputCreatedAt": 1462474,
+   "outputSettledAt": 1462476,
+   "ergoTree": "0008cd03b775aacf3f06a2d0835af6163add1355cbb8830dbcab9c903b35a103fc6f595c",
+   "ergoTreeConstants": "",
+   "ergoTreeScript": "{SigmaProp(ProveDlog(ECPoint(b775aa,5105d7,...)))}",
+   "address": "9hrbvQghJYNy3XCqFdK6Ci3To4NcrbULt8cgQziBozHadZ1RgPx",
+   "assets": [
+    {
+     "tokenId": "7adf440961f4cdf612296b336de757206ddd40bfe30dcce5cd8398a65f2ce2c2",
+     "index": 0,
+     "amount": 1,
+     "name": "Lily Punks #5",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "096ad8b756d6e8474038c6048590fe2c1d7606912b8b0ad33d6d3f332902d912",
+     "index": 1,
+     "amount": 1,
+     "name": "MAYDAY",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "677366cd45e03ceaf0de4938b8903e96b394b39d2d84f8592b2f3bee55ac82f6",
+     "index": 2,
+     "amount": 1,
+     "name": "Degen Divers #217",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "d003a6c38cf6fbc343f038b897fda4cd7f26146f654d7df12c221fc0e544b847",
+     "index": 3,
+     "amount": 1,
+     "name": "ERGOZX #54-100L",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "a8d8b112e3f9b9a141787cd1dd4d81784737b7a1f8de56dd1f6680d83b5500b7",
+     "index": 4,
+     "amount": 1,
+     "name": "Ritual Scroll #105",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "59ee24951ce668f0ed32bdb2e2e5731b6c36128748a3b23c28407c5f8ccbf0f6",
+     "index": 5,
+     "amount": 16000,
+     "name": "WALRUS",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "e2073f2daac1655b6fed02bdbf9fdf2e1591c1b18187565693340fb22e17979c",
+     "index": 6,
+     "amount": 1,
+     "name": "PoW WoW Girls #0220",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1fd6e032e8476c4aa54c18c1a308dce83940e8f4a28f576440513ed7326ad489",
+     "index": 7,
+     "amount": 33628976,
+     "name": "Paideia",
+     "decimals": 4,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "acb927f7fd9b7785d66461d78b521e57430d7ed93f4db7be3c74f7e80d915f0f",
+     "index": 8,
+     "amount": 1,
+     "name": "Faliosnous",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "21275eb953ad554662e6d195b7a4fb38e71aab3cc7bf5624628517256b8b2428",
+     "index": 9,
+     "amount": 1,
+     "name": "T-Rekt #0278",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "8b938e41486169d6801dd0ac8e42d640ff6f12b6010f105cea6499e7197097c3",
+     "index": 10,
+     "amount": 1,
+     "name": "T-Rekt #0603",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  },
+  {
+   "boxId": "c2108e4551ef247f4d4513701a8a1d882f3ab74a35523890135351496a72f9c0",
+   "value": 1000000,
+   "index": 9,
+   "spendingProof": "160ac1c8ffd0f23460d0b04f11680c4e6e6fe4a4a1846072e1ae768b432bc74c47567e9c57a60c62150f511cbe16692bc6e398e71aa83068",
+   "outputBlockId": "0a855c126fb99e887aea9899af86e4acb1f315ac378e27f355d5001319a0b0b7",
+   "outputTransactionId": "2f686e7ed66f4deea19c3e67cf5f15fc8dbb8fba9a44357a4b0e98c12420e6f8",
+   "outputIndex": 0,
+   "outputGlobalIndex": 11820666,
+   "outputCreatedAt": 1462477,
+   "outputSettledAt": 1462479,
+   "ergoTree": "0008cd03b775aacf3f06a2d0835af6163add1355cbb8830dbcab9c903b35a103fc6f595c",
+   "ergoTreeConstants": "",
+   "ergoTreeScript": "{SigmaProp(ProveDlog(ECPoint(b775aa,5105d7,...)))}",
+   "address": "9hrbvQghJYNy3XCqFdK6Ci3To4NcrbULt8cgQziBozHadZ1RgPx",
+   "assets": [
+    {
+     "tokenId": "59ee24951ce668f0ed32bdb2e2e5731b6c36128748a3b23c28407c5f8ccbf0f6",
+     "index": 0,
+     "amount": 5000,
+     "name": "WALRUS",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  }
+ ],
+ "dataInputs": [
+  {
+   "boxId": "5ba2214a70f0109781353eb6d8729e7d479882a0c3d89f2ebb34a285d88621db",
+   "value": 1000000000,
+   "index": 0,
+   "outputBlockId": "30231635b59a9b6efde43747809e522e5ac8b89f19421bd6d2eb0c9a226d9d96",
+   "outputTransactionId": "8da1f966022432fd7fc772f5936e1f332d6af56bc0d56f699d90a634c5c5840c",
+   "outputIndex": 0,
+   "ergoTree": "10010e2097f262a9dde3bb81a680e9716e79c0b4e6e4e88b13f785acc917604fc02425b8d808d601d901013c0c630eb58c720101d9010363aedb63087203d901054d0e938c7205018c720102d602d9010263e4c672020464d60383200202a90255028e0241028602cb02d502aa0257022302a8025202d402c102dc0265027d029e02810243028202ff0288028d025a028a02ec0252021502310230021dd604e3010ed605d9010532b4e4720504020442d606e4e30002d607dc0c1aa402a70400d608d9010805958f72080580020402958f7208058080020404958f720805808080020406958f72080580808080020408958f720805808080808002040a958f72080580808080808002040c958f7208058080808080808002040e958f72080580808080808080800204100412d197830201dad9010902959372090208d802d60bb2da7201018602a5dad9010b638cb2db6308720b0400000101a7040000d60cdc640bda720201720b0283020e7203cbb3831c020269026d022e0270026102690264026502690261022e0263026f026e027402720261026302740273022e0261026302740269026f026e022ec2b2da7201018602a47300040000e472049683040193db6308a7db6308720b90c1a7c1720b93cbc2720bda720501b2720c040000e6b2720c0402000100017206ed9372060207dad901093c0e6395927207b1a50100d809d60bb2a5720700d60cc1720bd60dc1a7d60ec2720bd60fc4a7d610c2a7d6118cc7a701d612c4720bd6138cc7720b019683040192720c99720d058092f40193cb720eda720501b2dc640bda7202018c7209020283010e8c720901e5720483000204000093b4720f9a9ada720801720db17210da7208017e721105b1720fb472129a9ada720801720cb1720eda7208017e721305b17212978302019299721372110480c33d947210720e0186027203a7",
+   "address": "GcZsF93HXp9B7ZcR6FgxkwWQkVck6KDwG3YQhm7ziEfGZsGYD2H4SuQg26NB6NQb8j6F2RqDGvyoCQfT2NqZ9VPDGXXVp6CbC1HSZH2REfRr3DCJdVWUdJUR3SPbKZcMG9xRTMmc4NgnAGzsmma1WyfrqkPMQe8LjkjPTEZZbCKHNypRkQLk2tgiHyzTK7Scc1iTP1Z6kH3qufJHvEL2aunsfBMHQNyswwjtid8LSsn3MGHKx89GMD1AhMJz9zfaRJwuy7VuvsbbWUmx7zNTpKiqBotLDUgttbbvPgycFipTTV3tCwtx6THBBcb9MaL4rs9V9kkLvPcVsCzCMdd9XjoqwfKiGhNdbjouDcE4zMFHUxNEuKwKCvgaNzrAHef3WNFa6XXwgvRzdghfYvTzaJY9tSLmWAs9uZ9x85UPEk3JKPR7sSPiy8j7HXDrQyceqjRChWfMnp5dgD6PYKFErBEzAokhbNh5ScBtiexPkSanVsBGUjmY1qh2j5JaayzvTYg1r9dqtJ6KCD2QT4ES7Es4qoZzrpEKDEnK6GSfefMgbDcChtzyW1Qr8z6449SSXLKQgjxRJdz6gzWWufYTkiKYa668kDh1vafe7itHUxgA4Gs79AB3niGRk8ESHbFTqugewghMXbM4ZzSo7pEaNp93PLE5pdApL9Fac4HeH7Eg6SY9QQvYSernF5tp1Jzfr9Sp5MoBGYQomJsx8KPgzMdxtJGnhiVE3eUbhqK3hLZEfAj6bvMkpKycDDUd74tLpnydFeq4M4WieAabMt8snnDvw73te1CHGMDrFjogK1MVekvEy4c8kg1URgAGG7HN9U7yubtmqrkEhuyLyQ2Pc8cQWMJ2ooiQAYaNoHwc4JLH5LURw15YGUcuFuwtqShp5EaFoE5Mgjmk7BezKYnM5ooS5QDB1Wv9qhSi64Try3k3zj7fst4",
+   "assets": [],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "64053e63a3d34e26878b942de99b097232977483b952ff5ce991342d87a00918b206072000",
+     "sigmaType": null,
+     "renderedValue": null
+    }
+   }
+  }
+ ],
+ "outputs": [
+  {
+   "boxId": "f5cde0d60a3e7e8f242a88e3600f12ff7fcf19140ca020519afbc9b7a7f8d2c1",
+   "transactionId": "f10bc9c318ac2376214c7bd3834e65be2e9a2891ed67310efef0c47d81fba4b3",
+   "blockId": "57df99ac4548bfbd5eb6f752b0572df7f545f1fc6ce69d69d89842c6673d259e",
+   "value": 1000000000,
+   "index": 0,
+   "globalIndex": 11821903,
+   "creationHeight": 1462533,
+   "settlementHeight": 1462535,
+   "ergoTree": "10010e2098ba6f0cfc7758633d52ea3082ae3b8b38b45dbfe8a7247de966dcb608b9008ed80ed60183200202de02ae02cf025b026402ba02d602f50257020b02ad020a0261020c024e02480249025702cf0247028202300284020002bc02900240024c021d0214021002dad602d9010263e4c672020464d603d901033c0c630eb58c720301d9010563aedb63087205d901074d0e938c7207018c720302d604b2da7203018602db6501fe7300040000d605e3010ed606d9010632b4e4720604020442d607d9010763b2db63087207040000d608da720701a7d609b2da7203018602a58c720801040000d60ad9010a63b2db6308720a040200d60bd9010b0ed801d60ddc640bda72020172040283020e7201720be472059683020193b1dad9010e3c0c630eb58c720e01d901106393cbc272108c720e02018602a4da720601b2720d0402000402dad9010e0e9683030193cbc27209720e93da72070172097208938cda720a017209018cda720a01a70101da720601b2720d040000d60ce4e30002d60ddc0c1aa402a70400d60ed9010e05958f720e0580020402958f720e058080020404958f720e05808080020406958f720e0580808080020408958f720e05808080808002040a958f720e0580808080808002040c958f720e058080808080808002040e958f720e0580808080808080800204100412d197830801dad9010f029593720f0200da720b0183200202030292020802bc024e02ef029a020302e802d7028b0286026302a3020102bb025f02ad02dc02a7028b02e1029d027f02e5023502b302c6024c02be02fe0242010001720cdad9010f029593720f0202da720b01832002028b02c7028f021c026a02ae02c9021e0262028e021502cf0266028c021602cc021e029b02d802e402b902b702e1026d0263021802b502f5022302a502e902bd010001720cdad9010f029593720f0201da720b01832002028802300261022c02520235025f026f0228020d0212029702f1029f026702b0027802c902da02a702d702b0024b0245029c029102cc02640249025702c20280010001720cdad9010f029593720f0203da720b01832002024f02d802b002d602d9028202420272026f025702b302df02a6028602120267029202b802e50205026e021d025102b602e9020d0268028002cf022d02cd02c5010001720cdad9010f029593720f0204da720b018320020289022e026f024702a1020d025c029002b8027a02d402860233025502ce02ad020002c302e202980232021702ee021502530232025302cd029a0260022502c2010001720cdad9010f029593720f0205da720b01832002023a02110295025c0247021902e5028802bc02e602a70261021d022702bd021f02df02db02570238025c02ae02e2026602d80204020c0289024f021c022e021d010001720cdad9010f029593720f0206da720b0183200202090282020f02cb0288027102fb0245020c023e020602b702cb025e022702b002450250028702a302660262021a029d02de0275028202a002190211021e023e010001720cdad9010f029593720f0207dad901113c0e639592720db1a50100d809d613b2a5720d00d614c17213d615c1a7d616c27213d617c4a7d618c2a7d6198cc7a701d61ac47213d61b8cc772130196830401927214997215058092f40193cb7216da720601b2dc640bda7202018c7211020283010e8c721101e5720583000204000093b472179a9ada720e017215b17218da720e017e721905b17217b4721a9a9ada720e017214b17216da720e017e721b05b1721a978302019299721b72190480c33d947218721601860272017204010001720c",
+   "ergoTreeConstants": "0: Coll(-104,-70,111,12,-4,119,88,99,61,82,-22,48,-126,-82,59,-117,56,-76,93,-65,-24,-89,36,125,-23,102,-36,-74,8,-71,0,-114)",
+   "ergoTreeScript": "{\n  val coll1 = Coll[Byte](\n    -34.toByte, -82.toByte, -49.toByte, 91.toByte, 100.toByte, -70.toByte, -42.toByte, -11.toByte, 87.toByte, 11.toByte, -83.toByte, 10.toByte, 97.toByte, 12.toByte, 78.toByte, 72.toByte, 73.toByte, 87.toByte, -49.toByte, 71.toByte, -126.toByte, 48.toByte, -124.toByte, 0.toByte, -68.toByte, -112.toByte, 64.toByte, 76.toByte, 29.toByte, 20.toByte, 16.toByte, -38.toByte\n  )\n  val func2 = {(box2: Box) => box2.R4[AvlTree].get }\n  val func3 = {(tuple3: (Coll[Box], Coll[Byte])) =>\n    tuple3._1.filter({(box5: Box) => box5.tokens.exists({(tuple7: (Coll[Byte], Long)) => tuple7._1 == tuple3._2 }) })\n  }\n  val box4 = func3((CONTEXT.dataInputs, placeholder[Coll[Byte]](0)))(0)\n  val opt5 = getVar[Coll[Byte]](1.toByte)\n  val func6 = {(opt6: Option[Coll[Byte]]) => opt6.get.slice(1, 33) }\n  val func7 = {(box7: Box) => box7.tokens(0) }\n  val tuple8 = func7(SELF)\n  val box9 = func3((OUTPUTS, tuple8._1))(0)\n  val func10 = {(box10: Box) => box10.tokens(1) }\n  val func11 = {(coll11: Coll[Byte]) =>\n    val coll13 = func2(box4).getMany(Coll[Coll[Byte]](coll1, coll11), opt5.get)\n    allOf(\n      Coll[Boolean](\n        {(tuple14: (Coll[Box], Coll[Byte])) => tuple14._1.filter({(box16: Box) => blake2b256(box16.propositionBytes) == tuple14._2 }) }(\n          (INPUTS, func6(coll13(1)))\n        ).size == 1, {(coll14: Coll[Byte]) =>\n          allOf(Coll[Boolean](blake2b256(box9.propositionBytes) == coll14, func7(box9) == tuple8, func10(box9)._1 == func10(SELF)._1))\n        }(func6(coll13(0)))\n      )\n    )\n  }\n  val b12 = getVar[Byte](0.toByte).get\n  val i13 = INPUTS.indexOf(SELF, 0)\n  val func14 = {(l14: Long) =>\n    if (l14 < 128L) { 1 } else {\n      if (l14 < 16384L) { 2 } else {\n        if (l14 < 2097152L) { 3 } else {\n          if (l14 < 268435456L) { 4 } else {\n            if (l14 < 34359738368L) { 5 } else {\n              if (l14 < 4398046511104L) { 6 } else { if (l14 < 562949953421312L) { 7 } else { if (l14 < 72057594037927936L) { 8 } else { 9 } } }\n            }\n          }\n        }\n      }\n    }\n  }\n  sigmaProp(\n    anyOf(\n      Coll[Boolean](\n        {(b15: Byte) =>\n          if (b15 == 0.toByte) {\n            func11(\n              Coll[Byte](\n                3.toByte, -110.toByte, 8.toByte, -68.toByte, 78.toByte, -17.toByte, -102.toByte, 3.toByte, -24.toByte, -41.toByte, -117.toByte, -122.toByte, 99.toByte, -93.toByte, 1.toByte, -69.toByte, 95.toByte, -83.toByte, -36.toByte, -89.toByte, -117.toByte, -31.toByte, -99.toByte, 127.toByte, -27.toByte, 53.toByte, -77.toByte, -58.toByte, 76.toByte, -66.toByte, -2.toByte, 66.toByte\n              )\n            )\n          } else { false }\n        }(b12), {(b15: Byte) =>\n          if (b15 == 2.toByte) {\n            func11(\n              Coll[Byte](\n                -117.toByte, -57.toByte, -113.toByte, 28.toByte, 106.toByte, -82.toByte, -55.toByte, 30.toByte, 98.toByte, -114.toByte, 21.toByte, -49.toByte, 102.toByte, -116.toByte, 22.toByte, -52.toByte, 30.toByte, -101.toByte, -40.toByte, -28.toByte, -71.toByte, -73.toByte, -31.toByte, 109.toByte, 99.toByte, 24.toByte, -75.toByte, -11.toByte, 35.toByte, -91.toByte, -23.toByte, -67.toByte\n              )\n            )\n          } else { false }\n        }(b12), {(b15: Byte) =>\n          if (b15 == 1.toByte) {\n            func11(\n              Coll[Byte](\n                -120.toByte, 48.toByte, 97.toByte, 44.toByte, 82.toByte, 53.toByte, 95.toByte, 111.toByte, 40.toByte, 13.toByte, 18.toByte, -105.toByte, -15.toByte, -97.toByte, 103.toByte, -80.toByte, 120.toByte, -55.toByte, -38.toByte, -89.toByte, -41.toByte, -80.toByte, 75.toByte, 69.toByte, -100.toByte, -111.toByte, -52.toByte, 100.toByte, 73.toByte, 87.toByte, -62.toByte, -128.toByte\n              )\n            )\n          } else { false }\n        }(b12), {(b15: Byte) =>\n          if (b15 == 3.toByte) {\n            func11(\n              Coll[Byte](\n                79.toByte, -40.toByte, -80.toByte, -42.toByte, -39.toByte, -126.toByte, 66.toByte, 114.toByte, 111.toByte, 87.toByte, -77.toByte, -33.toByte, -90.toByte, -122.toByte, 18.toByte, 103.toByte, -110.toByte, -72.toByte, -27.toByte, 5.toByte, 110.toByte, 29.toByte, 81.toByte, -74.toByte, -23.toByte, 13.toByte, 104.toByte, -128.toByte, -49.toByte, 45.toByte, -51.toByte, -59.toByte\n              )\n            )\n          } else { false }\n        }(b12), {(b15: Byte) =>\n          if (b15 == 4.toByte) {\n            func11(\n              Coll[Byte](\n                -119.toByte, 46.toByte, 111.toByte, 71.toByte, -95.toByte, 13.toByte, 92.toByte, -112.toByte, -72.toByte, 122.toByte, -44.toByte, -122.toByte, 51.toByte, 85.toByte, -50.toByte, -83.toByte, 0.toByte, -61.toByte, -30.toByte, -104.toByte, 50.toByte, 23.toByte, -18.toByte, 21.toByte, 83.toByte, 50.toByte, 83.toByte, -51.toByte, -102.toByte, 96.toByte, 37.toByte, -62.toByte\n              )\n            )\n          } else { false }\n        }(b12), {(b15: Byte) =>\n          if (b15 == 5.toByte) {\n            func11(\n              Coll[Byte](\n                58.toByte, 17.toByte, -107.toByte, 92.toByte, 71.toByte, 25.toByte, -27.toByte, -120.toByte, -68.toByte, -26.toByte, -89.toByte, 97.toByte, 29.toByte, 39.toByte, -67.toByte, 31.toByte, -33.toByte, -37.toByte, 87.toByte, 56.toByte, 92.toByte, -82.toByte, -30.toByte, 102.toByte, -40.toByte, 4.toByte, 12.toByte, -119.toByte, 79.toByte, 28.toByte, 46.toByte, 29.toByte\n              )\n            )\n          } else { false }\n        }(b12), {(b15: Byte) =>\n          if (b15 == 6.toByte) {\n            func11(\n              Coll[Byte](\n                9.toByte, -126.toByte, 15.toByte, -53.toByte, -120.toByte, 113.toByte, -5.toByte, 69.toByte, 12.toByte, 62.toByte, 6.toByte, -73.toByte, -53.toByte, 94.toByte, 39.toByte, -80.toByte, 69.toByte, 80.toByte, -121.toByte, -93.toByte, 102.toByte, 98.toByte, 26.toByte, -99.toByte, -34.toByte, 117.toByte, -126.toByte, -96.toByte, 25.toByte, 17.toByte, 30.toByte, 62.toByte\n              )\n            )\n          } else { false }\n        }(b12), {(b15: Byte) => if (b15 == 7.toByte) { {(tuple17: (Coll[Byte], Box)) => if (i13 >= OUTPUTS.size) { false } else {(\n                val box19 = OUTPUTS(i13)\n                val l20 = box19.value\n                val l21 = SELF.value\n                val coll22 = box19.propositionBytes\n                val coll23 = SELF.bytesWithoutRef\n                val coll24 = SELF.propositionBytes\n                val i25 = SELF.creationInfo._1\n                val coll26 = box19.bytesWithoutRef\n                val i27 = box19.creationInfo._1\n                allOf(Coll[Boolean](l20 >= l21 - 2000000L, blake2b256(coll22) == func6(func2(tuple17._2).getMany(Coll[Coll[Byte]](tuple17._1), opt5.getOrElse(Coll[Byte]()))(0)), coll23.slice(func14(l21) + coll24.size + func14(i25.toLong), coll23.size) == coll26.slice(func14(l20) + coll22.size + func14(i27.toLong), coll26.size), anyOf(Coll[Boolean](i27 - i25 >= 504000, coll24 != coll22))))\n              )} }((coll1, box4)) } else { false } }(b12)\n      )\n    )\n  )\n}",
+   "address": "3bseGyrL8c19T8TAJUAYyvfvvYbnQsZ9Mj5v268gLyjG8d753JNwPTFYsxHudjK11poGatNQ21rP71BR6wdP38HxXPZyo7AfYjEpv47oiUx27KXzoHhJ4nVy8tXPitzSBmuSwsT9PRUNkGQZ4ZVHcVRdHDT9Qo1gZfFn4JwHPHXWyS84i64hqhrnk5Epkq3EZvxdUrdY64zRJhBztdSnc6FqUAJoE2S4ZW2wYoBr6vBSa88UcioaJKHaktZBcapDFqHJKbRLDPhodZxAEXh27mJmKgxnzi1tkrwF5ae1mpXofjjw1zcRu8Y9J3waoBsqwCKf3N7Y4fLH2gdJasT8z51oZgP1G5hZgiD7YYtLZc6Y8cADWwxnji3ZmgvmRwtgPpRCnf4SUaneh7TuvQnn626GtSBkL6SUvjv6ewjAbKuKENsbQstK2WuvxEBD1gbP5h6Bd4gHtSKDzmDxhvM7FuaP3Er2KnFqth8cN92fckAXfpZrTLHUNpikyjcwuu9969UYBMLQ7RKigYggNRRKTMdED5oMQXPEJ3oAy5R8K1jRvvex2q9MC7KqPCaQZvnsyzP7LsFpRm7EUBqp59shV95M3tbcM8AezcaTmutJNqU8dWVsmrit2je96iJqS9g3hw3F9E4BCnKT9TBV8kNbQ3zoDxU8bJFUE8B2VL62yKfUPXvvS4AjkTLchhLwWcACnaJ4tUmrEpxCpEPB8AVwKxajr98cHbeyC3mC946vW28yb6FH4LuLBfjxy2BE9UwjeCWKw12pa2goJuCQyJxJei28Cett7j5u2gYvjCk1acSSXZ3TdNhqyCTsmWprisVFReezJjF3nQ383S8HjzJXYh3GaCkLyQ7BRSyuEm3mM213YLmn3MZ5LzMhN9xWZiYGAvrzJzsFibMgqDwsTcjiqYVXx77iEJqzndwWjEy8Y2xhi26Rrh21phmn1uzutvFKTkCyKLLdfiq2RSh3sGyBtveP6U4nyJy25fqeUe4Wg17L7R85zmUw2Z3kZXhknkCDhxm8T8SAPeSnGsYYr1nmHmv3aNqk75VcBBM4W562nQjn3G8KTZJ1e6PqS1wKnztgYiZBs4KMZ8SohQbX15EBZT8eZXZ4ggvPBP1szBtocHeqF7cY1zcB5CWHVbi9p1SnaY9HLB6QTT1Pbr84V2dyhCNny5mCjy1W6WhDStVJSXNfwGcoJckA3Ub6bnQ57FQjMLCeN3nHNxt6eTWb1hsmj2dMjY7vkAcVCCMNcm1tRpLMWGmeqCNLU6QiHoAx3NAPxmfksocvHwSXDF56bUJpYxt6kwuyAWCZAv6ijJDgg7imtHoju1oyjZQehmhMpyQKvuQmdthHcdsmGqp6oPbMr1RGLHKdmEucJvo888AVuTmVBN7nUSszUioJ2BhaNPyzZQtm9Sn9h9F7UjNo2eX551o9RGTk5r6dRj4VXHvGPP5vXkp6jodkG11BLaF9ur835oLpFAFetbeS9rQS7Mb4p2cvXwrZjh3YhMd8QHUKGt1x44D163rRbRh8ywiZVGim9uFwaZM5JjsF4fSHWBRqRCztNvMNr4NuTquVGynbn1JnjagmgVWLRixzx3PzL3PMDDtFVpz5FEhsGnbbHQn3zWcAZhgyu6YtfkqdUvDZVErysTiiXV6QFU6keq3z25z6zZ3hGZvRAjr1DucdnpGeyi41xrYfAEq4u6SwSvs8ZRffa5vHqgmCqapRihZ9Gt85eDKKzMY4VJv9ZyfxH9s5gaCrX42K5zEoUDPRLxhvFFSkXNrZiYtHjA6HMfyC1QU5HBqNfi9g3z3BaWdKbAUFfhL8",
+   "assets": [
+    {
+     "tokenId": "a7f6d4ccf1288a2b79e3d8741e1e203828135a12b92f8dc4f2d21e40738e0e01",
+     "index": 0,
+     "amount": 1,
+     "name": "Walrus DAO Stake State",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "59ee24951ce668f0ed32bdb2e2e5731b6c36128748a3b23c28407c5f8ccbf0f6",
+     "index": 1,
+     "amount": 221962,
+     "name": "WALRUS",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R5": {
+     "serializedValue": "1107ca918cdd8465928c1b0e069a82160000",
+     "sigmaType": "Coll[SLong]",
+     "renderedValue": "[1735801275493,221961,7,3,180365,0,0]"
+    },
+    "R6": {
+     "serializedValue": "1d05020000020000020000020000020000",
+     "sigmaType": "Coll[Coll[SLong]]",
+     "renderedValue": "[[0,0],[0,0],[0,0],[0,0],[0,0]]"
+    },
+    "R8": {
+     "serializedValue": "11020000",
+     "sigmaType": "Coll[SLong]",
+     "renderedValue": "[0,0]"
+    },
+    "R7": {
+     "serializedValue": "0c3c6464024ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e1609000720004ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e1609000720004ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e1609000720004ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e160900072000",
+     "sigmaType": null,
+     "renderedValue": null
+    },
+    "R4": {
+     "serializedValue": "0c6402394436a943b02218de0534b7d5d8a1f47c7ce1a6e90593fc5447e31a2bd9fa4c04072000d0da7b7e5287f8dfb048d28d2a4c5609275f7fc9734d4452e995a97e60aa267f02072000",
+     "sigmaType": null,
+     "renderedValue": null
+    }
+   },
+   "spentTransactionId": "6f65ba460597e2e47e7c255d4372de528a749a7fa34662d795063bc92ef225f5",
+   "mainChain": true
+  },
+  {
+   "boxId": "c916cf078f5a70fe3f7ab2bb7132a8c8d3e1414a86f09db8388e352343ccaa88",
+   "transactionId": "f10bc9c318ac2376214c7bd3834e65be2e9a2891ed67310efef0c47d81fba4b3",
+   "blockId": "57df99ac4548bfbd5eb6f752b0572df7f545f1fc6ce69d69d89842c6673d259e",
+   "value": 1000000,
+   "index": 1,
+   "globalIndex": 11821904,
+   "creationHeight": 1462533,
+   "settlementHeight": 1462535,
+   "ergoTree": "10020e2098ba6f0cfc7758633d52ea3082ae3b8b38b45dbfe8a7247de966dcb608b9008e0e20a7f6d4ccf1288a2b79e3d8741e1e203828135a12b92f8dc4f2d21e40738e0e01d81fd601e4e3010c3c0e0ed602b27201040000d6038c720201d604d901040e7cb4720404100420d6058c720202d606da7204017205d607d9010763b2e4c67207040c64040000d608d901083c0c630eb58c720801d9010a63aedb6308720ad9010c4d0e938c720c018c720802d6097301d60ab2da7208018602a47209040000d60bda720701720ad60ce4e3020ed60de4dc640a720b027203720cd60eda720401720dd60f997206720ed610d9011063b2db63087210040200d611b2da7208018602a57209040000d612d9011263b2e4c672120511040200d613d901130eaddb0c0eb4721304009d99b1721304200410d9011504d801d6179c721504107cb472139a721704209a9a721704100420d614b3830105720eda721301720dd615b38301057206da7213017205d616dc0c1d7214017215d617d9011763b2e4c67217040c64040200d618d9011863d801d61ae4c672180511b4721a040ab1721ad619d9011963b2e4c672190511040000d61ad9011a63b2e4c6721a0511040400d61bd9011b63b2e4c6721b0511040600d61cd9011c63b2e4c6721c0511040800d61dd9011d63e4c6721d061dd61ed9011e63e4c6721e070c3c6464d61fd9011f63e4c6721f0811d196830901dad901203c0c630eae8c722001d9012263aedb63087222d901244d0e938c7224018c722002018602a57203ed93720f998cda7210017211028cda721001720a0293720f99da7212017211da721201720a93b17201040293db6401e4dc640d720b027201720cdb6401da7207017211afb472160402b17216d9012059d801d6228c722002ed928c722001722292722205009399b27214040200b2721504020099c1720ac1721192c1b2dad901203c0c630eb58c722001d901226393cbc272228c722002018602a5dad9012032b4e472200402044201b2dc640bdad9012063e4c67220046401b2da7208018602db6501fe73000400000283010e832002028802300261022c02520235025f026f0228020d0212029702f1029f026702b0027802c902da02a702d702b0024b0245029c029102cc02640249025702c20280e4e3000e040000040000c1a79683090193da7217017211da721701720a93da7218017211da721801720a93da7219017211da721901720a93da721a017211da721a01720a93da721b017211da721b01720a93da721c017211da721c01720a93da721d017211da721d01720a93da721e017211da721e01720a93da721f017211da721f01720a927206720e",
+   "ergoTreeConstants": "0: Coll(-104,-70,111,12,-4,119,88,99,61,82,-22,48,-126,-82,59,-117,56,-76,93,-65,-24,-89,36,125,-23,102,-36,-74,8,-71,0,-114)\n1: Coll(-89,-10,-44,-52,-15,40,-118,43,121,-29,-40,116,30,30,32,56,40,19,90,18,-71,47,-115,-60,-14,-46,30,64,115,-114,14,1)",
+   "ergoTreeScript": "{\n  val coll1 = getVar[Coll[(Coll[Byte], Coll[Byte])]](1.toByte).get\n  val tuple2 = coll1(0)\n  val coll3 = tuple2._1\n  val func4 = {(coll4: Coll[Byte]) => byteArrayToLong(coll4.slice(8, 16)) }\n  val coll5 = tuple2._2\n  val l6 = func4(coll5)\n  val func7 = {(box7: Box) => box7.R4[Coll[AvlTree]].get(0) }\n  val func8 = {(tuple8: (Coll[Box], Coll[Byte])) =>\n    tuple8._1.filter({(box10: Box) => box10.tokens.exists({(tuple12: (Coll[Byte], Long)) => tuple12._1 == tuple8._2 }) })\n  }\n  val coll9 = placeholder[Coll[Byte]](1)\n  val box10 = func8((INPUTS, coll9))(0)\n  val avlTree11 = func7(box10)\n  val coll12 = getVar[Coll[Byte]](2.toByte).get\n  val coll13 = avlTree11.get(coll3, coll12).get\n  val l14 = func4(coll13)\n  val l15 = l6 - l14\n  val func16 = {(box16: Box) => box16.tokens(1) }\n  val box17 = func8((OUTPUTS, coll9))(0)\n  val func18 = {(box18: Box) => box18.R5[Coll[Long]].get(1) }\n  val func19 = {(coll19: Coll[Byte]) => coll19.slice(0, coll19.size - 16 / 8).indices.map({(i21: Int) =>\n        val i23 = i21 * 8\n        byteArrayToLong(coll19.slice(i23 + 16, i23 + 8 + 16))\n      }) }\n  val coll20 = Coll[Long](l14).append(func19(coll13))\n  val coll21 = Coll[Long](l6).append(func19(coll5))\n  val coll22 = coll20.zip(coll21)\n  val func23 = {(box23: Box) => box23.R4[Coll[AvlTree]].get(1) }\n  val func24 = {(box24: Box) =>\n    val coll26 = box24.R5[Coll[Long]].get\n    coll26.slice(5, coll26.size)\n  }\n  val func25 = {(box25: Box) => box25.R5[Coll[Long]].get(0) }\n  val func26 = {(box26: Box) => box26.R5[Coll[Long]].get(2) }\n  val func27 = {(box27: Box) => box27.R5[Coll[Long]].get(3) }\n  val func28 = {(box28: Box) => box28.R5[Coll[Long]].get(4) }\n  val func29 = {(box29: Box) => box29.R6[Coll[Coll[Long]]].get }\n  val func30 = {(box30: Box) => box30.R7[Coll[(AvlTree, AvlTree)]].get }\n  val func31 = {(box31: Box) => box31.R8[Coll[Long]].get }\n  sigmaProp(\n    allOf(\n      Coll[Boolean](\n        {(tuple32: (Coll[Box], Coll[Byte])) =>\n          tuple32._1.exists({(box34: Box) => box34.tokens.exists({(tuple36: (Coll[Byte], Long)) => tuple36._1 == tuple32._2 }) })\n        }((OUTPUTS, coll3)), (l15 == func16(box17)._2 - func16(box10)._2) && (l15 == func18(box17) - func18(box10)), coll1.size == 1, avlTree11.update(\n          coll1, coll12\n        ).get.digest == func7(box17).digest, coll22.slice(1, coll22.size).forall({(tuple32: (Long, Long)) =>\n            val l34 = tuple32._2\n            (tuple32._1 >= l34) && (l34 >= 0L)\n          }), coll20(1) - coll21(1) == box10.value - box17.value, {(tuple32: (Coll[Box], Coll[Byte])) =>\n          tuple32._1.filter({(box34: Box) => blake2b256(box34.propositionBytes) == tuple32._2 })\n        }(\n          (\n            OUTPUTS, {(opt32: Option[Coll[Byte]]) => opt32.get.slice(1, 33) }(\n              {(box32: Box) => box32.R4[AvlTree].get }(func8((CONTEXT.dataInputs, placeholder[Coll[Byte]](0)))(0)).getMany(\n                Coll[Coll[Byte]](\n                  Coll[Byte](\n                    -120.toByte, 48.toByte, 97.toByte, 44.toByte, 82.toByte, 53.toByte, 95.toByte, 111.toByte, 40.toByte, 13.toByte, 18.toByte, -105.toByte, -15.toByte, -97.toByte, 103.toByte, -80.toByte, 120.toByte, -55.toByte, -38.toByte, -89.toByte, -41.toByte, -80.toByte, 75.toByte, 69.toByte, -100.toByte, -111.toByte, -52.toByte, 100.toByte, 73.toByte, 87.toByte, -62.toByte, -128.toByte\n                  )\n                ), getVar[Coll[Byte]](0.toByte).get\n              )(0)\n            )\n          )\n        )(0).value >= SELF.value, allOf(\n          Coll[Boolean](\n            func23(box17) == func23(box10), func24(box17) == func24(box10), func25(box17) == func25(box10), func26(box17) == func26(box10), func27(\n              box17\n            ) == func27(box10), func28(box17) == func28(box10), func29(box17) == func29(box10), func30(box17) == func30(box10), func31(box17) == func31(box10)\n          )\n        ), l6 >= l14\n      )\n    )\n  )\n}",
+   "address": "KS83rEfyUEnKy212Vdj5o8LGv5ofZ7NLAsgL9d8jHFYQA8AJpkQ6g7wuz7M7VqMkWcXHXKfpmPsCr4wMJH3rR4jS1ALmDMbaM1yJgCTNKheRsUpM9LcPLqXuM3P8TkeGKhRa61knqehuMdEomDYdCfopHb34mLGF6Yep1EsKdpJ7KgnJ2bSSF6KkTF4nXanx6jxtwu5oA9kTugUDHiAXsTZMSmwTSQXqRvcjVLeRjcx7rwzsqmnu2wTcQDSwRBNEsvVnEe7n9qazT5CcQin3Q6hkF1GncboAthZoBAXmnw7oJBojaaWhd2co34FB8RV8MhcXnQUMFdbdDvQJJ5hecgRBQr5eq2V7jpumwfDKDmCLkqtpRa8vM5hx7Ni8zUupyFWMVJHhe918ujNKDkC1qLvaJiC8a3eHKxUMBsKnJ1Wrsd2jKL3pqvDtGuArf68UdXpcaUrjTJ3jC9eDUKcio6VRrxRxQLmzPciWuRG6AzwmDSGA8w1QdUyjFfy4MpmAdqoChQ55VJkB4nZ9NTPvhv7bcRdRTp6cPxFWvWMa7HZCuDzsTedFmMrGZSP4LDxe7DJKPVx6G9Eh1Ne4jvnh48eJ3P1YSKpdGec9T74nvYEdbKshdihQHp2e5Dw5dcGAfvvhmeErmtJF6XXwLgyqj8iQa1vP8xFJ5MbeEf9bTSjMrXtZHURsjgxkbqsRd7BVQQkCsiv8bWRYcQe8Hsf4vLURRD6cPq5LZo4dQY44XN3BfLGg5czrUsAmSMmKXShXLLDejwF4Zk51R4UfZgXAZxxxjuwiQrphgFiBmm4KAMzCWFF2QKyFT3SZhmZxgvvYwwDDWVhDnXagzjUjpeqBZf5GMnAgyiZDwFTQHTfSukLBxJwKUeyLUNyMJE8pceSa7myWo7TF4HG2HJircfVJ3pkGDYWjr9jdXSgpj19JSiGyqRw9tojxWs2o1Bch4sGKdtYwYwNXLafoJYnqnLAYN6gaRQnwjD15tmd9ATgEy6U8LZbriuCEzvSPyj8VmJNnxxmmVCWw46HsEqVQ61BVNQPLVExCPpq8UTvsmHReNoRZKVgbF7mBJKzrzhWLuUws8D9DPF36JKpT7g8zKevz7KFshQeHhBifzY6ymRJM2msnfx2SLdhNLS2ytbu7wKMohw8pcoeaiCczSxnDJtEwDgj5STW6Qdk6ScrzHwiFKUYULkFf86FKNBDoiPeaJiW7pN8MuDXT7xwkCVQhcT8qbhWBxfhtyzX1Rid8QRE945bRQv4xqoX91ij8EHqYPmyugSVHuADZWXcJRKryjYpEuuvxTBSdWszyXQhBC49Cf199KnjKNUmLsDZk3Cr1gqt",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "825e4eb98e1a479253758564644e4d9c31a2c7da7970c77d20fb4690408e41e0",
+   "mainChain": true
+  },
+  {
+   "boxId": "5f7ee1476eeea7cf2902cf170f0ac6277bb017b48949f9a2fa3585393a0a01d8",
+   "transactionId": "f10bc9c318ac2376214c7bd3834e65be2e9a2891ed67310efef0c47d81fba4b3",
+   "blockId": "57df99ac4548bfbd5eb6f752b0572df7f545f1fc6ce69d69d89842c6673d259e",
+   "value": 1000000,
+   "index": 2,
+   "globalIndex": 11821905,
+   "creationHeight": 1462533,
+   "settlementHeight": 1462535,
+   "ergoTree": "0008cd03b775aacf3f06a2d0835af6163add1355cbb8830dbcab9c903b35a103fc6f595c",
+   "ergoTreeConstants": "",
+   "ergoTreeScript": "{SigmaProp(ProveDlog(ECPoint(b775aa,5105d7,...)))}",
+   "address": "9hrbvQghJYNy3XCqFdK6Ci3To4NcrbULt8cgQziBozHadZ1RgPx",
+   "assets": [
+    {
+     "tokenId": "895ca7298ca635899ef9e1f871047eba15696557ad3ffe8a9ec678165f8bcb27",
+     "index": 0,
+     "amount": 1,
+     "name": "Walrus DAO Membership",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {},
+   "spentTransactionId": "6f65ba460597e2e47e7c255d4372de528a749a7fa34662d795063bc92ef225f5",
+   "mainChain": true
+  },
+  {
+   "boxId": "a53042002b1777eb75f54e94cfd344269dc62985c828a5588fe95d4ca1d1b798",
+   "transactionId": "f10bc9c318ac2376214c7bd3834e65be2e9a2891ed67310efef0c47d81fba4b3",
+   "blockId": "57df99ac4548bfbd5eb6f752b0572df7f545f1fc6ce69d69d89842c6673d259e",
+   "value": 50000000,
+   "index": 3,
+   "globalIndex": 11821906,
+   "creationHeight": 1462533,
+   "settlementHeight": 1462535,
+   "ergoTree": "0008cd03553448c194fdd843c87d080f5e8ed983f5bb2807b13b45a9683bba8c7bfb5ae8",
+   "ergoTreeConstants": "",
+   "ergoTreeScript": "{SigmaProp(ProveDlog(ECPoint(553448,8bebb3,...)))}",
+   "address": "9h7L7sUHZk43VQC3PHtSp5ujAWcZtYmWATBH746wi75C5XHi68b",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "8bb5c50b028954be34375323731ccf7617dba477a6d0cfd88a78fd199bcafb9a",
+   "mainChain": true
+  },
+  {
+   "boxId": "92da67c18d38da712486ce80515fe959219e67689334eb34c2a4afe4072c2915",
+   "transactionId": "f10bc9c318ac2376214c7bd3834e65be2e9a2891ed67310efef0c47d81fba4b3",
+   "blockId": "57df99ac4548bfbd5eb6f752b0572df7f545f1fc6ce69d69d89842c6673d259e",
+   "value": 2350000,
+   "index": 4,
+   "globalIndex": 11821907,
+   "creationHeight": 1462533,
+   "settlementHeight": 1462535,
+   "ergoTree": "1005040004000e36100204a00b08cd0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798ea02d192a39a8cc7a701730073011001020402d19683030193a38cc7b2a57300000193c2b2a57301007473027303830108cdeeac93b1a57304",
+   "ergoTreeConstants": "0: 0\n1: 0\n2: Coll(16,2,4,-96,11,8,-51,2,121,-66,102,126,-7,-36,-69,-84,85,-96,98,-107,-50,-121,11,7,2,-101,-4,-37,45,-50,40,-39,89,-14,-127,91,22,-8,23,-104,-22,2,-47,-110,-93,-102,-116,-57,-89,1,115,0,115,1)\n3: Coll(1)\n4: 1",
+   "ergoTreeScript": "{sigmaProp(\n  allOf(\n    Coll[Boolean](\n      HEIGHT == OUTPUTS(placeholder[Int](0)).creationInfo._1, OUTPUTS(placeholder[Int](1)).propositionBytes == substConstants(\n        placeholder[Coll[Byte]](2), placeholder[Coll[Int]](3), Coll[SigmaProp](proveDlog(decodePoint(minerPubKey)))\n      ), OUTPUTS.size == placeholder[Int](4)\n    )\n  )\n)}",
+   "address": "2iHkR7CWvD1R4j1yZg5bkeDRQavjAaVPeTDFGGLZduHyfWMuYpmhHocX8GJoaieTx78FntzJbCBVL6rf96ocJoZdmWBL2fci7NqWgAirppPQmZ7fN9V6z13Ay6brPriBKYqLp1bT2Fk4FkFLCfdPpe",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "1161b406b0ac766c9b7831837a37c3fc80050832232187f639a60303cdb4ca7f",
+   "mainChain": true
+  },
+  {
+   "boxId": "1aec8634471dd0b855c94e697fbb6f4db972c5735b6f62481b8718fd56e30f91",
+   "transactionId": "f10bc9c318ac2376214c7bd3834e65be2e9a2891ed67310efef0c47d81fba4b3",
+   "blockId": "57df99ac4548bfbd5eb6f752b0572df7f545f1fc6ce69d69d89842c6673d259e",
+   "value": 1080655613291,
+   "index": 5,
+   "globalIndex": 11821908,
+   "creationHeight": 1462533,
+   "settlementHeight": 1462535,
+   "ergoTree": "0008cd03b775aacf3f06a2d0835af6163add1355cbb8830dbcab9c903b35a103fc6f595c",
+   "ergoTreeConstants": "",
+   "ergoTreeScript": "{SigmaProp(ProveDlog(ECPoint(b775aa,5105d7,...)))}",
+   "address": "9hrbvQghJYNy3XCqFdK6Ci3To4NcrbULt8cgQziBozHadZ1RgPx",
+   "assets": [
+    {
+     "tokenId": "0040ae650c4ed77bcd20391493abe84c1a9bb58ee88e87f15670c801e2fc5983",
+     "index": 0,
+     "amount": 81000000,
+     "name": "bPaideia",
+     "decimals": 4,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "2b6d675545c319214ef806bf0685974bcd49fffe385cde5703c41cc6cc71e12c",
+     "index": 1,
+     "amount": 1,
+     "name": "CyberVerse Skin - Nautilus",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "0264bd58f5fa83a619775867d2d5b853b767bdc100a1cb512221de62a6026493",
+     "index": 2,
+     "amount": 1,
+     "name": "Ritual Scroll #161",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "b6c42f702ff8250de903907352d17f48f5f09a3d74ea92ee94c918c9206e8736",
+     "index": 3,
+     "amount": 1,
+     "name": "Ergonium Jackhammer #892",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "98d703b10e246c977647ef347c0913f90b64380abcd407f1524a25704c41bb90",
+     "index": 4,
+     "amount": 1,
+     "name": "T-Rekt #0019",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "f42d9e7bb64cec4aedde06d5e92f67433803d14ea53f7a871f7e3f6860a4ed21",
+     "index": 5,
+     "amount": 1,
+     "name": "Ritual Scroll #98",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1eac52506988e173227d1b2cbf73e05dab7f6b1b14054b5fa19bc36a073aa055",
+     "index": 6,
+     "amount": 1,
+     "name": "Restless Nights",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1bee3ee532f289b4b114f4a804ac8ded9543a62f6a72ec1640e078ada70b878b",
+     "index": 7,
+     "amount": 1,
+     "name": "Ritual Scroll #76",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "56366f97d193f8d72fb952b9106a3b97d6146c79bea928279804dc03dbefe759",
+     "index": 8,
+     "amount": 1,
+     "name": "Sigmanaut's Space Stars #120",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ca46ddc83cb50c0074b3abf8680f9f1ed2f81f061cdbacd71ffe29879dfa4fc7",
+     "index": 9,
+     "amount": 1,
+     "name": "T-Rekt #0221",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "00a030f66ecd81dc1682aabeb57b6b3f580214d3112c63c5218284409b171bc4",
+     "index": 10,
+     "amount": 3991444960,
+     "name": "Lend Token ERG-0a",
+     "decimals": 9,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7908edfc6fb960b2b30b9f68b7cf27d9bff72e729aa512426bca07b75bacc841",
+     "index": 11,
+     "amount": 1,
+     "name": "Degen Divers #243",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "258288425078024b9dbd816f597b94ce5be2efc07ef97818dc7b20f5bae6b2c6",
+     "index": 12,
+     "amount": 1,
+     "name": "T-Rekt #0205",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "aeb79fd6d004b6c2a0f7c6219aebe8f943311e716506e14f2c084c8295f98713",
+     "index": 13,
+     "amount": 22,
+     "name": "GNOMECOIN",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "cdc1aebec795ce9822492b5e62fdd93bb2a03653f7c3dfcfabbb0c98f6a33581",
+     "index": 14,
+     "amount": 23437,
+     "name": "Sigmanaut",
+     "decimals": 2,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "d3bca64bd3565ebb114b1ed45344a5627edd79907263b8cd9360acea3f9c08c6",
+     "index": 15,
+     "amount": 1,
+     "name": "Ritual Scroll #110",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "16560f6cadd5d3d4b910e366ce81dee82faff034bed8b66713b802482cd7877a",
+     "index": 16,
+     "amount": 1,
+     "name": "Rosen Trolls #291",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "174d45a073d955f950f15b3ad0f0d821fc0c9f4aec79d16e6f8e58850e2f20d9",
+     "index": 17,
+     "amount": 1,
+     "name": "Ergnome #180 Pedro, the Ripped Pirate Pellican",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "0dbfc7596cde3a81a2a968be7476f6bfa3277bf4de62854b1e916b84021edca4",
+     "index": 18,
+     "amount": 1,
+     "name": "Ultraclonger",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "d4eb6637f9c4a6f63238c3957a36bf2901c33c5f9750408af3c9e72ff15dadf7",
+     "index": 19,
+     "amount": 1,
+     "name": "Minwha Tiger #4",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "f1e33c0b08bc13ce293e7604e37860e6fa45c2288d31da677a88c745a5fa4bd5",
+     "index": 20,
+     "amount": 1,
+     "name": "Ritual Scroll #151",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ed9417be1f40295bda879b94d9977d94c6f61506bf1452cfc5ab01ec2fe3916c",
+     "index": 21,
+     "amount": 1,
+     "name": "Draca",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7db49d27970769088e29827027d85cfa657fcb747ee43a6aa798450e460eb14b",
+     "index": 22,
+     "amount": 1,
+     "name": "Ritual Scroll #70",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "e99ec0001bb1d95f33eababba5251b782054a427ed1203c352c46166b615cf3f",
+     "index": 23,
+     "amount": 1,
+     "name": "Mic Battle Champion #1",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "fcfca7654fb0da57ecf9a3f489bcbeb1d43b56dce7e73b352f7bc6f2561d2a1b",
+     "index": 24,
+     "amount": 143128028619,
+     "name": "ErgOne",
+     "decimals": 8,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "2e59555f055c1341e64d51267a381f6dbbe572cb725cfc471b35e84bbc258b75",
+     "index": 25,
+     "amount": 140000,
+     "name": "hodlCOMET10",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "36c40cb2d2d7496c0c49ce57deef8eb5d055b793eaec93c427b3edbaf338edcc",
+     "index": 26,
+     "amount": 1,
+     "name": "Ritual Scroll #79",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "90153dc9a7f77003c543ea15cbd935f00fbe99839088099d32b0c4c40dedf76b",
+     "index": 27,
+     "amount": 1,
+     "name": "Ritual Scroll #89",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "59ee24951ce668f0ed32bdb2e2e5731b6c36128748a3b23c28407c5f8ccbf0f6",
+     "index": 28,
+     "amount": 4793,
+     "name": "WALRUS",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "48239ff2588591d2ee3fc03f5571558b6d4a33ec97d5671eb2a540276efd526a",
+     "index": 29,
+     "amount": 268158105382,
+     "name": "Ergo_34d449dc_LP",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "3b986b0d994092936d6d70961e34ffee72184583e964bf37d572fcf955d5bba6",
+     "index": 30,
+     "amount": 1,
+     "name": "T-Rekt #0164",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "b91f7d8e8c2db9b7f1f61f6fa9efeb347400a8007c5a76406a45fa89b64510c7",
+     "index": 31,
+     "amount": 1,
+     "name": "Ritual Scroll #42",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "b3f4f1a54c655435865d17bcb33db0652a50d488e5e2f718d5788a198544f2ef",
+     "index": 32,
+     "amount": 1,
+     "name": "Ritual Scroll #100",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "aa4513cbd8668cf008b29338769e7e198f0a005bbdfecbd39541a092e633cb27",
+     "index": 33,
+     "amount": 1,
+     "name": "Mage Champions #321",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "f7cf16e6eed0d11ffd3f55186e00085748e78f487cb6e517b2f610e0045509fe",
+     "index": 34,
+     "amount": 67909635,
+     "name": "ERG_Ergopad_LP",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "333c4441209436490974e946587dc3d114a899efb30da9abcef9f91ccac96d4e",
+     "index": 35,
+     "amount": 1,
+     "name": "DURGΣ",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "da6d9b58c69a7a1146761414ec1fe403f44b1816b65d1cd76b33a8b5ecf0d7a4",
+     "index": 36,
+     "amount": 1,
+     "name": "Degen Divers #150",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "90e4a05cc9e17dd44759dd18a5b3986e1a2407983652752d5dc9fb874586e715",
+     "index": 37,
+     "amount": 1,
+     "name": "Ritual Scroll #171",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "2008f8378c98db569c52170cdebbd4089568bb3bc50f2d5415dbe158b1f9f836",
+     "index": 38,
+     "amount": 1,
+     "name": "Degen Divers #108",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "dad359fdde0c06866fbd745a1850db3e176ceefc09af67529fd5d899f08567dd",
+     "index": 39,
+     "amount": 1,
+     "name": "Psycobill, the Dazed Traveler #PL_009_420SP",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "4f7a1ade7091be907160ff1235039c7addd136aef6d4e45a7ce1b6a0be56e87a",
+     "index": 40,
+     "amount": 1,
+     "name": "ErgoHack VIII Community Awards Stake Key",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "940835ad45be2583819a88fd6ee620284ef565f77563bca722a309e31f3cd70b",
+     "index": 41,
+     "amount": 1,
+     "name": "Ritual Scroll #117",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
+     "index": 42,
+     "amount": 10,
+     "name": "SigUSD",
+     "decimals": 2,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "6e7ddfdd30a3964535581b74fc324a41288d9a92be15bb0e245e5138b65219ae",
+     "index": 43,
+     "amount": 1,
+     "name": "Punk Rocker #4",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "970c65d63bc73927368fb8c1af0cf0546a799ccb06b9b4f82cdbaba0965c28d5",
+     "index": 44,
+     "amount": 1,
+     "name": "Ultrampest",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "11424d80ae12a9051da5c18d5e96f3e4fef955055dbb78f4c5d66bb9d258d1fc",
+     "index": 45,
+     "amount": 1,
+     "name": "Ritual Scroll #96",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "e2073f2daac1655b6fed02bdbf9fdf2e1591c1b18187565693340fb22e17979c",
+     "index": 46,
+     "amount": 1,
+     "name": "PoW WoW Girls #0220",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "92e848f2a06b68f690b5650d333919c1ebb36346e7795d9746f886ab5864833c",
+     "index": 47,
+     "amount": 119039454,
+     "name": "Ergo_59ee2495_LP",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "469abf8b9c9d28807d11a9a018c75ce7879b77748c3e22182cfc34e3cf8a5338",
+     "index": 48,
+     "amount": 4376448159,
+     "name": "Ergo_8b08cdd5_LP",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "d3d82a4014dfe8e033e6510621d4aa8e12d3a2b7e6d44de3bfdabefa209eb826",
+     "index": 49,
+     "amount": 1,
+     "name": "Ritual Scroll #43",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "735186806113fb96ec982f3f1c3d60ce3f87a229fd7ff38909a2c08757764848",
+     "index": 50,
+     "amount": 1,
+     "name": "Cybercitizen #2151",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1fd6e032e8476c4aa54c18c1a308dce83940e8f4a28f576440513ed7326ad489",
+     "index": 51,
+     "amount": 33628976,
+     "name": "Paideia",
+     "decimals": 4,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "6267fe295ebf3143abe788c2f8f268394dceaca840e4a5be3d9c5bfda7c1caf4",
+     "index": 52,
+     "amount": 9223372036854776000,
+     "name": "Spectrum YF staking bundle",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "fcd29e4928d1db3146a5cb4a8096da3d7d16ae4ff29c87551ddfc9c05c174a2b",
+     "index": 53,
+     "amount": 1,
+     "name": "Ritual Scroll #77",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "90f68daea8b521b68ad19e0bf6a1ca8e6e566a50ae2d023c4eca6f96ea279c57",
+     "index": 54,
+     "amount": 1,
+     "name": "Ritual Scroll #152",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "5ff653cea2d12a6a8cfd7f8f2ae5c8b0b9353554ecd49dcf6387441c002741dc",
+     "index": 55,
+     "amount": 1,
+     "name": "CyberCar #43",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "f3b45a221ec1971284b6f2f8274ba08dd633ae37f3dd70f6eea29bc92195840c",
+     "index": 56,
+     "amount": 1,
+     "name": "PoW WoW Girls #1260",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "f6313d450539d6f60eeb91cbfc2e2111895013d6e7faf8c68f7db175d8c10f52",
+     "index": 57,
+     "amount": 1,
+     "name": "Paideia Stake Key",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "2b497694f995f005f67843073b9d13ba748004ab1b0afcb10c1113bb6e47aea6",
+     "index": 58,
+     "amount": 1,
+     "name": "Walrus DAO Logo #1",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "f2fa22745e6495500521cb60fcb850226b672a2875a0430e7c243c9146434205",
+     "index": 59,
+     "amount": 1,
+     "name": "Champion Wizard Lycan",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1c51c3a53abfe87e6db9a03c649e8360f255ffc4bd34303d30fc7db23ae551db",
+     "index": 60,
+     "amount": 61039373,
+     "name": null,
+     "decimals": null,
+     "type": null
+    },
+    {
+     "tokenId": "210f8b7a46cb3597e7f822953252ccbf5dd2e4f9f0310a69530a60bbefca3693",
+     "index": 61,
+     "amount": 1,
+     "name": "Comet #002",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "fa6326a26334f5e933b96470b53b45083374f71912b0d7597f00c2c7ebeb5da6",
+     "index": 62,
+     "amount": 1573892423,
+     "name": null,
+     "decimals": null,
+     "type": null
+    },
+    {
+     "tokenId": "0d42064152d15e88e71aaaf6017cda7dc0963b0a6cf49c907fb9807135f29ea3",
+     "index": 63,
+     "amount": 1,
+     "name": "Ergnome #037 Bubba, the Dog Instructor",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+     "index": 64,
+     "amount": 3995,
+     "name": "SigRSV",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "8bf0435c7e1b1d5168a14f37def9efe5cb066fba308f5fdd623298da4246d21a",
+     "index": 65,
+     "amount": 1,
+     "name": "Ritual Scroll #85",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "3382258dc3dd6b7af24e1d40453fcf94d4e8119f65d7ade843cc26063eb94c98",
+     "index": 66,
+     "amount": 1,
+     "name": "CyberCar #698",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7e9cabe6c6ae7efffd7064233d8c4a72fbda09ab855f5bcbed7c1237f3f76f45",
+     "index": 67,
+     "amount": 1,
+     "name": "Cybercitizen #2514",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "def9ef3cc2ca190c00d17e8dd4b0c34d27631d23cf8a1b77cd10a51b9d010e51",
+     "index": 68,
+     "amount": 1,
+     "name": "Ritual Scroll #78",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "8de945d136248be4d632b50b7529a2b60acc0ee62a914071b865619f733b2f8b",
+     "index": 69,
+     "amount": 1,
+     "name": "[Cyberia] Apartment #63",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "0cd8c9f416e5b1ca9f986a7f10a84191dfb85941619e49e53c0dc30ebf83324b",
+     "index": 70,
+     "amount": 1000007,
+     "name": "COMET",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "fc97687ab4d6f34dfe99a14a0586cb1652e7ec427b264c136a9ef08a844651bc",
+     "index": 71,
+     "amount": 1,
+     "name": "420 Sloth #1",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "aa8a0110bcc0301eb30a438c812782651727acbcf26346dce4241e26dc0c5aa8",
+     "index": 72,
+     "amount": 1,
+     "name": "Ritual Scroll #47",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "76e9c50ee914e53aa0ec20d213402cd257f5e268f231c70c9e756f09c133e0a3",
+     "index": 73,
+     "amount": 1,
+     "name": "Cybercitizen #2645",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "79a98e31c9835133866bdadece89b60721a008c3456d2ed4a2373e21e744a6e3",
+     "index": 74,
+     "amount": 1,
+     "name": "CyberCar #305",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "13d998a9c02ece50c64cbec2924c8d483f9e0faf02db2fe9a55ab5cb32d52a3d",
+     "index": 75,
+     "amount": 1,
+     "name": "T-Rekt #0113",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7cb6d4df5303d90dd2082c982949950d86418a453d01960f742ea7a4d741eed7",
+     "index": 76,
+     "amount": 1,
+     "name": "Ritual Scroll #115",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7025b298e4ac5c440fe301a1f14e856942ff3a4deba1ab654b94cab040e8e157",
+     "index": 77,
+     "amount": 1,
+     "name": "Radianre",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "4de9e7e628e4f473f954ee74c622033cf03005198293d0d2cd4ccc64288da17e",
+     "index": 78,
+     "amount": 819871271100,
+     "name": "Satoshi",
+     "decimals": 6,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "77b80107acbbca2a1d7e3142f533af21d51d1aeaad8264255236ec9cc6e1d588",
+     "index": 79,
+     "amount": 1,
+     "name": "Cybercitizen #1206",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "8b86706e4f4a928fe50a8280db8b06a113e43962d046e574652c99ab33f7f256",
+     "index": 80,
+     "amount": 1,
+     "name": "HiPPoWPoWs - Space Farmers 023# ",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1dfd90519e1166c9b278c9afafec9e341892251b56d35d13df36a6306a71acac",
+     "index": 81,
+     "amount": 1,
+     "name": "Ergoats #00231",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "62a87b20ff33a7c016ba10f81034aea0fde5d885264c256080f3e90a9c7e1fb7",
+     "index": 82,
+     "amount": 1,
+     "name": "Tiger & Magpie #0871",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "e1ac43f16f41e9f1d2241425f8901cc2a016103ed42c02c39a44d28e5014165e",
+     "index": 83,
+     "amount": 1,
+     "name": "Ritual Scroll #44",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "afa2073ea10a567d2c219e8c76886762ce6c54fd52afee6c6368219a4452b00c",
+     "index": 84,
+     "amount": 1,
+     "name": "Spectrum Finance Staker Vesting Key",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "94697d7c722a987edf3e223151f06a977b4cb40138f1f722222a1dfe015455d5",
+     "index": 85,
+     "amount": 1,
+     "name": "T-Rekt #0183",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "40419ae16651e21a4ccca73ff78f9e3ab0a9d3f58c8a97a12321069b16a0fba0",
+     "index": 86,
+     "amount": 1,
+     "name": "Joteor",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "cbd75cfe1a4f37f9a22eaee516300e36ea82017073036f07a09c1d2e10277cda",
+     "index": 87,
+     "amount": 290000000000,
+     "name": "hodlERG3",
+     "decimals": 9,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "833f7e90c8c5145faf2ae30580574a0d410aa90abd9175bcfb29cebe0d26a46e",
+     "index": 88,
+     "amount": 1,
+     "name": "EGIO Stake Key",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "e1dfddb209d4ab03ca49d7f18d242e8c1566722b0b039a782557517fbc8fccf6",
+     "index": 89,
+     "amount": 1,
+     "name": "Ritual Scroll #125",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "a0ceb83d9f4c90078e4eb408b49828dc5d5ed1b60c34f33ea26b722b37d35de4",
+     "index": 90,
+     "amount": 1,
+     "name": "Ritual Scroll #126",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "aeb94140830751a6c35f7cf9c38c270e5bd91846af01eb703072457af847f5e1",
+     "index": 91,
+     "amount": 1,
+     "name": "AHT Stake Key",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "c2b0faae5b0d29b25b0aec54efc5333b4a716fe986c72cca238e4292f0a64889",
+     "index": 92,
+     "amount": 1,
+     "name": "Ritual Scroll #142",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "df42e588bcb16465348cbbc3fe39de07743403d03a504d4b6eb6233946f7d093",
+     "index": 93,
+     "amount": 1,
+     "name": "Zephyr",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "0db131baefd31213d2f87e3ecc18ce3a83521ff82b305a65d9f0624005691114",
+     "index": 94,
+     "amount": 1,
+     "name": "Tiger & Magpie #0041",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "3eb8310ccc21cfeb4ad65087168aa6e76a4a2d44e1fc070230ec819477f2c9a4",
+     "index": 95,
+     "amount": 9223372036854776000,
+     "name": "Spectrum YF staking bundle",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "3cf5022868561b4a478aa5546a0c7156bd9fc7ba3c2aa279447e3d0d16f5e567",
+     "index": 96,
+     "amount": 1,
+     "name": "Degen Divers #237",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "21275eb953ad554662e6d195b7a4fb38e71aab3cc7bf5624628517256b8b2428",
+     "index": 97,
+     "amount": 1,
+     "name": "T-Rekt #0278",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "db2b531973337af2eb287e97552a183bd6ede7f0249a84307cf989438b41fb7a",
+     "index": 98,
+     "amount": 1,
+     "name": "T-Rekt #0291",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "8b938e41486169d6801dd0ac8e42d640ff6f12b6010f105cea6499e7197097c3",
+     "index": 99,
+     "amount": 1,
+     "name": "T-Rekt #0603",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {},
+   "spentTransactionId": "c0fabba1c8dd5e217cf16e900242bc55860cd38850b53ad5479189bcc7a9d8bd",
+   "mainChain": true
+  },
+  {
+   "boxId": "84eb47edb518ac1dc5bc81b7d74a41f6d3b0cd8efb41d1ec4ce10efc3e21e6ca",
+   "transactionId": "f10bc9c318ac2376214c7bd3834e65be2e9a2891ed67310efef0c47d81fba4b3",
+   "blockId": "57df99ac4548bfbd5eb6f752b0572df7f545f1fc6ce69d69d89842c6673d259e",
+   "value": 1080655613291,
+   "index": 6,
+   "globalIndex": 11821909,
+   "creationHeight": 1462533,
+   "settlementHeight": 1462535,
+   "ergoTree": "0008cd03b775aacf3f06a2d0835af6163add1355cbb8830dbcab9c903b35a103fc6f595c",
+   "ergoTreeConstants": "",
+   "ergoTreeScript": "{SigmaProp(ProveDlog(ECPoint(b775aa,5105d7,...)))}",
+   "address": "9hrbvQghJYNy3XCqFdK6Ci3To4NcrbULt8cgQziBozHadZ1RgPx",
+   "assets": [
+    {
+     "tokenId": "01dce8a5632d19799950ff90bca3b5d0ca3ebfa8aaafd06f0cc6dd1e97150e7f",
+     "index": 0,
+     "amount": 79075784,
+     "name": "CYPX",
+     "decimals": 4,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7adf440961f4cdf612296b336de757206ddd40bfe30dcce5cd8398a65f2ce2c2",
+     "index": 1,
+     "amount": 1,
+     "name": "Lily Punks #5",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "096ad8b756d6e8474038c6048590fe2c1d7606912b8b0ad33d6d3f332902d912",
+     "index": 2,
+     "amount": 1,
+     "name": "MAYDAY",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "10e984d3a4b740460eed9930262526402a2344e6e4dae8dea24cc6a93f39ba4f",
+     "index": 3,
+     "amount": 1,
+     "name": "Gogo",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "677366cd45e03ceaf0de4938b8903e96b394b39d2d84f8592b2f3bee55ac82f6",
+     "index": 4,
+     "amount": 1,
+     "name": "Degen Divers #217",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "c0968ecbe5998c4daa897da0c29a78cbf66b2415d748f7fdb6f7d173a7a637d1",
+     "index": 5,
+     "amount": 1,
+     "name": "Ritual Scroll #95",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "d003a6c38cf6fbc343f038b897fda4cd7f26146f654d7df12c221fc0e544b847",
+     "index": 6,
+     "amount": 1,
+     "name": "ERGOZX #54-100L",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "fbbd18f78d12749b83943a55c783e86ff505e32c863d681fc8b462b8d6522ba0",
+     "index": 7,
+     "amount": 1,
+     "name": "Mini Champs #342",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "882c585aa636147d1153001b306c4e18095f2e68cf51f31d8323de59a1361f31",
+     "index": 8,
+     "amount": 1,
+     "name": "Tiger & Magpie #0660",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "a8d8b112e3f9b9a141787cd1dd4d81784737b7a1f8de56dd1f6680d83b5500b7",
+     "index": 9,
+     "amount": 1,
+     "name": "Ritual Scroll #105",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "8fbb4821d794459443a2426f91e01321e4e932848b9f141860d15ce3f065779e",
+     "index": 10,
+     "amount": 1,
+     "name": "Cybercitizen #4000",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ba25d53012410b0a0555f5b96a626c0e22d772627aa15b858c13589401255049",
+     "index": 11,
+     "amount": 1,
+     "name": "Aurora of Dystopian World",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "acb927f7fd9b7785d66461d78b521e57430d7ed93f4db7be3c74f7e80d915f0f",
+     "index": 12,
+     "amount": 1,
+     "name": "Faliosnous",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "191db0280e63acecff99e4138336756c0083fc509dae1c1fbb0bc9a93c5bcb4d",
+     "index": 13,
+     "amount": 1,
+     "name": "Fado",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {},
+   "spentTransactionId": "b7c1609aff822b4a2965d5b822a8eb2e3dc4c48ed6e8e8631ab15cfc5671fd52",
+   "mainChain": true
+  }
+ ],
+ "size": 9198
+}

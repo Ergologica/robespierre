@@ -1,0 +1,20 @@
+{
+ "chiave": {
+  "id": "db56504be9f1e78ae989088b7afba3fdb1f86901bfaec62eb0a3d092d60a9a8d",
+  "boxId": "606a24b6650fb3284642c2454479876bf1914c33507ea5a8a41754c0f9d87a49",
+  "emissionAmount": 1,
+  "name": "Autolykos Membership",
+  "description": "Autolykos - Powered by Paideia - https://app.paideia.im",
+  "type": "EIP-004",
+  "decimals": 0
+ },
+ "nonChiave": {
+  "id": "0cd8c9f416e5b1ca9f986a7f10a84191dfb85941619e49e53c0dc30ebf83324b",
+  "boxId": "d1957ee6d5de2d53c066ca49fe87f910409652d7308bfc63bf1f550695932657",
+  "emissionAmount": 21000000000,
+  "name": "COMET",
+  "description": "The meme token on the Ergo blockchain. To infinity and beyond!",
+  "type": "EIP-004",
+  "decimals": 0
+ }
+}

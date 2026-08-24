@@ -429,3 +429,191 @@ describe('scale dei grafici — tacche leggibili', () => {
     expect(niceScale(-5).max).toBe(1)
   })
 })
+
+/* ---------------- staking Paideia — fixture reali ---------------- */
+import { paideiaDao, readStakeOp, readStakeState, buildPosition } from '../stake/paideia'
+import stakeTx from '../stake/fixtures/paideia-stake-autolykos.json'
+import stateBox from '../stake/fixtures/paideia-state-autolykos.json'
+import keyFix from '../stake/fixtures/paideia-key-autolykos.json'
+import keyVecchia from '../stake/fixtures/paideia-key-sigmanauts-vecchia.json'
+import stakeVecchia from '../stake/fixtures/paideia-stake-sigmanauts-vecchia.json'
+import rincalzoWalrus from '../stake/fixtures/paideia-rincalzo-walrus.json'
+
+describe('staking Paideia — riconoscimento della chiave', () => {
+  it('riconosce la chiave dalla firma che ogni DAO scrive nella descrizione', () => {
+    expect(paideiaDao(keyFix.chiave)).toBe('Autolykos')
+    expect(paideiaDao({ name: 'X', description: 'Sigmanauts - Powered by Paideia - https://app.paideia.im', emissionAmount: 1 })).toBe('Sigmanauts')
+    expect(paideiaDao({ name: 'X', description: 'Walrus DAO - Powered by Paideia - https://app.paideia.im', emissionAmount: 1 })).toBe('Walrus DAO')
+  })
+  it('NEGATIVO: un token qualunque non è una chiave, e nemmeno un NFT con descrizione simile ma emissione diversa', () => {
+    expect(paideiaDao(keyFix.nonChiave)).toBeNull()          // COMET, 21 miliardi di unità
+    expect(paideiaDao({ description: 'Autolykos - Powered by Paideia - https://app.paideia.im', emissionAmount: 5 })).toBeNull()
+    expect(paideiaDao({ description: 'Powered by Paideia', emissionAmount: 1 })).toBeNull()
+    expect(paideiaDao({ description: null, emissionAmount: 1 })).toBeNull()
+  })
+})
+
+describe('staking Paideia — operazione letta dalla catena', () => {
+  it('ricava stato, token depositato e importo dalla transazione di ingresso (4/12/2025)', () => {
+    const op = readStakeOp(stakeTx as never)!
+    expect(op).not.toBeNull()
+    expect(op.stakedName).toBe('LYKOS')
+    expect(op.delta).toBe(8783n)          // 143.980 − 135.197, letto dai box di stato
+    expect(op.totalAfter).toBe(143980n)
+    expect(op.stateTokenId).toBe('3b7fb49bc0a262ea890df52483fafe4b59bd376bb6788452796c13ae083b6f50')
+  })
+  it('lo stato attuale dà il totale nel pool e quanti partecipano', () => {
+    const st = readStakeState(stateBox as never, '3b7fb49bc0a262ea890df52483fafe4b59bd376bb6788452796c13ae083b6f50')!
+    expect(st.total).toBe(152609n)
+    expect(st.stakers).toBe(15)           // R5[2]
+  })
+  it('la posizione somma le operazioni e NON inventa il saldo con le ricompense', () => {
+    const op = readStakeOp(stakeTx as never)!
+    const st = readStakeState(stateBox as never, op.stateTokenId)!
+    const p = buildPosition('Autolykos', 'chiave', [op], st)!
+    expect(p.deposited).toBe(8783n)
+    expect(p.operations).toBe(1)
+    expect(p.poolStakers).toBe(15)
+    expect(Object.keys(p)).not.toContain('balance')   // il saldo corrente non esiste in questo oggetto
+  })
+})
+
+/* ---------------- staking: la scheda dice quello che sa e tace il resto ---------------- */
+import { stakeCardHtml } from '../stake/card'
+import { mergeOps, ruoloChiave, altreChiaviDelDao, ordinaCandidati } from '../stake/index'
+import { L } from '../i18n'
+import type { StakePosition } from '../stake/paideia'
+
+const POS: StakePosition = {
+  dao: 'Autolykos', keyId: 'db56504be9f1e78ae989088b7afba3fdb1f86901bfaec62eb0a3d092d60a9a8d',
+  stakedTokenId: 'e840e3bf0c4a3390d6ad9e3e9bcc14638e649feddcdd8d245f75b9738680fef6',
+  stakedName: 'LYKOS', stakedDecimals: 2, deposited: 8783n, operations: 1,
+  since: 1764858003577, poolTotal: 152609n, poolStakers: 15, partial: false,
+}
+
+describe('staking — scheda', () => {
+  it('senza posizioni non stampa nulla: la scheda non compare', () => {
+    expect(stakeCardHtml([], new Map(), 3)).toBe('')
+  })
+  it('mostra depositato, pool e partecipanti, e non stampa un controvalore quando il token non ha prezzo', () => {
+    const h = stakeCardHtml([POS], new Map(), 3)
+    expect(h).toContain('87,83 LYKOS')       // depositato
+    expect(h).toContain('1.526,09 LYKOS')    // totale nel pool
+    expect(h).toContain('15 partecipanti')
+    expect(h).not.toContain('$')             // LYKOS non ha pool su Spectrum: niente numero inventato
+    expect(h).toContain('AvlTree')           // il buco è dichiarato, non nascosto
+  })
+  it('col prezzo mostra il controvalore DEL DEPOSITATO, mai un saldo di oggi', () => {
+    const prices = new Map([[POS.stakedTokenId, {
+      tokenId: POS.stakedTokenId, symbol: 'LYKOS', ergPerToken: 0.5,
+      vol24Erg: 900, volCumErg: 9000, fresh: true, thin: false, sharedName: 0,
+    }]])
+    const h = stakeCardHtml([POS], prices, 4)
+    expect(h).toContain('176 $')             // 87,83 × 0,5 ERG × 4 $ = 175,66
+    expect(h).toContain('del depositato')
+  })
+  it('un nome di DAO ostile viene sfuggito come ogni altro dato di catena', () => {
+    const h = stakeCardHtml([{ ...POS, dao: '<img src=x onerror=alert(1)>' }], new Map(), 3)
+    expect(h).not.toContain('<img')
+    expect(h).toContain('&lt;img')
+  })
+
+  it('lettura parziale del contratto: lo dichiara invece di far finta di niente', () => {
+    const h = stakeCardHtml([{ ...POS, partial: true }], new Map(), 3)
+    expect(h).toContain(L.stake_partial)
+    expect(stakeCardHtml([POS], new Map(), 3)).not.toContain(L.stake_partial)
+  })
+})
+
+describe('staking — unione delle operazioni', () => {
+  it("l'ingresso non viene contato due volte quando lo scorrimento del contratto lo ritrova", () => {
+    const op = readStakeOp(stakeTx as never)!
+    const merged = mergeOps(op, [op])
+    expect(merged.length).toBe(1)
+    expect(merged.reduce((s, o) => s + o.delta, 0n)).toBe(8783n)
+  })
+  it("un ritiro successivo si somma con segno: il depositato è netto", () => {
+    const op = readStakeOp(stakeTx as never)!
+    const uscita = { ...op, txId: 'altra', delta: -3000n, at: op.at + 86_400_000 }
+    const merged = mergeOps(op, [uscita])
+    expect(merged.length).toBe(2)
+    expect(merged.reduce((s, o) => s + o.delta, 0n)).toBe(5783n)
+    expect(merged[0]!.at < merged[1]!.at).toBe(true)   // ordine cronologico
+  })
+})
+
+/* ---------------- staking: le DUE generazioni di chiavi Paideia ---------------- */
+describe('staking Paideia — la generazione vecchia', () => {
+  it('la chiave vecchia non porta il nome del DAO nella descrizione: sta nel nome', () => {
+    // «Sigmanauts Stake Key» · descrizione «Powered by Paideia», e basta
+    expect(keyVecchia.description).toBe('Powered by Paideia')
+    expect(paideiaDao(keyVecchia)).toBe('Sigmanauts')
+    expect(paideiaDao({ name: 'Walrus DAO Stake Key', description: 'Powered by Paideia', emissionAmount: 1 })).toBe('Walrus DAO')
+    expect(paideiaDao({ name: 'RosenGuards Stake Key', description: 'Powered by Paideia', emissionAmount: 1 })).toBe('RosenGuards')
+  })
+  it('NEGATIVO: la firma senza nome del DAO, su un token che non è una chiave, non basta', () => {
+    expect(paideiaDao({ name: 'Walrus DAO Logo #1', description: 'Powered by Paideia', emissionAmount: 1 })).toBeNull()
+    expect(paideiaDao({ name: 'Sigmanauts Stake State', description: 'Powered by Paideia', emissionAmount: 1 })).toBeNull()
+    expect(paideiaDao({ name: null, description: 'Powered by Paideia', emissionAmount: 1 })).toBeNull()
+  })
+  it('la transazione di ingresso del 2024 si legge come quella di oggi', () => {
+    const op = readStakeOp(stakeVecchia as never)!
+    expect(op).not.toBeNull()
+    expect(op.stakedName).toBe('Sigmanaut')
+    expect(op.delta).toBe(1n)
+  })
+})
+
+describe('staking Paideia — a chi si può attribuire una variazione', () => {
+  const KEY_V = '4679238680dadf89f6670c1d83563e87e16616407845ce7bdf5b9e3aee1ae8b8'
+  const KEY_W = '895ca7298ca635899ef9e1f871047eba15696557ad3ffe8a9ec678165f8bcb27'
+  it('la chiave che NASCE nella transazione è un ingresso certo', () => {
+    expect(ruoloChiave(stakeVecchia as never, KEY_V)).toBe('conio')
+    expect(ruoloChiave(stakeTx as never, 'db56504be9f1e78ae989088b7afba3fdb1f86901bfaec62eb0a3d092d60a9a8d')).toBe('conio')
+  })
+  it('la chiave che sta ferma in un box speso è ambigua di per sé', () => {
+    expect(ruoloChiave(rincalzoWalrus as never, KEY_W)).toBe('ambiguo')
+  })
+  it('ma diventa attribuibile se nessun altra chiave DELLO STESSO DAO è in ballo', () => {
+    // la transazione contiene ~90 NFT del wallet, fra cui altre chiavi di staking
+    // (Paideia, EGIO, AHT) e perfino «Walrus DAO Logo #1»: nessuna è una chiave Walrus
+    expect(altreChiaviDelDao(rincalzoWalrus as never, 'Walrus DAO', KEY_W)).toBe(0)
+    const op = readStakeOp(rincalzoWalrus as never)!
+    expect(op.delta).toBe(35000n)      // il rincalzo del deposito, che altrimenti si perdeva
+  })
+  it('una seconda chiave dello stesso DAO nella stessa transazione ferma tutto', () => {
+    const finta = { ...(rincalzoWalrus as never as Tx) }
+    finta.outputs = [...finta.outputs, { boxId: 'x', value: 1, address: 'z',
+      assets: [{ tokenId: 'altra', amount: 1, name: 'Walrus DAO Membership' }] }]
+    expect(altreChiaviDelDao(finta, 'Walrus DAO', KEY_W)).toBe(1)
+  })
+})
+
+describe('staking Paideia — posizione chiusa', () => {
+  it('chi ha ritirato tutto tiene la chiave ma non ha una posizione: si tace', () => {
+    const op = readStakeOp(stakeVecchia as never)!
+    const uscita = { ...op, txId: 'uscita', delta: -op.delta, at: op.at + 1000 }
+    const st = { total: 15n, stakers: 14 }
+    expect(buildPosition('Sigmanauts', 'k', [op, uscita], st)).toBeNull()
+    expect(buildPosition('Sigmanauts', 'k', [op], st)).not.toBeNull()
+  })
+})
+
+describe('staking — quali NFT del wallet si interrogano, e in che ordine', () => {
+  const n = (name: string | null, amount: number | string = 1, decimals = 0) =>
+    ({ tokenId: (name ?? 'x') + '-id', amount, decimals, name })
+  it('le chiavi passano avanti alle figurine, ma le figurine restano in coda', () => {
+    const ordinati = ordinaCandidati([
+      n('Ritual Scroll #161'), n('T-Rekt #0019'), n('Autolykos Membership'),
+      n('Cybercitizen #4000'), n('EGIO Stake Key'),
+    ] as never)
+    expect(ordinati.slice(0, 2).map(t => t.name)).toEqual(['Autolykos Membership', 'EGIO Stake Key'])
+    expect(ordinati.length).toBe(5)          // ordine, non filtro
+  })
+  it('quello che non è un NFT non si interroga nemmeno', () => {
+    const ordinati = ordinaCandidati([
+      n('COMET', 21_000_000_000), n('LYKOS', 1, 2), n('Walrus DAO Membership'),
+    ] as never)
+    expect(ordinati.map(t => t.name)).toEqual(['Walrus DAO Membership'])
+  })
+})

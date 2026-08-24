@@ -1,0 +1,808 @@
+{
+ "id": "402cb1d2e9f886d82ac1b8a08be14df5e5350bc9769d4ba92b19cbee286eafb5",
+ "blockId": "06420d09f0b91da8fcf1a301018250c45ff9c4c33dc164dec91822dc7f6cb8b2",
+ "inclusionHeight": 1670340,
+ "timestamp": 1764858003577,
+ "index": 5,
+ "globalIndex": 3755290,
+ "numConfirmations": 187121,
+ "inputs": [
+  {
+   "boxId": "db56504be9f1e78ae989088b7afba3fdb1f86901bfaec62eb0a3d092d60a9a8d",
+   "value": 1000000000,
+   "index": 0,
+   "spendingProof": null,
+   "outputBlockId": "1980ee02c0a5ee2bf774791dd0c25034c2caaaf914f527e6a0b33c7c23d9f980",
+   "outputTransactionId": "01e5a6be54e5f05d19000829724e4ef32b0cdbc0f11a7da8cf7caa667a334ff8",
+   "outputIndex": 0,
+   "outputGlobalIndex": 15878811,
+   "outputCreatedAt": 1616087,
+   "outputSettledAt": 1616089,
+   "ergoTree": "10010e205215a04d444cb97237e8f982a01b1f137595c77d737bcc7784a2ca44811519b6d80ed60183200202de02ae02cf025b026402ba02d602f50257020b02ad020a0261020c024e02480249025702cf0247028202300284020002bc02900240024c021d0214021002dad602d9010263e4c672020464d603d901033c0c630eb58c720301d9010563aedb63087205d901074d0e938c7207018c720302d604b2da7203018602db6501fe7300040000d605e3010ed606d9010632b4e4720604020442d607d9010763b2db63087207040000d608da720701a7d609b2da7203018602a58c720801040000d60ad9010a63b2db6308720a040200d60bd9010b0ed801d60ddc640bda72020172040283020e7201720be472059683020193b1dad9010e3c0c630eb58c720e01d901106393cbc272108c720e02018602a4da720601b2720d0402000402dad9010e0e9683030193cbc27209720e93da72070172097208938cda720a017209018cda720a01a70101da720601b2720d040000d60ce4e30002d60ddc0c1aa402a70400d60ed9010e05958f720e0580020402958f720e058080020404958f720e05808080020406958f720e0580808080020408958f720e05808080808002040a958f720e0580808080808002040c958f720e058080808080808002040e958f720e0580808080808080800204100412d197830801dad9010f029593720f0200da720b0183200202030292020802bc024e02ef029a020302e802d7028b0286026302a3020102bb025f02ad02dc02a7028b02e1029d027f02e5023502b302c6024c02be02fe0242010001720cdad9010f029593720f0202da720b01832002028b02c7028f021c026a02ae02c9021e0262028e021502cf0266028c021602cc021e029b02d802e402b902b702e1026d0263021802b502f5022302a502e902bd010001720cdad9010f029593720f0201da720b01832002028802300261022c02520235025f026f0228020d0212029702f1029f026702b0027802c902da02a702d702b0024b0245029c029102cc02640249025702c20280010001720cdad9010f029593720f0203da720b01832002024f02d802b002d602d9028202420272026f025702b302df02a6028602120267029202b802e50205026e021d025102b602e9020d0268028002cf022d02cd02c5010001720cdad9010f029593720f0204da720b018320020289022e026f024702a1020d025c029002b8027a02d402860233025502ce02ad020002c302e202980232021702ee021502530232025302cd029a0260022502c2010001720cdad9010f029593720f0205da720b01832002023a02110295025c0247021902e5028802bc02e602a70261021d022702bd021f02df02db02570238025c02ae02e2026602d80204020c0289024f021c022e021d010001720cdad9010f029593720f0206da720b0183200202090282020f02cb0288027102fb0245020c023e020602b702cb025e022702b002450250028702a302660262021a029d02de0275028202a002190211021e023e010001720cdad9010f029593720f0207dad901113c0e639592720db1a50100d809d613b2a5720d00d614c17213d615c1a7d616c27213d617c4a7d618c2a7d6198cc7a701d61ac47213d61b8cc772130196830401927214997215058092f40193cb7216da720601b2dc640bda7202018c7211020283010e8c721101e5720583000204000093b472179a9ada720e017215b17218da720e017e721905b17217b4721a9a9ada720e017214b17216da720e017e721b05b1721a978302019299721b72190480c33d947218721601860272017204010001720c",
+   "ergoTreeConstants": "[\n  0: Coll[SByte$] = Coll(82,21,-96,77,68,76,-71,114,55,-24,-7,-126,-96,27,31,19,117,-107,-57,125,115,123,-52,119,-124,-94,-54,68,-127,21,25,-74)\n]",
+   "ergoTreeScript": "Right(BlockValue(WrappedArray(ValDef(1,WrappedArray(),ConcreteCollection(WrappedArray(ConstantNode(-34,SByte$), ConstantNode(-82,SByte$), ConstantNode(-49,SByte$), ConstantNode(91,SByte$), ConstantNode(100,SByte$), ConstantNode(-70,SByte$), ConstantNode(-42,SByte$), ConstantNode(-11,SByte$), ConstantNode(87,SByte$), ConstantNode(11,SByte$), ConstantNode(-83,SByte$), ConstantNode(10,SByte$), ConstantNode(97,SByte$), ConstantNode(12,SByte$), ConstantNode(78,SByte$), ConstantNode(72,SByte$), ConstantNode(73,SByte$), ConstantNode(87,SByte$), ConstantNode(-49,SByte$), ConstantNode(71,SByte$), ConstantNode(-126,SByte$), ConstantNode(48,SByte$), ConstantNode(-124,SByte$), ConstantNode(0,SByte$), ConstantNode(-68,SByte$), ConstantNode(-112,SByte$), ConstantNode(64,SByte$), ConstantNode(76,SByte$), ConstantNode(29,SByte$), ConstantNode(20,SByte$), ConstantNode(16,SByte$), ConstantNode(-38,SByte$)),SByte$)), ValDef(2,WrappedArray(),FuncValue(WrappedArray((2,SBox)),ExtractRegisterAs(ValUse(2,SBox),R4,Option[SAvlTree]).get)), ValDef(3,WrappedArray(),FuncValue(WrappedArray((3,(Coll[SBox],Coll[SByte$]))),Filter(SelectField(ValUse(3,(Coll[SBox],Coll[SByte$])),1),FuncValue(WrappedArray((5,SBox)),Exists(MethodCall(ValUse(5,SBox),SMethod(SBox,tokens,(SBox) => Coll[(Coll[SByte$],SLong$)],8,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Secondary tokens,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()),FuncValue(WrappedArray((7,(Coll[SByte$],SLong$))),EQ(SelectField(ValUse(7,(Coll[SByte$],SLong$)),1),SelectField(ValUse(3,(Coll[SBox],Coll[SByte$])),2)))))))), ValDef(4,WrappedArray(),ByIndex(Apply(ValUse(3,((Coll[SBox],Coll[SByte$])) => Coll[SBox]),WrappedArray(Tuple(Vector(MethodCall(Context$(254),SMethod(SContext,dataInputs,(SContext) => Coll[SBox],1,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()), ConstantPlaceholder(0,Coll[SByte$]))))),IntConstant(0),None)), ValDef(5,WrappedArray(),GetVar(1,Option[Coll[SByte$]])), ValDef(6,WrappedArray(),FuncValue(WrappedArray((6,Option[Coll[SByte$]])),Slice(ValUse(6,Option[Coll[SByte$]]).get,IntConstant(1),IntConstant(33)))), ValDef(7,WrappedArray(),FuncValue(WrappedArray((7,SBox)),ByIndex(MethodCall(ValUse(7,SBox),SMethod(SBox,tokens,(SBox) => Coll[(Coll[SByte$],SLong$)],8,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Secondary tokens,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()),IntConstant(0),None))), ValDef(8,WrappedArray(),Apply(ValUse(7,(SBox) => (Coll[SByte$],SLong$)),WrappedArray(Self$(167)))), ValDef(9,WrappedArray(),ByIndex(Apply(ValUse(3,((Coll[SBox],Coll[SByte$])) => Coll[SBox]),WrappedArray(Tuple(Vector(Outputs$(165), SelectField(ValUse(8,(Coll[SByte$],SLong$)),1))))),IntConstant(0),None)), ValDef(10,WrappedArray(),FuncValue(WrappedArray((10,SBox)),ByIndex(MethodCall(ValUse(10,SBox),SMethod(SBox,tokens,(SBox) => Coll[(Coll[SByte$],SLong$)],8,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Secondary tokens,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()),IntConstant(1),None))), ValDef(11,WrappedArray(),FuncValue(WrappedArray((11,Coll[SByte$])),BlockValue(WrappedArray(ValDef(13,WrappedArray(),MethodCall(Apply(ValUse(2,(SBox) => SAvlTree),WrappedArray(ValUse(4,SBox))),SMethod(SAvlTree,getMany,(SAvlTree,Coll[Coll[SByte$]],Coll[SByte$]) => Coll[Option[Coll[SByte$]]],11,DynamicCost,MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(MethodCall$(220)),\n  /** Perform a lookup of many keys `keys` in this tree using proof `proof`.\n    *\n    * @note CAUTION! Keys must be ordered the same way they were in lookup before proof was generated.\n    * For each key return Some(bytes) of leaf if it exists and None if is doesn't.\n    * @param keys    keys of elements of this authenticated dictionary.\n    * @param proof\n    */\n\n        ,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(ConcreteCollection(WrappedArray(ValUse(1,Coll[SByte$]), ValUse(11,Coll[SByte$])),Coll[SByte$]), ValUse(5,Option[Coll[SByte$]]).get),Map()))),AND(ConcreteCollection(WrappedArray(EQ(SizeOf(Apply(FuncValue(WrappedArray((14,(Coll[SBox],Coll[SByte$]))),Filter(SelectField(ValUse(14,(Coll[SBox],Coll[SByte$])),1),FuncValue(WrappedArray((16,SBox)),EQ(CalcBlake2b256(ExtractScriptBytes(ValUse(16,SBox))),SelectField(ValUse(14,(Coll[SBox],Coll[SByte$])),2))))),WrappedArray(Tuple(Vector(Inputs$(164), Apply(ValUse(6,(Option[Coll[SByte$]]) => Coll[SByte$]),WrappedArray(ByIndex(ValUse(13,Coll[Option[Coll[SByte$]]]),IntConstant(1),None)))))))),IntConstant(1)), Apply(FuncValue(WrappedArray((14,Coll[SByte$])),AND(ConcreteCollection(WrappedArray(EQ(CalcBlake2b256(ExtractScriptBytes(ValUse(9,SBox))),ValUse(14,Coll[SByte$])), EQ(Apply(ValUse(7,(SBox) => (Coll[SByte$],SLong$)),WrappedArray(ValUse(9,SBox))),ValUse(8,(Coll[SByte$],SLong$))), EQ(SelectField(Apply(ValUse(10,(SBox) => (Coll[SByte$],SLong$)),WrappedArray(ValUse(9,SBox))),1),SelectField(Apply(ValUse(10,(SBox) => (Coll[SByte$],SLong$)),WrappedArray(Self$(167))),1))),SBoolean))),WrappedArray(Apply(ValUse(6,(Option[Coll[SByte$]]) => Coll[SByte$]),WrappedArray(ByIndex(ValUse(13,Coll[Option[Coll[SByte$]]]),IntConstant(0),None)))))),SBoolean))))), ValDef(12,WrappedArray(),GetVar(0,Option[SByte$]).get), ValDef(13,WrappedArray(),MethodCall(Inputs$(164),SMethod(sigmastate.SCollection$@551230fb,indexOf,(Coll[SBox],SBox,SInt$) => SInt$,26,PerItemCost(20,10,2),MethodIRInfo(Some(<function1>),Some(public default int special.collection.Coll.indexOf(java.lang.Object,int)),None),Some(OperationInfo(Some(MethodCall$(220)),,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(Self$(167), IntConstant(0)),Map())), ValDef(14,WrappedArray(),FuncValue(WrappedArray((14,SLong$)),If(LT(ValUse(14,SLong$),LongConstant(128)),IntConstant(1),If(LT(ValUse(14,SLong$),LongConstant(16384)),IntConstant(2),If(LT(ValUse(14,SLong$),LongConstant(2097152)),IntConstant(3),If(LT(ValUse(14,SLong$),LongConstant(268435456)),IntConstant(4),If(LT(ValUse(14,SLong$),LongConstant(34359738368)),IntConstant(5),If(LT(ValUse(14,SLong$),LongConstant(4398046511104)),IntConstant(6),If(LT(ValUse(14,SLong$),LongConstant(562949953421312)),IntConstant(7),If(LT(ValUse(14,SLong$),LongConstant(72057594037927936)),IntConstant(8),IntConstant(9)))))))))))),BoolToSigmaProp(OR(ConcreteCollection(WrappedArray(Apply(FuncValue(WrappedArray((15,SByte$)),If(EQ(ValUse(15,SByte$),ConstantNode(0,SByte$)),Apply(ValUse(11,(Coll[SByte$]) => SBoolean),WrappedArray(ConcreteCollection(WrappedArray(ConstantNode(3,SByte$), ConstantNode(-110,SByte$), ConstantNode(8,SByte$), ConstantNode(-68,SByte$), ConstantNode(78,SByte$), ConstantNode(-17,SByte$), ConstantNode(-102,SByte$), ConstantNode(3,SByte$), ConstantNode(-24,SByte$), ConstantNode(-41,SByte$), ConstantNode(-117,SByte$), ConstantNode(-122,SByte$), ConstantNode(99,SByte$), ConstantNode(-93,SByte$), ConstantNode(1,SByte$), ConstantNode(-69,SByte$), ConstantNode(95,SByte$), ConstantNode(-83,SByte$), ConstantNode(-36,SByte$), ConstantNode(-89,SByte$), ConstantNode(-117,SByte$), ConstantNode(-31,SByte$), ConstantNode(-99,SByte$), ConstantNode(127,SByte$), ConstantNode(-27,SByte$), ConstantNode(53,SByte$), ConstantNode(-77,SByte$), ConstantNode(-58,SByte$), ConstantNode(76,SByte$), ConstantNode(-66,SByte$), ConstantNode(-2,SByte$), ConstantNode(66,SByte$)),SByte$))),FalseLeaf)),WrappedArray(ValUse(12,SByte$))), Apply(FuncValue(WrappedArray((15,SByte$)),If(EQ(ValUse(15,SByte$),ConstantNode(2,SByte$)),Apply(ValUse(11,(Coll[SByte$]) => SBoolean),WrappedArray(ConcreteCollection(WrappedArray(ConstantNode(-117,SByte$), ConstantNode(-57,SByte$), ConstantNode(-113,SByte$), ConstantNode(28,SByte$), ConstantNode(106,SByte$), ConstantNode(-82,SByte$), ConstantNode(-55,SByte$), ConstantNode(30,SByte$), ConstantNode(98,SByte$), ConstantNode(-114,SByte$), ConstantNode(21,SByte$), ConstantNode(-49,SByte$), ConstantNode(102,SByte$), ConstantNode(-116,SByte$), ConstantNode(22,SByte$), ConstantNode(-52,SByte$), ConstantNode(30,SByte$), ConstantNode(-101,SByte$), ConstantNode(-40,SByte$), ConstantNode(-28,SByte$), ConstantNode(-71,SByte$), ConstantNode(-73,SByte$), ConstantNode(-31,SByte$), ConstantNode(109,SByte$), ConstantNode(99,SByte$), ConstantNode(24,SByte$), ConstantNode(-75,SByte$), ConstantNode(-11,SByte$), ConstantNode(35,SByte$), ConstantNode(-91,SByte$), ConstantNode(-23,SByte$), ConstantNode(-67,SByte$)),SByte$))),FalseLeaf)),WrappedArray(ValUse(12,SByte$))), Apply(FuncValue(WrappedArray((15,SByte$)),If(EQ(ValUse(15,SByte$),ConstantNode(1,SByte$)),Apply(ValUse(11,(Coll[SByte$]) => SBoolean),WrappedArray(ConcreteCollection(WrappedArray(ConstantNode(-120,SByte$), ConstantNode(48,SByte$), ConstantNode(97,SByte$), ConstantNode(44,SByte$), ConstantNode(82,SByte$), ConstantNode(53,SByte$), ConstantNode(95,SByte$), ConstantNode(111,SByte$), ConstantNode(40,SByte$), ConstantNode(13,SByte$), ConstantNode(18,SByte$), ConstantNode(-105,SByte$), ConstantNode(-15,SByte$), ConstantNode(-97,SByte$), ConstantNode(103,SByte$), ConstantNode(-80,SByte$), ConstantNode(120,SByte$), ConstantNode(-55,SByte$), ConstantNode(-38,SByte$), ConstantNode(-89,SByte$), ConstantNode(-41,SByte$), ConstantNode(-80,SByte$), ConstantNode(75,SByte$), ConstantNode(69,SByte$), ConstantNode(-100,SByte$), ConstantNode(-111,SByte$), ConstantNode(-52,SByte$), ConstantNode(100,SByte$), ConstantNode(73,SByte$), ConstantNode(87,SByte$), ConstantNode(-62,SByte$), ConstantNode(-128,SByte$)),SByte$))),FalseLeaf)),WrappedArray(ValUse(12,SByte$))), Apply(FuncValue(WrappedArray((15,SByte$)),If(EQ(ValUse(15,SByte$),ConstantNode(3,SByte$)),Apply(ValUse(11,(Coll[SByte$]) => SBoolean),WrappedArray(ConcreteCollection(WrappedArray(ConstantNode(79,SByte$), ConstantNode(-40,SByte$), ConstantNode(-80,SByte$), ConstantNode(-42,SByte$), ConstantNode(-39,SByte$), ConstantNode(-126,SByte$), ConstantNode(66,SByte$), ConstantNode(114,SByte$), ConstantNode(111,SByte$), ConstantNode(87,SByte$), ConstantNode(-77,SByte$), ConstantNode(-33,SByte$), ConstantNode(-90,SByte$), ConstantNode(-122,SByte$), ConstantNode(18,SByte$), ConstantNode(103,SByte$), ConstantNode(-110,SByte$), ConstantNode(-72,SByte$), ConstantNode(-27,SByte$), ConstantNode(5,SByte$), ConstantNode(110,SByte$), ConstantNode(29,SByte$), ConstantNode(81,SByte$), ConstantNode(-74,SByte$), ConstantNode(-23,SByte$), ConstantNode(13,SByte$), ConstantNode(104,SByte$), ConstantNode(-128,SByte$), ConstantNode(-49,SByte$), ConstantNode(45,SByte$), ConstantNode(-51,SByte$), ConstantNode(-59,SByte$)),SByte$))),FalseLeaf)),WrappedArray(ValUse(12,SByte$))), Apply(FuncValue(WrappedArray((15,SByte$)),If(EQ(ValUse(15,SByte$),ConstantNode(4,SByte$)),Apply(ValUse(11,(Coll[SByte$]) => SBoolean),WrappedArray(ConcreteCollection(WrappedArray(ConstantNode(-119,SByte$), ConstantNode(46,SByte$), ConstantNode(111,SByte$), ConstantNode(71,SByte$), ConstantNode(-95,SByte$), ConstantNode(13,SByte$), ConstantNode(92,SByte$), ConstantNode(-112,SByte$), ConstantNode(-72,SByte$), ConstantNode(122,SByte$), ConstantNode(-44,SByte$), ConstantNode(-122,SByte$), ConstantNode(51,SByte$), ConstantNode(85,SByte$), ConstantNode(-50,SByte$), ConstantNode(-83,SByte$), ConstantNode(0,SByte$), ConstantNode(-61,SByte$), ConstantNode(-30,SByte$), ConstantNode(-104,SByte$), ConstantNode(50,SByte$), ConstantNode(23,SByte$), ConstantNode(-18,SByte$), ConstantNode(21,SByte$), ConstantNode(83,SByte$), ConstantNode(50,SByte$), ConstantNode(83,SByte$), ConstantNode(-51,SByte$), ConstantNode(-102,SByte$), ConstantNode(96,SByte$), ConstantNode(37,SByte$), ConstantNode(-62,SByte$)),SByte$))),FalseLeaf)),WrappedArray(ValUse(12,SByte$))), Apply(FuncValue(WrappedArray((15,SByte$)),If(EQ(ValUse(15,SByte$),ConstantNode(5,SByte$)),Apply(ValUse(11,(Coll[SByte$]) => SBoolean),WrappedArray(ConcreteCollection(WrappedArray(ConstantNode(58,SByte$), ConstantNode(17,SByte$), ConstantNode(-107,SByte$), ConstantNode(92,SByte$), ConstantNode(71,SByte$), ConstantNode(25,SByte$), ConstantNode(-27,SByte$), ConstantNode(-120,SByte$), ConstantNode(-68,SByte$), ConstantNode(-26,SByte$), ConstantNode(-89,SByte$), ConstantNode(97,SByte$), ConstantNode(29,SByte$), ConstantNode(39,SByte$), ConstantNode(-67,SByte$), ConstantNode(31,SByte$), ConstantNode(-33,SByte$), ConstantNode(-37,SByte$), ConstantNode(87,SByte$), ConstantNode(56,SByte$), ConstantNode(92,SByte$), ConstantNode(-82,SByte$), ConstantNode(-30,SByte$), ConstantNode(102,SByte$), ConstantNode(-40,SByte$), ConstantNode(4,SByte$), ConstantNode(12,SByte$), ConstantNode(-119,SByte$), ConstantNode(79,SByte$), ConstantNode(28,SByte$), ConstantNode(46,SByte$), ConstantNode(29,SByte$)),SByte$))),FalseLeaf)),WrappedArray(ValUse(12,SByte$))), Apply(FuncValue(WrappedArray((15,SByte$)),If(EQ(ValUse(15,SByte$),ConstantNode(6,SByte$)),Apply(ValUse(11,(Coll[SByte$]) => SBoolean),WrappedArray(ConcreteCollection(WrappedArray(ConstantNode(9,SByte$), ConstantNode(-126,SByte$), ConstantNode(15,SByte$), ConstantNode(-53,SByte$), ConstantNode(-120,SByte$), ConstantNode(113,SByte$), ConstantNode(-5,SByte$), ConstantNode(69,SByte$), ConstantNode(12,SByte$), ConstantNode(62,SByte$), ConstantNode(6,SByte$), ConstantNode(-73,SByte$), ConstantNode(-53,SByte$), ConstantNode(94,SByte$), ConstantNode(39,SByte$), ConstantNode(-80,SByte$), ConstantNode(69,SByte$), ConstantNode(80,SByte$), ConstantNode(-121,SByte$), ConstantNode(-93,SByte$), ConstantNode(102,SByte$), ConstantNode(98,SByte$), ConstantNode(26,SByte$), ConstantNode(-99,SByte$), ConstantNode(-34,SByte$), ConstantNode(117,SByte$), ConstantNode(-126,SByte$), ConstantNode(-96,SByte$), ConstantNode(25,SByte$), ConstantNode(17,SByte$), ConstantNode(30,SByte$), ConstantNode(62,SByte$)),SByte$))),FalseLeaf)),WrappedArray(ValUse(12,SByte$))), Apply(FuncValue(WrappedArray((15,SByte$)),If(EQ(ValUse(15,SByte$),ConstantNode(7,SByte$)),Apply(FuncValue(WrappedArray((17,(Coll[SByte$],SBox))),If(GE(ValUse(13,SInt$),SizeOf(Outputs$(165))),FalseLeaf,BlockValue(WrappedArray(ValDef(19,WrappedArray(),ByIndex(Outputs$(165),ValUse(13,SInt$),None)), ValDef(20,WrappedArray(),ExtractAmount(ValUse(19,SBox))), ValDef(21,WrappedArray(),ExtractAmount(Self$(167))), ValDef(22,WrappedArray(),ExtractScriptBytes(ValUse(19,SBox))), ValDef(23,WrappedArray(),ExtractBytesWithNoRef(Self$(167))), ValDef(24,WrappedArray(),ExtractScriptBytes(Self$(167))), ValDef(25,WrappedArray(),SelectField(ExtractCreationInfo(Self$(167)),1)), ValDef(26,WrappedArray(),ExtractBytesWithNoRef(ValUse(19,SBox))), ValDef(27,WrappedArray(),SelectField(ExtractCreationInfo(ValUse(19,SBox)),1))),AND(ConcreteCollection(WrappedArray(GE(ValUse(20,SLong$),Minus(ValUse(21,SLong$), LongConstant(2000000))), EQ(CalcBlake2b256(ValUse(22,Coll[SByte$])),Apply(ValUse(6,(Option[Coll[SByte$]]) => Coll[SByte$]),WrappedArray(ByIndex(MethodCall(Apply(ValUse(2,(SBox) => SAvlTree),WrappedArray(SelectField(ValUse(17,(Coll[SByte$],SBox)),2))),SMethod(SAvlTree,getMany,(SAvlTree,Coll[Coll[SByte$]],Coll[SByte$]) => Coll[Option[Coll[SByte$]]],11,DynamicCost,MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(MethodCall$(220)),\n  /** Perform a lookup of many keys `keys` in this tree using proof `proof`.\n    *\n    * @note CAUTION! Keys must be ordered the same way they were in lookup before proof was generated.\n    * For each key return Some(bytes) of leaf if it exists and None if is doesn't.\n    * @param keys    keys of elements of this authenticated dictionary.\n    * @param proof\n    */\n\n        ,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(ConcreteCollection(WrappedArray(SelectField(ValUse(17,(Coll[SByte$],SBox)),1)),Coll[SByte$]), OptionGetOrElse(ValUse(5,Option[Coll[SByte$]]),ConcreteCollection(WrappedArray(),SByte$))),Map()),IntConstant(0),None)))), EQ(Slice(ValUse(23,Coll[SByte$]),Plus(Plus(Apply(ValUse(14,(SLong$) => SInt$),WrappedArray(ValUse(21,SLong$))), SizeOf(ValUse(24,Coll[SByte$]))), Apply(ValUse(14,(SLong$) => SInt$),WrappedArray(Upcast(ValUse(25,SInt$),SLong$)))),SizeOf(ValUse(23,Coll[SByte$]))),Slice(ValUse(26,Coll[SByte$]),Plus(Plus(Apply(ValUse(14,(SLong$) => SInt$),WrappedArray(ValUse(20,SLong$))), SizeOf(ValUse(22,Coll[SByte$]))), Apply(ValUse(14,(SLong$) => SInt$),WrappedArray(Upcast(ValUse(27,SInt$),SLong$)))),SizeOf(ValUse(26,Coll[SByte$])))), OR(ConcreteCollection(WrappedArray(GE(Minus(ValUse(27,SInt$), ValUse(25,SInt$)),IntConstant(504000)), NEQ(ValUse(24,Coll[SByte$]),ValUse(22,Coll[SByte$]))),SBoolean))),SBoolean))))),WrappedArray(Tuple(Vector(ValUse(1,Coll[SByte$]), ValUse(4,SBox))))),FalseLeaf)),WrappedArray(ValUse(12,SByte$)))),SBoolean)))))",
+   "address": "3bseGypFdnej2F2zg7BM3AyjaAR9oq5LNSK6L3UuWYwcyCbG9HLCJcvgKD4aJ6SNZQwCWXRS3knpPqtjJpqstfeGkYtWVtwPxPbXZi8Qo4tQT3yAAQGbXj41CaJEhUXfgcxeo8MwpL2kkQAgKmCmR5JeCEaRrdicqtWVxs2JKSRsbB4Pwh7oWHoZVDq8KY6xXM74UsK9z2JE7VQB7pWvYRis3J7czNFEhAsV7nDMEKizbWPLRyKckCZaDBDABrWw2Bm4va6yypWqWKQn5qoBGhN92VB62SLh7M4mAVmeKzHoXbTbYgtytcca4cjvXa7YDxGddajkc48nwxQrjuHYmx2kvbHqN77QVA1qViiAd2LskwvWcjqrhXqkokorLkPjphiekAyn32YtQYQbzVW5B9EwzuHdXf2yUUU3emCquvA3zUuQzLz1JD14U9C7YYckQoixfUi2ZFzR8EbKekebNYw3ujX8VqnSBhwRW3ZZMUQrzdBWw72fCKP2Py5Luumon8nchZQdxPxikiDaEZkNQEB3NMpWM59KkNU8xi9GqakmHdfC3ETF3Znufj6ZmaYG3orneHrHjX8MV8hBvW6gg3HT12EgkweZs2PHauuGx7rPjhnDFvUyFyRHCWCjc9htPp6Wq598c6FU1pBmQNxXapwXxV4A2wzj3r9sRBRQbLWaiZzA7Uihk6CotmRasrvPGzgVza3hsZBSDFJx7sixtAPibCn5qWSqbH7keEYbR4wXwYSV7FAuXLYpK6x7vs7uwVpAfXCfsec1ihMQr1ZmsDjwgTLDNz2NqwTjCpxsJVdch8JiyYXLijGUKmPnX19XyiZUh45M888icjfgVDWSGbLz1r3QUzKAE46f7RB9qriJWYkwDi84Cdkq1maaunxFA5qvoiXjjmyEF1P4bT3mWMEa6Knb9dsCjFmV7qnML8EyxGLs8CJAoXUWbmvnQ7Jvii29ADENvPnmXFrDz5TMwjwuD232jpTr8YBDH2158bL6UVLTNWv6ZEZw5FUxPgMPfPQAiRfr6mfvEXqrMCcJjB5tTpuGb1KvatFSQmL4goXxWbYxmLgXBcQbwvxNN5as2kRZGtAzjRyMT3NhUQRfb3LUutHQs4nf2HaCtdX6EB2cKniBuHmURNReisVLhnnW2KZ9TzAcmoiYc64nzhKyo43driZ4Y1537Zu3W9z4a26GdUgK65iFo8TsaVNvDgVUPrK2kMAMrReY8qhXkngsVxuYVhKSwDoRg2uFiSAZxEWjktPZKSzzmkuysurhgkA3HfjkYfMYTSFgPwFUwwf93UXSWwfHNFqAFKAVKg5KXMqbC5XFNmRANAxJgt483skLQuFefagnWNYM7SffW6GK5XpnkMFfB7QdKjxNa4ACmR3r7eN13SLZ8mbpBTVhcmy6sDa2uN7fBB4s1MLTja3KjCwvNuSWphPtdD6Rb4hXhprGQnshaN2cuLEaKVDYTFtex6id7WuD5CoAUoyzDYhhUeDqzgoiCz3S9JimpvLNEWcs8RJD364tgeZiEyPFHTRiTGiPThdpeuHxjYpECKnqSFP7phuA5syRpQFHABKEwbE1GMnhS3hmFDEsJiNxsq5uLtWEJ4ifQutb6vW9fMGsRjhFaxdmD8uR2r9PpQyzMW6VuRdQvYEJLi1GguPBN2MRne28yRAbSpFhdedKxstq3BghkTBh8nuTyJU16V71Pf22aEHKinSABYiFiUdza1VjFWCFqrqAyD1jB2jKdziHryUmMpcdMX5LWb9qH59Kj48Lw4Y8hefadzG1m8JfcsfNAQmRv5y59tCr2bsSyHunwsBw",
+   "assets": [
+    {
+     "tokenId": "3b7fb49bc0a262ea890df52483fafe4b59bd376bb6788452796c13ae083b6f50",
+     "index": 0,
+     "amount": 1,
+     "name": "Autolykos Stake State",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "e840e3bf0c4a3390d6ad9e3e9bcc14638e649feddcdd8d245f75b9738680fef6",
+     "index": 1,
+     "amount": 135197,
+     "name": "LYKOS",
+     "decimals": 2,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R5": {
+     "serializedValue": "110788e6afbbd966b8c0101600000000",
+     "sigmaType": "Coll[SLong]",
+     "renderedValue": "[1764354292100,135196,11,0,0,0,0]"
+    },
+    "R6": {
+     "serializedValue": "1d0501000100010001000100",
+     "sigmaType": "Coll[Coll[SLong]]",
+     "renderedValue": "[[0],[0],[0],[0],[0]]"
+    },
+    "R8": {
+     "serializedValue": "11020000",
+     "sigmaType": "Coll[SLong]",
+     "renderedValue": "[0,0]"
+    },
+    "R7": {
+     "serializedValue": "0c3c6464014ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e1609000720004ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e160900072000",
+     "sigmaType": null,
+     "renderedValue": null
+    },
+    "R4": {
+     "serializedValue": "0c640266a99355b50fc354852e4c4f0309f14078e8e256fc27dc1d41dd0aa01981fe2b040720004ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e160900072000",
+     "sigmaType": null,
+     "renderedValue": null
+    }
+   }
+  },
+  {
+   "boxId": "1fb95478da75da9e6032c41a50c283d6707047897d30047e713f494938244f5b",
+   "value": 1000000,
+   "index": 1,
+   "spendingProof": null,
+   "outputBlockId": "1980ee02c0a5ee2bf774791dd0c25034c2caaaf914f527e6a0b33c7c23d9f980",
+   "outputTransactionId": "01e5a6be54e5f05d19000829724e4ef32b0cdbc0f11a7da8cf7caa667a334ff8",
+   "outputIndex": 1,
+   "outputGlobalIndex": 15878812,
+   "outputCreatedAt": 1616087,
+   "outputSettledAt": 1616089,
+   "ergoTree": "10020e205215a04d444cb97237e8f982a01b1f137595c77d737bcc7784a2ca44811519b60e203b7fb49bc0a262ea890df52483fafe4b59bd376bb6788452796c13ae083b6f50d816d601d901013c0c630eb58c720101d9010363aedb63087203d901054d0e938c7205018c720102d6027301d603b2da7201018602a57202040000d604b2da7201018602a47202040000d605d9010563d801d607db63087205b472070404b17207d606d9010663b2e4c67206040c64040200d607d9010763b2e4c672070511040000d608d9010863b2e4c672080511040600d609d9010963b2e4c672090511040800d60ad9010a63d801d60ce4c6720a0511b4720c040ab1720cd60bd9010b63e4c6720b061dd60cd9010c63e4c6720c070c3c6464d60dd9010d63e4c6720d0811d60ec5b2a4040000d60fe4e3010c3c0e0ed610b2720f040000d6118c721002d612dad901120e7cb4721204100420017211d613d9011363b2db63087213040200d614d9011463b2e4c672140511040200d615d9011563b2e4c67215040c64040000d616d9011663b2e4c672160511040400d196830b0196830a0192c17203c1720493da7205017203da720501720493da7206017203da720601720493da7207017203da720701720493da7208017203da720801720493da7209017203da720901720493da720a017203da720a01720493da720b017203da720b01720493da720c017203da720c01720493da720d017203da720d01720493720e8c72100193dad901173c0c630eb0dc0c0f8c72170101d9011963db630872190500d90119414d0ed801d61b8c7219029a8c72190195938c721b018c7217028c721b020500018602a5720e0502ed937212998cda7213017203028cda72130172040293721299da7214017203da721401720493b1720f040293db6401e4dc640cda721501720402720fe4e3020edb6401da7215017203afdad901170eaddb0c0eb4721704009d99b1721704200410d9011904d801d61b9c721904107cb472179a721b04209a9a721b04100420017211d9011705937217050092c1b2dad901173c0c630eb58c721701d901196393cbc272198c721702018602a5dad9011732b4e472170402044201b2dc640bdad9011763e4c67217046401b2da7201018602db6501fe73000400000283010e83200202030292020802bc024e02ef029a020302e802d7028b0286026302a3020102bb025f02ad02dc02a7028b02e1029d027f02e5023502b302c6024c02be02fe0242e4e3000e040000040000c1a7939ada72160172040502da721601720393dad901170e7cb472170400041001721105009172120500",
+   "ergoTreeConstants": "[\n  0: Coll[SByte$] = Coll(82,21,-96,77,68,76,-71,114,55,-24,-7,-126,-96,27,31,19,117,-107,-57,125,115,123,-52,119,-124,-94,-54,68,-127,21,25,-74),\n  1: Coll[SByte$] = Coll(59,127,-76,-101,-64,-94,98,-22,-119,13,-11,36,-125,-6,-2,75,89,-67,55,107,-74,120,-124,82,121,108,19,-82,8,59,111,80)\n]",
+   "ergoTreeScript": "Right(BlockValue(WrappedArray(ValDef(1,WrappedArray(),FuncValue(WrappedArray((1,(Coll[SBox],Coll[SByte$]))),Filter(SelectField(ValUse(1,(Coll[SBox],Coll[SByte$])),1),FuncValue(WrappedArray((3,SBox)),Exists(MethodCall(ValUse(3,SBox),SMethod(SBox,tokens,(SBox) => Coll[(Coll[SByte$],SLong$)],8,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Secondary tokens,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()),FuncValue(WrappedArray((5,(Coll[SByte$],SLong$))),EQ(SelectField(ValUse(5,(Coll[SByte$],SLong$)),1),SelectField(ValUse(1,(Coll[SBox],Coll[SByte$])),2)))))))), ValDef(2,WrappedArray(),ConstantPlaceholder(1,Coll[SByte$])), ValDef(3,WrappedArray(),ByIndex(Apply(ValUse(1,((Coll[SBox],Coll[SByte$])) => Coll[SBox]),WrappedArray(Tuple(Vector(Outputs$(165), ValUse(2,Coll[SByte$]))))),IntConstant(0),None)), ValDef(4,WrappedArray(),ByIndex(Apply(ValUse(1,((Coll[SBox],Coll[SByte$])) => Coll[SBox]),WrappedArray(Tuple(Vector(Inputs$(164), ValUse(2,Coll[SByte$]))))),IntConstant(0),None)), ValDef(5,WrappedArray(),FuncValue(WrappedArray((5,SBox)),BlockValue(WrappedArray(ValDef(7,WrappedArray(),MethodCall(ValUse(5,SBox),SMethod(SBox,tokens,(SBox) => Coll[(Coll[SByte$],SLong$)],8,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Secondary tokens,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()))),Slice(ValUse(7,Coll[(Coll[SByte$],SLong$)]),IntConstant(2),SizeOf(ValUse(7,Coll[(Coll[SByte$],SLong$)])))))), ValDef(6,WrappedArray(),FuncValue(WrappedArray((6,SBox)),ByIndex(ExtractRegisterAs(ValUse(6,SBox),R4,Option[Coll[SAvlTree]]).get,IntConstant(1),None))), ValDef(7,WrappedArray(),FuncValue(WrappedArray((7,SBox)),ByIndex(ExtractRegisterAs(ValUse(7,SBox),R5,Option[Coll[SLong$]]).get,IntConstant(0),None))), ValDef(8,WrappedArray(),FuncValue(WrappedArray((8,SBox)),ByIndex(ExtractRegisterAs(ValUse(8,SBox),R5,Option[Coll[SLong$]]).get,IntConstant(3),None))), ValDef(9,WrappedArray(),FuncValue(WrappedArray((9,SBox)),ByIndex(ExtractRegisterAs(ValUse(9,SBox),R5,Option[Coll[SLong$]]).get,IntConstant(4),None))), ValDef(10,WrappedArray(),FuncValue(WrappedArray((10,SBox)),BlockValue(WrappedArray(ValDef(12,WrappedArray(),ExtractRegisterAs(ValUse(10,SBox),R5,Option[Coll[SLong$]]).get)),Slice(ValUse(12,Coll[SLong$]),IntConstant(5),SizeOf(ValUse(12,Coll[SLong$])))))), ValDef(11,WrappedArray(),FuncValue(WrappedArray((11,SBox)),ExtractRegisterAs(ValUse(11,SBox),R6,Option[Coll[Coll[SLong$]]]).get)), ValDef(12,WrappedArray(),FuncValue(WrappedArray((12,SBox)),ExtractRegisterAs(ValUse(12,SBox),R7,Option[Coll[(SAvlTree,SAvlTree)]]).get)), ValDef(13,WrappedArray(),FuncValue(WrappedArray((13,SBox)),ExtractRegisterAs(ValUse(13,SBox),R8,Option[Coll[SLong$]]).get)), ValDef(14,WrappedArray(),ExtractId(ByIndex(Inputs$(164),IntConstant(0),None))), ValDef(15,WrappedArray(),GetVar(1,Option[Coll[(Coll[SByte$],Coll[SByte$])]]).get), ValDef(16,WrappedArray(),ByIndex(ValUse(15,Coll[(Coll[SByte$],Coll[SByte$])]),IntConstant(0),None)), ValDef(17,WrappedArray(),SelectField(ValUse(16,(Coll[SByte$],Coll[SByte$])),2)), ValDef(18,WrappedArray(),Apply(FuncValue(WrappedArray((18,Coll[SByte$])),ByteArrayToLong(Slice(ValUse(18,Coll[SByte$]),IntConstant(8),IntConstant(16)))),WrappedArray(ValUse(17,Coll[SByte$])))), ValDef(19,WrappedArray(),FuncValue(WrappedArray((19,SBox)),ByIndex(MethodCall(ValUse(19,SBox),SMethod(SBox,tokens,(SBox) => Coll[(Coll[SByte$],SLong$)],8,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Secondary tokens,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()),IntConstant(1),None))), ValDef(20,WrappedArray(),FuncValue(WrappedArray((20,SBox)),ByIndex(ExtractRegisterAs(ValUse(20,SBox),R5,Option[Coll[SLong$]]).get,IntConstant(1),None))), ValDef(21,WrappedArray(),FuncValue(WrappedArray((21,SBox)),ByIndex(ExtractRegisterAs(ValUse(21,SBox),R4,Option[Coll[SAvlTree]]).get,IntConstant(0),None))), ValDef(22,WrappedArray(),FuncValue(WrappedArray((22,SBox)),ByIndex(ExtractRegisterAs(ValUse(22,SBox),R5,Option[Coll[SLong$]]).get,IntConstant(2),None)))),BoolToSigmaProp(AND(ConcreteCollection(WrappedArray(AND(ConcreteCollection(WrappedArray(GE(ExtractAmount(ValUse(3,SBox)),ExtractAmount(ValUse(4,SBox))), EQ(Apply(ValUse(5,(SBox) => Coll[(Coll[SByte$],SLong$)]),WrappedArray(ValUse(3,SBox))),Apply(ValUse(5,(SBox) => Coll[(Coll[SByte$],SLong$)]),WrappedArray(ValUse(4,SBox)))), EQ(Apply(ValUse(6,(SBox) => SAvlTree),WrappedArray(ValUse(3,SBox))),Apply(ValUse(6,(SBox) => SAvlTree),WrappedArray(ValUse(4,SBox)))), EQ(Apply(ValUse(7,(SBox) => SLong$),WrappedArray(ValUse(3,SBox))),Apply(ValUse(7,(SBox) => SLong$),WrappedArray(ValUse(4,SBox)))), EQ(Apply(ValUse(8,(SBox) => SLong$),WrappedArray(ValUse(3,SBox))),Apply(ValUse(8,(SBox) => SLong$),WrappedArray(ValUse(4,SBox)))), EQ(Apply(ValUse(9,(SBox) => SLong$),WrappedArray(ValUse(3,SBox))),Apply(ValUse(9,(SBox) => SLong$),WrappedArray(ValUse(4,SBox)))), EQ(Apply(ValUse(10,(SBox) => Coll[SLong$]),WrappedArray(ValUse(3,SBox))),Apply(ValUse(10,(SBox) => Coll[SLong$]),WrappedArray(ValUse(4,SBox)))), EQ(Apply(ValUse(11,(SBox) => Coll[Coll[SLong$]]),WrappedArray(ValUse(3,SBox))),Apply(ValUse(11,(SBox) => Coll[Coll[SLong$]]),WrappedArray(ValUse(4,SBox)))), EQ(Apply(ValUse(12,(SBox) => Coll[(SAvlTree,SAvlTree)]),WrappedArray(ValUse(3,SBox))),Apply(ValUse(12,(SBox) => Coll[(SAvlTree,SAvlTree)]),WrappedArray(ValUse(4,SBox)))), EQ(Apply(ValUse(13,(SBox) => Coll[SLong$]),WrappedArray(ValUse(3,SBox))),Apply(ValUse(13,(SBox) => Coll[SLong$]),WrappedArray(ValUse(4,SBox))))),SBoolean)), EQ(ValUse(14,Coll[SByte$]),SelectField(ValUse(16,(Coll[SByte$],Coll[SByte$])),1)), EQ(Apply(FuncValue(WrappedArray((23,(Coll[SBox],Coll[SByte$]))),Fold(MethodCall(SelectField(ValUse(23,(Coll[SBox],Coll[SByte$])),1),SMethod(sigmastate.SCollection$@551230fb,flatMap,(Coll[SBox],(SBox) => Coll[(Coll[SByte$],SLong$)]) => Coll[(Coll[SByte$],SLong$)],15,PerItemCost(30,5,8),MethodIRInfo(Some(<function1>),Some(public abstract special.collection.Coll special.collection.Coll.flatMap(scala.Function1,scalan.RType)),Some(sigmastate.SCollection$$$Lambda$261/648110159@6075e9d2)),Some(OperationInfo(Some(MethodCall$(220)), Builds a new collection by applying a function to all elements of this collection\n and using the elements of the resulting collections.\n Function \\lst{f} is constrained to be of the form \\lst{x => x.someProperty}, otherwise\n it is illegal.\n Returns a new collection of type \\lst{Coll[B]} resulting from applying the given collection-valued function\n \\lst{f} to each element of this collection and concatenating the results.\n        ,ArrayBuffer(ArgInfo(this,this instance), ArgInfo(f,the function to apply to each element.)))),None),WrappedArray(FuncValue(WrappedArray((25,SBox)),MethodCall(ValUse(25,SBox),SMethod(SBox,tokens,(SBox) => Coll[(Coll[SByte$],SLong$)],8,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Secondary tokens,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()))),Map()),LongConstant(0),FuncValue(WrappedArray((25,(SLong$,(Coll[SByte$],SLong$)))),BlockValue(WrappedArray(ValDef(27,WrappedArray(),SelectField(ValUse(25,(SLong$,(Coll[SByte$],SLong$))),2))),Plus(SelectField(ValUse(25,(SLong$,(Coll[SByte$],SLong$))),1), If(EQ(SelectField(ValUse(27,(Coll[SByte$],SLong$)),1),SelectField(ValUse(23,(Coll[SBox],Coll[SByte$])),2)),SelectField(ValUse(27,(Coll[SByte$],SLong$)),2),LongConstant(0))))))),WrappedArray(Tuple(Vector(Outputs$(165), ValUse(14,Coll[SByte$]))))),LongConstant(1)), BinAnd(EQ(ValUse(18,SLong$),Minus(SelectField(Apply(ValUse(19,(SBox) => (Coll[SByte$],SLong$)),WrappedArray(ValUse(3,SBox))),2), SelectField(Apply(ValUse(19,(SBox) => (Coll[SByte$],SLong$)),WrappedArray(ValUse(4,SBox))),2))),EQ(ValUse(18,SLong$),Minus(Apply(ValUse(20,(SBox) => SLong$),WrappedArray(ValUse(3,SBox))), Apply(ValUse(20,(SBox) => SLong$),WrappedArray(ValUse(4,SBox)))))), EQ(SizeOf(ValUse(15,Coll[(Coll[SByte$],Coll[SByte$])])),IntConstant(1)), EQ(MethodCall(MethodCall(Apply(ValUse(21,(SBox) => SAvlTree),WrappedArray(ValUse(4,SBox))),SMethod(SAvlTree,insert,(SAvlTree,Coll[(Coll[SByte$],Coll[SByte$])],Coll[SByte$]) => Option[SAvlTree],12,DynamicCost,MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(MethodCall$(220)),\n  /** Perform insertions of key-value entries into this tree using proof `proof`.\n    * Throws exception if proof is incorrect\n    *\n    * @note CAUTION! Pairs must be ordered the same way they were in insert ops before proof was generated.\n    * Return Some(newTree) if successful\n    * Return None if operations were not performed.\n    * @param operations   collection of key-value pairs to insert in this authenticated dictionary.\n    * @param proof\n    */\n\n        ,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(ValUse(15,Coll[(Coll[SByte$],Coll[SByte$])]), GetVar(2,Option[Coll[SByte$]]).get),Map()).get,SMethod(SAvlTree,digest,(SAvlTree) => Coll[SByte$],1,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Returns digest of the state represented by this tree.\n Authenticated tree \\lst{digest} = \\lst{root hash bytes} ++ \\lst{tree height}\n        ,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()),MethodCall(Apply(ValUse(21,(SBox) => SAvlTree),WrappedArray(ValUse(3,SBox))),SMethod(SAvlTree,digest,(SAvlTree) => Coll[SByte$],1,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Returns digest of the state represented by this tree.\n Authenticated tree \\lst{digest} = \\lst{root hash bytes} ++ \\lst{tree height}\n        ,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map())), ForAll(Apply(FuncValue(WrappedArray((23,Coll[SByte$])),MapCollection(MethodCall(Slice(ValUse(23,Coll[SByte$]),IntConstant(0),Divide(Minus(SizeOf(ValUse(23,Coll[SByte$])), IntConstant(16)), IntConstant(8))),SMethod(sigmastate.SCollection$@551230fb,indices,(Coll[SByte$]) => Coll[SInt$],14,PerItemCost(20,2,16),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Produces the range of all indices of this collection as a new collection\n containing [0 .. length-1] values.\n        ,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()),FuncValue(WrappedArray((25,SInt$)),BlockValue(WrappedArray(ValDef(27,WrappedArray(),Multiply(ValUse(25,SInt$), IntConstant(8)))),ByteArrayToLong(Slice(ValUse(23,Coll[SByte$]),Plus(ValUse(27,SInt$), IntConstant(16)),Plus(Plus(ValUse(27,SInt$), IntConstant(8)), IntConstant(16)))))))),WrappedArray(ValUse(17,Coll[SByte$]))),FuncValue(WrappedArray((23,SLong$)),EQ(ValUse(23,SLong$),LongConstant(0)))), GE(ExtractAmount(ByIndex(Apply(FuncValue(WrappedArray((23,(Coll[SBox],Coll[SByte$]))),Filter(SelectField(ValUse(23,(Coll[SBox],Coll[SByte$])),1),FuncValue(WrappedArray((25,SBox)),EQ(CalcBlake2b256(ExtractScriptBytes(ValUse(25,SBox))),SelectField(ValUse(23,(Coll[SBox],Coll[SByte$])),2))))),WrappedArray(Tuple(Vector(Outputs$(165), Apply(FuncValue(WrappedArray((23,Option[Coll[SByte$]])),Slice(ValUse(23,Option[Coll[SByte$]]).get,IntConstant(1),IntConstant(33))),WrappedArray(ByIndex(MethodCall(Apply(FuncValue(WrappedArray((23,SBox)),ExtractRegisterAs(ValUse(23,SBox),R4,Option[SAvlTree]).get),WrappedArray(ByIndex(Apply(ValUse(1,((Coll[SBox],Coll[SByte$])) => Coll[SBox]),WrappedArray(Tuple(Vector(MethodCall(Context$(254),SMethod(SContext,dataInputs,(SContext) => Coll[SBox],1,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()), ConstantPlaceholder(0,Coll[SByte$]))))),IntConstant(0),None))),SMethod(SAvlTree,getMany,(SAvlTree,Coll[Coll[SByte$]],Coll[SByte$]) => Coll[Option[Coll[SByte$]]],11,DynamicCost,MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(MethodCall$(220)),\n  /** Perform a lookup of many keys `keys` in this tree using proof `proof`.\n    *\n    * @note CAUTION! Keys must be ordered the same way they were in lookup before proof was generated.\n    * For each key return Some(bytes) of leaf if it exists and None if is doesn't.\n    * @param keys    keys of elements of this authenticated dictionary.\n    * @param proof\n    */\n\n        ,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(ConcreteCollection(WrappedArray(ConcreteCollection(WrappedArray(ConstantNode(3,SByte$), ConstantNode(-110,SByte$), ConstantNode(8,SByte$), ConstantNode(-68,SByte$), ConstantNode(78,SByte$), ConstantNode(-17,SByte$), ConstantNode(-102,SByte$), ConstantNode(3,SByte$), ConstantNode(-24,SByte$), ConstantNode(-41,SByte$), ConstantNode(-117,SByte$), ConstantNode(-122,SByte$), ConstantNode(99,SByte$), ConstantNode(-93,SByte$), ConstantNode(1,SByte$), ConstantNode(-69,SByte$), ConstantNode(95,SByte$), ConstantNode(-83,SByte$), ConstantNode(-36,SByte$), ConstantNode(-89,SByte$), ConstantNode(-117,SByte$), ConstantNode(-31,SByte$), ConstantNode(-99,SByte$), ConstantNode(127,SByte$), ConstantNode(-27,SByte$), ConstantNode(53,SByte$), ConstantNode(-77,SByte$), ConstantNode(-58,SByte$), ConstantNode(76,SByte$), ConstantNode(-66,SByte$), ConstantNode(-2,SByte$), ConstantNode(66,SByte$)),SByte$)),Coll[SByte$]), GetVar(0,Option[Coll[SByte$]]).get),Map()),IntConstant(0),None))))))),IntConstant(0),None)),ExtractAmount(Self$(167))), EQ(Plus(Apply(ValUse(22,(SBox) => SLong$),WrappedArray(ValUse(4,SBox))), LongConstant(1)),Apply(ValUse(22,(SBox) => SLong$),WrappedArray(ValUse(3,SBox)))), EQ(Apply(FuncValue(WrappedArray((23,Coll[SByte$])),ByteArrayToLong(Slice(ValUse(23,Coll[SByte$]),IntConstant(0),IntConstant(8)))),WrappedArray(ValUse(17,Coll[SByte$]))),LongConstant(0)), GT(ValUse(18,SLong$),LongConstant(0))),SBoolean)))))",
+   "address": "2jgvrzzkZZqcYcW9xeG6hxCfHXucL3NYengD6wqtBgPGJrpRykDtGDe5Kp1hbizCfqUUSLCgzBSwESSo3pk8Cyd2nH6huerM5BsgB4oRyd8uUddk8os6uxZrRELWfQgY42RMTXKhk8pqDuJQjgz1yTsLyQgB67eSxNY3DmZiz4xxuxXZqAgTLCRgjkku63jrmzeXr77nEGCFXfneco5Hk7vvxxmExSfUMFz4DKbKCjbBwECsHjvjsa4LuR4HtmLTtZMkePe6S4Bpg9P3vv1FXUZbpFhqiFmJKKV52GzVpM4uh4PzVyB7Jxs62cJeQ7oX7oboEqa68BD1V7VxR5YMygx5bxg5FcBk7cCLs6sjQmh5CafQMHoZM7j4pDAXY4CMaq2FY79VemugSuB9E6fLJd73obzTrLU3TtLZvMbPxr7yzgiconqkzmdKkv1dmk5EDC6sayPcQJXRGG1aggTg6sGor9We1uuKsDPGHUCeZGfw3ViqZPMmieTe18DMGdKGnC29rsTvTJXrEZ7grfNc7yzMtCfHmPN2XBawKETvQ68Sqi4zWGykxwWvrepVYS49U55yfX3ZkJrcJtVp2whNA3GGTMcxmC35UjXP9KEuF1GxbKs5yd681sfVopjxPUpAsztrm2qJFgH22drKdEWJ5U7rfps3DQFuytZu7yKJ2d4kgBFWf3drAvA3sLqDtJwamJoxwU9XyBuT1WLR5q3mHsUXMac7BAR2u4Nm7LomigouYCu7mKch5VGy9gNrNaSx3QMPWiP7zkMttGk8KVXLNaQRQuGNjcNhYbsJSMtbXc4YQSjbiZfsqu7c2Ys4TWUrhfq7EA97nVLSscLhufyYPmPbnjAJ94eBsu2X8shw7F4ge9hVbkkmR6oH8T7YDs8opomFCUmvmdHBag4bXr8jAMCZitbaUdgC9nxteu5KMKXg7xVCEi2XmeBCYNf8CNjdTGiVWphVvMVxMcjpA1tQ1boJvrxzwSuzUkZ9cx3jye35A1dSBWBB315sYqCJnL2W2CXscFHjJwrrEsAxAWEY5FJCdbayMyLd5StaSVCsJSF2xyhy5E4nWckVXguRu6WpTjZL5v5KHytcftAgWan8XpmEDKYdKDdqqc1kaz7J4oeV8j3xBTFRdBpV5uWSdwjQEigNR6f5Y2ZepywiA4LAWhiaN9HHn5s4hep6nNVkac2KP177e94NXv3WJ2UDPiPzgAGhEB4hNXAgbJv6dssKkPKj1LkzoKW6H3FLw1sLZLHCXJDS8dpywEDcf4tAgy2nfVnumugEAkqYHSQM7GFfTXAgLYcpmPg4v145X3M",
+   "assets": [],
+   "additionalRegisters": {}
+  },
+  {
+   "boxId": "47eb4aa834ea9bb70fbfbde5f5c1003330a3d3af8268f1e48d1b4e2634dc2960",
+   "value": 1000000,
+   "index": 2,
+   "spendingProof": "c997aa0be396f64cbdf5f3bfa3c7d30a6fd79e35c09deb7852f18baa98efb731f592ec3c8b4e0a1a3920df2ce5d392c2565968dded3d2b92",
+   "outputBlockId": "d6536fa6334ca2d3a45c08efe84faf10956d80187c74923d1b1b8e20d2691a7d",
+   "outputTransactionId": "c46bfeda70d4c74efa6c9c2e88dad0ce226b6148c2219e01b6bd14f1358cfc54",
+   "outputIndex": 2,
+   "outputGlobalIndex": 17557356,
+   "outputCreatedAt": 1670337,
+   "outputSettledAt": 1670338,
+   "ergoTree": "0008cd02d2e78225f6284d0f12d4f53c52e7712b68251375785775b0069e2bd30e01f167",
+   "ergoTreeConstants": "[]",
+   "ergoTreeScript": "Right(ConstantNode(SigmaProp(ProveDlog(ECPoint(d2e782,2f0005,...))),SSigmaProp))",
+   "address": "9g7wnNUa6tb69Rr3g6SHv8UxLHUjD2Sh4zwGEEdHWepv1EQftso",
+   "assets": [
+    {
+     "tokenId": "c163990e3efd7ea3f4a613379114fffc9bbc70a6d36d116c22bb1f1db1639d23",
+     "index": 0,
+     "amount": 1,
+     "name": "Paideia Membership",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "0e1250616964656961204d656d62657273686970",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "50616964656961204d656d62657273686970"
+    },
+    "R5": {
+     "serializedValue": "0e3550616964656961202d20506f77657265642062792050616964656961202d2068747470733a2f2f6170702e706169646569612e696d",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "50616964656961202d20506f77657265642062792050616964656961202d2068747470733a2f2f6170702e706169646569612e696d"
+    },
+    "R6": {
+     "serializedValue": "0e0130",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "30"
+    }
+   }
+  },
+  {
+   "boxId": "701cdeaa564e1e79ed2f12caed2661b32518b644156d35f7f9596b8f285352eb",
+   "value": 501279605565,
+   "index": 3,
+   "spendingProof": "d3e1409fe3ceb08878214f5a06b898a669ed36e6aebcbb9142b92951c816ff53200c1125a018059499b3d64f3737d0f3abeeb029d5546b69",
+   "outputBlockId": "d6536fa6334ca2d3a45c08efe84faf10956d80187c74923d1b1b8e20d2691a7d",
+   "outputTransactionId": "c46bfeda70d4c74efa6c9c2e88dad0ce226b6148c2219e01b6bd14f1358cfc54",
+   "outputIndex": 5,
+   "outputGlobalIndex": 17557359,
+   "outputCreatedAt": 1670337,
+   "outputSettledAt": 1670338,
+   "ergoTree": "0008cd02d2e78225f6284d0f12d4f53c52e7712b68251375785775b0069e2bd30e01f167",
+   "ergoTreeConstants": "[]",
+   "ergoTreeScript": "Right(ConstantNode(SigmaProp(ProveDlog(ECPoint(d2e782,2f0005,...))),SSigmaProp))",
+   "address": "9g7wnNUa6tb69Rr3g6SHv8UxLHUjD2Sh4zwGEEdHWepv1EQftso",
+   "assets": [
+    {
+     "tokenId": "01dce8a5632d19799950ff90bca3b5d0ca3ebfa8aaafd06f0cc6dd1e97150e7f",
+     "index": 0,
+     "amount": 492539845,
+     "name": "CYPX",
+     "decimals": 4,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "8b08cdd5449a9592a9e79711d7d79249d7a03c535d17efaee83e216e80a44c4b",
+     "index": 1,
+     "amount": 2582936,
+     "name": "RSN",
+     "decimals": 3,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1eac52506988e173227d1b2cbf73e05dab7f6b1b14054b5fa19bc36a073aa055",
+     "index": 2,
+     "amount": 1,
+     "name": "Restless Nights",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ed2197ebb2b958670cb568aeed54693617a3f3718d16d1a298b8c8d337193da0",
+     "index": 3,
+     "amount": 6105,
+     "name": "ClaimRSN.tech",
+     "decimals": 1,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "d1d2ae2ac0456aa43550dd4fda45e4f866d523be9170d3a3e4cab43a83926334",
+     "index": 4,
+     "amount": 796,
+     "name": "GreasyCex",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1dfe28a8cb72833622d0df76c6c53576ea92a7097b316dc54d6bf3940f557905",
+     "index": 5,
+     "amount": 1,
+     "name": "Sigmanauts Membership",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "028ec31acacaa6aab6cd89a16cab5f9046cfea701262f8c9532ace433075353a",
+     "index": 6,
+     "amount": 41045,
+     "name": "ClaimRSN.tech",
+     "decimals": 1,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "cdc1aebec795ce9822492b5e62fdd93bb2a03653f7c3dfcfabbb0c98f6a33581",
+     "index": 7,
+     "amount": 63570,
+     "name": "Sigmanaut",
+     "decimals": 2,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7ba2a85fdb302a181578b1f64cb4a533d89b3f8de4159efece75da41041537f9",
+     "index": 8,
+     "amount": 48,
+     "name": "GORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "fcfca7654fb0da57ecf9a3f489bcbeb1d43b56dce7e73b352f7bc6f2561d2a1b",
+     "index": 9,
+     "amount": 224428405564,
+     "name": "ErgOne",
+     "decimals": 8,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "2e59555f055c1341e64d51267a381f6dbbe572cb725cfc471b35e84bbc258b75",
+     "index": 10,
+     "amount": 2990228,
+     "name": "hodlCOMET10",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "45c4a50247c4e3dd87bdb9852b775bcc96b5020e130bea15b269d1fff5832e02",
+     "index": 11,
+     "amount": 1,
+     "name": "Walrus DAO Membership",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "0f709a2f38ec1b2c5c94a6efd43824b82ce2900d083dd34948c6ce75fd11d5ea",
+     "index": 12,
+     "amount": 8474577,
+     "name": "SIGMANAUTSMININGPOOL",
+     "decimals": 5,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "6ad70cdbf928a2bdd397041a36a5c2490a35beb4d20eabb5666f004b103c7189",
+     "index": 13,
+     "amount": 50636,
+     "name": "rsHOSKY",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "34d449dc84a27d0f8fb2166d415a7223604f6426fb2d83ee099f2312182d575d",
+     "index": 14,
+     "amount": 54226267083638,
+     "name": "PHP",
+     "decimals": 8,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1fd6e032e8476c4aa54c18c1a308dce83940e8f4a28f576440513ed7326ad489",
+     "index": 15,
+     "amount": 1000,
+     "name": "Paideia",
+     "decimals": 4,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "6c35aa395c7c75b0f67f7804d6930f0e11ef93c3387dc1faa86498d54af7962c",
+     "index": 16,
+     "amount": 48650,
+     "name": "MEW",
+     "decimals": 2,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+     "index": 17,
+     "amount": 418,
+     "name": "Erdoge",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "31ac0f72b036502a17e27ff3bc9eb1b3ae4eef9aa4a3c3bd818475d6326cbd9f",
+     "index": 18,
+     "amount": 7105,
+     "name": "ClaimRSN.tech",
+     "decimals": 1,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "843b5a2a0658550339c38f29827861fe459ce5206edaf17163113cccafc77af1",
+     "index": 19,
+     "amount": 488915255,
+     "name": "GIF",
+     "decimals": 6,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1465c9b9de602bd75f8f38df83118e2c8b1d5b2f5518514dd1438149053652a8",
+     "index": 20,
+     "amount": 3440678,
+     "name": "Dark Erdoge",
+     "decimals": 6,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+     "index": 21,
+     "amount": 312,
+     "name": "SigRSV",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "9cc4f4cfa411ec3a844793fe6b76eb3905e50f7a949ab2cf04031a46bcd27684",
+     "index": 22,
+     "amount": 1,
+     "name": "Make Mining Great Again Hat!",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "0cd8c9f416e5b1ca9f986a7f10a84191dfb85941619e49e53c0dc30ebf83324b",
+     "index": 23,
+     "amount": 1000000,
+     "name": "COMET",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "886b7721bef42f60c6317d37d8752da8aca01898cae7dae61808c4a14225edc8",
+     "index": 24,
+     "amount": 3870070,
+     "name": "GluonW GAU",
+     "decimals": 9,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "3405d8f709a19479839597f9a22a7553bdfc1a590a427572787d7c44a88b6386",
+     "index": 25,
+     "amount": 2,
+     "name": "love",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "e840e3bf0c4a3390d6ad9e3e9bcc14638e649feddcdd8d245f75b9738680fef6",
+     "index": 26,
+     "amount": 8793,
+     "name": "LYKOS",
+     "decimals": 2,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "484e870374ee8243ac3da7667f5a1cbea49194b595c483f31aafeae628646d89",
+     "index": 27,
+     "amount": 236762,
+     "name": "Comet_2e59555f_LP",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  }
+ ],
+ "dataInputs": [
+  {
+   "boxId": "564d22d9e8f4e8de50517fa78c9556cf6d4f575c1610861ce9822968f7d44383",
+   "value": 1000000000,
+   "index": 0,
+   "outputBlockId": "d792e56b8d2c551edd3736778b7f50bba88cc360ac316d138d5b0d1eb9570ccf",
+   "outputTransactionId": "433da0e4e955b204bdd0b12196df31b7d26ed0a800122e19603ac980db94a0d5",
+   "outputIndex": 1,
+   "ergoTree": "10010e201428b05ea5e2d1d91558df74094d124a3fbcd1b1bda5f066b572307ba16afad1d808d601d901013c0c630eb58c720101d9010363aedb63087203d901054d0e938c7205018c720102d602d9010263e4c672020464d60383200202a90255028e0241028602cb02d502aa0257022302a8025202d402c102dc0265027d029e02810243028202ff0288028d025a028a02ec0252021502310230021dd604e3010ed605d9010532b4e4720504020442d606e4e30002d607dc0c1aa402a70400d608d9010805958f72080580020402958f7208058080020404958f720805808080020406958f72080580808080020408958f720805808080808002040a958f72080580808080808002040c958f7208058080808080808002040e958f72080580808080808080800204100412d197830201dad9010902959372090208d802d60bb2da7201018602a5dad9010b638cb2db6308720b0400000101a7040000d60cdc640bda720201720b0283020e7203cbb3831c020269026d022e0270026102690264026502690261022e0263026f026e027402720261026302740273022e0261026302740269026f026e022ec2b2da7201018602a47300040000e472049683040193db6308a7db6308720b90c1a7c1720b93cbc2720bda720501b2720c040000e6b2720c0402000100017206ed9372060207dad901093c0e6395927207b1a50100d809d60bb2a5720700d60cc1720bd60dc1a7d60ec2720bd60fc4a7d610c2a7d6118cc7a701d612c4720bd6138cc7720b019683040192720c99720d058092f40193cb720eda720501b2dc640bda7202018c7209020283010e8c720901e5720483000204000093b4720f9a9ada720801720db17210da7208017e721105b1720fb472129a9ada720801720cb1720eda7208017e721305b17212978302019299721372110480c33d947210720e0186027203a7",
+   "address": "GcZsF8e2JY4vf3a1Gb3iftn1NBW7PNiQzHgui56isuf7xTy5rgmd5FY3MngGrH3m4e6kU5vfMC8uNtL6auxX8ySv6sFb4s2vVn7pVg1XG382UbAho2ZGbxVGde8xyT5oxu5AujX64fiZmHvq72JZUr2o9xRwyoVTTE5XWAAZBFBG2WTDkDexZFYQQ8KhyjaPfCwvUxGr4apAkFHRQWZ5pn5z2EboRJDgYBadAjRsPWDnHrztzWGqhY42oaGmRCjwFdAzEX6mMhWpmA6YrUTjYZKyMxkwv8WCGJy71CDzjLdrxxwLSBnW6ZutCs5MJG4GqM61ka8925qxwrLst35HgBhWqN7NiFUVRywYUVJh6EdV3xik7ouuAchMxfJQhuAbKXr4R5gSzHTyA7ALWKHeECGWLDps33SZaeXxznGi7itCZ39apELZrpG1ZyJcszoZh7R279JdVh3RGygMZ4qFM1iFqpb6MVcXnn2jWEkUgVnvMJD3VagJXxRpHpS7GDggim7DAdFzLGEw2a8MPq43FCV9TWba6WkxUHW4j25kSi1ict1kfGWDdXqtbBVwEGjBErFbzZPhEGz1MP7FPNyGtxYH5BHWGj7fh1F8cT4uSpgxW7HF855cYsCGKM9ZgS5CbSdL6N1BtzbZdKExNCBgTn9neaiEwSv2U95HLDyzx64shiRNUzAFrvMeMP3pWGbJtmhLdhREA6ohGPeU6tUsshh5gkTRYk1gXgDwYhcHg1jn5gRt8YdHSx4oaTM1FdMbZQ1SodunVa8PxgFPPFV1qEcxcBK92zAtkm4t6aZ3VPf4LZDciU8kjFv2toLJXSbhkmBk2swXvS4N7A9JZczc8tVzskgdr5yNu411zJGB1aHxiVQHvQkiioUfm2q3dbhzoDV3AEzjnwrE5LfH4MqcuT7G7ZGUmEhkFMn2fYDqkXH49uUJ9j7",
+   "assets": [],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "644e21f9ad79f08e5f98666a3edc24c9e7666010ef45ebe3a209bffa170e14a76406072000",
+     "sigmaType": null,
+     "renderedValue": null
+    }
+   }
+  }
+ ],
+ "outputs": [
+  {
+   "boxId": "1666d59aa20bc93d0fcb5c6755fbbdb379b2f59f7be7b0e122b8a7fd7f017028",
+   "transactionId": "402cb1d2e9f886d82ac1b8a08be14df5e5350bc9769d4ba92b19cbee286eafb5",
+   "blockId": "06420d09f0b91da8fcf1a301018250c45ff9c4c33dc164dec91822dc7f6cb8b2",
+   "value": 1000000000,
+   "index": 0,
+   "globalIndex": 17557385,
+   "creationHeight": 1670337,
+   "settlementHeight": 1670340,
+   "ergoTree": "10010e205215a04d444cb97237e8f982a01b1f137595c77d737bcc7784a2ca44811519b6d80ed60183200202de02ae02cf025b026402ba02d602f50257020b02ad020a0261020c024e02480249025702cf0247028202300284020002bc02900240024c021d0214021002dad602d9010263e4c672020464d603d901033c0c630eb58c720301d9010563aedb63087205d901074d0e938c7207018c720302d604b2da7203018602db6501fe7300040000d605e3010ed606d9010632b4e4720604020442d607d9010763b2db63087207040000d608da720701a7d609b2da7203018602a58c720801040000d60ad9010a63b2db6308720a040200d60bd9010b0ed801d60ddc640bda72020172040283020e7201720be472059683020193b1dad9010e3c0c630eb58c720e01d901106393cbc272108c720e02018602a4da720601b2720d0402000402dad9010e0e9683030193cbc27209720e93da72070172097208938cda720a017209018cda720a01a70101da720601b2720d040000d60ce4e30002d60ddc0c1aa402a70400d60ed9010e05958f720e0580020402958f720e058080020404958f720e05808080020406958f720e0580808080020408958f720e05808080808002040a958f720e0580808080808002040c958f720e058080808080808002040e958f720e0580808080808080800204100412d197830801dad9010f029593720f0200da720b0183200202030292020802bc024e02ef029a020302e802d7028b0286026302a3020102bb025f02ad02dc02a7028b02e1029d027f02e5023502b302c6024c02be02fe0242010001720cdad9010f029593720f0202da720b01832002028b02c7028f021c026a02ae02c9021e0262028e021502cf0266028c021602cc021e029b02d802e402b902b702e1026d0263021802b502f5022302a502e902bd010001720cdad9010f029593720f0201da720b01832002028802300261022c02520235025f026f0228020d0212029702f1029f026702b0027802c902da02a702d702b0024b0245029c029102cc02640249025702c20280010001720cdad9010f029593720f0203da720b01832002024f02d802b002d602d9028202420272026f025702b302df02a6028602120267029202b802e50205026e021d025102b602e9020d0268028002cf022d02cd02c5010001720cdad9010f029593720f0204da720b018320020289022e026f024702a1020d025c029002b8027a02d402860233025502ce02ad020002c302e202980232021702ee021502530232025302cd029a0260022502c2010001720cdad9010f029593720f0205da720b01832002023a02110295025c0247021902e5028802bc02e602a70261021d022702bd021f02df02db02570238025c02ae02e2026602d80204020c0289024f021c022e021d010001720cdad9010f029593720f0206da720b0183200202090282020f02cb0288027102fb0245020c023e020602b702cb025e022702b002450250028702a302660262021a029d02de0275028202a002190211021e023e010001720cdad9010f029593720f0207dad901113c0e639592720db1a50100d809d613b2a5720d00d614c17213d615c1a7d616c27213d617c4a7d618c2a7d6198cc7a701d61ac47213d61b8cc772130196830401927214997215058092f40193cb7216da720601b2dc640bda7202018c7211020283010e8c721101e5720583000204000093b472179a9ada720e017215b17218da720e017e721905b17217b4721a9a9ada720e017214b17216da720e017e721b05b1721a978302019299721b72190480c33d947218721601860272017204010001720c",
+   "ergoTreeConstants": "[\n  0: Coll[SByte$] = Coll(82,21,-96,77,68,76,-71,114,55,-24,-7,-126,-96,27,31,19,117,-107,-57,125,115,123,-52,119,-124,-94,-54,68,-127,21,25,-74)\n]",
+   "ergoTreeScript": "Right(BlockValue(WrappedArray(ValDef(1,WrappedArray(),ConcreteCollection(WrappedArray(ConstantNode(-34,SByte$), ConstantNode(-82,SByte$), ConstantNode(-49,SByte$), ConstantNode(91,SByte$), ConstantNode(100,SByte$), ConstantNode(-70,SByte$), ConstantNode(-42,SByte$), ConstantNode(-11,SByte$), ConstantNode(87,SByte$), ConstantNode(11,SByte$), ConstantNode(-83,SByte$), ConstantNode(10,SByte$), ConstantNode(97,SByte$), ConstantNode(12,SByte$), ConstantNode(78,SByte$), ConstantNode(72,SByte$), ConstantNode(73,SByte$), ConstantNode(87,SByte$), ConstantNode(-49,SByte$), ConstantNode(71,SByte$), ConstantNode(-126,SByte$), ConstantNode(48,SByte$), ConstantNode(-124,SByte$), ConstantNode(0,SByte$), ConstantNode(-68,SByte$), ConstantNode(-112,SByte$), ConstantNode(64,SByte$), ConstantNode(76,SByte$), ConstantNode(29,SByte$), ConstantNode(20,SByte$), ConstantNode(16,SByte$), ConstantNode(-38,SByte$)),SByte$)), ValDef(2,WrappedArray(),FuncValue(WrappedArray((2,SBox)),ExtractRegisterAs(ValUse(2,SBox),R4,Option[SAvlTree]).get)), ValDef(3,WrappedArray(),FuncValue(WrappedArray((3,(Coll[SBox],Coll[SByte$]))),Filter(SelectField(ValUse(3,(Coll[SBox],Coll[SByte$])),1),FuncValue(WrappedArray((5,SBox)),Exists(MethodCall(ValUse(5,SBox),SMethod(SBox,tokens,(SBox) => Coll[(Coll[SByte$],SLong$)],8,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Secondary tokens,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()),FuncValue(WrappedArray((7,(Coll[SByte$],SLong$))),EQ(SelectField(ValUse(7,(Coll[SByte$],SLong$)),1),SelectField(ValUse(3,(Coll[SBox],Coll[SByte$])),2)))))))), ValDef(4,WrappedArray(),ByIndex(Apply(ValUse(3,((Coll[SBox],Coll[SByte$])) => Coll[SBox]),WrappedArray(Tuple(Vector(MethodCall(Context$(254),SMethod(SContext,dataInputs,(SContext) => Coll[SBox],1,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()), ConstantPlaceholder(0,Coll[SByte$]))))),IntConstant(0),None)), ValDef(5,WrappedArray(),GetVar(1,Option[Coll[SByte$]])), ValDef(6,WrappedArray(),FuncValue(WrappedArray((6,Option[Coll[SByte$]])),Slice(ValUse(6,Option[Coll[SByte$]]).get,IntConstant(1),IntConstant(33)))), ValDef(7,WrappedArray(),FuncValue(WrappedArray((7,SBox)),ByIndex(MethodCall(ValUse(7,SBox),SMethod(SBox,tokens,(SBox) => Coll[(Coll[SByte$],SLong$)],8,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Secondary tokens,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()),IntConstant(0),None))), ValDef(8,WrappedArray(),Apply(ValUse(7,(SBox) => (Coll[SByte$],SLong$)),WrappedArray(Self$(167)))), ValDef(9,WrappedArray(),ByIndex(Apply(ValUse(3,((Coll[SBox],Coll[SByte$])) => Coll[SBox]),WrappedArray(Tuple(Vector(Outputs$(165), SelectField(ValUse(8,(Coll[SByte$],SLong$)),1))))),IntConstant(0),None)), ValDef(10,WrappedArray(),FuncValue(WrappedArray((10,SBox)),ByIndex(MethodCall(ValUse(10,SBox),SMethod(SBox,tokens,(SBox) => Coll[(Coll[SByte$],SLong$)],8,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Secondary tokens,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()),IntConstant(1),None))), ValDef(11,WrappedArray(),FuncValue(WrappedArray((11,Coll[SByte$])),BlockValue(WrappedArray(ValDef(13,WrappedArray(),MethodCall(Apply(ValUse(2,(SBox) => SAvlTree),WrappedArray(ValUse(4,SBox))),SMethod(SAvlTree,getMany,(SAvlTree,Coll[Coll[SByte$]],Coll[SByte$]) => Coll[Option[Coll[SByte$]]],11,DynamicCost,MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(MethodCall$(220)),\n  /** Perform a lookup of many keys `keys` in this tree using proof `proof`.\n    *\n    * @note CAUTION! Keys must be ordered the same way they were in lookup before proof was generated.\n    * For each key return Some(bytes) of leaf if it exists and None if is doesn't.\n    * @param keys    keys of elements of this authenticated dictionary.\n    * @param proof\n    */\n\n        ,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(ConcreteCollection(WrappedArray(ValUse(1,Coll[SByte$]), ValUse(11,Coll[SByte$])),Coll[SByte$]), ValUse(5,Option[Coll[SByte$]]).get),Map()))),AND(ConcreteCollection(WrappedArray(EQ(SizeOf(Apply(FuncValue(WrappedArray((14,(Coll[SBox],Coll[SByte$]))),Filter(SelectField(ValUse(14,(Coll[SBox],Coll[SByte$])),1),FuncValue(WrappedArray((16,SBox)),EQ(CalcBlake2b256(ExtractScriptBytes(ValUse(16,SBox))),SelectField(ValUse(14,(Coll[SBox],Coll[SByte$])),2))))),WrappedArray(Tuple(Vector(Inputs$(164), Apply(ValUse(6,(Option[Coll[SByte$]]) => Coll[SByte$]),WrappedArray(ByIndex(ValUse(13,Coll[Option[Coll[SByte$]]]),IntConstant(1),None)))))))),IntConstant(1)), Apply(FuncValue(WrappedArray((14,Coll[SByte$])),AND(ConcreteCollection(WrappedArray(EQ(CalcBlake2b256(ExtractScriptBytes(ValUse(9,SBox))),ValUse(14,Coll[SByte$])), EQ(Apply(ValUse(7,(SBox) => (Coll[SByte$],SLong$)),WrappedArray(ValUse(9,SBox))),ValUse(8,(Coll[SByte$],SLong$))), EQ(SelectField(Apply(ValUse(10,(SBox) => (Coll[SByte$],SLong$)),WrappedArray(ValUse(9,SBox))),1),SelectField(Apply(ValUse(10,(SBox) => (Coll[SByte$],SLong$)),WrappedArray(Self$(167))),1))),SBoolean))),WrappedArray(Apply(ValUse(6,(Option[Coll[SByte$]]) => Coll[SByte$]),WrappedArray(ByIndex(ValUse(13,Coll[Option[Coll[SByte$]]]),IntConstant(0),None)))))),SBoolean))))), ValDef(12,WrappedArray(),GetVar(0,Option[SByte$]).get), ValDef(13,WrappedArray(),MethodCall(Inputs$(164),SMethod(sigmastate.SCollection$@551230fb,indexOf,(Coll[SBox],SBox,SInt$) => SInt$,26,PerItemCost(20,10,2),MethodIRInfo(Some(<function1>),Some(public default int special.collection.Coll.indexOf(java.lang.Object,int)),None),Some(OperationInfo(Some(MethodCall$(220)),,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(Self$(167), IntConstant(0)),Map())), ValDef(14,WrappedArray(),FuncValue(WrappedArray((14,SLong$)),If(LT(ValUse(14,SLong$),LongConstant(128)),IntConstant(1),If(LT(ValUse(14,SLong$),LongConstant(16384)),IntConstant(2),If(LT(ValUse(14,SLong$),LongConstant(2097152)),IntConstant(3),If(LT(ValUse(14,SLong$),LongConstant(268435456)),IntConstant(4),If(LT(ValUse(14,SLong$),LongConstant(34359738368)),IntConstant(5),If(LT(ValUse(14,SLong$),LongConstant(4398046511104)),IntConstant(6),If(LT(ValUse(14,SLong$),LongConstant(562949953421312)),IntConstant(7),If(LT(ValUse(14,SLong$),LongConstant(72057594037927936)),IntConstant(8),IntConstant(9)))))))))))),BoolToSigmaProp(OR(ConcreteCollection(WrappedArray(Apply(FuncValue(WrappedArray((15,SByte$)),If(EQ(ValUse(15,SByte$),ConstantNode(0,SByte$)),Apply(ValUse(11,(Coll[SByte$]) => SBoolean),WrappedArray(ConcreteCollection(WrappedArray(ConstantNode(3,SByte$), ConstantNode(-110,SByte$), ConstantNode(8,SByte$), ConstantNode(-68,SByte$), ConstantNode(78,SByte$), ConstantNode(-17,SByte$), ConstantNode(-102,SByte$), ConstantNode(3,SByte$), ConstantNode(-24,SByte$), ConstantNode(-41,SByte$), ConstantNode(-117,SByte$), ConstantNode(-122,SByte$), ConstantNode(99,SByte$), ConstantNode(-93,SByte$), ConstantNode(1,SByte$), ConstantNode(-69,SByte$), ConstantNode(95,SByte$), ConstantNode(-83,SByte$), ConstantNode(-36,SByte$), ConstantNode(-89,SByte$), ConstantNode(-117,SByte$), ConstantNode(-31,SByte$), ConstantNode(-99,SByte$), ConstantNode(127,SByte$), ConstantNode(-27,SByte$), ConstantNode(53,SByte$), ConstantNode(-77,SByte$), ConstantNode(-58,SByte$), ConstantNode(76,SByte$), ConstantNode(-66,SByte$), ConstantNode(-2,SByte$), ConstantNode(66,SByte$)),SByte$))),FalseLeaf)),WrappedArray(ValUse(12,SByte$))), Apply(FuncValue(WrappedArray((15,SByte$)),If(EQ(ValUse(15,SByte$),ConstantNode(2,SByte$)),Apply(ValUse(11,(Coll[SByte$]) => SBoolean),WrappedArray(ConcreteCollection(WrappedArray(ConstantNode(-117,SByte$), ConstantNode(-57,SByte$), ConstantNode(-113,SByte$), ConstantNode(28,SByte$), ConstantNode(106,SByte$), ConstantNode(-82,SByte$), ConstantNode(-55,SByte$), ConstantNode(30,SByte$), ConstantNode(98,SByte$), ConstantNode(-114,SByte$), ConstantNode(21,SByte$), ConstantNode(-49,SByte$), ConstantNode(102,SByte$), ConstantNode(-116,SByte$), ConstantNode(22,SByte$), ConstantNode(-52,SByte$), ConstantNode(30,SByte$), ConstantNode(-101,SByte$), ConstantNode(-40,SByte$), ConstantNode(-28,SByte$), ConstantNode(-71,SByte$), ConstantNode(-73,SByte$), ConstantNode(-31,SByte$), ConstantNode(109,SByte$), ConstantNode(99,SByte$), ConstantNode(24,SByte$), ConstantNode(-75,SByte$), ConstantNode(-11,SByte$), ConstantNode(35,SByte$), ConstantNode(-91,SByte$), ConstantNode(-23,SByte$), ConstantNode(-67,SByte$)),SByte$))),FalseLeaf)),WrappedArray(ValUse(12,SByte$))), Apply(FuncValue(WrappedArray((15,SByte$)),If(EQ(ValUse(15,SByte$),ConstantNode(1,SByte$)),Apply(ValUse(11,(Coll[SByte$]) => SBoolean),WrappedArray(ConcreteCollection(WrappedArray(ConstantNode(-120,SByte$), ConstantNode(48,SByte$), ConstantNode(97,SByte$), ConstantNode(44,SByte$), ConstantNode(82,SByte$), ConstantNode(53,SByte$), ConstantNode(95,SByte$), ConstantNode(111,SByte$), ConstantNode(40,SByte$), ConstantNode(13,SByte$), ConstantNode(18,SByte$), ConstantNode(-105,SByte$), ConstantNode(-15,SByte$), ConstantNode(-97,SByte$), ConstantNode(103,SByte$), ConstantNode(-80,SByte$), ConstantNode(120,SByte$), ConstantNode(-55,SByte$), ConstantNode(-38,SByte$), ConstantNode(-89,SByte$), ConstantNode(-41,SByte$), ConstantNode(-80,SByte$), ConstantNode(75,SByte$), ConstantNode(69,SByte$), ConstantNode(-100,SByte$), ConstantNode(-111,SByte$), ConstantNode(-52,SByte$), ConstantNode(100,SByte$), ConstantNode(73,SByte$), ConstantNode(87,SByte$), ConstantNode(-62,SByte$), ConstantNode(-128,SByte$)),SByte$))),FalseLeaf)),WrappedArray(ValUse(12,SByte$))), Apply(FuncValue(WrappedArray((15,SByte$)),If(EQ(ValUse(15,SByte$),ConstantNode(3,SByte$)),Apply(ValUse(11,(Coll[SByte$]) => SBoolean),WrappedArray(ConcreteCollection(WrappedArray(ConstantNode(79,SByte$), ConstantNode(-40,SByte$), ConstantNode(-80,SByte$), ConstantNode(-42,SByte$), ConstantNode(-39,SByte$), ConstantNode(-126,SByte$), ConstantNode(66,SByte$), ConstantNode(114,SByte$), ConstantNode(111,SByte$), ConstantNode(87,SByte$), ConstantNode(-77,SByte$), ConstantNode(-33,SByte$), ConstantNode(-90,SByte$), ConstantNode(-122,SByte$), ConstantNode(18,SByte$), ConstantNode(103,SByte$), ConstantNode(-110,SByte$), ConstantNode(-72,SByte$), ConstantNode(-27,SByte$), ConstantNode(5,SByte$), ConstantNode(110,SByte$), ConstantNode(29,SByte$), ConstantNode(81,SByte$), ConstantNode(-74,SByte$), ConstantNode(-23,SByte$), ConstantNode(13,SByte$), ConstantNode(104,SByte$), ConstantNode(-128,SByte$), ConstantNode(-49,SByte$), ConstantNode(45,SByte$), ConstantNode(-51,SByte$), ConstantNode(-59,SByte$)),SByte$))),FalseLeaf)),WrappedArray(ValUse(12,SByte$))), Apply(FuncValue(WrappedArray((15,SByte$)),If(EQ(ValUse(15,SByte$),ConstantNode(4,SByte$)),Apply(ValUse(11,(Coll[SByte$]) => SBoolean),WrappedArray(ConcreteCollection(WrappedArray(ConstantNode(-119,SByte$), ConstantNode(46,SByte$), ConstantNode(111,SByte$), ConstantNode(71,SByte$), ConstantNode(-95,SByte$), ConstantNode(13,SByte$), ConstantNode(92,SByte$), ConstantNode(-112,SByte$), ConstantNode(-72,SByte$), ConstantNode(122,SByte$), ConstantNode(-44,SByte$), ConstantNode(-122,SByte$), ConstantNode(51,SByte$), ConstantNode(85,SByte$), ConstantNode(-50,SByte$), ConstantNode(-83,SByte$), ConstantNode(0,SByte$), ConstantNode(-61,SByte$), ConstantNode(-30,SByte$), ConstantNode(-104,SByte$), ConstantNode(50,SByte$), ConstantNode(23,SByte$), ConstantNode(-18,SByte$), ConstantNode(21,SByte$), ConstantNode(83,SByte$), ConstantNode(50,SByte$), ConstantNode(83,SByte$), ConstantNode(-51,SByte$), ConstantNode(-102,SByte$), ConstantNode(96,SByte$), ConstantNode(37,SByte$), ConstantNode(-62,SByte$)),SByte$))),FalseLeaf)),WrappedArray(ValUse(12,SByte$))), Apply(FuncValue(WrappedArray((15,SByte$)),If(EQ(ValUse(15,SByte$),ConstantNode(5,SByte$)),Apply(ValUse(11,(Coll[SByte$]) => SBoolean),WrappedArray(ConcreteCollection(WrappedArray(ConstantNode(58,SByte$), ConstantNode(17,SByte$), ConstantNode(-107,SByte$), ConstantNode(92,SByte$), ConstantNode(71,SByte$), ConstantNode(25,SByte$), ConstantNode(-27,SByte$), ConstantNode(-120,SByte$), ConstantNode(-68,SByte$), ConstantNode(-26,SByte$), ConstantNode(-89,SByte$), ConstantNode(97,SByte$), ConstantNode(29,SByte$), ConstantNode(39,SByte$), ConstantNode(-67,SByte$), ConstantNode(31,SByte$), ConstantNode(-33,SByte$), ConstantNode(-37,SByte$), ConstantNode(87,SByte$), ConstantNode(56,SByte$), ConstantNode(92,SByte$), ConstantNode(-82,SByte$), ConstantNode(-30,SByte$), ConstantNode(102,SByte$), ConstantNode(-40,SByte$), ConstantNode(4,SByte$), ConstantNode(12,SByte$), ConstantNode(-119,SByte$), ConstantNode(79,SByte$), ConstantNode(28,SByte$), ConstantNode(46,SByte$), ConstantNode(29,SByte$)),SByte$))),FalseLeaf)),WrappedArray(ValUse(12,SByte$))), Apply(FuncValue(WrappedArray((15,SByte$)),If(EQ(ValUse(15,SByte$),ConstantNode(6,SByte$)),Apply(ValUse(11,(Coll[SByte$]) => SBoolean),WrappedArray(ConcreteCollection(WrappedArray(ConstantNode(9,SByte$), ConstantNode(-126,SByte$), ConstantNode(15,SByte$), ConstantNode(-53,SByte$), ConstantNode(-120,SByte$), ConstantNode(113,SByte$), ConstantNode(-5,SByte$), ConstantNode(69,SByte$), ConstantNode(12,SByte$), ConstantNode(62,SByte$), ConstantNode(6,SByte$), ConstantNode(-73,SByte$), ConstantNode(-53,SByte$), ConstantNode(94,SByte$), ConstantNode(39,SByte$), ConstantNode(-80,SByte$), ConstantNode(69,SByte$), ConstantNode(80,SByte$), ConstantNode(-121,SByte$), ConstantNode(-93,SByte$), ConstantNode(102,SByte$), ConstantNode(98,SByte$), ConstantNode(26,SByte$), ConstantNode(-99,SByte$), ConstantNode(-34,SByte$), ConstantNode(117,SByte$), ConstantNode(-126,SByte$), ConstantNode(-96,SByte$), ConstantNode(25,SByte$), ConstantNode(17,SByte$), ConstantNode(30,SByte$), ConstantNode(62,SByte$)),SByte$))),FalseLeaf)),WrappedArray(ValUse(12,SByte$))), Apply(FuncValue(WrappedArray((15,SByte$)),If(EQ(ValUse(15,SByte$),ConstantNode(7,SByte$)),Apply(FuncValue(WrappedArray((17,(Coll[SByte$],SBox))),If(GE(ValUse(13,SInt$),SizeOf(Outputs$(165))),FalseLeaf,BlockValue(WrappedArray(ValDef(19,WrappedArray(),ByIndex(Outputs$(165),ValUse(13,SInt$),None)), ValDef(20,WrappedArray(),ExtractAmount(ValUse(19,SBox))), ValDef(21,WrappedArray(),ExtractAmount(Self$(167))), ValDef(22,WrappedArray(),ExtractScriptBytes(ValUse(19,SBox))), ValDef(23,WrappedArray(),ExtractBytesWithNoRef(Self$(167))), ValDef(24,WrappedArray(),ExtractScriptBytes(Self$(167))), ValDef(25,WrappedArray(),SelectField(ExtractCreationInfo(Self$(167)),1)), ValDef(26,WrappedArray(),ExtractBytesWithNoRef(ValUse(19,SBox))), ValDef(27,WrappedArray(),SelectField(ExtractCreationInfo(ValUse(19,SBox)),1))),AND(ConcreteCollection(WrappedArray(GE(ValUse(20,SLong$),Minus(ValUse(21,SLong$), LongConstant(2000000))), EQ(CalcBlake2b256(ValUse(22,Coll[SByte$])),Apply(ValUse(6,(Option[Coll[SByte$]]) => Coll[SByte$]),WrappedArray(ByIndex(MethodCall(Apply(ValUse(2,(SBox) => SAvlTree),WrappedArray(SelectField(ValUse(17,(Coll[SByte$],SBox)),2))),SMethod(SAvlTree,getMany,(SAvlTree,Coll[Coll[SByte$]],Coll[SByte$]) => Coll[Option[Coll[SByte$]]],11,DynamicCost,MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(MethodCall$(220)),\n  /** Perform a lookup of many keys `keys` in this tree using proof `proof`.\n    *\n    * @note CAUTION! Keys must be ordered the same way they were in lookup before proof was generated.\n    * For each key return Some(bytes) of leaf if it exists and None if is doesn't.\n    * @param keys    keys of elements of this authenticated dictionary.\n    * @param proof\n    */\n\n        ,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(ConcreteCollection(WrappedArray(SelectField(ValUse(17,(Coll[SByte$],SBox)),1)),Coll[SByte$]), OptionGetOrElse(ValUse(5,Option[Coll[SByte$]]),ConcreteCollection(WrappedArray(),SByte$))),Map()),IntConstant(0),None)))), EQ(Slice(ValUse(23,Coll[SByte$]),Plus(Plus(Apply(ValUse(14,(SLong$) => SInt$),WrappedArray(ValUse(21,SLong$))), SizeOf(ValUse(24,Coll[SByte$]))), Apply(ValUse(14,(SLong$) => SInt$),WrappedArray(Upcast(ValUse(25,SInt$),SLong$)))),SizeOf(ValUse(23,Coll[SByte$]))),Slice(ValUse(26,Coll[SByte$]),Plus(Plus(Apply(ValUse(14,(SLong$) => SInt$),WrappedArray(ValUse(20,SLong$))), SizeOf(ValUse(22,Coll[SByte$]))), Apply(ValUse(14,(SLong$) => SInt$),WrappedArray(Upcast(ValUse(27,SInt$),SLong$)))),SizeOf(ValUse(26,Coll[SByte$])))), OR(ConcreteCollection(WrappedArray(GE(Minus(ValUse(27,SInt$), ValUse(25,SInt$)),IntConstant(504000)), NEQ(ValUse(24,Coll[SByte$]),ValUse(22,Coll[SByte$]))),SBoolean))),SBoolean))))),WrappedArray(Tuple(Vector(ValUse(1,Coll[SByte$]), ValUse(4,SBox))))),FalseLeaf)),WrappedArray(ValUse(12,SByte$)))),SBoolean)))))",
+   "address": "3bseGypFdnej2F2zg7BM3AyjaAR9oq5LNSK6L3UuWYwcyCbG9HLCJcvgKD4aJ6SNZQwCWXRS3knpPqtjJpqstfeGkYtWVtwPxPbXZi8Qo4tQT3yAAQGbXj41CaJEhUXfgcxeo8MwpL2kkQAgKmCmR5JeCEaRrdicqtWVxs2JKSRsbB4Pwh7oWHoZVDq8KY6xXM74UsK9z2JE7VQB7pWvYRis3J7czNFEhAsV7nDMEKizbWPLRyKckCZaDBDABrWw2Bm4va6yypWqWKQn5qoBGhN92VB62SLh7M4mAVmeKzHoXbTbYgtytcca4cjvXa7YDxGddajkc48nwxQrjuHYmx2kvbHqN77QVA1qViiAd2LskwvWcjqrhXqkokorLkPjphiekAyn32YtQYQbzVW5B9EwzuHdXf2yUUU3emCquvA3zUuQzLz1JD14U9C7YYckQoixfUi2ZFzR8EbKekebNYw3ujX8VqnSBhwRW3ZZMUQrzdBWw72fCKP2Py5Luumon8nchZQdxPxikiDaEZkNQEB3NMpWM59KkNU8xi9GqakmHdfC3ETF3Znufj6ZmaYG3orneHrHjX8MV8hBvW6gg3HT12EgkweZs2PHauuGx7rPjhnDFvUyFyRHCWCjc9htPp6Wq598c6FU1pBmQNxXapwXxV4A2wzj3r9sRBRQbLWaiZzA7Uihk6CotmRasrvPGzgVza3hsZBSDFJx7sixtAPibCn5qWSqbH7keEYbR4wXwYSV7FAuXLYpK6x7vs7uwVpAfXCfsec1ihMQr1ZmsDjwgTLDNz2NqwTjCpxsJVdch8JiyYXLijGUKmPnX19XyiZUh45M888icjfgVDWSGbLz1r3QUzKAE46f7RB9qriJWYkwDi84Cdkq1maaunxFA5qvoiXjjmyEF1P4bT3mWMEa6Knb9dsCjFmV7qnML8EyxGLs8CJAoXUWbmvnQ7Jvii29ADENvPnmXFrDz5TMwjwuD232jpTr8YBDH2158bL6UVLTNWv6ZEZw5FUxPgMPfPQAiRfr6mfvEXqrMCcJjB5tTpuGb1KvatFSQmL4goXxWbYxmLgXBcQbwvxNN5as2kRZGtAzjRyMT3NhUQRfb3LUutHQs4nf2HaCtdX6EB2cKniBuHmURNReisVLhnnW2KZ9TzAcmoiYc64nzhKyo43driZ4Y1537Zu3W9z4a26GdUgK65iFo8TsaVNvDgVUPrK2kMAMrReY8qhXkngsVxuYVhKSwDoRg2uFiSAZxEWjktPZKSzzmkuysurhgkA3HfjkYfMYTSFgPwFUwwf93UXSWwfHNFqAFKAVKg5KXMqbC5XFNmRANAxJgt483skLQuFefagnWNYM7SffW6GK5XpnkMFfB7QdKjxNa4ACmR3r7eN13SLZ8mbpBTVhcmy6sDa2uN7fBB4s1MLTja3KjCwvNuSWphPtdD6Rb4hXhprGQnshaN2cuLEaKVDYTFtex6id7WuD5CoAUoyzDYhhUeDqzgoiCz3S9JimpvLNEWcs8RJD364tgeZiEyPFHTRiTGiPThdpeuHxjYpECKnqSFP7phuA5syRpQFHABKEwbE1GMnhS3hmFDEsJiNxsq5uLtWEJ4ifQutb6vW9fMGsRjhFaxdmD8uR2r9PpQyzMW6VuRdQvYEJLi1GguPBN2MRne28yRAbSpFhdedKxstq3BghkTBh8nuTyJU16V71Pf22aEHKinSABYiFiUdza1VjFWCFqrqAyD1jB2jKdziHryUmMpcdMX5LWb9qH59Kj48Lw4Y8hefadzG1m8JfcsfNAQmRv5y59tCr2bsSyHunwsBw",
+   "assets": [
+    {
+     "tokenId": "3b7fb49bc0a262ea890df52483fafe4b59bd376bb6788452796c13ae083b6f50",
+     "index": 0,
+     "amount": 1,
+     "name": "Autolykos Stake State",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "e840e3bf0c4a3390d6ad9e3e9bcc14638e649feddcdd8d245f75b9738680fef6",
+     "index": 1,
+     "amount": 143980,
+     "name": "LYKOS",
+     "decimals": 2,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R5": {
+     "serializedValue": "110788e6afbbd966d6c9111800000000",
+     "sigmaType": "Coll[SLong]",
+     "renderedValue": "[1764354292100,143979,12,0,0,0,0]"
+    },
+    "R6": {
+     "serializedValue": "1d0501000100010001000100",
+     "sigmaType": "Coll[Coll[SLong]]",
+     "renderedValue": "[[0],[0],[0],[0],[0]]"
+    },
+    "R8": {
+     "serializedValue": "11020000",
+     "sigmaType": "Coll[SLong]",
+     "renderedValue": "[0,0]"
+    },
+    "R7": {
+     "serializedValue": "0c3c6464014ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e1609000720004ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e160900072000",
+     "sigmaType": null,
+     "renderedValue": null
+    },
+    "R4": {
+     "serializedValue": "0c6402b26b6593c401c98bafa83269f09a19a068a94d8fb6d862a2b4e6f665c52e35a4040720004ec61f485b98eb87153f7c57db4f5ecd75556fddbc403b41acf8441fde8e160900072000",
+     "sigmaType": null,
+     "renderedValue": null
+    }
+   },
+   "spentTransactionId": "f98528100d8cfacdb4a6f6da8031f66d08ed0500cde3a69fa24dd63368ca6733",
+   "mainChain": true
+  },
+  {
+   "boxId": "0f57d671626adbbb2a4ae728b22514947215257ed27da4ee2a95537c144c9f35",
+   "transactionId": "402cb1d2e9f886d82ac1b8a08be14df5e5350bc9769d4ba92b19cbee286eafb5",
+   "blockId": "06420d09f0b91da8fcf1a301018250c45ff9c4c33dc164dec91822dc7f6cb8b2",
+   "value": 1000000,
+   "index": 1,
+   "globalIndex": 17557386,
+   "creationHeight": 1670337,
+   "settlementHeight": 1670340,
+   "ergoTree": "10020e205215a04d444cb97237e8f982a01b1f137595c77d737bcc7784a2ca44811519b60e203b7fb49bc0a262ea890df52483fafe4b59bd376bb6788452796c13ae083b6f50d816d601d901013c0c630eb58c720101d9010363aedb63087203d901054d0e938c7205018c720102d6027301d603b2da7201018602a57202040000d604b2da7201018602a47202040000d605d9010563d801d607db63087205b472070404b17207d606d9010663b2e4c67206040c64040200d607d9010763b2e4c672070511040000d608d9010863b2e4c672080511040600d609d9010963b2e4c672090511040800d60ad9010a63d801d60ce4c6720a0511b4720c040ab1720cd60bd9010b63e4c6720b061dd60cd9010c63e4c6720c070c3c6464d60dd9010d63e4c6720d0811d60ec5b2a4040000d60fe4e3010c3c0e0ed610b2720f040000d6118c721002d612dad901120e7cb4721204100420017211d613d9011363b2db63087213040200d614d9011463b2e4c672140511040200d615d9011563b2e4c67215040c64040000d616d9011663b2e4c672160511040400d196830b0196830a0192c17203c1720493da7205017203da720501720493da7206017203da720601720493da7207017203da720701720493da7208017203da720801720493da7209017203da720901720493da720a017203da720a01720493da720b017203da720b01720493da720c017203da720c01720493da720d017203da720d01720493720e8c72100193dad901173c0c630eb0dc0c0f8c72170101d9011963db630872190500d90119414d0ed801d61b8c7219029a8c72190195938c721b018c7217028c721b020500018602a5720e0502ed937212998cda7213017203028cda72130172040293721299da7214017203da721401720493b1720f040293db6401e4dc640cda721501720402720fe4e3020edb6401da7215017203afdad901170eaddb0c0eb4721704009d99b1721704200410d9011904d801d61b9c721904107cb472179a721b04209a9a721b04100420017211d9011705937217050092c1b2dad901173c0c630eb58c721701d901196393cbc272198c721702018602a5dad9011732b4e472170402044201b2dc640bdad9011763e4c67217046401b2da7201018602db6501fe73000400000283010e83200202030292020802bc024e02ef029a020302e802d7028b0286026302a3020102bb025f02ad02dc02a7028b02e1029d027f02e5023502b302c6024c02be02fe0242e4e3000e040000040000c1a7939ada72160172040502da721601720393dad901170e7cb472170400041001721105009172120500",
+   "ergoTreeConstants": "[\n  0: Coll[SByte$] = Coll(82,21,-96,77,68,76,-71,114,55,-24,-7,-126,-96,27,31,19,117,-107,-57,125,115,123,-52,119,-124,-94,-54,68,-127,21,25,-74),\n  1: Coll[SByte$] = Coll(59,127,-76,-101,-64,-94,98,-22,-119,13,-11,36,-125,-6,-2,75,89,-67,55,107,-74,120,-124,82,121,108,19,-82,8,59,111,80)\n]",
+   "ergoTreeScript": "Right(BlockValue(WrappedArray(ValDef(1,WrappedArray(),FuncValue(WrappedArray((1,(Coll[SBox],Coll[SByte$]))),Filter(SelectField(ValUse(1,(Coll[SBox],Coll[SByte$])),1),FuncValue(WrappedArray((3,SBox)),Exists(MethodCall(ValUse(3,SBox),SMethod(SBox,tokens,(SBox) => Coll[(Coll[SByte$],SLong$)],8,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Secondary tokens,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()),FuncValue(WrappedArray((5,(Coll[SByte$],SLong$))),EQ(SelectField(ValUse(5,(Coll[SByte$],SLong$)),1),SelectField(ValUse(1,(Coll[SBox],Coll[SByte$])),2)))))))), ValDef(2,WrappedArray(),ConstantPlaceholder(1,Coll[SByte$])), ValDef(3,WrappedArray(),ByIndex(Apply(ValUse(1,((Coll[SBox],Coll[SByte$])) => Coll[SBox]),WrappedArray(Tuple(Vector(Outputs$(165), ValUse(2,Coll[SByte$]))))),IntConstant(0),None)), ValDef(4,WrappedArray(),ByIndex(Apply(ValUse(1,((Coll[SBox],Coll[SByte$])) => Coll[SBox]),WrappedArray(Tuple(Vector(Inputs$(164), ValUse(2,Coll[SByte$]))))),IntConstant(0),None)), ValDef(5,WrappedArray(),FuncValue(WrappedArray((5,SBox)),BlockValue(WrappedArray(ValDef(7,WrappedArray(),MethodCall(ValUse(5,SBox),SMethod(SBox,tokens,(SBox) => Coll[(Coll[SByte$],SLong$)],8,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Secondary tokens,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()))),Slice(ValUse(7,Coll[(Coll[SByte$],SLong$)]),IntConstant(2),SizeOf(ValUse(7,Coll[(Coll[SByte$],SLong$)])))))), ValDef(6,WrappedArray(),FuncValue(WrappedArray((6,SBox)),ByIndex(ExtractRegisterAs(ValUse(6,SBox),R4,Option[Coll[SAvlTree]]).get,IntConstant(1),None))), ValDef(7,WrappedArray(),FuncValue(WrappedArray((7,SBox)),ByIndex(ExtractRegisterAs(ValUse(7,SBox),R5,Option[Coll[SLong$]]).get,IntConstant(0),None))), ValDef(8,WrappedArray(),FuncValue(WrappedArray((8,SBox)),ByIndex(ExtractRegisterAs(ValUse(8,SBox),R5,Option[Coll[SLong$]]).get,IntConstant(3),None))), ValDef(9,WrappedArray(),FuncValue(WrappedArray((9,SBox)),ByIndex(ExtractRegisterAs(ValUse(9,SBox),R5,Option[Coll[SLong$]]).get,IntConstant(4),None))), ValDef(10,WrappedArray(),FuncValue(WrappedArray((10,SBox)),BlockValue(WrappedArray(ValDef(12,WrappedArray(),ExtractRegisterAs(ValUse(10,SBox),R5,Option[Coll[SLong$]]).get)),Slice(ValUse(12,Coll[SLong$]),IntConstant(5),SizeOf(ValUse(12,Coll[SLong$])))))), ValDef(11,WrappedArray(),FuncValue(WrappedArray((11,SBox)),ExtractRegisterAs(ValUse(11,SBox),R6,Option[Coll[Coll[SLong$]]]).get)), ValDef(12,WrappedArray(),FuncValue(WrappedArray((12,SBox)),ExtractRegisterAs(ValUse(12,SBox),R7,Option[Coll[(SAvlTree,SAvlTree)]]).get)), ValDef(13,WrappedArray(),FuncValue(WrappedArray((13,SBox)),ExtractRegisterAs(ValUse(13,SBox),R8,Option[Coll[SLong$]]).get)), ValDef(14,WrappedArray(),ExtractId(ByIndex(Inputs$(164),IntConstant(0),None))), ValDef(15,WrappedArray(),GetVar(1,Option[Coll[(Coll[SByte$],Coll[SByte$])]]).get), ValDef(16,WrappedArray(),ByIndex(ValUse(15,Coll[(Coll[SByte$],Coll[SByte$])]),IntConstant(0),None)), ValDef(17,WrappedArray(),SelectField(ValUse(16,(Coll[SByte$],Coll[SByte$])),2)), ValDef(18,WrappedArray(),Apply(FuncValue(WrappedArray((18,Coll[SByte$])),ByteArrayToLong(Slice(ValUse(18,Coll[SByte$]),IntConstant(8),IntConstant(16)))),WrappedArray(ValUse(17,Coll[SByte$])))), ValDef(19,WrappedArray(),FuncValue(WrappedArray((19,SBox)),ByIndex(MethodCall(ValUse(19,SBox),SMethod(SBox,tokens,(SBox) => Coll[(Coll[SByte$],SLong$)],8,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Secondary tokens,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()),IntConstant(1),None))), ValDef(20,WrappedArray(),FuncValue(WrappedArray((20,SBox)),ByIndex(ExtractRegisterAs(ValUse(20,SBox),R5,Option[Coll[SLong$]]).get,IntConstant(1),None))), ValDef(21,WrappedArray(),FuncValue(WrappedArray((21,SBox)),ByIndex(ExtractRegisterAs(ValUse(21,SBox),R4,Option[Coll[SAvlTree]]).get,IntConstant(0),None))), ValDef(22,WrappedArray(),FuncValue(WrappedArray((22,SBox)),ByIndex(ExtractRegisterAs(ValUse(22,SBox),R5,Option[Coll[SLong$]]).get,IntConstant(2),None)))),BoolToSigmaProp(AND(ConcreteCollection(WrappedArray(AND(ConcreteCollection(WrappedArray(GE(ExtractAmount(ValUse(3,SBox)),ExtractAmount(ValUse(4,SBox))), EQ(Apply(ValUse(5,(SBox) => Coll[(Coll[SByte$],SLong$)]),WrappedArray(ValUse(3,SBox))),Apply(ValUse(5,(SBox) => Coll[(Coll[SByte$],SLong$)]),WrappedArray(ValUse(4,SBox)))), EQ(Apply(ValUse(6,(SBox) => SAvlTree),WrappedArray(ValUse(3,SBox))),Apply(ValUse(6,(SBox) => SAvlTree),WrappedArray(ValUse(4,SBox)))), EQ(Apply(ValUse(7,(SBox) => SLong$),WrappedArray(ValUse(3,SBox))),Apply(ValUse(7,(SBox) => SLong$),WrappedArray(ValUse(4,SBox)))), EQ(Apply(ValUse(8,(SBox) => SLong$),WrappedArray(ValUse(3,SBox))),Apply(ValUse(8,(SBox) => SLong$),WrappedArray(ValUse(4,SBox)))), EQ(Apply(ValUse(9,(SBox) => SLong$),WrappedArray(ValUse(3,SBox))),Apply(ValUse(9,(SBox) => SLong$),WrappedArray(ValUse(4,SBox)))), EQ(Apply(ValUse(10,(SBox) => Coll[SLong$]),WrappedArray(ValUse(3,SBox))),Apply(ValUse(10,(SBox) => Coll[SLong$]),WrappedArray(ValUse(4,SBox)))), EQ(Apply(ValUse(11,(SBox) => Coll[Coll[SLong$]]),WrappedArray(ValUse(3,SBox))),Apply(ValUse(11,(SBox) => Coll[Coll[SLong$]]),WrappedArray(ValUse(4,SBox)))), EQ(Apply(ValUse(12,(SBox) => Coll[(SAvlTree,SAvlTree)]),WrappedArray(ValUse(3,SBox))),Apply(ValUse(12,(SBox) => Coll[(SAvlTree,SAvlTree)]),WrappedArray(ValUse(4,SBox)))), EQ(Apply(ValUse(13,(SBox) => Coll[SLong$]),WrappedArray(ValUse(3,SBox))),Apply(ValUse(13,(SBox) => Coll[SLong$]),WrappedArray(ValUse(4,SBox))))),SBoolean)), EQ(ValUse(14,Coll[SByte$]),SelectField(ValUse(16,(Coll[SByte$],Coll[SByte$])),1)), EQ(Apply(FuncValue(WrappedArray((23,(Coll[SBox],Coll[SByte$]))),Fold(MethodCall(SelectField(ValUse(23,(Coll[SBox],Coll[SByte$])),1),SMethod(sigmastate.SCollection$@551230fb,flatMap,(Coll[SBox],(SBox) => Coll[(Coll[SByte$],SLong$)]) => Coll[(Coll[SByte$],SLong$)],15,PerItemCost(30,5,8),MethodIRInfo(Some(<function1>),Some(public abstract special.collection.Coll special.collection.Coll.flatMap(scala.Function1,scalan.RType)),Some(sigmastate.SCollection$$$Lambda$261/648110159@6075e9d2)),Some(OperationInfo(Some(MethodCall$(220)), Builds a new collection by applying a function to all elements of this collection\n and using the elements of the resulting collections.\n Function \\lst{f} is constrained to be of the form \\lst{x => x.someProperty}, otherwise\n it is illegal.\n Returns a new collection of type \\lst{Coll[B]} resulting from applying the given collection-valued function\n \\lst{f} to each element of this collection and concatenating the results.\n        ,ArrayBuffer(ArgInfo(this,this instance), ArgInfo(f,the function to apply to each element.)))),None),WrappedArray(FuncValue(WrappedArray((25,SBox)),MethodCall(ValUse(25,SBox),SMethod(SBox,tokens,(SBox) => Coll[(Coll[SByte$],SLong$)],8,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Secondary tokens,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()))),Map()),LongConstant(0),FuncValue(WrappedArray((25,(SLong$,(Coll[SByte$],SLong$)))),BlockValue(WrappedArray(ValDef(27,WrappedArray(),SelectField(ValUse(25,(SLong$,(Coll[SByte$],SLong$))),2))),Plus(SelectField(ValUse(25,(SLong$,(Coll[SByte$],SLong$))),1), If(EQ(SelectField(ValUse(27,(Coll[SByte$],SLong$)),1),SelectField(ValUse(23,(Coll[SBox],Coll[SByte$])),2)),SelectField(ValUse(27,(Coll[SByte$],SLong$)),2),LongConstant(0))))))),WrappedArray(Tuple(Vector(Outputs$(165), ValUse(14,Coll[SByte$]))))),LongConstant(1)), BinAnd(EQ(ValUse(18,SLong$),Minus(SelectField(Apply(ValUse(19,(SBox) => (Coll[SByte$],SLong$)),WrappedArray(ValUse(3,SBox))),2), SelectField(Apply(ValUse(19,(SBox) => (Coll[SByte$],SLong$)),WrappedArray(ValUse(4,SBox))),2))),EQ(ValUse(18,SLong$),Minus(Apply(ValUse(20,(SBox) => SLong$),WrappedArray(ValUse(3,SBox))), Apply(ValUse(20,(SBox) => SLong$),WrappedArray(ValUse(4,SBox)))))), EQ(SizeOf(ValUse(15,Coll[(Coll[SByte$],Coll[SByte$])])),IntConstant(1)), EQ(MethodCall(MethodCall(Apply(ValUse(21,(SBox) => SAvlTree),WrappedArray(ValUse(4,SBox))),SMethod(SAvlTree,insert,(SAvlTree,Coll[(Coll[SByte$],Coll[SByte$])],Coll[SByte$]) => Option[SAvlTree],12,DynamicCost,MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(MethodCall$(220)),\n  /** Perform insertions of key-value entries into this tree using proof `proof`.\n    * Throws exception if proof is incorrect\n    *\n    * @note CAUTION! Pairs must be ordered the same way they were in insert ops before proof was generated.\n    * Return Some(newTree) if successful\n    * Return None if operations were not performed.\n    * @param operations   collection of key-value pairs to insert in this authenticated dictionary.\n    * @param proof\n    */\n\n        ,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(ValUse(15,Coll[(Coll[SByte$],Coll[SByte$])]), GetVar(2,Option[Coll[SByte$]]).get),Map()).get,SMethod(SAvlTree,digest,(SAvlTree) => Coll[SByte$],1,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Returns digest of the state represented by this tree.\n Authenticated tree \\lst{digest} = \\lst{root hash bytes} ++ \\lst{tree height}\n        ,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()),MethodCall(Apply(ValUse(21,(SBox) => SAvlTree),WrappedArray(ValUse(3,SBox))),SMethod(SAvlTree,digest,(SAvlTree) => Coll[SByte$],1,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Returns digest of the state represented by this tree.\n Authenticated tree \\lst{digest} = \\lst{root hash bytes} ++ \\lst{tree height}\n        ,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map())), ForAll(Apply(FuncValue(WrappedArray((23,Coll[SByte$])),MapCollection(MethodCall(Slice(ValUse(23,Coll[SByte$]),IntConstant(0),Divide(Minus(SizeOf(ValUse(23,Coll[SByte$])), IntConstant(16)), IntConstant(8))),SMethod(sigmastate.SCollection$@551230fb,indices,(Coll[SByte$]) => Coll[SInt$],14,PerItemCost(20,2,16),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),Produces the range of all indices of this collection as a new collection\n containing [0 .. length-1] values.\n        ,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()),FuncValue(WrappedArray((25,SInt$)),BlockValue(WrappedArray(ValDef(27,WrappedArray(),Multiply(ValUse(25,SInt$), IntConstant(8)))),ByteArrayToLong(Slice(ValUse(23,Coll[SByte$]),Plus(ValUse(27,SInt$), IntConstant(16)),Plus(Plus(ValUse(27,SInt$), IntConstant(8)), IntConstant(16)))))))),WrappedArray(ValUse(17,Coll[SByte$]))),FuncValue(WrappedArray((23,SLong$)),EQ(ValUse(23,SLong$),LongConstant(0)))), GE(ExtractAmount(ByIndex(Apply(FuncValue(WrappedArray((23,(Coll[SBox],Coll[SByte$]))),Filter(SelectField(ValUse(23,(Coll[SBox],Coll[SByte$])),1),FuncValue(WrappedArray((25,SBox)),EQ(CalcBlake2b256(ExtractScriptBytes(ValUse(25,SBox))),SelectField(ValUse(23,(Coll[SBox],Coll[SByte$])),2))))),WrappedArray(Tuple(Vector(Outputs$(165), Apply(FuncValue(WrappedArray((23,Option[Coll[SByte$]])),Slice(ValUse(23,Option[Coll[SByte$]]).get,IntConstant(1),IntConstant(33))),WrappedArray(ByIndex(MethodCall(Apply(FuncValue(WrappedArray((23,SBox)),ExtractRegisterAs(ValUse(23,SBox),R4,Option[SAvlTree]).get),WrappedArray(ByIndex(Apply(ValUse(1,((Coll[SBox],Coll[SByte$])) => Coll[SBox]),WrappedArray(Tuple(Vector(MethodCall(Context$(254),SMethod(SContext,dataInputs,(SContext) => Coll[SBox],1,FixedCost(15),MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(PropertyCall$(219)),,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(),Map()), ConstantPlaceholder(0,Coll[SByte$]))))),IntConstant(0),None))),SMethod(SAvlTree,getMany,(SAvlTree,Coll[Coll[SByte$]],Coll[SByte$]) => Coll[Option[Coll[SByte$]]],11,DynamicCost,MethodIRInfo(Some(<function1>),None,None),Some(OperationInfo(Some(MethodCall$(220)),\n  /** Perform a lookup of many keys `keys` in this tree using proof `proof`.\n    *\n    * @note CAUTION! Keys must be ordered the same way they were in lookup before proof was generated.\n    * For each key return Some(bytes) of leaf if it exists and None if is doesn't.\n    * @param keys    keys of elements of this authenticated dictionary.\n    * @param proof\n    */\n\n        ,ArrayBuffer(ArgInfo(this,this instance)))),None),WrappedArray(ConcreteCollection(WrappedArray(ConcreteCollection(WrappedArray(ConstantNode(3,SByte$), ConstantNode(-110,SByte$), ConstantNode(8,SByte$), ConstantNode(-68,SByte$), ConstantNode(78,SByte$), ConstantNode(-17,SByte$), ConstantNode(-102,SByte$), ConstantNode(3,SByte$), ConstantNode(-24,SByte$), ConstantNode(-41,SByte$), ConstantNode(-117,SByte$), ConstantNode(-122,SByte$), ConstantNode(99,SByte$), ConstantNode(-93,SByte$), ConstantNode(1,SByte$), ConstantNode(-69,SByte$), ConstantNode(95,SByte$), ConstantNode(-83,SByte$), ConstantNode(-36,SByte$), ConstantNode(-89,SByte$), ConstantNode(-117,SByte$), ConstantNode(-31,SByte$), ConstantNode(-99,SByte$), ConstantNode(127,SByte$), ConstantNode(-27,SByte$), ConstantNode(53,SByte$), ConstantNode(-77,SByte$), ConstantNode(-58,SByte$), ConstantNode(76,SByte$), ConstantNode(-66,SByte$), ConstantNode(-2,SByte$), ConstantNode(66,SByte$)),SByte$)),Coll[SByte$]), GetVar(0,Option[Coll[SByte$]]).get),Map()),IntConstant(0),None))))))),IntConstant(0),None)),ExtractAmount(Self$(167))), EQ(Plus(Apply(ValUse(22,(SBox) => SLong$),WrappedArray(ValUse(4,SBox))), LongConstant(1)),Apply(ValUse(22,(SBox) => SLong$),WrappedArray(ValUse(3,SBox)))), EQ(Apply(FuncValue(WrappedArray((23,Coll[SByte$])),ByteArrayToLong(Slice(ValUse(23,Coll[SByte$]),IntConstant(0),IntConstant(8)))),WrappedArray(ValUse(17,Coll[SByte$]))),LongConstant(0)), GT(ValUse(18,SLong$),LongConstant(0))),SBoolean)))))",
+   "address": "2jgvrzzkZZqcYcW9xeG6hxCfHXucL3NYengD6wqtBgPGJrpRykDtGDe5Kp1hbizCfqUUSLCgzBSwESSo3pk8Cyd2nH6huerM5BsgB4oRyd8uUddk8os6uxZrRELWfQgY42RMTXKhk8pqDuJQjgz1yTsLyQgB67eSxNY3DmZiz4xxuxXZqAgTLCRgjkku63jrmzeXr77nEGCFXfneco5Hk7vvxxmExSfUMFz4DKbKCjbBwECsHjvjsa4LuR4HtmLTtZMkePe6S4Bpg9P3vv1FXUZbpFhqiFmJKKV52GzVpM4uh4PzVyB7Jxs62cJeQ7oX7oboEqa68BD1V7VxR5YMygx5bxg5FcBk7cCLs6sjQmh5CafQMHoZM7j4pDAXY4CMaq2FY79VemugSuB9E6fLJd73obzTrLU3TtLZvMbPxr7yzgiconqkzmdKkv1dmk5EDC6sayPcQJXRGG1aggTg6sGor9We1uuKsDPGHUCeZGfw3ViqZPMmieTe18DMGdKGnC29rsTvTJXrEZ7grfNc7yzMtCfHmPN2XBawKETvQ68Sqi4zWGykxwWvrepVYS49U55yfX3ZkJrcJtVp2whNA3GGTMcxmC35UjXP9KEuF1GxbKs5yd681sfVopjxPUpAsztrm2qJFgH22drKdEWJ5U7rfps3DQFuytZu7yKJ2d4kgBFWf3drAvA3sLqDtJwamJoxwU9XyBuT1WLR5q3mHsUXMac7BAR2u4Nm7LomigouYCu7mKch5VGy9gNrNaSx3QMPWiP7zkMttGk8KVXLNaQRQuGNjcNhYbsJSMtbXc4YQSjbiZfsqu7c2Ys4TWUrhfq7EA97nVLSscLhufyYPmPbnjAJ94eBsu2X8shw7F4ge9hVbkkmR6oH8T7YDs8opomFCUmvmdHBag4bXr8jAMCZitbaUdgC9nxteu5KMKXg7xVCEi2XmeBCYNf8CNjdTGiVWphVvMVxMcjpA1tQ1boJvrxzwSuzUkZ9cx3jye35A1dSBWBB315sYqCJnL2W2CXscFHjJwrrEsAxAWEY5FJCdbayMyLd5StaSVCsJSF2xyhy5E4nWckVXguRu6WpTjZL5v5KHytcftAgWan8XpmEDKYdKDdqqc1kaz7J4oeV8j3xBTFRdBpV5uWSdwjQEigNR6f5Y2ZepywiA4LAWhiaN9HHn5s4hep6nNVkac2KP177e94NXv3WJ2UDPiPzgAGhEB4hNXAgbJv6dssKkPKj1LkzoKW6H3FLw1sLZLHCXJDS8dpywEDcf4tAgy2nfVnumugEAkqYHSQM7GFfTXAgLYcpmPg4v145X3M",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "f98528100d8cfacdb4a6f6da8031f66d08ed0500cde3a69fa24dd63368ca6733",
+   "mainChain": true
+  },
+  {
+   "boxId": "606a24b6650fb3284642c2454479876bf1914c33507ea5a8a41754c0f9d87a49",
+   "transactionId": "402cb1d2e9f886d82ac1b8a08be14df5e5350bc9769d4ba92b19cbee286eafb5",
+   "blockId": "06420d09f0b91da8fcf1a301018250c45ff9c4c33dc164dec91822dc7f6cb8b2",
+   "value": 1000000,
+   "index": 2,
+   "globalIndex": 17557387,
+   "creationHeight": 1670337,
+   "settlementHeight": 1670340,
+   "ergoTree": "0008cd02d2e78225f6284d0f12d4f53c52e7712b68251375785775b0069e2bd30e01f167",
+   "ergoTreeConstants": "[]",
+   "ergoTreeScript": "Right(ConstantNode(SigmaProp(ProveDlog(ECPoint(d2e782,2f0005,...))),SSigmaProp))",
+   "address": "9g7wnNUa6tb69Rr3g6SHv8UxLHUjD2Sh4zwGEEdHWepv1EQftso",
+   "assets": [
+    {
+     "tokenId": "db56504be9f1e78ae989088b7afba3fdb1f86901bfaec62eb0a3d092d60a9a8d",
+     "index": 0,
+     "amount": 1,
+     "name": "Autolykos Membership",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "0e144175746f6c796b6f73204d656d62657273686970",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "4175746f6c796b6f73204d656d62657273686970"
+    },
+    "R5": {
+     "serializedValue": "0e374175746f6c796b6f73202d20506f77657265642062792050616964656961202d2068747470733a2f2f6170702e706169646569612e696d",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "4175746f6c796b6f73202d20506f77657265642062792050616964656961202d2068747470733a2f2f6170702e706169646569612e696d"
+    },
+    "R6": {
+     "serializedValue": "0e0130",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "30"
+    }
+   },
+   "spentTransactionId": "1cc52177ab9e3acf620e369c0434e65514346f088dc002707abebd32c5bd2cb7",
+   "mainChain": true
+  },
+  {
+   "boxId": "79d9ac15f6e2c394dbb5fd36477ea4fffb66f357250a312b79d0aea604550b27",
+   "transactionId": "402cb1d2e9f886d82ac1b8a08be14df5e5350bc9769d4ba92b19cbee286eafb5",
+   "blockId": "06420d09f0b91da8fcf1a301018250c45ff9c4c33dc164dec91822dc7f6cb8b2",
+   "value": 50000000,
+   "index": 3,
+   "globalIndex": 17557388,
+   "creationHeight": 1670337,
+   "settlementHeight": 1670340,
+   "ergoTree": "0008cd03553448c194fdd843c87d080f5e8ed983f5bb2807b13b45a9683bba8c7bfb5ae8",
+   "ergoTreeConstants": "[]",
+   "ergoTreeScript": "Right(ConstantNode(SigmaProp(ProveDlog(ECPoint(553448,8bebb3,...))),SSigmaProp))",
+   "address": "9h7L7sUHZk43VQC3PHtSp5ujAWcZtYmWATBH746wi75C5XHi68b",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": null,
+   "mainChain": true
+  },
+  {
+   "boxId": "99427b0a18e6ab6d391bca547b7a6e729bf17f85f69d6a1ae53b7628820414fa",
+   "transactionId": "402cb1d2e9f886d82ac1b8a08be14df5e5350bc9769d4ba92b19cbee286eafb5",
+   "blockId": "06420d09f0b91da8fcf1a301018250c45ff9c4c33dc164dec91822dc7f6cb8b2",
+   "value": 2350000,
+   "index": 4,
+   "globalIndex": 17557389,
+   "creationHeight": 1670337,
+   "settlementHeight": 1670340,
+   "ergoTree": "1005040004000e36100204a00b08cd0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798ea02d192a39a8cc7a701730073011001020402d19683030193a38cc7b2a57300000193c2b2a57301007473027303830108cdeeac93b1a57304",
+   "ergoTreeConstants": "[\n  0: SInt$ = 0,\n  1: SInt$ = 0,\n  2: Coll[SByte$] = Coll(16,2,4,-96,11,8,-51,2,121,-66,102,126,-7,-36,-69,-84,85,-96,98,-107,-50,-121,11,7,2,-101,-4,-37,45,-50,40,-39,89,-14,-127,91,22,-8,23,-104,-22,2,-47,-110,-93,-102,-116,-57,-89,1,115,0,115,1),\n  3: Coll[SInt$] = Coll(1),\n  4: SInt$ = 1\n]",
+   "ergoTreeScript": "Right(BoolToSigmaProp(AND(ConcreteCollection(WrappedArray(EQ(Height$(163),SelectField(ExtractCreationInfo(ByIndex(Outputs$(165),ConstantPlaceholder(0,SInt$),None)),1)), EQ(ExtractScriptBytes(ByIndex(Outputs$(165),ConstantPlaceholder(1,SInt$),None)),SubstConstants(ConstantPlaceholder(2,Coll[SByte$]),ConstantPlaceholder(3,Coll[SInt$]),ConcreteCollection(WrappedArray(CreateProveDlog(DecodePoint(MinerPubkey$(172)))),SSigmaProp))), EQ(SizeOf(Outputs$(165)),ConstantPlaceholder(4,SInt$))),SBoolean))))",
+   "address": "2iHkR7CWvD1R4j1yZg5bkeDRQavjAaVPeTDFGGLZduHyfWMuYpmhHocX8GJoaieTx78FntzJbCBVL6rf96ocJoZdmWBL2fci7NqWgAirppPQmZ7fN9V6z13Ay6brPriBKYqLp1bT2Fk4FkFLCfdPpe",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "1456c89704f7e91f0b4554eb98fa0c6eeb3923fbcec50130085934ce1a064eb2",
+   "mainChain": true
+  },
+  {
+   "boxId": "546b676b11d65fdd9ab7040db35b159c7607cd1e66afa35ef296a73cf5bb28b1",
+   "transactionId": "402cb1d2e9f886d82ac1b8a08be14df5e5350bc9769d4ba92b19cbee286eafb5",
+   "blockId": "06420d09f0b91da8fcf1a301018250c45ff9c4c33dc164dec91822dc7f6cb8b2",
+   "value": 501227255565,
+   "index": 5,
+   "globalIndex": 17557390,
+   "creationHeight": 1670337,
+   "settlementHeight": 1670340,
+   "ergoTree": "0008cd02d2e78225f6284d0f12d4f53c52e7712b68251375785775b0069e2bd30e01f167",
+   "ergoTreeConstants": "[]",
+   "ergoTreeScript": "Right(ConstantNode(SigmaProp(ProveDlog(ECPoint(d2e782,2f0005,...))),SSigmaProp))",
+   "address": "9g7wnNUa6tb69Rr3g6SHv8UxLHUjD2Sh4zwGEEdHWepv1EQftso",
+   "assets": [
+    {
+     "tokenId": "01dce8a5632d19799950ff90bca3b5d0ca3ebfa8aaafd06f0cc6dd1e97150e7f",
+     "index": 0,
+     "amount": 492539845,
+     "name": "CYPX",
+     "decimals": 4,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "8b08cdd5449a9592a9e79711d7d79249d7a03c535d17efaee83e216e80a44c4b",
+     "index": 1,
+     "amount": 2582936,
+     "name": "RSN",
+     "decimals": 3,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1eac52506988e173227d1b2cbf73e05dab7f6b1b14054b5fa19bc36a073aa055",
+     "index": 2,
+     "amount": 1,
+     "name": "Restless Nights",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ed2197ebb2b958670cb568aeed54693617a3f3718d16d1a298b8c8d337193da0",
+     "index": 3,
+     "amount": 6105,
+     "name": "ClaimRSN.tech",
+     "decimals": 1,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "d1d2ae2ac0456aa43550dd4fda45e4f866d523be9170d3a3e4cab43a83926334",
+     "index": 4,
+     "amount": 796,
+     "name": "GreasyCex",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1dfe28a8cb72833622d0df76c6c53576ea92a7097b316dc54d6bf3940f557905",
+     "index": 5,
+     "amount": 1,
+     "name": "Sigmanauts Membership",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "028ec31acacaa6aab6cd89a16cab5f9046cfea701262f8c9532ace433075353a",
+     "index": 6,
+     "amount": 41045,
+     "name": "ClaimRSN.tech",
+     "decimals": 1,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "cdc1aebec795ce9822492b5e62fdd93bb2a03653f7c3dfcfabbb0c98f6a33581",
+     "index": 7,
+     "amount": 63570,
+     "name": "Sigmanaut",
+     "decimals": 2,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "c163990e3efd7ea3f4a613379114fffc9bbc70a6d36d116c22bb1f1db1639d23",
+     "index": 8,
+     "amount": 1,
+     "name": "Paideia Membership",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "7ba2a85fdb302a181578b1f64cb4a533d89b3f8de4159efece75da41041537f9",
+     "index": 9,
+     "amount": 48,
+     "name": "GORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "fcfca7654fb0da57ecf9a3f489bcbeb1d43b56dce7e73b352f7bc6f2561d2a1b",
+     "index": 10,
+     "amount": 224428405564,
+     "name": "ErgOne",
+     "decimals": 8,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "2e59555f055c1341e64d51267a381f6dbbe572cb725cfc471b35e84bbc258b75",
+     "index": 11,
+     "amount": 2990228,
+     "name": "hodlCOMET10",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "45c4a50247c4e3dd87bdb9852b775bcc96b5020e130bea15b269d1fff5832e02",
+     "index": 12,
+     "amount": 1,
+     "name": "Walrus DAO Membership",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "0f709a2f38ec1b2c5c94a6efd43824b82ce2900d083dd34948c6ce75fd11d5ea",
+     "index": 13,
+     "amount": 8474577,
+     "name": "SIGMANAUTSMININGPOOL",
+     "decimals": 5,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "6ad70cdbf928a2bdd397041a36a5c2490a35beb4d20eabb5666f004b103c7189",
+     "index": 14,
+     "amount": 50636,
+     "name": "rsHOSKY",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "34d449dc84a27d0f8fb2166d415a7223604f6426fb2d83ee099f2312182d575d",
+     "index": 15,
+     "amount": 54226267083638,
+     "name": "PHP",
+     "decimals": 8,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1fd6e032e8476c4aa54c18c1a308dce83940e8f4a28f576440513ed7326ad489",
+     "index": 16,
+     "amount": 1000,
+     "name": "Paideia",
+     "decimals": 4,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "6c35aa395c7c75b0f67f7804d6930f0e11ef93c3387dc1faa86498d54af7962c",
+     "index": 17,
+     "amount": 48650,
+     "name": "MEW",
+     "decimals": 2,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "36aba4b4a97b65be491cf9f5ca57b5408b0da8d0194f30ec8330d1e8946161c1",
+     "index": 18,
+     "amount": 418,
+     "name": "Erdoge",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "31ac0f72b036502a17e27ff3bc9eb1b3ae4eef9aa4a3c3bd818475d6326cbd9f",
+     "index": 19,
+     "amount": 7105,
+     "name": "ClaimRSN.tech",
+     "decimals": 1,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "843b5a2a0658550339c38f29827861fe459ce5206edaf17163113cccafc77af1",
+     "index": 20,
+     "amount": 488915255,
+     "name": "GIF",
+     "decimals": 6,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1465c9b9de602bd75f8f38df83118e2c8b1d5b2f5518514dd1438149053652a8",
+     "index": 21,
+     "amount": 3440678,
+     "name": "Dark Erdoge",
+     "decimals": 6,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "003bd19d0187117f130b62e1bcab0939929ff5c7709f843c5c4dd158949285d0",
+     "index": 22,
+     "amount": 312,
+     "name": "SigRSV",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "9cc4f4cfa411ec3a844793fe6b76eb3905e50f7a949ab2cf04031a46bcd27684",
+     "index": 23,
+     "amount": 1,
+     "name": "Make Mining Great Again Hat!",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "0cd8c9f416e5b1ca9f986a7f10a84191dfb85941619e49e53c0dc30ebf83324b",
+     "index": 24,
+     "amount": 1000000,
+     "name": "COMET",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "886b7721bef42f60c6317d37d8752da8aca01898cae7dae61808c4a14225edc8",
+     "index": 25,
+     "amount": 3870070,
+     "name": "GluonW GAU",
+     "decimals": 9,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "3405d8f709a19479839597f9a22a7553bdfc1a590a427572787d7c44a88b6386",
+     "index": 26,
+     "amount": 2,
+     "name": "love",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "e840e3bf0c4a3390d6ad9e3e9bcc14638e649feddcdd8d245f75b9738680fef6",
+     "index": 27,
+     "amount": 10,
+     "name": "LYKOS",
+     "decimals": 2,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "484e870374ee8243ac3da7667f5a1cbea49194b595c483f31aafeae628646d89",
+     "index": 28,
+     "amount": 236762,
+     "name": "Comet_2e59555f_LP",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {},
+   "spentTransactionId": "1cc52177ab9e3acf620e369c0434e65514346f088dc002707abebd32c5bd2cb7",
+   "mainChain": true
+  }
+ ],
+ "size": 5706
+}

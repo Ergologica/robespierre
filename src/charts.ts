@@ -44,6 +44,39 @@ function hostWidth(host: HTMLElement, min: number, max: number): number {
   return Math.round(Math.min(max, Math.max(min, inner || min)))
 }
 
+/** Un testo SVG non va a capo e non taglia da solo: se è più largo dello spazio
+ *  che ha, esce dal riquadro e il lettore vede un pezzo di numero o di nome
+ *  («61,6%» letto «1,6%»). Qui lo si misura DAVVERO — dopo l'inserimento nel
+ *  documento — e lo si accorcia con l'ellissi, tenendo il testo intero nel
+ *  tooltip nativo. */
+function fit(node: SVGElement, max: number): SVGElement {
+  node.setAttribute('data-fit', String(Math.max(8, Math.round(max))))
+  return node
+}
+function applyFit(root: SVGSVGElement): void {
+  for (const t of Array.from(root.querySelectorAll('text[data-fit]')) as SVGTextElement[]) {
+    const max = parseFloat(t.getAttribute('data-fit') || '0')
+    const full = t.textContent ?? ''
+    t.removeAttribute('data-fit')
+    if (!full || typeof t.getComputedTextLength !== 'function') continue
+    if (t.getComputedTextLength() <= max) continue
+    let lo = 0, hi = full.length
+    while (lo < hi) {
+      const mid = (lo + hi + 1) >> 1
+      t.textContent = full.slice(0, mid) + '…'
+      if (t.getComputedTextLength() <= max) lo = mid; else hi = mid - 1
+    }
+    t.textContent = lo > 0 ? full.slice(0, lo) + '…' : '…'
+    t.appendChild(el('title', {}, full))   // il testo intero resta leggibile
+  }
+}
+/** Inserisce il grafico e SOLO ALLORA misura i testi: fuori dal documento
+ *  getComputedTextLength() non sa dire quanto è largo un carattere. */
+function place(host: HTMLElement, s: SVGSVGElement): void {
+  host.replaceChildren(s)
+  applyFit(s)
+}
+
 /** Nome accessibile del grafico: senza, uno screen reader annuncia "immagine" e basta.
  *  Il testo descrive i DATI, non la forma ("il 48,9% al primo detentore", non "grafico a barre"). */
 function titled(s: SVGSVGElement, text: string): SVGSVGElement {
@@ -83,21 +116,27 @@ export function meter(host: HTMLElement, o: {
 }): void {
   const W = hostWidth(host, 320, 1000), H = 106, y = 46, bh = 14
   const s = titled(svg(W, H), `${o.label}: ${o.big} (${o.left})`)
-  s.appendChild(el('text', { x: 0, y: 16, class: 'c-lab' }, o.label))
+  s.appendChild(fit(el('text', { x: 0, y: 16, class: 'c-lab' }, o.label), W))
   s.appendChild(el('text', { x: 0, y: 38, class: 'c-big' }, o.big))
   s.appendChild(el('rect', { x: 0, y, width: W, height: bh, rx: bh / 2, fill: 'var(--track)' }))
   const f = el('rect', { x: 0, y, width: Math.round(W * Math.min(1, o.pct)), height: bh, rx: bh / 2, fill: 'var(--s1)' })
   bindTip(f, o.tipTitle, o.tipLine)
   s.appendChild(f)
-  s.appendChild(el('text', { x: 0, y: y + 32, class: 'c-small' }, o.left))
-  s.appendChild(el('text', { x: W, y: y + 32, class: 'c-small', 'text-anchor': 'end' }, o.right))
-  host.replaceChildren(s)
+  s.appendChild(fit(el('text', { x: 0, y: y + 32, class: 'c-small' }, o.left), W * 0.58))
+  s.appendChild(fit(el('text', { x: W, y: y + 32, class: 'c-small', 'text-anchor': 'end' }, o.right), W * 0.38))
+  place(host, s)
 }
 
 /* ---- ciambella: parti di un intero (≤6 spicchi, etichetta ≥5%) ---- */
 export interface Slice { label: string; value: number; color: string; tipLine: string; approx?: string }
 export function donut(host: HTMLElement, slices: Slice[], centerBig: string, centerSmall: string): void {
-  const W = hostWidth(host, 460, 760), H = Math.max(240, 62 + slices.length * 46 + 12), cx = 128, cy = 120, R = 88, r = 56
+  // LAB: lo spazio che l'etichetta percentuale occupa FUORI dall'anello.
+  // Senza, la fetta a sinistra usciva dal riquadro e «61,6%» si leggeva «1,6%»:
+  // un numero sbagliato, non un difetto estetico.
+  const LAB = 48
+  const R = 88, r = 56, cy = 120, cx = LAB + R + 20
+  const LEG = cx + R + 20 + LAB + 14                   // dove comincia la legenda
+  const W = hostWidth(host, LEG + 220, 760), H = Math.max(240, 62 + slices.length * 46 + 12)
   const tot = slices.reduce((a, b) => a + b.value, 0) || 1
   const s = titled(svg(W, H), `${centerSmall} ${centerBig}. ` +
     slices.map(d => `${d.label} ${formatPct(100 * d.value / tot, 1)}%`).join(', '))
@@ -127,12 +166,13 @@ export function donut(host: HTMLElement, slices: Slice[], centerBig: string, cen
   s.appendChild(el('text', { x: cx, y: cy + 18, class: 'c-small', 'text-anchor': 'middle' }, centerSmall))
   slices.forEach((d, i) => {
     const yy = 62 + i * 46
-    s.appendChild(el('rect', { x: 258, y: yy - 11, width: 11, height: 11, rx: 3, fill: d.color }))
-    s.appendChild(el('text', { x: 278, y: yy, class: 'c-lab' }, d.label))
-    s.appendChild(el('text', { x: 278, y: yy + 19, class: 'c-val' }, d.tipLine))
-    if (d.approx) s.appendChild(el('text', { x: W, y: yy + 19, class: 'c-small', 'text-anchor': 'end' }, d.approx))
+    s.appendChild(el('rect', { x: LEG, y: yy - 11, width: 11, height: 11, rx: 3, fill: d.color }))
+    const spazio = W - (LEG + 20) - (d.approx ? 76 : 4)
+    s.appendChild(fit(el('text', { x: LEG + 20, y: yy, class: 'c-name' }, d.label), spazio))
+    s.appendChild(fit(el('text', { x: LEG + 20, y: yy + 19, class: 'c-val' }, d.tipLine), spazio))
+    if (d.approx) s.appendChild(fit(el('text', { x: W - 2, y: yy + 19, class: 'c-small', 'text-anchor': 'end' }, d.approx), 72))
   })
-  host.replaceChildren(s)
+  place(host, s)
 }
 
 /* ---- barre orizzontali: confronto di grandezza, una tinta ---- */
@@ -151,14 +191,14 @@ export function hbars(host: HTMLElement, bars: HBar[], maxPct?: number): void {
   }
   bars.forEach((b, i) => {
     const y = top + i * rowH, bh = 14, w = Math.max(2, (x1 - x0) * b.value / max)
-    s.appendChild(el('text', { x: labW, y: y + bh + 1, class: 'c-lab', 'text-anchor': 'end' }, b.label))
+    s.appendChild(fit(el('text', { x: labW, y: y + bh + 1, class: 'c-name', 'text-anchor': 'end' }, b.label), labW - 4))
     const p = ['M', x0, y + 2, 'H', x0 + w - 4, 'a4,4 0 0 1 4,4', 'v', bh - 8, 'a4,4 0 0 1 -4,4', 'H', x0, 'Z'].join(' ')
     const bar = el('path', { d: p, fill: b.rest ? 'var(--s-rest)' : 'var(--s1)' })
     bindTip(bar, b.label, b.tipLine)
     s.appendChild(bar)
     s.appendChild(el('text', { x: x0 + w + 8, y: y + bh + 1, class: 'c-val' }, formatPct(b.value) + '%'))
   })
-  host.replaceChildren(s)
+  place(host, s)
 }
 
 /* ---- schema UTXO: input → transazione → output ---- */
@@ -177,8 +217,8 @@ export function utxoSchema(host: HTMLElement, inputs: SchemaNode[], tx: SchemaNo
     const g = el('g', {})
     g.appendChild(el('rect', { x, y, width: w, height: 60, rx: 10, fill: 'var(--surface-2)',
       stroke: n.accent ?? 'var(--line)', 'stroke-width': n.accent ? 1.5 : 1 }))
-    g.appendChild(el('text', { x: x + 13, y: y + 24, class: 'c-node' }, n.title))
-    g.appendChild(el('text', { x: x + 13, y: y + 44, class: 'c-small' }, n.sub))
+    g.appendChild(fit(el('text', { x: x + 13, y: y + 24, class: 'c-node' }, n.title), w - 26))
+    g.appendChild(fit(el('text', { x: x + 13, y: y + 44, class: 'c-small' }, n.sub), w - 26))
     bindTip(g, n.title, n.tip)
     s.appendChild(g)
     return { cx: x + w, cy: y + 30, lx: x, ly: y + 30 }
@@ -192,7 +232,7 @@ export function utxoSchema(host: HTMLElement, inputs: SchemaNode[], tx: SchemaNo
   }
   inputs.forEach((n, i) => { const p = node(0, 24 + i * rowH, colW, n); link(p.cx, p.cy, 424, midY + 20 + i * 6) })
   outputs.forEach((n, i) => { const p = node(W - colW, 24 + i * rowH, colW, n); link(600, midY + 20 + i * 6, p.lx, p.ly) })
-  host.replaceChildren(s)
+  place(host, s)
 }
 
 /** Sparkline temporale: pochi punti, una linea, minimo/massimo dichiarati.
@@ -232,7 +272,7 @@ export function sparkline(host: HTMLElement, pts: SparkPoint[], o: { label: stri
   const X = (t: number) => L0 + (t - x0) / (x1 - x0 || 1) * (W - L0 - R)
   const Y = (v: number) => T + (1 - (v - y0) / (y1 - y0)) * (H - T - B)
 
-  s.appendChild(el('text', { x: 0, y: 14, class: 'c-lab' }, o.label))
+  s.appendChild(fit(el('text', { x: 0, y: 14, class: 'c-lab' }, o.label), W - 8))
   // banda di riferimento: solo la parte che cade nella scala dei dati
   if (bandVisible) {
     s.appendChild(el('rect', { x: L0, y: Y(bandVisible[1]), width: W - L0 - R,
@@ -260,5 +300,5 @@ export function sparkline(host: HTMLElement, pts: SparkPoint[], o: { label: stri
   const day = (t: number) => new Date(t).toISOString().slice(5, 10).split('-').reverse().join('/')
   s.appendChild(el('text', { x: L0, y: H - 4, class: 'c-small' }, day(x0)))
   s.appendChild(el('text', { x: W - R, y: H - 4, class: 'c-small', 'text-anchor': 'end' }, day(x1)))
-  host.replaceChildren(s)
+  place(host, s)
 }

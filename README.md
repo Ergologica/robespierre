@@ -13,6 +13,9 @@ npm install
 npm run dev       # sviluppo su http://localhost:5173
 npm test          # vitest: conversioni e decodificatore su fixture reali
 npm run build     # typecheck + build statica in dist/
+npm run check:ui  # dopo build: nessun testo fuori dai grafici, nessuno scroll di lato
+                  # (una volta sola: npm i -D playwright && npx playwright install chromium)
+LIVE=1 npx vitest run src/live   # verifica contro la mainnet (serve rete)
 ```
 
 Il sito è statico: si pubblica su GitHub Pages con la Action inclusa
@@ -28,6 +31,7 @@ src/
     index.ts           motore: prova i riconoscitori dal più specifico al più generico
     recognizers/       uno per protocollo — vedi recognizers/README.md per contribuire
     fixtures/          transazioni REALI scaricate dalla mainnet: i test girano su queste
+  stake/               staking dei DAO Paideia: paideia.ts (pure) + index.ts (catena) + card.ts
   views/               una vista per pagina; escape obbligatorio su ogni dato di catena
   labels.json          address book aperto: ogni etichetta cita una fonte pubblica
 ```
@@ -50,6 +54,20 @@ src/
 8. **Un solo prezzo per token in tutto il sito** (`lib/prices.ts`): prima Mercati
    e wallet ne mostravano due diversi. E ogni prezzo dichiara da dove viene:
    pool sottile (< 100 ERG di volume storico) e nome condiviso con altri token.
+9. **Quando un dato non si può leggere, si dichiara** invece di stimarlo. Lo
+   staking Paideia tiene le quote in un albero autenticato (`Coll[AvlTree]`):
+   il saldo di oggi con le ricompense NON è leggibile, e il sito lo dice al
+   posto di inventare un numero verosimile. E una variazione si attribuisce a
+   una chiave solo quando la chiave **nasce o muore** in quella transazione,
+   o quando nessun'altra chiave dello stesso DAO è in ballo: il box che paga
+   una transazione di staking contiene spesso decine di NFT, comprese le
+   chiavi di altri DAO. Scrivere sotto il nome di uno l'importo di un altro
+   sarebbe il modo più rapido di bruciare la fiducia.
+10. **Un testo dentro un grafico non esce mai dal riquadro** (`fit()` in
+   `charts.ts`, misurato con `getComputedTextLength()` dopo l'inserimento).
+   Nasce da un difetto vero: nella ciambella «61,6%» usciva a sinistra e si
+   leggeva «1,6%» — un numero sbagliato, non un problema estetico.
+   `npm run check:ui` lo verifica su 5 pagine × 2 temi × 2 larghezze.
 
 ## Stato — Fase 0 e 1
 
@@ -86,6 +104,17 @@ src/
       job dati (holders notturno, protocolli ogni 6h) letti da raw.githubusercontent
 - [x] **Valore totale del wallet**: ERG + token con prezzo, in $ — con i token
       senza prezzo dichiarati ed ESCLUSI dalla somma (non valgono zero: non si sanno)
+- [x] **Staking Paideia nel wallet (v11)**: la chiave di staking porta al box di
+      stato del DAO — contratto, token di stato e token depositato ricavati DALLA
+      TRANSAZIONE di ingresso, nessuna costante scritta a mano. Riconosciute
+      **entrambe le generazioni** di chiavi: «<DAO> Membership» (descrizione con
+      la firma completa) e «<DAO> Stake Key» (descrizione «Powered by Paideia»,
+      col nome del DAO solo nel nome del token — è la più vecchia, Sigmanauts
+      2024, Walrus DAO, RosenGuards). La scheda mostra depositato, totale nel
+      pool e partecipanti; il saldo di oggi con le ricompense è **dichiarato
+      illeggibile** (AvlTree) e la posizione resta FUORI dal valore totale.
+      Chi ha ritirato tutto tiene la chiave ma non ha una posizione: non compare
+      nessuna scheda. Verificato dal vivo su quattro DAO
 - [ ] **Lancio**: post a forum/Telegram con tre link e la domanda "lo usereste, per cosa?"
 
 ## Sistema visivo

@@ -153,6 +153,21 @@ const it = {
     ? `ERG + ${priced} token con prezzo · ${unpriced} senza prezzo, esclusi`
     : `ERG + ${priced} token con prezzo`,
   total_tip: 'Stima: ERG al prezzo di mercato più i token che hanno un prezzo nei pool Spectrum. I token senza prezzo non valgono zero — semplicemente non si sanno, e restano fuori dalla somma.',
+  stake_h: 'In staking',
+  stake_p: 'La chiave di staking è nel wallet, ma i token depositati no: stanno tutti in un unico box di stato del DAO.',
+  stake_dep: 'Depositato',
+  stake_dep_tip: 'Somma netta dei depositi e dei ritiri di questa chiave, letta dalle transazioni del contratto.',
+  stake_first: 'In staking dal',
+  stake_no_price: 'nessun prezzo di mercato',
+  stake_partial: 'Il contratto ha più transazioni di quelle lette: qualche operazione di questa chiave potrebbe mancare dal totale depositato.',
+  stake_ops: (n: number) => n === 1 ? '1 operazione' : `${n} operazioni`,
+  stake_pool: 'Nel pool',
+  stake_stakers: (n: number) => n === 1 ? '1 partecipante' : `${n} partecipanti`,
+  stake_unknown: 'Quanto vale oggi la posizione, ricompense comprese, non è leggibile dalla catena: le quote stanno in un albero autenticato (AvlTree) che l’Explorer non espande. Qui c’è quanto è stato depositato, non quanto vale adesso.',
+  stake_excluded: 'Fuori dal valore totale qui sopra.',
+  stake_open: 'Apri su Paideia',
+  stake_dep_value: (v: string) => `≈ ${v} del depositato`,
+  stake_checked: (n: number) => `controllati fino a ${n} NFT del wallet, prima quelli che si chiamano come una chiave`,
   rel_now: 'ora', rel_s: 's fa', rel_min: 'min fa', rel_h: 'ore fa', rel_d: 'giorni fa',
 }
 
@@ -297,6 +312,21 @@ const en: Dict = {
     ? `ERG + ${priced} priced tokens · ${unpriced} unpriced, excluded`
     : `ERG + ${priced} priced tokens`,
   total_tip: 'Estimate: ERG at market price plus the tokens that have a price in Spectrum pools. Unpriced tokens are not worth zero — they are simply unknown, and stay out of the sum.',
+  stake_h: 'Staked',
+  stake_p: 'The staking key is in the wallet, but the deposited tokens are not: they all sit in a single DAO state box.',
+  stake_dep: 'Deposited',
+  stake_dep_tip: 'Net sum of this key’s deposits and withdrawals, read from the contract’s transactions.',
+  stake_first: 'Staked since',
+  stake_no_price: 'no market price',
+  stake_partial: 'The contract has more transactions than were read: some operations of this key may be missing from the deposited total.',
+  stake_ops: (n: number) => n === 1 ? '1 operation' : `${n} operations`,
+  stake_pool: 'In the pool',
+  stake_stakers: (n: number) => n === 1 ? '1 staker' : `${n} stakers`,
+  stake_unknown: 'What the position is worth today, rewards included, cannot be read from the chain: shares live in an authenticated tree (AvlTree) the Explorer does not expand. This is what was deposited, not what it is worth now.',
+  stake_excluded: 'Not part of the total value above.',
+  stake_open: 'Open on Paideia',
+  stake_dep_value: (v: string) => `≈ ${v} of the deposit`,
+  stake_checked: (n: number) => `up to ${n} of the wallet’s NFTs checked, key-looking names first`,
   rel_now: 'now', rel_s: 's ago', rel_min: 'min ago', rel_h: 'h ago', rel_d: 'days ago',
 }
 
