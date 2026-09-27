@@ -8,6 +8,7 @@ import { L } from '../i18n'
 import type { SchemaNode } from '../charts'
 import { formatErg, formatTokenAmount, groupThousands, relativeTime, isoUtc, shortId , formatPct } from '../lib/format'
 import { txMovement } from '../lib/movement'
+import { cameFromFallback } from '../api/explorer'
 import type { Movement } from '../lib/movement'
 import type { BoxLike } from '../api/types'
 
@@ -120,7 +121,9 @@ export async function txView(id: string): Promise<string> {
       : ''
 
   document.title = `Tx ${shortId(id)} · Robespierre`
-  return `
+  // dalla fonte di riserva: si dice, e si dice cosa manca
+  const reserve = cameFromFallback(tx) ? `<div class="card"><div class="note">${L.src_fallback}</div></div>` : ''
+  return `${reserve}
   <div class="card">
     <div class="statusline">
       <span class="pill ${conf > 0 ? 'ok' : 'wait'}">${conf > 0 ? '✓ ' + L.confirmed : L.in_mempool}</span>
@@ -157,7 +160,7 @@ export async function txView(id: string): Promise<string> {
         <h2 class="t-sub" style="margin:var(--sp-2) 0 var(--sp-3)">${L.input}</h2>
         ${tx.inputs.map(b => boxHtml(b, L.spent)).join('')}
         <h2 class="t-sub" style="margin:var(--sp-5) 0 var(--sp-3)">${L.output}</h2>
-        ${tx.outputs.map(b => boxHtml(b, b.spentTransactionId ? L.spent : L.unspent)).join('')}
+        ${tx.outputs.map(b => boxHtml(b, tx.spentUnknown ? L.spent_unknown : b.spentTransactionId ? L.spent : L.unspent)).join('')}
       </div>
     </details>
   </div>`
