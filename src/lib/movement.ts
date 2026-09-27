@@ -34,6 +34,18 @@ export interface Movement {
   receiver: string | null
   /** I token arrivati al ricevente principale. */
   receiverTokens: Moved[]
+  /** L'ERG netto uscito dal pagante (0 se non c'è pagante o se non ha perso ERG). */
+  payerOut: bigint
+  /** L'ERG netto arrivato al ricevente (0 se non c'è ricevente o se non ha guadagnato ERG).
+   *  Il flusso mostra QUESTO accanto al ricevente, non ergMoved: sull'arrivo Rosen del
+   *  post di lancio ergMoved è 10.001,30 ERG, ma al ricevente ne sono arrivati 9.950,99 —
+   *  gli altri ~50 sono andati a un altro indirizzo. Stesso numero ai due lati = una
+   *  frase vera smentita dal disegno sotto. */
+  receiverIn: bigint
+  /** Quanti ALTRI indirizzi hanno ricevuto ERG, e quanto in tutto: la differenza fra i due
+   *  lati del flusso, detta invece che taciuta. */
+  othersIn: bigint
+  othersCount: number
   /** Un pagante e un ricevente spiegano quasi tutto il movimento: il flusso si può disegnare.
    *  Quando è falso la pagina TACE invece di eleggere a destinatario un box di resto da 0,02 ERG. */
   clear: boolean
@@ -109,5 +121,11 @@ export function txMovement(tx: Tx, feeAddress: string): Movement {
     ? tokens.filter(t => (tok.get(t.tokenId + '|' + receiver) ?? 0n) > 0n)
     : []
 
-  return { ergMoved, totalOut, fee, tokens, payer, receiver, receiverTokens, clear }
+  const payerOut = payer && (erg.get(payer) ?? 0n) < 0n ? -(erg.get(payer)!) : 0n
+  const receiverIn = receiver && (erg.get(receiver) ?? 0n) > 0n ? erg.get(receiver)! : 0n
+  const altri = entrate.filter(([a]) => a !== receiver && a !== payer)
+  const othersIn = altri.reduce((s, [, v]) => s + v, 0n)
+  const othersCount = altri.length
+
+  return { ergMoved, totalOut, fee, tokens, payer, receiver, receiverTokens, payerOut, receiverIn, othersIn, othersCount, clear }
 }
