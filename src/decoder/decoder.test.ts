@@ -697,3 +697,53 @@ describe('movimento netto: chi ha dato cosa a chi', () => {
     expect(txMovement({ ...finta, inputs: [], outputs: [] } as never, FEE_ADDRESS).clear).toBe(false)
   })
 })
+
+/* ---------------- il flusso: ognuno col suo importo ---------------- */
+// Il difetto (27/09): il riquadro del flusso metteva lo STESSO numero ai due lati,
+// cioè il totale di quello che aveva cambiato mano. Sull'arrivo Rosen del post di
+// lancio il ricevente appariva con +10.001,3 ERG, mentre ne ha ricevuti 9.950,99:
+// gli altri ~50 ERG sono andati a un altro indirizzo. La frase diceva il vero, il
+// flusso no. Qui il netto di ogni parte si ricalcola A MANO, senza passare dal modulo.
+function nettoA(tx: Tx, addr: string): bigint {
+  let n = 0n
+  for (const o of tx.outputs) if (o.address === addr) n += BigInt(o.value)
+  for (const i of tx.inputs) if (i.address === addr) n -= BigInt(i.value)
+  return n
+}
+
+describe('flusso: il ricevente con quello che ha ricevuto, il pagante con quello che ha dato', () => {
+  it('arrivo Rosen: 9.950,9883 ERG al ricevente, 10.001,2059 dal hot wallet', () => {
+    const m = txMovement(bridge as never, FEE_ADDRESS)
+    expect(m.receiverIn).toBe(9_950_988_300_000n)
+    expect(m.payerOut).toBe(10_001_205_900_000n)
+    expect(m.receiverIn).toBeLessThan(m.ergMoved)            // il resto è andato ad altri
+  })
+  const tutte: [string, unknown][] = [
+    ['transfer-cb8f8f17', transferSimple], ['transfer-941552e9', transferSweep],
+    ['bridge-e06697e0', bridge], ['spectrum-swap-buy', swapBuy], ['spectrum-swap-sell', swapSell],
+    ['spectrum-deposit', deposit], ['sigmausd-redeem', redeem], ['sigmausd-rsv', rsvMint],
+  ]
+  for (const [nome, fx] of tutte) {
+    it(`${nome}: i due lati del flusso coincidono col netto ricalcolato a mano`, () => {
+      const tx = fx as never as Tx
+      const m = txMovement(tx, FEE_ADDRESS)
+      if (!m.clear || !m.payer || !m.receiver) return             // il flusso non si disegna: niente da smentire
+      expect(m.receiverIn).toBe(nettoA(tx, m.receiver) > 0n ? nettoA(tx, m.receiver) : 0n)
+      expect(m.payerOut).toBe(-nettoA(tx, m.payer) > 0n ? -nettoA(tx, m.payer) : 0n)
+      expect(m.receiverIn).toBeLessThanOrEqual(m.ergMoved)
+    })
+  }
+})
+
+describe('flusso: la differenza fra i due lati ha sempre un nome', () => {
+  it('riscatto SigmaUSD: 935,63589 dalla banca, 935,63089 al ricevente, 0,005 di commissione', () => {
+    const m = txMovement(redeem as never, FEE_ADDRESS)
+    expect(m.payerOut - m.receiverIn).toBe(m.fee)
+    expect(m.othersCount).toBe(0)
+  })
+  it('arrivo Rosen: la differenza è andata ad altri 4 indirizzi, e si dice quanto', () => {
+    const m = txMovement(bridge as never, FEE_ADDRESS)
+    expect(m.othersCount).toBe(4)
+    expect(m.receiverIn + m.othersIn).toBe(m.ergMoved)
+  })
+})
