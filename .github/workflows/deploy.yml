@@ -1,6 +1,10 @@
 name: deploy
 on:
-  push: { branches: [main] }
+  # I job dei dati (holders, prezzi, protocolli, copertura) committano in data/ fino a
+  # sei volte al giorno. Il sito quei file li legge da raw.githubusercontent, non dal
+  # bundle: ricostruirlo a ogni commit di dati era lavoro inutile. Un push che tocca
+  # anche un solo file fuori da data/ fa ripartire il deploy come prima.
+  push: { branches: [main], paths-ignore: ['data/**'] }
   workflow_dispatch:
 permissions: { contents: read, pages: write, id-token: write }
 jobs:
