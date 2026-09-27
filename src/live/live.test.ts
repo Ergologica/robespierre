@@ -130,4 +130,17 @@ describe.skipIf(!LIVE)('pagine dal vivo (mainnet)', () => {
     // il valore mosso è quello della frase, non il contenuto della banca
     expect(html).toMatch(/Valore mosso<\/span>[^]{0,200}?93[0-9],[0-9]+ ERG/)
   })
+
+  /* Il flusso deve dire la stessa cifra della frase. Prima no (27/09): sulla tx
+     del post di lancio la frase diceva «arrivo di 9.950,99 ERG» e il ricevente,
+     nel riquadro sotto, risultava +10.001,3 — lo stesso numero dei due lati. */
+  it('arrivo Rosen: il ricevente nel flusso ha la cifra della frase', async () => {
+    const { txView } = await import('../views/tx')
+    const html = await txView('e06697e0e08c2dc69db3b0fb75e89f3bc665e1c79316657a33c4e7c521bfdca3')
+    writeFileSync('.live-out/tx-flusso.html', html)
+    expect(html).toContain('arrivo di 9.950,99 ERG')
+    expect(html).toContain('amt in">+9.950,99 ERG')
+    expect(html).not.toContain('amt in">+10.001')
+    expect(html).toContain('ad altri 4 indirizzi')
+  })
 })
