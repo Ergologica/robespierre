@@ -13,7 +13,7 @@ npm install
 npm run dev       # sviluppo su http://localhost:5173
 npm test          # vitest: conversioni e decodificatore su fixture reali
 npm run build     # typecheck + build statica in dist/
-npm run check:ui  # dopo build: nessun testo fuori dai grafici, nessuno scroll di lato
+npm run check:ui  # dopo build: nessun testo fuori dai grafici, nessuno scroll di lato (9 pagine × 2 temi × 2 larghezze)
                   # (una volta sola: npm i -D playwright && npx playwright install chromium)
 LIVE=1 npx vitest run src/live   # verifica contro la mainnet (serve rete)
 npm run coverage  # quante tx degli ultimi 1.000 blocchi il decodificatore spiega → data/coverage.json
@@ -31,10 +31,15 @@ src/
   api/explorer.ts      client Explorer API: failover su più basi, cache con TTL
   decoder/             il cuore del progetto
     index.ts           motore: prova i riconoscitori dal più specifico al più generico
+    explain.ts         «come lo sappiamo»: su cosa si regge ogni lettura, e su quante fixture
     recognizers/       uno per protocollo — vedi recognizers/README.md per contribuire
     fixtures/          transazioni REALI scaricate dalla mainnet: i test girano su queste
   stake/               staking dei DAO Paideia: paideia.ts (pure) + index.ts (catena) + card.ts
+  lib/movement.ts      chi ha dato cosa a chi, per differenza: il libro mastro della transazione
+  lib/feed.ts          il flusso della home, parti pure: categorie, pre-selezione, titolo dalla misura
   views/               una vista per pagina; escape obbligatorio su ogni dato di catena
+    feed.ts            «Adesso sulla catena»: ultimi 10 blocchi, dal vivo
+    palette.ts         la ricerca: dice cosa ha riconosciuto prima di andarci
   labels.json          address book aperto: ogni etichetta cita una fonte pubblica
 ```
 
@@ -69,7 +74,14 @@ src/
    `charts.ts`, misurato con `getComputedTextLength()` dopo l'inserimento).
    Nasce da un difetto vero: nella ciambella «61,6%» usciva a sinistra e si
    leggeva «1,6%» — un numero sbagliato, non un problema estetico.
-   `npm run check:ui` lo verifica su 5 pagine × 2 temi × 2 larghezze.
+   `npm run check:ui` lo verifica su 9 pagine × 2 temi × 2 larghezze.
+11. **Nessuna frase scritta a mano su un numero che cambia.** Il titolo della home
+   («Quasi due transazioni su tre, spiegate in una riga») si calcola dalla copertura
+   misurata ogni domenica (`fractionOf` in `lib/feed.ts`): la frazione più semplice
+   entro 2 punti, e «quasi» quando il vero sta sotto — 66,4% non è «due su tre».
+   Lo stesso per «verificato su N transazioni reali»: `explain.test.ts` decodifica le
+   fixture e fallisce se il numero dichiarato non è quello vero. La proposta grafica
+   prometteva 3 fixture per Rosen; sono 1, e la pagina dice 1.
 
 ## Stato — Fase 0 e 1
 
@@ -138,7 +150,34 @@ src/
       Saldo, blocchi e ricerca non hanno riserva (`src/api/fallback.ts`, `node scripts/api-compat.mjs`)
 - [x] **Deploy solo quando serve** — i commit dei job in `data/` non ricostruiscono più il sito
       (`paths-ignore`): il sito li legge da raw.githubusercontent
+- [x] **Rinnovo «Cronaca» (27/09/2026)** — la frase decodificata diventa il prodotto.
+      **Home**: apre con la copertura misurata e il flusso delle transazioni degli ultimi
+      10 blocchi, dette in una riga, con filtri per tipo; mining e oracoli nascosti (e
+      dichiarati) finché non si chiedono; stato della rete in una colonna, mempool su
+      `#/mempool`. **Transazione**: la frase è il titolo, sotto chi l'ha letta
+      (riconoscitore, confidenza, fixture, link al sorgente), poi tre livelli —
+      Racconto (libro mastro per differenza e resto dichiarato) · Schema UTXO · Box;
+      «Avanzato» apre sui Box, il tab scelto finisce nell'URL. **Ricerca**: palette
+      (`/` o ⌘K) che dice cosa ha riconosciuto; un id da 64 caratteri si chiede alla
+      catena (tx, token o blocco); i nomi si cercano in tutte le maiuscole, perché l'API
+      distingue («comet» 0 risultati, «COMET» 35). **Mercati**: ERG come titolo, quattro
+      tessere, filtri, ordinamento, volume 24 h come barra e volume storico come colonna.
+      Corretti per strada: il volume 24 h contava un solo verso degli scambi; «N simboli
+      condivisi» contava righe; «+0 GIF» su un importo che non è zero
 - [ ] **Lancio**: post a forum/Telegram con tre link e la domanda "lo usereste, per cosa?"
+
+## Come si misura la copertura
+
+Il numero in cima alla home viene da `npm run coverage` (`scripts/coverage.ts`),
+che la Action `coverage.yml` ripete ogni domenica e salva in `data/coverage.json`.
+Scarica **tutte** le transazioni degli ultimi 1.000 blocchi, le passa al
+decodificatore, e conta quante ne sa raccontare. I numeri sono due, e la home li
+mostra entrambi: sul **totale**, e **escluse mining e oracoli**. Mining e oracoli
+sono circa l'80% del traffico e si riconoscono con poco: da soli farebbero del
+primo numero una vetrina. Il secondo è quello che conta, ed è quello del titolo.
+Le transazioni che l'API non restituisce non si contano e si dichiarano; oltre il
+2% la misura non si pubblica. Il file dice blocchi, data e conteggi per tipo:
+chiunque può rifare il conto.
 
 ## Sistema visivo
 
@@ -155,6 +194,13 @@ Prima erano quattordici misure decise una alla volta, coi mezzi pixel
 cinque. **Spazi su base 4** (`--sp-1`…`--sp-6`) invece di quattordici valori
 a occhio. Nessuna misura di carattere vive più dentro un `style=` nelle viste:
 i ruoli hanno un nome (`.t-title`, `.t-sub`, `.t-note`, `.t-cap`, `.t-micro`).
+
+**Gradini di vetrina (rinnovo «Cronaca»).** Sopra i sette gradini ce ne sono tre,
+solo per i titoli che *sono* il contenuto: `--fs-giant` 64 (il 66,4% della home,
+«1 ERG = …» nei Mercati), `--fs-hero` 46 (il titolo della home), `--fs-head` 40 (la
+frase della transazione). Tutto il resto resta sulla scala di prima. La gerarchia
+della «Cronaca»: la frase prima, la fonte della lettura subito sotto, i dati dopo —
+senza schede attorno a ciò che si legge per primo.
 
 **Una sola lingua di etichette**: le etichette delle tessere e le intestazioni
 di tabella usano lo stesso trattamento (maiuscoletto 11 px, spaziatura .075em,

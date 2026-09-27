@@ -24,9 +24,9 @@
 </head>
 <body>
 <header>
-  <div class="wrap">
-    <a class="brand" href="#/">
-      <svg class="logo" viewBox="0 0 32 32" aria-label="Ergo" role="img">
+  <div class="wrap bar">
+    <a class="brand" href="#/" aria-label="Robespierre — home">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
         <defs><linearGradient id="ergo" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stop-color="#ff8a3d"/><stop offset="1" stop-color="#e2560d"/>
         </linearGradient></defs>
@@ -34,32 +34,42 @@
         <path d="M21.4 9.4H10.9l5.6 6.6-5.6 6.6h10.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <span class="nm">Robespierre</span>
-      <span class="sub" data-t="sub_brand">explorer per Ergo</span>
     </a>
-    <nav class="topnav">
-      <a href="#/" data-ic="net"><span data-t="nav_net">Rete</span></a>
-      <a href="#/mercati" data-ic="swap"><span data-t="nav_markets">Mercati</span></a>
-      <a href="#/tokens" data-ic="token"><span data-t="nav_tokens">Token</span></a>
-      <a href="#/protocolli" data-ic="shield"><span data-t="nav_protocols">Protocolli</span></a>
+    <nav class="topnav" aria-label="Sezioni">
+      <a href="#/"><span data-t="nav_net">Rete</span></a>
+      <a href="#/mercati"><span data-t="nav_markets">Mercati</span></a>
+      <a href="#/tokens"><span data-t="nav_tokens">Token</span></a>
+      <a href="#/protocolli"><span data-t="nav_protocols">Protocolli</span></a>
     </nav>
     <span class="grow"></span>
+    <button type="button" class="search-trigger" id="searchBtn" aria-haspopup="dialog" aria-controls="palette">
+      <span class="st-ic" data-ic="search" aria-hidden="true"></span>
+      <span class="st-ph" data-t="search_short">Cerca o incolla un id…</span>
+      <kbd>/</kbd>
+    </button>
     <div class="seg" role="group" aria-label="Livello di dettaglio">
       <button type="button" id="modeBase" aria-pressed="true" data-t="base">Base</button>
       <button type="button" id="modeAdv" aria-pressed="false" data-t="adv">Avanzato</button>
     </div>
     <button class="ghost" id="langBtn" type="button" aria-label="Language / Lingua">EN</button>
-    <button class="ghost" id="themeBtn" type="button" aria-label="Cambia tema" data-ic="theme"></button>
+    <button class="ghost ghost-ic" id="themeBtn" type="button" aria-label="Cambia tema" data-ic="theme"></button>
   </div>
 </header>
-<div class="wrap searchrow">
-  <form class="search" id="searchForm">
+<dialog id="palette" class="palette" aria-labelledby="palLabel">
+  <span id="palLabel" class="sr-only" data-t="search_open">Cerca</span>
+  <form class="pal-in" id="searchForm" onsubmit="return false">
     <span class="dim" data-ic="search" aria-hidden="true"></span>
-    <input id="searchInput" type="text" autocomplete="off" spellcheck="false"
+    <input id="searchInput" type="text" autocomplete="off" spellcheck="false" role="combobox"
+      aria-expanded="true" aria-controls="palBody" aria-autocomplete="list"
       placeholder="Indirizzo, transazione, token, blocco — riconosciuti automaticamente">
-    <span class="kbd">/</span>
-    <button class="go" type="submit" aria-label="Cerca">→</button>
+    <kbd>esc</kbd>
   </form>
-</div>
+  <div class="pal-body" id="palBody"></div>
+  <div class="pal-foot">
+    <span><kbd>↑↓</kbd> <span data-t="pal_k_choose">scegli</span> <kbd>↵</kbd> <span data-t="pal_k_open">apri</span> <kbd>esc</kbd> <span data-t="pal_k_close">chiudi</span></span>
+    <span class="pal-foot-r" data-t="pal_foot">Incolla un indirizzo, un id o un’altezza: lo riconosco da solo</span>
+  </div>
+</dialog>
 <main class="wrap" id="app" tabindex="-1"></main>
 <footer class="wrap">
   <span>Robespierre · <span data-t="footer_src">prototipo — dati dall'Explorer API di Ergo</span></span>
