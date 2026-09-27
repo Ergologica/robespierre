@@ -116,6 +116,13 @@ export function tokenDeltas(tx: Tx, addr: string): TokenDelta[] {
 const PROTO_LABEL: Record<string, string> = {
   'spectrum-n2t': 'Spectrum', sigmausd: 'SigmaUSD', 'rosen-in': 'Rosen Bridge', 'rosen-out': 'Rosen Bridge',
 }
+/** Il tag del protocollo in una riga dei movimenti. Mining e oracoli hanno un nome per lingua,
+ *  quindi si leggono da L al momento (la lingua può cambiare senza ricaricare la pagina). */
+function protoLabel(kind: string): string | undefined {
+  if (kind.startsWith('mining-')) return L.tag_mining
+  if (kind.startsWith('oracle-')) return L.tag_oracle
+  return PROTO_LABEL[kind]
+}
 
 /** La controparte "protagonista": il maggiore box dell'altro lato, fee esclusa. */
 function counterparty(tx: Tx, addr: string, incoming: boolean): string | null {
@@ -149,7 +156,7 @@ export async function addressView(addr: string, offset = 0): Promise<string> {
     const dom = !ergVisible && deltas.length ? deltas[0]! : null
     const incoming = dom ? dom.delta > 0n : net > 0n
     const d = decode(tx)
-    const proto = d ? PROTO_LABEL[d.kind] : undefined
+    const proto = d ? protoLabel(d.kind) : undefined
 
     // movimento: per i protocolli riconosciuti il tag batte l'indirizzo del contratto
     const isSwap = d?.kind === 'spectrum-n2t'
@@ -402,7 +409,7 @@ export async function exportAddressCsv(addr: string): Promise<void> {
       const dom = (net < 5_000_000n && net > -5_000_000n) && deltas.length ? deltas[0]! : null
       const dirIn = dom ? dom.delta > 0n : net > 0n
       const d = decode(tx)
-      const proto = d ? PROTO_LABEL[d.kind] : undefined
+      const proto = d ? protoLabel(d.kind) : undefined
       const cp = counterparty(tx, addr, dirIn)
       const iso = new Date(tx.timestamp).toISOString()
       return {

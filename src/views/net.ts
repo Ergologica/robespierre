@@ -1,4 +1,4 @@
-import { api, mempoolFull, networkStats } from '../api/explorer'
+import { api, mempoolFull, networkStats, coverageSummary } from '../api/explorer'
 import { esc } from './html'
 import { groupThousands, relativeTime, isoUtc, shortId, formatErg, formatPct } from '../lib/format'
 import { meter } from '../charts'
@@ -21,9 +21,25 @@ export function mountNetCharts(supplyNano: bigint): void {
   })
 }
 
+/** Quanto spiega il decodificatore: due numeri, con la misura dichiarata. Senza dati, niente scheda. */
+function coverageCard(c: import('../api/explorer').CoverageSummary): string {
+  const s = c.summary
+  const pct = (a: number, b: number) => formatPct(100 * a / b, 1) + '%'
+  return `<div class="card">
+    <div class="card-head"><h2>${L.cov_h}</h2><p>${L.cov_p}</p></div>
+    <div class="tiles">
+      <div><div class="k">${L.cov_all}</div><div class="v">${pct(s.recognized, s.total)}</div>
+        <div class="s">${esc(L.cov_all_s(groupThousands(String(s.recognized)), groupThousands(String(s.total))))}</div></div>
+      <div><div class="k">${L.cov_rest}</div><div class="v">${pct(s.restRecognized, s.rest)}</div>
+        <div class="s">${esc(L.cov_rest_s(groupThousands(String(s.restRecognized)), groupThousands(String(s.rest))))}</div></div>
+    </div>
+    <div class="note">${esc(L.cov_note(groupThousands(String(c.blocks.from)), groupThousands(String(c.blocks.to)), c.measuredAt.slice(0, 10)))}</div>
+  </div>`
+}
+
 export async function netView(): Promise<string> {
-  const [info, blocks, stats, memp] = await Promise.all([
-    api.info(), api.blocks(8), networkStats(), mempoolFull(8),
+  const [info, blocks, stats, memp, cov] = await Promise.all([
+    api.info(), api.blocks(8), networkStats(), mempoolFull(8), coverageSummary(),
   ])
   const rows = blocks.items.map((b, i) => {
     const next = blocks.items[i + 1]
@@ -68,6 +84,7 @@ export async function netView(): Promise<string> {
         <div class="s">${L.mempool_s}</div></div>
     </div>
   </div>
+  ${cov ? coverageCard(cov) : ''}
   <div class="card">
     <div class="card-head"><h2>${L.supply}</h2><p>${L.supply_p}</p></div>
     <div class="chart-wrap" data-supply></div>
