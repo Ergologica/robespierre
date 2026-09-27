@@ -1,0 +1,138 @@
+{
+ "id": "dbc51c4a95a5ef2496455cc5e39470ea3a081ae144ada66320b391b4cd36b965",
+ "blockId": "ba65d794f7633ed17242d6f444098d40d7b6878a05d1b53311d8c6cdb785c374",
+ "inclusionHeight": 1881399,
+ "timestamp": 1790406647857,
+ "index": 1,
+ "globalIndex": 326806,
+ "numConfirmations": 814,
+ "inputs": [
+  {
+   "boxId": "9069047e50c50f788b8555d1b40d7a09abda8147a92af8874b9d604cf70af2c7",
+   "value": 7403250000,
+   "index": 0,
+   "outputBlockId": "c6116b069c6ea71305a163bb6835edd67c437ec77fb35bc1cdd8160a769b34f4",
+   "outputTransactionId": "7d3dc5570f4e830615c6026769ddcb2e2ca64500210c99fef03f3d0e39bcbf1b",
+   "outputIndex": 0,
+   "outputGlobalIndex": 1282888,
+   "outputCreatedAt": 1881394,
+   "outputSettledAt": 1881395,
+   "ergoTree": "100904000580ade204040c0e2077dffd47b690caa52fe13345aaf64ecdf7d55f2e7e3496e8206311f491aa46cd04080404040004000e20d332043f73cfc772ee5e263e739d3b5cf7480431b0c86fc2bbb2c0b0865b2443d806d601b2a5730000d602c67201060ed603e4c6a70504d604c1a7d6059272047301d6069aa37302d1ec95e67202d801d607ed93e47202cbc2a793cbc272017303ecededededededed8fa3720391a39972037304720593db63087201db6308a792c17201720493e4c672010405e4c6a7040593e4c67201050472037207ededededededededed92a37203720593db63087201db6308a792c17201720493db63087201db6308a792c17201720493e4c672010405e4c6a7040592e4c672010504720690e4c6720105049a720673057207edededed93c27201c2a793db63087201db6308a791c17201720493e4c672010405e4c6a7040593e4c6720105047203938cb2db6308b2a4730600730700017308",
+   "address": "EfS5abyDe4vKFrJ48K5HnwTqa1ksn238bWFPe84bzVvCGvK1h2B7sgWLETtQuWwzVdBaoRZ1Hcz1i9w5sa4bkSPJMrkFSmcpLeKUEseNYQn3x57xGttnWFjXkLsyE7EDQuga6ic28tMpPrVokJ2d8ZHQhjddRgwxMfhcwvVtoTqjLbDc3YKJLAetd2DcaCWJB6XzHCM8ezDFpCWVVrFeu4SYGSoGJbgPDRvEAcJEN4qu1RwsmZ1MzBfWF2jBJLagWqu2GvevuDG5oTtJrkqwCHRaAshfoM2mQnjLBsajjPN426t3aRZVJVRHm8apmZstnh92kYBVMujvLA1BkR2tqTfYLtmX6ChFSMXSYejkkCQoLdog59iD66oEzAZtg9ZowqDCjfT8G8YLVpEkVd23QH2LhFtEie3R4etCuvzCSyC4UmMmLbvrnUg4LfuP6xv6jckLGH8HkNWeTuuqf2UmVCQfhMMndBciTXF2KfrPCrzmDXw",
+   "assets": [
+    {
+     "tokenId": "011d3364de07e5a26f0c4eef0852cddb387039a921b7154ef3cab22c6eda887f",
+     "index": 0,
+     "amount": 1,
+     "name": "ERGUSD-NFT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "0590d3afa616",
+     "sigmaType": "SLong",
+     "renderedValue": "2993026248"
+    },
+    "R5": {
+     "serializedValue": "04f0d4e501",
+     "sigmaType": "SInt",
+     "renderedValue": "1881400"
+    }
+   }
+  },
+  {
+   "boxId": "de14854ac1371e28914124d21447475f1051c6b32b8172eb1bfc1c0d11055d81",
+   "value": 3562500000,
+   "index": 1,
+   "outputBlockId": "13502de973722dd14165736599231b4990c3e29bbed1c868b9502d1b3d437fe5",
+   "outputTransactionId": "f95aa564fedfc49e752077a9ca419c17e16abe1b87d9f2c147e88d1e43bd3c67",
+   "outputIndex": 2,
+   "outputGlobalIndex": 1282348,
+   "outputCreatedAt": 1881372,
+   "outputSettledAt": 1881374,
+   "ergoTree": "0008cd02c1d434dac8765fc1269af82958d8aa350da53907096b35f7747cc372a7e6e69d",
+   "address": "9fzRcctiWfzoJyqGtPWqoXPuxSmFw6zpnjtsQ1B6jSN514XqH4q",
+   "assets": [],
+   "additionalRegisters": {}
+  }
+ ],
+ "dataInputs": [],
+ "outputs": [
+  {
+   "boxId": "2585f8e71b0254c5c6c597fbc9acec40a85faa8ae65d5b9c259a398b735be915",
+   "transactionId": "dbc51c4a95a5ef2496455cc5e39470ea3a081ae144ada66320b391b4cd36b965",
+   "blockId": "ba65d794f7633ed17242d6f444098d40d7b6878a05d1b53311d8c6cdb785c374",
+   "value": 7403250000,
+   "index": 0,
+   "globalIndex": 1283003,
+   "creationHeight": 1881397,
+   "settlementHeight": 1881399,
+   "ergoTree": "1014040004000e208c27dd9d8a35aac1e3167d58858c0a8b4059b277da790552e37eba22df9b903504000400040204020101040205a0c21e040204080500040c040204a0c21e0402050a05c8010402d806d601b2a5730000d602b5db6501fed9010263ed93e4c67202050ec5a7938cb2db63087202730100017302d603b17202d604e4c6b272027303000605d605d90105049590720573047204e4c6b272029972057305000605d606b07202860273067307d901063c400163d803d6088c720601d6098c720801d60a8c72060286029a72097308ededed8c72080293c2b2a5720900d0cde4c6720a040792c1b2a5720900730992da720501997209730ae4c6720a0605ea02d1ededededededed93cbc27201e4c6a7060e927203730b93db63087201db6308a793e4c6720104059db07202730cd9010741639a8c720701e4c68c72070206057e72030593e4c6720105049ae4c6a70504730d92c1720199c1a77e9c9a7203730e730f058c72060292da720501998c72060173109972049d9c720473117312b2ad7202d9010763cde4c672070407e4c6b2a5731300040400",
+   "address": "NTkuk55NdwCXkF1e2nCABxq7bHjtinX3wH13zYPZ6qYT71dCoZBe1gZkh9FAr7GeHo2EpFoibzpNQmoi89atUjKRrhZEYrTapdtXrWU4kq319oY7BEWmtmRU9cMohX69XMuxJjJP5hRM8WQLfFnffbjshhEP3ck9CKVEkFRw1JDYkqVke2JVqoMED5yxLVkScbBUiJJLWq9BSbE1JJmmreNVskmWNxWE6V7ksKPxFMoqh1SVePh3UWAaBgGQRZ7TWf4dTBF5KMVHmRXzmQqEu2Fz2yeSLy23sM3pfqa78VuvoFHnTFXYFFxn3DNttxwq3EU3Zv25SmgrWjLKiZjFcEcqGgH6DJ9FZ1DfucVtTXwyDJutY3ksUBaEStRxoUQyRu4EhDobixL3PUWRcxaRJ8JKA9b64ALErGepRHkAoVmS8DaE6VbroskyMuhkTo7LbrzhTyJbqKurEzoEfhYxus7bMpLTePgKcktgRRyB7MjVxjSpxWzZedvzbjzZaHLZLkWZESk1WtdM25My33wtVLNXiTvficEUbjA23sNd24pv1YQ72nY1aqUHa2",
+   "assets": [
+    {
+     "tokenId": "011d3364de07e5a26f0c4eef0852cddb387039a921b7154ef3cab22c6eda887f",
+     "index": 0,
+     "amount": 1,
+     "name": "ERGUSD-NFT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "0590d3afa616",
+     "sigmaType": "SLong",
+     "renderedValue": "2993026248"
+    },
+    "R5": {
+     "serializedValue": "04f0d4e501",
+     "sigmaType": "SInt",
+     "renderedValue": "1881400"
+    },
+    "R6": {
+     "serializedValue": "0e206bc478bd3202f2dc05836788513d1f6bf20f48b94efd9cabb7f7c8e38ea82527",
+     "sigmaType": "Coll[SByte]",
+     "renderedValue": "6bc478bd3202f2dc05836788513d1f6bf20f48b94efd9cabb7f7c8e38ea82527"
+    }
+   },
+   "spentTransactionId": "77b67c271cdef6ba0b753e276311a1f463f11531104eaaf02a6d98fcbf25bace",
+   "mainChain": true
+  },
+  {
+   "boxId": "5b414e724780dde79d78d820c96a2884563789447d6f791a433c5ab7712fbf29",
+   "transactionId": "dbc51c4a95a5ef2496455cc5e39470ea3a081ae144ada66320b391b4cd36b965",
+   "blockId": "ba65d794f7633ed17242d6f444098d40d7b6878a05d1b53311d8c6cdb785c374",
+   "value": 1500000,
+   "index": 1,
+   "globalIndex": 1283004,
+   "creationHeight": 1881397,
+   "settlementHeight": 1881399,
+   "ergoTree": "1005040004000e36100204a00b08cd0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798ea02d192a39a8cc7a701730073011001020402d19683030193a38cc7b2a57300000193c2b2a57301007473027303830108cdeeac93b1a57304",
+   "address": "2iHkR7CWvD1R4j1yZg5bkeDRQavjAaVPeTDFGGLZduHyfWMuYpmhHocX8GJoaieTx78FntzJbCBVL6rf96ocJoZdmWBL2fci7NqWgAirppPQmZ7fN9V6z13Ay6brPriBKYqLp1bT2Fk4FkFLCfdPpe",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "c42ae46f46dd950f97be58381db7d1912ceaa04a7c78875e70c47652c7084c17",
+   "mainChain": true
+  },
+  {
+   "boxId": "8501a86395a198657ae2a73f4dd34aeb4d0f884655d0fb585205e18a09e69fdc",
+   "transactionId": "dbc51c4a95a5ef2496455cc5e39470ea3a081ae144ada66320b391b4cd36b965",
+   "blockId": "ba65d794f7633ed17242d6f444098d40d7b6878a05d1b53311d8c6cdb785c374",
+   "value": 3561000000,
+   "index": 2,
+   "globalIndex": 1283005,
+   "creationHeight": 1881397,
+   "settlementHeight": 1881399,
+   "ergoTree": "0008cd02c1d434dac8765fc1269af82958d8aa350da53907096b35f7747cc372a7e6e69d",
+   "address": "9fzRcctiWfzoJyqGtPWqoXPuxSmFw6zpnjtsQ1B6jSN514XqH4q",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "9c1585482721be6c8c7f90895a77149bde6635259bc1b723674e7b380d2abd1d",
+   "mainChain": true
+  }
+ ],
+ "size": 789
+}

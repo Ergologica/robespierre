@@ -1,0 +1,247 @@
+{
+ "id": "cae78db59c70ec24a75cdd0b96a8ec6d9779300261d8dfa65de59f8cd0cb567b",
+ "blockId": "031e4689477ee78216d66f5853fd3de82732d81cae67373cb5b7a4f75a3e2edb",
+ "inclusionHeight": 1881370,
+ "timestamp": 1790403659231,
+ "index": 2,
+ "globalIndex": 326595,
+ "numConfirmations": 843,
+ "inputs": [
+  {
+   "boxId": "53ce1f5c84b1bbc2a972b74201d8bf51df23af4fbef0fc18fcf1f37ef0d31ce3",
+   "value": 10000000,
+   "index": 0,
+   "outputBlockId": "a6590ceb2de40dd6ff0d7b9a855508bda175c0da6c0b386eb0589cc540d26427",
+   "outputTransactionId": "2c0c35d5755a7f22e3999a250f46787ce091328d75a86414b1a9ba5e1f4f8465",
+   "outputIndex": 9,
+   "outputGlobalIndex": 1282139,
+   "outputCreatedAt": 1881362,
+   "outputSettledAt": 1881363,
+   "ergoTree": "100a040004000580dac409040004000e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660402040204020402d804d601b2a5e4e3000400d602db63087201d603db6308a7d604e4c6a70407ea02d1ededed93b27202730000b2720373010093c27201c2a7e6c67201040792c172017302eb02cd7204d1ededededed938cb2db6308b2a4730300730400017305938cb27202730600018cb2720373070001918cb27202730800028cb272037309000293e4c672010407720492c17201c1a7efe6c672010561",
+   "address": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+   "assets": [
+    {
+     "tokenId": "74fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a78",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool oracle token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 4594,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "070327d0de042360309ab3cb6be07b30364d128a6ef93a71627c9d88e37e16e4231c",
+     "sigmaType": "SGroupElement",
+     "renderedValue": "0327d0de042360309ab3cb6be07b30364d128a6ef93a71627c9d88e37e16e4231c"
+    }
+   }
+  },
+  {
+   "boxId": "e7b37608f7383d8845d15063105657a6de4770cce76797d77256c4c33706bc76",
+   "value": 805150000,
+   "index": 1,
+   "outputBlockId": "1d3e741d13c6ca9dc81e471574b700a9d9d59ffef58a744b51c16b04ade6c7db",
+   "outputTransactionId": "e5347fbd3f5c7d91e4b468dfa8e9afebcecd34f852baa63e66f89edb893276c9",
+   "outputIndex": 1,
+   "outputGlobalIndex": 1281942,
+   "outputCreatedAt": 1881352,
+   "outputSettledAt": 1881355,
+   "ergoTree": "0008cd0327d0de042360309ab3cb6be07b30364d128a6ef93a71627c9d88e37e16e4231c",
+   "address": "9gmLjaHbzXeWEgQFuU9dyMgnBLCXRSuNBrfetw1tfc2THueZ7rW",
+   "assets": [
+    {
+     "tokenId": "028ec31acacaa6aab6cd89a16cab5f9046cfea701262f8c9532ace433075353a",
+     "index": 0,
+     "amount": 31034,
+     "name": "ClaimRSN.tech",
+     "decimals": 1,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1c60b65b0f8627aca466a93e3095724b0cf7e04a63265bd8ed04780b0b374595",
+     "index": 1,
+     "amount": 150000,
+     "name": "GETERGO.ORG",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "e1d7fcb9c033970d8485c200efc9febbb17244639c17c57a4c14b76bbd559183",
+     "index": 2,
+     "amount": 1,
+     "name": "USD Pool ballot token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 3,
+     "amount": 1,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "31ac0f72b036502a17e27ff3bc9eb1b3ae4eef9aa4a3c3bd818475d6326cbd9f",
+     "index": 4,
+     "amount": 3102,
+     "name": "ClaimRSN.tech",
+     "decimals": 1,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ed2197ebb2b958670cb568aeed54693617a3f3718d16d1a298b8c8d337193da0",
+     "index": 5,
+     "amount": 6105,
+     "name": "ClaimRSN.tech",
+     "decimals": 1,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  }
+ ],
+ "dataInputs": [],
+ "outputs": [
+  {
+   "boxId": "1d0cec248a181eb8e10ebfb8b2fb6abd874ee3004057498e66bbce46b8a26d7a",
+   "transactionId": "cae78db59c70ec24a75cdd0b96a8ec6d9779300261d8dfa65de59f8cd0cb567b",
+   "blockId": "031e4689477ee78216d66f5853fd3de82732d81cae67373cb5b7a4f75a3e2edb",
+   "value": 10000000,
+   "index": 0,
+   "globalIndex": 1282261,
+   "creationHeight": 1881366,
+   "settlementHeight": 1881370,
+   "ergoTree": "100a040004000580dac409040004000e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660402040204020402d804d601b2a5e4e3000400d602db63087201d603db6308a7d604e4c6a70407ea02d1ededed93b27202730000b2720373010093c27201c2a7e6c67201040792c172017302eb02cd7204d1ededededed938cb2db6308b2a4730300730400017305938cb27202730600018cb2720373070001918cb27202730800028cb272037309000293e4c672010407720492c17201c1a7efe6c672010561",
+   "address": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+   "assets": [
+    {
+     "tokenId": "74fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a78",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool oracle token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 4594,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "070327d0de042360309ab3cb6be07b30364d128a6ef93a71627c9d88e37e16e4231c",
+     "sigmaType": "SGroupElement",
+     "renderedValue": "0327d0de042360309ab3cb6be07b30364d128a6ef93a71627c9d88e37e16e4231c"
+    },
+    "R5": {
+     "serializedValue": "04d6d303",
+     "sigmaType": "SInt",
+     "renderedValue": "29931"
+    },
+    "R6": {
+     "serializedValue": "05ce89e8aa16",
+     "sigmaType": "SLong",
+     "renderedValue": "2997682791"
+    }
+   },
+   "spentTransactionId": "1389bc53200ede04b6d5342771115552814eb4c6bde47ae4db8cba847eb6f202",
+   "mainChain": true
+  },
+  {
+   "boxId": "1371593debdc0e1340e6fb4f34b1a9156b5af4790b3bb244001f8138be1a68cf",
+   "transactionId": "cae78db59c70ec24a75cdd0b96a8ec6d9779300261d8dfa65de59f8cd0cb567b",
+   "blockId": "031e4689477ee78216d66f5853fd3de82732d81cae67373cb5b7a4f75a3e2edb",
+   "value": 803650000,
+   "index": 1,
+   "globalIndex": 1282262,
+   "creationHeight": 1881366,
+   "settlementHeight": 1881370,
+   "ergoTree": "0008cd0327d0de042360309ab3cb6be07b30364d128a6ef93a71627c9d88e37e16e4231c",
+   "address": "9gmLjaHbzXeWEgQFuU9dyMgnBLCXRSuNBrfetw1tfc2THueZ7rW",
+   "assets": [
+    {
+     "tokenId": "ed2197ebb2b958670cb568aeed54693617a3f3718d16d1a298b8c8d337193da0",
+     "index": 0,
+     "amount": 6105,
+     "name": "ClaimRSN.tech",
+     "decimals": 1,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "028ec31acacaa6aab6cd89a16cab5f9046cfea701262f8c9532ace433075353a",
+     "index": 1,
+     "amount": 31034,
+     "name": "ClaimRSN.tech",
+     "decimals": 1,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "e1d7fcb9c033970d8485c200efc9febbb17244639c17c57a4c14b76bbd559183",
+     "index": 2,
+     "amount": 1,
+     "name": "USD Pool ballot token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 3,
+     "amount": 1,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "1c60b65b0f8627aca466a93e3095724b0cf7e04a63265bd8ed04780b0b374595",
+     "index": 4,
+     "amount": 150000,
+     "name": "GETERGO.ORG",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "31ac0f72b036502a17e27ff3bc9eb1b3ae4eef9aa4a3c3bd818475d6326cbd9f",
+     "index": 5,
+     "amount": 3102,
+     "name": "ClaimRSN.tech",
+     "decimals": 1,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {},
+   "spentTransactionId": "00097fd68adad127bff9228d7c38fbc27c056bd80ebb4568a91a0cf1961b7236",
+   "mainChain": true
+  },
+  {
+   "boxId": "333bfee4acb399cf455f687c76157bc912c46a7bb247f7d27b71b9d1c8992df9",
+   "transactionId": "cae78db59c70ec24a75cdd0b96a8ec6d9779300261d8dfa65de59f8cd0cb567b",
+   "blockId": "031e4689477ee78216d66f5853fd3de82732d81cae67373cb5b7a4f75a3e2edb",
+   "value": 1500000,
+   "index": 2,
+   "globalIndex": 1282263,
+   "creationHeight": 1881366,
+   "settlementHeight": 1881370,
+   "ergoTree": "1005040004000e36100204a00b08cd0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798ea02d192a39a8cc7a701730073011001020402d19683030193a38cc7b2a57300000193c2b2a57301007473027303830108cdeeac93b1a57304",
+   "address": "2iHkR7CWvD1R4j1yZg5bkeDRQavjAaVPeTDFGGLZduHyfWMuYpmhHocX8GJoaieTx78FntzJbCBVL6rf96ocJoZdmWBL2fci7NqWgAirppPQmZ7fN9V6z13Ay6brPriBKYqLp1bT2Fk4FkFLCfdPpe",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "3ffa68b1d60050fd15c49f37d29e8b4282a24cdcccab1d7f35716f17ea204425",
+   "mainChain": true
+  }
+ ],
+ "size": 855
+}

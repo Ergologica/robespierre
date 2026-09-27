@@ -1,0 +1,863 @@
+{
+ "id": "b3bf93d2d4ce8e095f76c9aae209e5812845f6c0b3b83002e62d8d0bc0df6011",
+ "blockId": "d9eb527773bc19e5ccef7acd7c77cd2fcf65e3a03bf803ca17812cd6a76218e4",
+ "inclusionHeight": 1881702,
+ "timestamp": 1790444876657,
+ "index": 8,
+ "globalIndex": 328871,
+ "numConfirmations": 511,
+ "inputs": [
+  {
+   "boxId": "03011a37e32e6eebdbdeb690b392cb6fddc8af347efff56c40fc861aee4fba5d",
+   "value": 10000000,
+   "index": 0,
+   "outputBlockId": "1424b4a4f03ee20edd94b76726cfbfc8e6bc874a2aff0ad70a6cc49960943f86",
+   "outputTransactionId": "ee982018452fac587b3036e5e6db28a50d44142ef5229e85fa4630eafc97a38b",
+   "outputIndex": 0,
+   "outputGlobalIndex": 1290011,
+   "outputCreatedAt": 1881692,
+   "outputSettledAt": 1881695,
+   "ergoTree": "1004040204000e2019b7f2e2f11052c020800c8b620660f9f0b5fd5b3f2beacc8b44af960477a6940e2030e273698c85bbe66319904c499bfefbd76f51487688d674b20623715ff0741bd801d6018cb2db6308b2a473000073010001d1ec93720173029372017303",
+   "address": "PViBL5acX6Pm6nD3FJQ3fZXESZTq8imJ47LJLMWtrhqm2nP5cVwMfXoHoqhnfvxUUKenebtEbLwZFTWPFRXJNsqLYDNWMtYAbvmqWgxCCPeH1fECQYtdZksCMwJrcmpLtNgfeADVEnmcUCPeTee8",
+   "assets": [
+    {
+     "tokenId": "6a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c66",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool NFT",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 249145906,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "05dee7cdd316",
+     "sigmaType": "SLong",
+     "renderedValue": "3040459247"
+    },
+    "R5": {
+     "serializedValue": "04b8d403",
+     "sigmaType": "SInt",
+     "renderedValue": "29980"
+    }
+   }
+  },
+  {
+   "boxId": "b3b8c6fd4d7f30ee3b5e8f78e9ca24a31412c821a5935a7641bb3845deeb0b51",
+   "value": 10000000,
+   "index": 1,
+   "outputBlockId": "1424b4a4f03ee20edd94b76726cfbfc8e6bc874a2aff0ad70a6cc49960943f86",
+   "outputTransactionId": "ee982018452fac587b3036e5e6db28a50d44142ef5229e85fa4630eafc97a38b",
+   "outputIndex": 1,
+   "outputGlobalIndex": 1290012,
+   "outputCreatedAt": 1881692,
+   "outputSettledAt": 1881695,
+   "ergoTree": "1016040c040004000e2074fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a7801000502010105000400040004020402040204100400040a05c8010e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660400040404020408d80ed60199a37300d602b2a4730100d603b5a4d901036395e6c672030605eded928cc77203017201938cb2db6308720373020001730393e4c672030504e4c6720205047304d604b17203d605b0720386027305860273067307d901053c413d0563d803d607e4c68c7205020605d6088c720501d6098c720802860272078602ed8c720901908c72080172079a8c7209027207d6068c720502d6078c720501d608db63087202d609b27208730800d60ab2a5730900d60bdb6308720ad60cb2720b730a00d60db27208730b00d60eb2a5730c00ea02ea02ea02ea02ea02ea02ea02ea02ea02ea02ea02ea02ea02ea02ea02ea02ea02cde4c6b27203e4e30004000407d18f8cc77202017201d1927204730dd18c720601d190997207e4c6b27203730e0006059d9c72077e730f057310d1938c7209017311d193b2720b7312007209d1938c720c018c720d01d1928c720c02998c720d027e9c7204731305d193b1720bb17208d193e4c6720a04059d8c7206027e720405d193e4c6720a05049ae4c6720205047314d193c2720ac27202d192c1720ac17202d1928cc7720a0199a37315d193db6308720edb6308a7d193c2720ec2a7d192c1720ec1a7",
+   "address": "oq3jULmmMxxmwrZ8cxcPUgHKvuyppYFNhhBZrQw3G6ws7CkstXE1EWWe8ykrfspHvqufzzvSkiDsu9SrkuydTwDoApLtr8F36fazW1uX85kBuDMqXJNjG88Gn1aDqKqVstY4b2qzNWqo6cvzWqk8jo5HUhvcDNktpzXzzeFcAmX2YUGnGT615byL1spZ4u2dstoGTRcPuuaXxbneNGPtMz7teZaZUsKS89i2LPeFwURwBiDKQHaFvq1HvbXfYcXc48NKTx6KQGb5zjbh84edfLnACxRZF16p1cSvwLpRVVSQySwBfzhgsu6Hn7B82Wn1sKLht7zZXMcsXuMxQEe8BkQ9L3xuQD9t5xGi6dSEuWNgD5hS4C6Md2RUwr2e88EY1avtxrYWiyAzJVj7jjx3jZonDNtHe8nVFh4soMYbNNd4GVMRnALSKtZVPDpERLXKduEUFEtPHpGG5sc16BQVAwH1u2y5YikBbh3NUUAsABxB8qVjzMW7V4bYDVuhdeCYpAPvQhHRXFQuCkqKCPoicQFucS7ez4zQsDwr6Me6snkP1DFd1fFkg8GvvuuqeUtufVyZ3jdKhf1b2ehKg5oQTguWyHeubPjs52b55hbBHhNJwoc582JPcTASXHkUviUg1Hgpq7E7oCaGFWEGq2vvCJRH6wjNVTTDxSdCvYznzecXjZcbYLWWvF7sZJbUjmatejxXidb6o9m58t8JR1EcYbqRzpeGapHip9uWjmNcmnRzynhXSAzMLg9cP",
+   "assets": [
+    {
+     "tokenId": "19b7f2e2f11052c020800c8b620660f9f0b5fd5b3f2beacc8b44af960477a694",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool refresh NFT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  },
+  {
+   "boxId": "6ce3a1668084f07f909c3ee07df42f036edffdd569b801fa1b825280dd8d33ea",
+   "value": 10000000,
+   "index": 2,
+   "outputBlockId": "ae60d40e3279b78719471a1a71217ad8a1680da552cd7ccd1610754db3dcd202",
+   "outputTransactionId": "d560b97c64cc35e9b4f02fa98168f7eafcc4dc31016bfd3f8cd57e05063ce1fd",
+   "outputIndex": 0,
+   "outputGlobalIndex": 1290053,
+   "outputCreatedAt": 1881696,
+   "outputSettledAt": 1881700,
+   "ergoTree": "100a040004000580dac409040004000e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660402040204020402d804d601b2a5e4e3000400d602db63087201d603db6308a7d604e4c6a70407ea02d1ededed93b27202730000b2720373010093c27201c2a7e6c67201040792c172017302eb02cd7204d1ededededed938cb2db6308b2a4730300730400017305938cb27202730600018cb2720373070001918cb27202730800028cb272037309000293e4c672010407720492c17201c1a7efe6c672010561",
+   "address": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+   "assets": [
+    {
+     "tokenId": "74fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a78",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool oracle token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 5804,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "07039f765f0644d3b8a758c5e5689fef44db84b21ea49d716d7b12685577c6e086c3",
+     "sigmaType": "SGroupElement",
+     "renderedValue": "039f765f0644d3b8a758c5e5689fef44db84b21ea49d716d7b12685577c6e086c3"
+    },
+    "R5": {
+     "serializedValue": "04b8d403",
+     "sigmaType": "SInt",
+     "renderedValue": "29980"
+    },
+    "R6": {
+     "serializedValue": "0592adcdda16",
+     "sigmaType": "SLong",
+     "renderedValue": "3047795529"
+    }
+   }
+  },
+  {
+   "boxId": "6910e73605d0fb2edaf8ce626e6d3e5dc3caa8750b4dcb9c415b038dbc78acfb",
+   "value": 13000000,
+   "index": 3,
+   "outputBlockId": "ae60d40e3279b78719471a1a71217ad8a1680da552cd7ccd1610754db3dcd202",
+   "outputTransactionId": "da18443020847423b92c2cdeed861a29f285611fa0bbc6e84701bc3bdd4b5995",
+   "outputIndex": 0,
+   "outputGlobalIndex": 1290072,
+   "outputCreatedAt": 1881696,
+   "outputSettledAt": 1881700,
+   "ergoTree": "100a040004000580dac409040004000e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660402040204020402d804d601b2a5e4e3000400d602db63087201d603db6308a7d604e4c6a70407ea02d1ededed93b27202730000b2720373010093c27201c2a7e6c67201040792c172017302eb02cd7204d1ededededed938cb2db6308b2a4730300730400017305938cb27202730600018cb2720373070001918cb27202730800028cb272037309000293e4c672010407720492c17201c1a7efe6c672010561",
+   "address": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+   "assets": [
+    {
+     "tokenId": "74fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a78",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool oracle token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 10843,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "0702afe418c057a023b10079d17237eabb8abf0b6c139f287eee1aee4e30fac51a6a",
+     "sigmaType": "SGroupElement",
+     "renderedValue": "02afe418c057a023b10079d17237eabb8abf0b6c139f287eee1aee4e30fac51a6a"
+    },
+    "R5": {
+     "serializedValue": "04b8d403",
+     "sigmaType": "SInt",
+     "renderedValue": "29980"
+    },
+    "R6": {
+     "serializedValue": "0592adcdda16",
+     "sigmaType": "SLong",
+     "renderedValue": "3047795529"
+    }
+   }
+  },
+  {
+   "boxId": "b21297ab54e648442f67f091b830493e0937491a9e0ecc82a2f0aa8a33b377b1",
+   "value": 10000000,
+   "index": 4,
+   "outputBlockId": "ae60d40e3279b78719471a1a71217ad8a1680da552cd7ccd1610754db3dcd202",
+   "outputTransactionId": "dafcf349a4f0192a01f49444aae10ec7868324bd9ea909f506773a48cbcc2e67",
+   "outputIndex": 0,
+   "outputGlobalIndex": 1290067,
+   "outputCreatedAt": 1881696,
+   "outputSettledAt": 1881700,
+   "ergoTree": "100a040004000580dac409040004000e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660402040204020402d804d601b2a5e4e3000400d602db63087201d603db6308a7d604e4c6a70407ea02d1ededed93b27202730000b2720373010093c27201c2a7e6c67201040792c172017302eb02cd7204d1ededededed938cb2db6308b2a4730300730400017305938cb27202730600018cb2720373070001918cb27202730800028cb272037309000293e4c672010407720492c17201c1a7efe6c672010561",
+   "address": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+   "assets": [
+    {
+     "tokenId": "74fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a78",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool oracle token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 4643,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "070327d0de042360309ab3cb6be07b30364d128a6ef93a71627c9d88e37e16e4231c",
+     "sigmaType": "SGroupElement",
+     "renderedValue": "0327d0de042360309ab3cb6be07b30364d128a6ef93a71627c9d88e37e16e4231c"
+    },
+    "R5": {
+     "serializedValue": "04b8d403",
+     "sigmaType": "SInt",
+     "renderedValue": "29980"
+    },
+    "R6": {
+     "serializedValue": "05cad0e7db16",
+     "sigmaType": "SLong",
+     "renderedValue": "3049059365"
+    }
+   }
+  },
+  {
+   "boxId": "b2ea62a752c3050ec1cdb8a890343ea2bff6497329112c09bf90b4e76c6193ac",
+   "value": 10000000,
+   "index": 5,
+   "outputBlockId": "ae60d40e3279b78719471a1a71217ad8a1680da552cd7ccd1610754db3dcd202",
+   "outputTransactionId": "8f3df7b5f087f3fe851fe8a8af8ffb363e20ffb21181f900a0b5e50a784eaccc",
+   "outputIndex": 0,
+   "outputGlobalIndex": 1290062,
+   "outputCreatedAt": 1881696,
+   "outputSettledAt": 1881700,
+   "ergoTree": "100a040004000580dac409040004000e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660402040204020402d804d601b2a5e4e3000400d602db63087201d603db6308a7d604e4c6a70407ea02d1ededed93b27202730000b2720373010093c27201c2a7e6c67201040792c172017302eb02cd7204d1ededededed938cb2db6308b2a4730300730400017305938cb27202730600018cb2720373070001918cb27202730800028cb272037309000293e4c672010407720492c17201c1a7efe6c672010561",
+   "address": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+   "assets": [
+    {
+     "tokenId": "74fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a78",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool oracle token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 5535,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "07033a8238d69857709e47016aa51b06d0c95d67b8855c23e24c0d8fb26667424e76",
+     "sigmaType": "SGroupElement",
+     "renderedValue": "033a8238d69857709e47016aa51b06d0c95d67b8855c23e24c0d8fb26667424e76"
+    },
+    "R5": {
+     "serializedValue": "04b8d403",
+     "sigmaType": "SInt",
+     "renderedValue": "29980"
+    },
+    "R6": {
+     "serializedValue": "05cad0e7db16",
+     "sigmaType": "SLong",
+     "renderedValue": "3049059365"
+    }
+   }
+  },
+  {
+   "boxId": "9f6b96cd40e79230188a51420131cf7ff19f2108254f232f0a7f4edb14ee4f92",
+   "value": 10000000,
+   "index": 6,
+   "outputBlockId": "d9eb527773bc19e5ccef7acd7c77cd2fcf65e3a03bf803ca17812cd6a76218e4",
+   "outputTransactionId": "a2904579267f083e28c2933fa5c3cbaa53fc154970dbd5a16d539c81a39e9465",
+   "outputIndex": 0,
+   "outputGlobalIndex": 1290105,
+   "outputCreatedAt": 1881696,
+   "outputSettledAt": 1881702,
+   "ergoTree": "100a040004000580dac409040004000e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660402040204020402d804d601b2a5e4e3000400d602db63087201d603db6308a7d604e4c6a70407ea02d1ededed93b27202730000b2720373010093c27201c2a7e6c67201040792c172017302eb02cd7204d1ededededed938cb2db6308b2a4730300730400017305938cb27202730600018cb2720373070001918cb27202730800028cb272037309000293e4c672010407720492c17201c1a7efe6c672010561",
+   "address": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+   "assets": [
+    {
+     "tokenId": "74fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a78",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool oracle token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 268,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "0702a5c514bd912d91afeef58496b799d490e3281ace838fb9ce9dad71f29c478552",
+     "sigmaType": "SGroupElement",
+     "renderedValue": "02a5c514bd912d91afeef58496b799d490e3281ace838fb9ce9dad71f29c478552"
+    },
+    "R5": {
+     "serializedValue": "04b8d403",
+     "sigmaType": "SInt",
+     "renderedValue": "29980"
+    },
+    "R6": {
+     "serializedValue": "05bec1a5de16",
+     "sigmaType": "SLong",
+     "renderedValue": "3051663455"
+    }
+   }
+  },
+  {
+   "boxId": "c3fa630e08b7e61bb87831b6793f3e6867decbe7c281bbc0b0c552601a69d775",
+   "value": 10000000,
+   "index": 7,
+   "outputBlockId": "ae60d40e3279b78719471a1a71217ad8a1680da552cd7ccd1610754db3dcd202",
+   "outputTransactionId": "fb9a627c997e86c40fc988468452fb8e69e17fa287b9da1f810809a7afb5425b",
+   "outputIndex": 0,
+   "outputGlobalIndex": 1290059,
+   "outputCreatedAt": 1881696,
+   "outputSettledAt": 1881700,
+   "ergoTree": "100a040004000580dac409040004000e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660402040204020402d804d601b2a5e4e3000400d602db63087201d603db6308a7d604e4c6a70407ea02d1ededed93b27202730000b2720373010093c27201c2a7e6c67201040792c172017302eb02cd7204d1ededededed938cb2db6308b2a4730300730400017305938cb27202730600018cb2720373070001918cb27202730800028cb272037309000293e4c672010407720492c17201c1a7efe6c672010561",
+   "address": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+   "assets": [
+    {
+     "tokenId": "74fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a78",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool oracle token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 349,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "0703aad1d62f62bc96e72f85d4bd2dd28d185c5af8ac145d59007dd70751f1382344",
+     "sigmaType": "SGroupElement",
+     "renderedValue": "03aad1d62f62bc96e72f85d4bd2dd28d185c5af8ac145d59007dd70751f1382344"
+    },
+    "R5": {
+     "serializedValue": "04b8d403",
+     "sigmaType": "SInt",
+     "renderedValue": "29980"
+    },
+    "R6": {
+     "serializedValue": "05e6bfabe116",
+     "sigmaType": "SLong",
+     "renderedValue": "3054858227"
+    }
+   }
+  },
+  {
+   "boxId": "bab61a04ba0eff8984c13717d471e640be85a30d31e1d41f6391501399766d7b",
+   "value": 10000000,
+   "index": 8,
+   "outputBlockId": "ae60d40e3279b78719471a1a71217ad8a1680da552cd7ccd1610754db3dcd202",
+   "outputTransactionId": "1b5f91f1295a7a68056ac730b6721511dd47b20dc08a057bfa535e891fb9554d",
+   "outputIndex": 0,
+   "outputGlobalIndex": 1290047,
+   "outputCreatedAt": 1881696,
+   "outputSettledAt": 1881700,
+   "ergoTree": "100a040004000580dac409040004000e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660402040204020402d804d601b2a5e4e3000400d602db63087201d603db6308a7d604e4c6a70407ea02d1ededed93b27202730000b2720373010093c27201c2a7e6c67201040792c172017302eb02cd7204d1ededededed938cb2db6308b2a4730300730400017305938cb27202730600018cb2720373070001918cb27202730800028cb272037309000293e4c672010407720492c17201c1a7efe6c672010561",
+   "address": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+   "assets": [
+    {
+     "tokenId": "74fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a78",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool oracle token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 16487,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "070232830080b3b42f527663236726ec0d9cb7d8433f4fbef5b37929a2a36fa82689",
+     "sigmaType": "SGroupElement",
+     "renderedValue": "0232830080b3b42f527663236726ec0d9cb7d8433f4fbef5b37929a2a36fa82689"
+    },
+    "R5": {
+     "serializedValue": "04b8d403",
+     "sigmaType": "SInt",
+     "renderedValue": "29980"
+    },
+    "R6": {
+     "serializedValue": "05e6bfabe116",
+     "sigmaType": "SLong",
+     "renderedValue": "3054858227"
+    }
+   }
+  },
+  {
+   "boxId": "88caa68e266d2353a5a6f30bfb638eecf4f1d422900110fced8bce35fc5acef2",
+   "value": 11500000,
+   "index": 9,
+   "outputBlockId": "ae60d40e3279b78719471a1a71217ad8a1680da552cd7ccd1610754db3dcd202",
+   "outputTransactionId": "94ed8b885ba8b4ce92ea1cc87e05cc6f42e875d27b7fa5a72e6bb8b666a974c2",
+   "outputIndex": 0,
+   "outputGlobalIndex": 1290050,
+   "outputCreatedAt": 1881696,
+   "outputSettledAt": 1881700,
+   "ergoTree": "100a040004000580dac409040004000e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660402040204020402d804d601b2a5e4e3000400d602db63087201d603db6308a7d604e4c6a70407ea02d1ededed93b27202730000b2720373010093c27201c2a7e6c67201040792c172017302eb02cd7204d1ededededed938cb2db6308b2a4730300730400017305938cb27202730600018cb2720373070001918cb27202730800028cb272037309000293e4c672010407720492c17201c1a7efe6c672010561",
+   "address": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+   "assets": [
+    {
+     "tokenId": "74fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a78",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool oracle token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 338,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "0703b8ba5502a30094cd35922cafe7287c7eb5d0cbdbcbc5ce6c053c7c0403a80168",
+     "sigmaType": "SGroupElement",
+     "renderedValue": "03b8ba5502a30094cd35922cafe7287c7eb5d0cbdbcbc5ce6c053c7c0403a80168"
+    },
+    "R5": {
+     "serializedValue": "04b8d403",
+     "sigmaType": "SInt",
+     "renderedValue": "29980"
+    },
+    "R6": {
+     "serializedValue": "05ced5c5e316",
+     "sigmaType": "SLong",
+     "renderedValue": "3057169767"
+    }
+   }
+  }
+ ],
+ "dataInputs": [],
+ "outputs": [
+  {
+   "boxId": "700542ff56ecd7bda321bc4cfc2d8026404ea20faa9314bdb219ec28863458e7",
+   "transactionId": "b3bf93d2d4ce8e095f76c9aae209e5812845f6c0b3b83002e62d8d0bc0df6011",
+   "blockId": "d9eb527773bc19e5ccef7acd7c77cd2fcf65e3a03bf803ca17812cd6a76218e4",
+   "value": 10000000,
+   "index": 0,
+   "globalIndex": 1290112,
+   "creationHeight": 1881700,
+   "settlementHeight": 1881702,
+   "ergoTree": "1004040204000e2019b7f2e2f11052c020800c8b620660f9f0b5fd5b3f2beacc8b44af960477a6940e2030e273698c85bbe66319904c499bfefbd76f51487688d674b20623715ff0741bd801d6018cb2db6308b2a473000073010001d1ec93720173029372017303",
+   "address": "PViBL5acX6Pm6nD3FJQ3fZXESZTq8imJ47LJLMWtrhqm2nP5cVwMfXoHoqhnfvxUUKenebtEbLwZFTWPFRXJNsqLYDNWMtYAbvmqWgxCCPeH1fECQYtdZksCMwJrcmpLtNgfeADVEnmcUCPeTee8",
+   "assets": [
+    {
+     "tokenId": "6a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c66",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool NFT",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 249145890,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "05a2c295de16",
+     "sigmaType": "SLong",
+     "renderedValue": "3051532433"
+    },
+    "R5": {
+     "serializedValue": "04bad403",
+     "sigmaType": "SInt",
+     "renderedValue": "29981"
+    }
+   },
+   "spentTransactionId": "2cf6c266e87f6f0c48a57d113465cc0f5aa3f9a69543a854761eebcb5058bb06",
+   "mainChain": true
+  },
+  {
+   "boxId": "a0ff2c617b375a06b76ce27e22c746b4be78144ee467bacbc5b28b6eed8d03c0",
+   "transactionId": "b3bf93d2d4ce8e095f76c9aae209e5812845f6c0b3b83002e62d8d0bc0df6011",
+   "blockId": "d9eb527773bc19e5ccef7acd7c77cd2fcf65e3a03bf803ca17812cd6a76218e4",
+   "value": 10000000,
+   "index": 1,
+   "globalIndex": 1290113,
+   "creationHeight": 1881700,
+   "settlementHeight": 1881702,
+   "ergoTree": "1016040c040004000e2074fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a7801000502010105000400040004020402040204100400040a05c8010e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660400040404020408d80ed60199a37300d602b2a4730100d603b5a4d901036395e6c672030605eded928cc77203017201938cb2db6308720373020001730393e4c672030504e4c6720205047304d604b17203d605b0720386027305860273067307d901053c413d0563d803d607e4c68c7205020605d6088c720501d6098c720802860272078602ed8c720901908c72080172079a8c7209027207d6068c720502d6078c720501d608db63087202d609b27208730800d60ab2a5730900d60bdb6308720ad60cb2720b730a00d60db27208730b00d60eb2a5730c00ea02ea02ea02ea02ea02ea02ea02ea02ea02ea02ea02ea02ea02ea02ea02ea02ea02cde4c6b27203e4e30004000407d18f8cc77202017201d1927204730dd18c720601d190997207e4c6b27203730e0006059d9c72077e730f057310d1938c7209017311d193b2720b7312007209d1938c720c018c720d01d1928c720c02998c720d027e9c7204731305d193b1720bb17208d193e4c6720a04059d8c7206027e720405d193e4c6720a05049ae4c6720205047314d193c2720ac27202d192c1720ac17202d1928cc7720a0199a37315d193db6308720edb6308a7d193c2720ec2a7d192c1720ec1a7",
+   "address": "oq3jULmmMxxmwrZ8cxcPUgHKvuyppYFNhhBZrQw3G6ws7CkstXE1EWWe8ykrfspHvqufzzvSkiDsu9SrkuydTwDoApLtr8F36fazW1uX85kBuDMqXJNjG88Gn1aDqKqVstY4b2qzNWqo6cvzWqk8jo5HUhvcDNktpzXzzeFcAmX2YUGnGT615byL1spZ4u2dstoGTRcPuuaXxbneNGPtMz7teZaZUsKS89i2LPeFwURwBiDKQHaFvq1HvbXfYcXc48NKTx6KQGb5zjbh84edfLnACxRZF16p1cSvwLpRVVSQySwBfzhgsu6Hn7B82Wn1sKLht7zZXMcsXuMxQEe8BkQ9L3xuQD9t5xGi6dSEuWNgD5hS4C6Md2RUwr2e88EY1avtxrYWiyAzJVj7jjx3jZonDNtHe8nVFh4soMYbNNd4GVMRnALSKtZVPDpERLXKduEUFEtPHpGG5sc16BQVAwH1u2y5YikBbh3NUUAsABxB8qVjzMW7V4bYDVuhdeCYpAPvQhHRXFQuCkqKCPoicQFucS7ez4zQsDwr6Me6snkP1DFd1fFkg8GvvuuqeUtufVyZ3jdKhf1b2ehKg5oQTguWyHeubPjs52b55hbBHhNJwoc582JPcTASXHkUviUg1Hgpq7E7oCaGFWEGq2vvCJRH6wjNVTTDxSdCvYznzecXjZcbYLWWvF7sZJbUjmatejxXidb6o9m58t8JR1EcYbqRzpeGapHip9uWjmNcmnRzynhXSAzMLg9cP",
+   "assets": [
+    {
+     "tokenId": "19b7f2e2f11052c020800c8b620660f9f0b5fd5b3f2beacc8b44af960477a694",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool refresh NFT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {},
+   "spentTransactionId": "2cf6c266e87f6f0c48a57d113465cc0f5aa3f9a69543a854761eebcb5058bb06",
+   "mainChain": true
+  },
+  {
+   "boxId": "85d3594cafed6af800e088e2f927cee267c438ace902e7ed6e663f600e02b43e",
+   "transactionId": "b3bf93d2d4ce8e095f76c9aae209e5812845f6c0b3b83002e62d8d0bc0df6011",
+   "blockId": "d9eb527773bc19e5ccef7acd7c77cd2fcf65e3a03bf803ca17812cd6a76218e4",
+   "value": 10000000,
+   "index": 2,
+   "globalIndex": 1290114,
+   "creationHeight": 1881700,
+   "settlementHeight": 1881702,
+   "ergoTree": "100a040004000580dac409040004000e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660402040204020402d804d601b2a5e4e3000400d602db63087201d603db6308a7d604e4c6a70407ea02d1ededed93b27202730000b2720373010093c27201c2a7e6c67201040792c172017302eb02cd7204d1ededededed938cb2db6308b2a4730300730400017305938cb27202730600018cb2720373070001918cb27202730800028cb272037309000293e4c672010407720492c17201c1a7efe6c672010561",
+   "address": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+   "assets": [
+    {
+     "tokenId": "74fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a78",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool oracle token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 5805,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "07039f765f0644d3b8a758c5e5689fef44db84b21ea49d716d7b12685577c6e086c3",
+     "sigmaType": "SGroupElement",
+     "renderedValue": "039f765f0644d3b8a758c5e5689fef44db84b21ea49d716d7b12685577c6e086c3"
+    }
+   },
+   "spentTransactionId": "bd2175a4617b980e701e01cdc8078b837ace37e1f31f4c4cbe211dc9b2f93f27",
+   "mainChain": true
+  },
+  {
+   "boxId": "0802c5c1735b7009805a353f55ad06eba6c54fb205a1f89d226736a7e5e6c08d",
+   "transactionId": "b3bf93d2d4ce8e095f76c9aae209e5812845f6c0b3b83002e62d8d0bc0df6011",
+   "blockId": "d9eb527773bc19e5ccef7acd7c77cd2fcf65e3a03bf803ca17812cd6a76218e4",
+   "value": 11500000,
+   "index": 3,
+   "globalIndex": 1290115,
+   "creationHeight": 1881700,
+   "settlementHeight": 1881702,
+   "ergoTree": "100a040004000580dac409040004000e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660402040204020402d804d601b2a5e4e3000400d602db63087201d603db6308a7d604e4c6a70407ea02d1ededed93b27202730000b2720373010093c27201c2a7e6c67201040792c172017302eb02cd7204d1ededededed938cb2db6308b2a4730300730400017305938cb27202730600018cb2720373070001918cb27202730800028cb272037309000293e4c672010407720492c17201c1a7efe6c672010561",
+   "address": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+   "assets": [
+    {
+     "tokenId": "74fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a78",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool oracle token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 10852,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "0702afe418c057a023b10079d17237eabb8abf0b6c139f287eee1aee4e30fac51a6a",
+     "sigmaType": "SGroupElement",
+     "renderedValue": "02afe418c057a023b10079d17237eabb8abf0b6c139f287eee1aee4e30fac51a6a"
+    }
+   },
+   "spentTransactionId": "8c81b4dd857c0adf56753f2e79f1c21f9af6763c81d86b8f866997ca117b5195",
+   "mainChain": true
+  },
+  {
+   "boxId": "67269e528e96098b58b782230d311939d9b0e9c727b36dc1feeeecdf4574a2f4",
+   "transactionId": "b3bf93d2d4ce8e095f76c9aae209e5812845f6c0b3b83002e62d8d0bc0df6011",
+   "blockId": "d9eb527773bc19e5ccef7acd7c77cd2fcf65e3a03bf803ca17812cd6a76218e4",
+   "value": 10000000,
+   "index": 4,
+   "globalIndex": 1290116,
+   "creationHeight": 1881700,
+   "settlementHeight": 1881702,
+   "ergoTree": "100a040004000580dac409040004000e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660402040204020402d804d601b2a5e4e3000400d602db63087201d603db6308a7d604e4c6a70407ea02d1ededed93b27202730000b2720373010093c27201c2a7e6c67201040792c172017302eb02cd7204d1ededededed938cb2db6308b2a4730300730400017305938cb27202730600018cb2720373070001918cb27202730800028cb272037309000293e4c672010407720492c17201c1a7efe6c672010561",
+   "address": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+   "assets": [
+    {
+     "tokenId": "74fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a78",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool oracle token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 4644,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "070327d0de042360309ab3cb6be07b30364d128a6ef93a71627c9d88e37e16e4231c",
+     "sigmaType": "SGroupElement",
+     "renderedValue": "0327d0de042360309ab3cb6be07b30364d128a6ef93a71627c9d88e37e16e4231c"
+    }
+   },
+   "spentTransactionId": "60aec8f9c91d005aa0e8218b567c20006d267fab6a835dd0ce6f4be35ad0278e",
+   "mainChain": true
+  },
+  {
+   "boxId": "f1a610c58e9ed353087d38532836d6f58cd706049a819d5d00a1dbe37b191b9f",
+   "transactionId": "b3bf93d2d4ce8e095f76c9aae209e5812845f6c0b3b83002e62d8d0bc0df6011",
+   "blockId": "d9eb527773bc19e5ccef7acd7c77cd2fcf65e3a03bf803ca17812cd6a76218e4",
+   "value": 10000000,
+   "index": 5,
+   "globalIndex": 1290117,
+   "creationHeight": 1881700,
+   "settlementHeight": 1881702,
+   "ergoTree": "100a040004000580dac409040004000e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660402040204020402d804d601b2a5e4e3000400d602db63087201d603db6308a7d604e4c6a70407ea02d1ededed93b27202730000b2720373010093c27201c2a7e6c67201040792c172017302eb02cd7204d1ededededed938cb2db6308b2a4730300730400017305938cb27202730600018cb2720373070001918cb27202730800028cb272037309000293e4c672010407720492c17201c1a7efe6c672010561",
+   "address": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+   "assets": [
+    {
+     "tokenId": "74fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a78",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool oracle token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 5536,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "07033a8238d69857709e47016aa51b06d0c95d67b8855c23e24c0d8fb26667424e76",
+     "sigmaType": "SGroupElement",
+     "renderedValue": "033a8238d69857709e47016aa51b06d0c95d67b8855c23e24c0d8fb26667424e76"
+    }
+   },
+   "spentTransactionId": "dc77054eaf58312172ed9ab3ff02d3282cbbc2b177cdde9a5be264932f161406",
+   "mainChain": true
+  },
+  {
+   "boxId": "12f4c9486db15148d548fe2c99a9debbf9a9ffc0394b9cfee45b326ba81f31cd",
+   "transactionId": "b3bf93d2d4ce8e095f76c9aae209e5812845f6c0b3b83002e62d8d0bc0df6011",
+   "blockId": "d9eb527773bc19e5ccef7acd7c77cd2fcf65e3a03bf803ca17812cd6a76218e4",
+   "value": 10000000,
+   "index": 6,
+   "globalIndex": 1290118,
+   "creationHeight": 1881700,
+   "settlementHeight": 1881702,
+   "ergoTree": "100a040004000580dac409040004000e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660402040204020402d804d601b2a5e4e3000400d602db63087201d603db6308a7d604e4c6a70407ea02d1ededed93b27202730000b2720373010093c27201c2a7e6c67201040792c172017302eb02cd7204d1ededededed938cb2db6308b2a4730300730400017305938cb27202730600018cb2720373070001918cb27202730800028cb272037309000293e4c672010407720492c17201c1a7efe6c672010561",
+   "address": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+   "assets": [
+    {
+     "tokenId": "74fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a78",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool oracle token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 269,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "0702a5c514bd912d91afeef58496b799d490e3281ace838fb9ce9dad71f29c478552",
+     "sigmaType": "SGroupElement",
+     "renderedValue": "02a5c514bd912d91afeef58496b799d490e3281ace838fb9ce9dad71f29c478552"
+    }
+   },
+   "spentTransactionId": "325f3c65f7a16245e6ae415bf296e6fc6565dd91165e58d78b7ef38ced149ff3",
+   "mainChain": true
+  },
+  {
+   "boxId": "3f11cb282d0ed2adc8489c558e017048d2f8eca73fcdefecca063d38a7083dd0",
+   "transactionId": "b3bf93d2d4ce8e095f76c9aae209e5812845f6c0b3b83002e62d8d0bc0df6011",
+   "blockId": "d9eb527773bc19e5ccef7acd7c77cd2fcf65e3a03bf803ca17812cd6a76218e4",
+   "value": 10000000,
+   "index": 7,
+   "globalIndex": 1290119,
+   "creationHeight": 1881700,
+   "settlementHeight": 1881702,
+   "ergoTree": "100a040004000580dac409040004000e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660402040204020402d804d601b2a5e4e3000400d602db63087201d603db6308a7d604e4c6a70407ea02d1ededed93b27202730000b2720373010093c27201c2a7e6c67201040792c172017302eb02cd7204d1ededededed938cb2db6308b2a4730300730400017305938cb27202730600018cb2720373070001918cb27202730800028cb272037309000293e4c672010407720492c17201c1a7efe6c672010561",
+   "address": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+   "assets": [
+    {
+     "tokenId": "74fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a78",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool oracle token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 350,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "0703aad1d62f62bc96e72f85d4bd2dd28d185c5af8ac145d59007dd70751f1382344",
+     "sigmaType": "SGroupElement",
+     "renderedValue": "03aad1d62f62bc96e72f85d4bd2dd28d185c5af8ac145d59007dd70751f1382344"
+    }
+   },
+   "spentTransactionId": "484e69ddf565166faa1e3b96a283cd2fa176772f5443011cecff179c0868b11c",
+   "mainChain": true
+  },
+  {
+   "boxId": "a410a87c33194d77dcf8a66f06fb344b4b4327490685275e58feaebacfaf27c1",
+   "transactionId": "b3bf93d2d4ce8e095f76c9aae209e5812845f6c0b3b83002e62d8d0bc0df6011",
+   "blockId": "d9eb527773bc19e5ccef7acd7c77cd2fcf65e3a03bf803ca17812cd6a76218e4",
+   "value": 10000000,
+   "index": 8,
+   "globalIndex": 1290120,
+   "creationHeight": 1881700,
+   "settlementHeight": 1881702,
+   "ergoTree": "100a040004000580dac409040004000e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660402040204020402d804d601b2a5e4e3000400d602db63087201d603db6308a7d604e4c6a70407ea02d1ededed93b27202730000b2720373010093c27201c2a7e6c67201040792c172017302eb02cd7204d1ededededed938cb2db6308b2a4730300730400017305938cb27202730600018cb2720373070001918cb27202730800028cb272037309000293e4c672010407720492c17201c1a7efe6c672010561",
+   "address": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+   "assets": [
+    {
+     "tokenId": "74fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a78",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool oracle token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 16488,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "070232830080b3b42f527663236726ec0d9cb7d8433f4fbef5b37929a2a36fa82689",
+     "sigmaType": "SGroupElement",
+     "renderedValue": "0232830080b3b42f527663236726ec0d9cb7d8433f4fbef5b37929a2a36fa82689"
+    }
+   },
+   "spentTransactionId": "5b6df52d39bbefdd887ce88c2740a6bc104193cbe6356f2c39bf73aba2675955",
+   "mainChain": true
+  },
+  {
+   "boxId": "339b08036c1f08da0f42ee025e037815b9747310c975f42feaf5dad6a0f6f461",
+   "transactionId": "b3bf93d2d4ce8e095f76c9aae209e5812845f6c0b3b83002e62d8d0bc0df6011",
+   "blockId": "d9eb527773bc19e5ccef7acd7c77cd2fcf65e3a03bf803ca17812cd6a76218e4",
+   "value": 11500000,
+   "index": 9,
+   "globalIndex": 1290121,
+   "creationHeight": 1881700,
+   "settlementHeight": 1881702,
+   "ergoTree": "100a040004000580dac409040004000e206a2b821b5727e85beb5e78b4efb9f0250d59cd48481d2ded2c23e91ba1d07c660402040204020402d804d601b2a5e4e3000400d602db63087201d603db6308a7d604e4c6a70407ea02d1ededed93b27202730000b2720373010093c27201c2a7e6c67201040792c172017302eb02cd7204d1ededededed938cb2db6308b2a4730300730400017305938cb27202730600018cb2720373070001918cb27202730800028cb272037309000293e4c672010407720492c17201c1a7efe6c672010561",
+   "address": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+   "assets": [
+    {
+     "tokenId": "74fa4aee3607ceb7bdefd51a856861b5dbfa434a8f6c93bfe967de8ed1a30a78",
+     "index": 0,
+     "amount": 1,
+     "name": "USD Pool oracle token",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "ae399fcb751e8e247d0da8179a2bcca2aa5119fff9c85721ffab9cdc9a3cb2dd",
+     "index": 1,
+     "amount": 339,
+     "name": "DORT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {
+    "R4": {
+     "serializedValue": "0703b8ba5502a30094cd35922cafe7287c7eb5d0cbdbcbc5ce6c053c7c0403a80168",
+     "sigmaType": "SGroupElement",
+     "renderedValue": "03b8ba5502a30094cd35922cafe7287c7eb5d0cbdbcbc5ce6c053c7c0403a80168"
+    }
+   },
+   "spentTransactionId": "c2a2554555e3f7d2be3856ff4e85f82122db1c88636fdb6c6ff986cf2e2c2fe5",
+   "mainChain": true
+  },
+  {
+   "boxId": "1bb2e407f6f7af7ac1fe6ed70fdaebd55378373522e26c122dc302a2a5219c18",
+   "transactionId": "b3bf93d2d4ce8e095f76c9aae209e5812845f6c0b3b83002e62d8d0bc0df6011",
+   "blockId": "d9eb527773bc19e5ccef7acd7c77cd2fcf65e3a03bf803ca17812cd6a76218e4",
+   "value": 1500000,
+   "index": 10,
+   "globalIndex": 1290122,
+   "creationHeight": 1881700,
+   "settlementHeight": 1881702,
+   "ergoTree": "1005040004000e36100204a00b08cd0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798ea02d192a39a8cc7a701730073011001020402d19683030193a38cc7b2a57300000193c2b2a57301007473027303830108cdeeac93b1a57304",
+   "address": "2iHkR7CWvD1R4j1yZg5bkeDRQavjAaVPeTDFGGLZduHyfWMuYpmhHocX8GJoaieTx78FntzJbCBVL6rf96ocJoZdmWBL2fci7NqWgAirppPQmZ7fN9V6z13Ay6brPriBKYqLp1bT2Fk4FkFLCfdPpe",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "7f4c36b2272f8b12cc50a70566122097b1a1e76bfefd25c4ec2e4705afa982e1",
+   "mainChain": true
+  }
+ ],
+ "size": 3475
+}

@@ -1,0 +1,110 @@
+{
+ "id": "b1c1a0e9e9ee91cd0f1a6ee4c1fc2af32957c8436034596ce8d3a763b48af69f",
+ "blockId": "082b159a4358833be935fb8a41e4355634cf388ce2e99bf3fe1e11b7922197e7",
+ "inclusionHeight": 1881776,
+ "timestamp": 1790454532775,
+ "index": 13,
+ "globalIndex": 329369,
+ "numConfirmations": 437,
+ "inputs": [
+  {
+   "boxId": "b7cd4b957051f2f703846261ea08e03744526c9e90bd16c6739147fd2e424579",
+   "value": 10860244386000000,
+   "index": 0,
+   "outputBlockId": "082b159a4358833be935fb8a41e4355634cf388ce2e99bf3fe1e11b7922197e7",
+   "outputTransactionId": "71de3e07d2b0b10506a7177e1fc2f9610fffa72327c577fbaeab7826bd08df53",
+   "outputIndex": 0,
+   "outputGlobalIndex": 1291829,
+   "outputCreatedAt": 1881773,
+   "outputSettledAt": 1881776,
+   "ergoTree": "19870210040004000e20d3feeffa87f2df63a7a15b4905e618ae3ce4c69a7975f171bd314d0b877927b80400040004020580dac4090404040004020e36100204a00b08cd0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798ea02d192a39a8cc7a70173007301100102040204c080fe010580f882ad160400d196830301938cb2e4c6b2a5730000020c4d0e73010001730293c2a7c2b2a5730300978302019683030191c1b2a5730400c1a790c1b2a5730500730693b1a5730796830501938cc7b2a573080001a39683020193c2b2a573090074730a730b830108cdeeac93a38cc7b2a5730c000192a3730d91a38cc7a70193730e99c1a7c1b2a5730f00",
+   "address": "22WkKcVUvboYCZJe1urbmvBL3j67LKb5KEAvFhJXqA6ubYvHpSCvbvwvEY3xzUr7QvxpEtqjzMAPMsVdZh1VGWmZphvKoJdVzL1ayhsMftTtEFoA3YYdq3zKeeYXavVrrPUmK3fRXJ2HWEbZexewtBWcgAnHBw5tKvYFy9dEUi645gE2fYMUvVBtbvMExE9mjZ2W9goWkqu1VtThAsMZWZWjHxDjX116HpeQKu9b9neEUBj4kE5sX8QXaV6ZeReXxYHFJFg2rmaTknSPMxHXA8NpQKgzryBwLssp5EJ1QTqn5R6xuvGgFCEUZicCEo8qk8UNbE7e2d4WqW5qzpQPzJkKoPa5UtJEPYDWNhaCKmCpzdSc77",
+   "assets": [
+    {
+     "tokenId": "d3feeffa87f2df63a7a15b4905e618ae3ce4c69a7975f171bd314d0b877927b8",
+     "index": 0,
+     "amount": 1,
+     "name": "Reemission Contract NFT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  },
+  {
+   "boxId": "70e42cac632dc28225ed10f806bfe9204d02384bfea4964028e7410b45352457",
+   "value": 120000000000,
+   "index": 1,
+   "outputBlockId": "e0f17115355de845c39937ff29819bfb3d4b24438ab6f8453e350134ecb0afb1",
+   "outputTransactionId": "8e970bbbeae2eaa8a34c1a5fe222063d066474408014a28e57ea13fcd8c38377",
+   "outputIndex": 60,
+   "outputGlobalIndex": 15819873,
+   "outputCreatedAt": 1613790,
+   "outputSettledAt": 1613791,
+   "ergoTree": "193c03040004000e20d3feeffa87f2df63a7a15b4905e618ae3ce4c69a7975f171bd314d0b877927b8d1938cb2e4c6b2a5730000020c4d0e730100017302",
+   "address": "6KxusedL87PBibr1t1f4ggzAyTAmWEPqSpqXbkdoybNwHVw5Nb7cUESBmQw5XK8TyvbQiueyqkR9XMNaUgpWx3jT54p",
+   "assets": [],
+   "additionalRegisters": {}
+  },
+  {
+   "boxId": "df7159b323d0bced05eb37e8b169dbe007817f96216b3cb72f0a71823f02e9f5",
+   "value": 36000000000,
+   "index": 2,
+   "outputBlockId": "b28d27deeb8960c8a453a41e338d704cd684a37d16fde631ea2f59c6315c0d76",
+   "outputTransactionId": "5855749f59d5e2ac328a3a39908bceba5d4c7ea5ec8a57ff2033e3a518300190",
+   "outputIndex": 11,
+   "outputGlobalIndex": 15819949,
+   "outputCreatedAt": 1613792,
+   "outputSettledAt": 1613793,
+   "ergoTree": "193c03040004000e20d3feeffa87f2df63a7a15b4905e618ae3ce4c69a7975f171bd314d0b877927b8d1938cb2e4c6b2a5730000020c4d0e730100017302",
+   "address": "6KxusedL87PBibr1t1f4ggzAyTAmWEPqSpqXbkdoybNwHVw5Nb7cUESBmQw5XK8TyvbQiueyqkR9XMNaUgpWx3jT54p",
+   "assets": [],
+   "additionalRegisters": {}
+  }
+ ],
+ "dataInputs": [],
+ "outputs": [
+  {
+   "boxId": "787ebea5e06de279dd6099fd00071e98bed1dc6cbf3442041a20995e45c54cd5",
+   "transactionId": "b1c1a0e9e9ee91cd0f1a6ee4c1fc2af32957c8436034596ce8d3a763b48af69f",
+   "blockId": "082b159a4358833be935fb8a41e4355634cf388ce2e99bf3fe1e11b7922197e7",
+   "value": 10860400376000000,
+   "index": 0,
+   "globalIndex": 1291831,
+   "creationHeight": 1881773,
+   "settlementHeight": 1881776,
+   "ergoTree": "19870210040004000e20d3feeffa87f2df63a7a15b4905e618ae3ce4c69a7975f171bd314d0b877927b80400040004020580dac4090404040004020e36100204a00b08cd0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798ea02d192a39a8cc7a70173007301100102040204c080fe010580f882ad160400d196830301938cb2e4c6b2a5730000020c4d0e73010001730293c2a7c2b2a5730300978302019683030191c1b2a5730400c1a790c1b2a5730500730693b1a5730796830501938cc7b2a573080001a39683020193c2b2a573090074730a730b830108cdeeac93a38cc7b2a5730c000192a3730d91a38cc7a70193730e99c1a7c1b2a5730f00",
+   "address": "22WkKcVUvboYCZJe1urbmvBL3j67LKb5KEAvFhJXqA6ubYvHpSCvbvwvEY3xzUr7QvxpEtqjzMAPMsVdZh1VGWmZphvKoJdVzL1ayhsMftTtEFoA3YYdq3zKeeYXavVrrPUmK3fRXJ2HWEbZexewtBWcgAnHBw5tKvYFy9dEUi645gE2fYMUvVBtbvMExE9mjZ2W9goWkqu1VtThAsMZWZWjHxDjX116HpeQKu9b9neEUBj4kE5sX8QXaV6ZeReXxYHFJFg2rmaTknSPMxHXA8NpQKgzryBwLssp5EJ1QTqn5R6xuvGgFCEUZicCEo8qk8UNbE7e2d4WqW5qzpQPzJkKoPa5UtJEPYDWNhaCKmCpzdSc77",
+   "assets": [
+    {
+     "tokenId": "d3feeffa87f2df63a7a15b4905e618ae3ce4c69a7975f171bd314d0b877927b8",
+     "index": 0,
+     "amount": 1,
+     "name": "Reemission Contract NFT",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {},
+   "spentTransactionId": "71afd9f794e1ba73702ba28395211e22fee064ac8d5abe3c9c9560b6096d2e75",
+   "mainChain": true
+  },
+  {
+   "boxId": "edd8feb32f85ac9d99ae5d46af37e882f239af99fbba5e2d75e8026fe6e7adc6",
+   "transactionId": "b1c1a0e9e9ee91cd0f1a6ee4c1fc2af32957c8436034596ce8d3a763b48af69f",
+   "blockId": "082b159a4358833be935fb8a41e4355634cf388ce2e99bf3fe1e11b7922197e7",
+   "value": 10000000,
+   "index": 1,
+   "globalIndex": 1291832,
+   "creationHeight": 1881773,
+   "settlementHeight": 1881776,
+   "ergoTree": "1005040004000e36100204a00b08cd0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798ea02d192a39a8cc7a701730073011001020402d19683030193a38cc7b2a57300000193c2b2a57301007473027303830108cdeeac93b1a57304",
+   "address": "2iHkR7CWvD1R4j1yZg5bkeDRQavjAaVPeTDFGGLZduHyfWMuYpmhHocX8GJoaieTx78FntzJbCBVL6rf96ocJoZdmWBL2fci7NqWgAirppPQmZ7fN9V6z13Ay6brPriBKYqLp1bT2Fk4FkFLCfdPpe",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "c283ef2fc487a698ea74f2792c7289b444d1aed9fd628bf9ca5a32a518e34ea6",
+   "mainChain": true
+  }
+ ],
+ "size": 533
+}

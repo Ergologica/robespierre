@@ -1,0 +1,105 @@
+{
+ "id": "5f9c4ffa8b5a28f4fdb6b0130bc064927d76c761cb7a5adc804a3a279fcef3a9",
+ "blockId": "f985c0e594bb19d7f82913fb23b2cda7c94190568ce19e73a5ca47b3f346e5f1",
+ "inclusionHeight": 1881538,
+ "timestamp": 1790422511400,
+ "index": 0,
+ "globalIndex": 327756,
+ "numConfirmations": 675,
+ "inputs": [
+  {
+   "boxId": "73ee58b5c5d01fd2b1487dfc7d5efb7d0170dd0d6eb0b3a3fd9bda01a581f3ad",
+   "value": 1225692000000000,
+   "index": 0,
+   "outputBlockId": "849f7a30404775b32a46010e84c0c3fd279ed968fdda0484fc2602733a60d0f6",
+   "outputTransactionId": "fa348d052c87bf557ce42871e381ec69f3023986e81277a57db1b8e89cc480ef",
+   "outputIndex": 0,
+   "outputGlobalIndex": 1286316,
+   "outputCreatedAt": 1881537,
+   "outputSettledAt": 1881537,
+   "ergoTree": "101004020e36100204a00b08cd0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798ea02d192a39a8cc7a7017300730110010204020404040004c0fd4f05808c82f5f6030580b8c9e5ae040580f882ad16040204c0944004c0f407040004000580f882ad16d19683030191a38cc7a7019683020193c2b2a57300007473017302830108cdeeac93a38cc7b2a573030001978302019683040193b1a5730493c2a7c2b2a573050093958fa3730673079973089c73097e9a730a9d99a3730b730c0599c1a7c1b2a5730d00938cc7b2a5730e0001a390c1a7730f",
+   "address": "2Z4YBkDsDvQj8BX7xiySFewjitqp2ge9c99jfes2whbtKitZTxdBYqbrVZUvZvKv6aqn9by4kp3LE1c26LCyosFnVnm6b6U1JYvWpYmL2ZnixJbXLjWAWuBThV1D6dLpqZJYQHYDznJCk49g5TUiS4q8khpag2aNmHwREV7JSsypHdHLgJT7MGaw51aJfNubyzSKxZ4AJXFS27EfXwyCLzW1K6GVqwkJtCoPvrcLqmqwacAWJPkmh78nke9H4oT88XmSbRt2n9aWZjosiZCafZ4osUDxmZcc5QVEeTWn8drSraY3eFKe8Mu9MSCcVU",
+   "assets": [
+    {
+     "tokenId": "20fa2bf23962cdf51b07722d6237c0c7b8a44f78856c0f7ec308dc1ef1a92a51",
+     "index": 0,
+     "amount": 1,
+     "name": "Emission Contract NFT",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "d9a2cc8a09abfaed87afacfbb7daee79a6b26f10c6613fc13d3f3953e5521d1a",
+     "index": 1,
+     "amount": 6928139000000000,
+     "name": "Reemission Token",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  }
+ ],
+ "dataInputs": [],
+ "outputs": [
+  {
+   "boxId": "3ace34e79bcc3e4c31091f7d849117a06b78a762177ca228f6b9582ef70128c6",
+   "transactionId": "5f9c4ffa8b5a28f4fdb6b0130bc064927d76c761cb7a5adc804a3a279fcef3a9",
+   "blockId": "f985c0e594bb19d7f82913fb23b2cda7c94190568ce19e73a5ca47b3f346e5f1",
+   "value": 1225680000000000,
+   "index": 0,
+   "globalIndex": 1286327,
+   "creationHeight": 1881538,
+   "settlementHeight": 1881538,
+   "ergoTree": "101004020e36100204a00b08cd0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798ea02d192a39a8cc7a7017300730110010204020404040004c0fd4f05808c82f5f6030580b8c9e5ae040580f882ad16040204c0944004c0f407040004000580f882ad16d19683030191a38cc7a7019683020193c2b2a57300007473017302830108cdeeac93a38cc7b2a573030001978302019683040193b1a5730493c2a7c2b2a573050093958fa3730673079973089c73097e9a730a9d99a3730b730c0599c1a7c1b2a5730d00938cc7b2a5730e0001a390c1a7730f",
+   "address": "2Z4YBkDsDvQj8BX7xiySFewjitqp2ge9c99jfes2whbtKitZTxdBYqbrVZUvZvKv6aqn9by4kp3LE1c26LCyosFnVnm6b6U1JYvWpYmL2ZnixJbXLjWAWuBThV1D6dLpqZJYQHYDznJCk49g5TUiS4q8khpag2aNmHwREV7JSsypHdHLgJT7MGaw51aJfNubyzSKxZ4AJXFS27EfXwyCLzW1K6GVqwkJtCoPvrcLqmqwacAWJPkmh78nke9H4oT88XmSbRt2n9aWZjosiZCafZ4osUDxmZcc5QVEeTWn8drSraY3eFKe8Mu9MSCcVU",
+   "assets": [
+    {
+     "tokenId": "20fa2bf23962cdf51b07722d6237c0c7b8a44f78856c0f7ec308dc1ef1a92a51",
+     "index": 0,
+     "amount": 1,
+     "name": "Emission Contract NFT",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "d9a2cc8a09abfaed87afacfbb7daee79a6b26f10c6613fc13d3f3953e5521d1a",
+     "index": 1,
+     "amount": 6928130000000000,
+     "name": "Reemission Token",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {},
+   "spentTransactionId": "e7f301ed14afcfe5dd4e554ccf0936f0fac53881b9329cf521f9c4f0db7c3edd",
+   "mainChain": true
+  },
+  {
+   "boxId": "ba330a893bba94f4d37097080b56fc635e1d114e3b586ffc6a55b83a58127556",
+   "transactionId": "5f9c4ffa8b5a28f4fdb6b0130bc064927d76c761cb7a5adc804a3a279fcef3a9",
+   "blockId": "f985c0e594bb19d7f82913fb23b2cda7c94190568ce19e73a5ca47b3f346e5f1",
+   "value": 12000000000,
+   "index": 1,
+   "globalIndex": 1286328,
+   "creationHeight": 1881538,
+   "settlementHeight": 1881538,
+   "ergoTree": "100204a00b08cd033602a81fce83c18c4c591f4aea8f2732f479d6b08a21ec57c0de683e8e3815adea02d192a39a8cc7a70173007301",
+   "address": "88dhgzEuTXaTnTZomXPfuJ67oYJPbrv17yNkLjN6Nj8HxZEUf2iAdiv9gTqmnKKa2i75zmUtDnPQovBb",
+   "assets": [
+    {
+     "tokenId": "d9a2cc8a09abfaed87afacfbb7daee79a6b26f10c6613fc13d3f3953e5521d1a",
+     "index": 0,
+     "amount": 9000000000,
+     "name": "Reemission Token",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {},
+   "spentTransactionId": null,
+   "mainChain": true
+  }
+ ],
+ "size": 424
+}
