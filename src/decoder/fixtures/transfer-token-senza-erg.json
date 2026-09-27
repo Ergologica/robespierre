@@ -1,0 +1,80 @@
+{
+ "id": "86ad010748ffa376ac8f88fd7ed9926d791d0606d475f4403d99a5e16445f4c0",
+ "blockId": "e9d0e22a3bb31b32bcd9c7ddb35b6cff7fc2c8b1069e30451a9da07e6dd8d261",
+ "inclusionHeight": 1881914,
+ "timestamp": 1790470083009,
+ "index": 2,
+ "globalIndex": 330253,
+ "numConfirmations": 334,
+ "inputs": [
+  {
+   "boxId": "3b6743451738fd841506461befeaa83445ddcf2e7f9303bc659ec125b4d87b84",
+   "value": 3595439,
+   "index": 0,
+   "outputBlockId": "cce990707c3b532f43739437b3ac4b6fe5eefb2257f5f747b3a08a3e199be4ea",
+   "outputTransactionId": "e748325aa6f8639af7e06fb1505f4a9fd55f3f7245dd11a7edda9f6b0a817594",
+   "outputIndex": 2,
+   "outputGlobalIndex": 21108908,
+   "outputCreatedAt": 830713,
+   "outputSettledAt": 830715,
+   "ergoTree": "0008cd0295739650e55a7ffa772f7a071fbb785ec174debe54cd8f5aea82fb587246fe01",
+   "address": "9fet43domkoZ2ekwXhbuuzsmYTxy5U6SAtwTrn8bzeok7BuUQAW",
+   "assets": [
+    {
+     "tokenId": "0779ec04f2fae64e87418a1ad917639d4668f78484f45df962b0dec14a2591d2",
+     "index": 0,
+     "amount": 2000,
+     "name": "Mi Goreng ",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  }
+ ],
+ "dataInputs": [],
+ "outputs": [
+  {
+   "boxId": "bb72801f0089106f8a986b6bd5e062734d38b0f7e5238f654bbfbe9d9cb9f5aa",
+   "transactionId": "86ad010748ffa376ac8f88fd7ed9926d791d0606d475f4403d99a5e16445f4c0",
+   "blockId": "e9d0e22a3bb31b32bcd9c7ddb35b6cff7fc2c8b1069e30451a9da07e6dd8d261",
+   "value": 40320,
+   "index": 0,
+   "globalIndex": 1294776,
+   "creationHeight": 1881913,
+   "settlementHeight": 1881914,
+   "ergoTree": "0008cd039d3e8d055631b2926120f2f1cb69709c1da1f52077358a319a747f02d83253fb",
+   "address": "9hf4HbrdzziFTDCEt3jFiQjkVccwqm2Xm1TKx47ZKJqPJk3DVQn",
+   "assets": [
+    {
+     "tokenId": "0779ec04f2fae64e87418a1ad917639d4668f78484f45df962b0dec14a2591d2",
+     "index": 0,
+     "amount": 2000,
+     "name": "Mi Goreng ",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {},
+   "spentTransactionId": null,
+   "mainChain": true
+  },
+  {
+   "boxId": "c0d6eebd5e10ae548ff00c8c1d16b435b146db3c70edbd0ee5b199ec209025c6",
+   "transactionId": "86ad010748ffa376ac8f88fd7ed9926d791d0606d475f4403d99a5e16445f4c0",
+   "blockId": "e9d0e22a3bb31b32bcd9c7ddb35b6cff7fc2c8b1069e30451a9da07e6dd8d261",
+   "value": 3555119,
+   "index": 1,
+   "globalIndex": 1294777,
+   "creationHeight": 1881913,
+   "settlementHeight": 1881914,
+   "ergoTree": "1005040004000e36100204a00b08cd0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798ea02d192a39a8cc7a701730073011001020402d19683030193a38cc7b2a57300000193c2b2a57301007473027303830108cdeeac93b1a57304",
+   "address": "2iHkR7CWvD1R4j1yZg5bkeDRQavjAaVPeTDFGGLZduHyfWMuYpmhHocX8GJoaieTx78FntzJbCBVL6rf96ocJoZdmWBL2fci7NqWgAirppPQmZ7fN9V6z13Ay6brPriBKYqLp1bT2Fk4FkFLCfdPpe",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "ce19e60185382522163cc7d335297f0a827cee5370665674c282252fcf9409db",
+   "mainChain": true
+  }
+ ],
+ "size": 234
+}

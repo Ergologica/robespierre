@@ -1,0 +1,177 @@
+{
+ "id": "5ed09df629800b2f94a76da2e680f3ea916544b67f60183664930223ab6669dd",
+ "blockId": "000ecb189d1853f118b127f782d53f46833061fd547707adccee517d41d1bb2e",
+ "inclusionHeight": 1881483,
+ "timestamp": 1790416355185,
+ "index": 9,
+ "globalIndex": 327354,
+ "numConfirmations": 765,
+ "inputs": [
+  {
+   "boxId": "04de758d4f13084640e42b6b43bcf4e67579feac3cbdacda4edde2704aefdf94",
+   "value": 3609670,
+   "index": 0,
+   "outputBlockId": "922fa40fc481aeaff5059056e656fcdf8c6e7f271672b1cf9a3b525229cfb836",
+   "outputTransactionId": "b97af5d49abf56b6a02cf79e0abba38ae85e025f228bba73e2a1ac3644edc273",
+   "outputIndex": 0,
+   "outputGlobalIndex": 1217269,
+   "outputCreatedAt": 1878598,
+   "outputSettledAt": 1878601,
+   "ergoTree": "0008cd02cec08d7fff81321b9207fc9ca006784c983c7a0d4b835e4349ba069b0c476afa",
+   "address": "9g67ioB5MGLgmv7zLGQvLV7kCY1XHSe8W969snzccgo95M8Z856",
+   "assets": [
+    {
+     "tokenId": "096339e7b8733fa49714a0e41b72503447bc7593d89e582a50a98d201c66e8fe",
+     "index": 0,
+     "amount": 1,
+     "name": "NETA Stake Key",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  },
+  {
+   "boxId": "f26e43decc033ae5455a8f442fabe69449399e336899df264ebb8fc4ed921a6a",
+   "value": 93335,
+   "index": 1,
+   "outputBlockId": "5c536834be91a8075a686a17705af01b6fb13711a828c326ecefc8b2bdda32af",
+   "outputTransactionId": "1583fd169e4513d42d6fbf9688957ff59d396f337f7379300b6030f5a06fbf3d",
+   "outputIndex": 0,
+   "outputGlobalIndex": 120989,
+   "outputCreatedAt": 1796397,
+   "outputSettledAt": 1796400,
+   "ergoTree": "0008cd02cec08d7fff81321b9207fc9ca006784c983c7a0d4b835e4349ba069b0c476afa",
+   "address": "9g67ioB5MGLgmv7zLGQvLV7kCY1XHSe8W969snzccgo95M8Z856",
+   "assets": [
+    {
+     "tokenId": "a4b7a5d50db260bb64fff4db1a789c205582ad958df1cbd316de0c0d2c7dd819",
+     "index": 0,
+     "amount": 1,
+     "name": "RoMon",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "5c6d8c6e7769f7af6e5474efed0c9909653af9ea1290f96dc08dc38a0c493393",
+     "index": 1,
+     "amount": 320000,
+     "name": "SigRSV",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  },
+  {
+   "boxId": "f68027f0c1f07c13e8bc98c0be6ac09b46d1dbee1aaf57a6dd4f24b45b2a8ae9",
+   "value": 52920,
+   "index": 2,
+   "outputBlockId": "453b66670deea41df3df671947d078661f43cbf763a732ece4e96f0d7e53c267",
+   "outputTransactionId": "2202ab8e0a11788f7cbe4de55b4001191811d94e62ee5daba85838b00fd7bf6b",
+   "outputIndex": 0,
+   "outputGlobalIndex": 360593,
+   "outputCreatedAt": 1845377,
+   "outputSettledAt": 1845378,
+   "ergoTree": "0008cd02cec08d7fff81321b9207fc9ca006784c983c7a0d4b835e4349ba069b0c476afa",
+   "address": "9g67ioB5MGLgmv7zLGQvLV7kCY1XHSe8W969snzccgo95M8Z856",
+   "assets": [
+    {
+     "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+     "index": 0,
+     "amount": 811147068,
+     "name": "NETA",
+     "decimals": 6,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  }
+ ],
+ "dataInputs": [],
+ "outputs": [
+  {
+   "boxId": "e42fc2339cfa1f118767185624b4df54d72b6b00de86877f9b7cf9b76a17ee7f",
+   "transactionId": "5ed09df629800b2f94a76da2e680f3ea916544b67f60183664930223ab6669dd",
+   "blockId": "000ecb189d1853f118b127f782d53f46833061fd547707adccee517d41d1bb2e",
+   "value": 1000000,
+   "index": 0,
+   "globalIndex": 1285008,
+   "creationHeight": 1881479,
+   "settlementHeight": 1881483,
+   "ergoTree": "0008cd037a3274856b36096f041d983c57be309a5347259d6c10ce96ae52d7bf264c86c2",
+   "address": "9hPd3yYNJjE54ZGRjE7Thjs4VbmwcKGDt95p5Vcqx616MaXt8NF",
+   "assets": [
+    {
+     "tokenId": "5c6d8c6e7769f7af6e5474efed0c9909653af9ea1290f96dc08dc38a0c493393",
+     "index": 0,
+     "amount": 320000,
+     "name": "SigRSV",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {},
+   "spentTransactionId": null,
+   "mainChain": true
+  },
+  {
+   "boxId": "5995aa8399753387b2827a7053f62d9af372cb08fc77b7143e6a79161c6da504",
+   "transactionId": "5ed09df629800b2f94a76da2e680f3ea916544b67f60183664930223ab6669dd",
+   "blockId": "000ecb189d1853f118b127f782d53f46833061fd547707adccee517d41d1bb2e",
+   "value": 1000000,
+   "index": 1,
+   "globalIndex": 1285009,
+   "creationHeight": 1881479,
+   "settlementHeight": 1881483,
+   "ergoTree": "1005040004000e36100204a00b08cd0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798ea02d192a39a8cc7a701730073011001020402d19683030193a38cc7b2a57300000193c2b2a57301007473027303830108cdeeac93b1a57304",
+   "address": "2iHkR7CWvD1R4j1yZg5bkeDRQavjAaVPeTDFGGLZduHyfWMuYpmhHocX8GJoaieTx78FntzJbCBVL6rf96ocJoZdmWBL2fci7NqWgAirppPQmZ7fN9V6z13Ay6brPriBKYqLp1bT2Fk4FkFLCfdPpe",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "b9379eb7579588fc584876cd6e79511897cfef5265198738bc87ff3c84e54c13",
+   "mainChain": true
+  },
+  {
+   "boxId": "7d7491dd06d4c7f0a9f93463cf6767b0f7da79faf8033824df3f3fe15dc020b7",
+   "transactionId": "5ed09df629800b2f94a76da2e680f3ea916544b67f60183664930223ab6669dd",
+   "blockId": "000ecb189d1853f118b127f782d53f46833061fd547707adccee517d41d1bb2e",
+   "value": 1755925,
+   "index": 2,
+   "globalIndex": 1285010,
+   "creationHeight": 1881479,
+   "settlementHeight": 1881483,
+   "ergoTree": "0008cd02cec08d7fff81321b9207fc9ca006784c983c7a0d4b835e4349ba069b0c476afa",
+   "address": "9g67ioB5MGLgmv7zLGQvLV7kCY1XHSe8W969snzccgo95M8Z856",
+   "assets": [
+    {
+     "tokenId": "096339e7b8733fa49714a0e41b72503447bc7593d89e582a50a98d201c66e8fe",
+     "index": 0,
+     "amount": 1,
+     "name": "NETA Stake Key",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "a4b7a5d50db260bb64fff4db1a789c205582ad958df1cbd316de0c0d2c7dd819",
+     "index": 1,
+     "amount": 1,
+     "name": "RoMon",
+     "decimals": 0,
+     "type": "EIP-004"
+    },
+    {
+     "tokenId": "472c3d4ecaa08fb7392ff041ee2e6af75f4a558810a74b28600549d5392810e8",
+     "index": 2,
+     "amount": 811147068,
+     "name": "NETA",
+     "decimals": 6,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {},
+   "spentTransactionId": "b0c51d76ad2b3e58fdb246ed1f47ad83cf1bdb5c02722984d89d7c8d0785cd89",
+   "mainChain": true
+  }
+ ],
+ "size": 617
+}

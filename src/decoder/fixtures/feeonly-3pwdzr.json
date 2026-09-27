@@ -1,0 +1,46 @@
+{
+ "id": "3331f0a979f98d7d33d9e565a4f41707f34593ed1de8987875ad0846b4e55a57",
+ "blockId": "3c7ec6a428573ec2958c898509a2e14d5de096bd3e32e0b34c11b0c281b9ba08",
+ "inclusionHeight": 1882031,
+ "timestamp": 1790486097530,
+ "index": 2,
+ "globalIndex": 330969,
+ "numConfirmations": 217,
+ "inputs": [
+  {
+   "boxId": "1d1cc4bb77c05dea1dcf8324d2151231f7e4cd108eb8456bd23584bc3bcc2cd3",
+   "value": 185744390,
+   "index": 0,
+   "outputBlockId": "3c7ec6a428573ec2958c898509a2e14d5de096bd3e32e0b34c11b0c281b9ba08",
+   "outputTransactionId": "1088e8f53b22ad23d86861eaa68e1314526c4d683945835350df256083f6366b",
+   "outputIndex": 21,
+   "outputGlobalIndex": 1297236,
+   "outputCreatedAt": 1882031,
+   "outputSettledAt": 1882031,
+   "ergoTree": "100208cd021ab040c5eb36208049647912a375dc314dc3e2e188b444b2c4a8eb459aa7997d0402eb027300d1ed93b1a5730193a38cc7a701",
+   "address": "3PwDZR2PF9VB7bubVAgfEZdbdNHpdqkU9Nm2e8BuFP72ob6wHg8MBdwwYGy91f3oxHfbaaQfNQofpAoHQgu",
+   "assets": [],
+   "additionalRegisters": {}
+  }
+ ],
+ "dataInputs": [],
+ "outputs": [
+  {
+   "boxId": "c63fb76e6f44fc9206b55f485c298a4afb7d89bc02f2e38ae61dee04c7fd3817",
+   "transactionId": "3331f0a979f98d7d33d9e565a4f41707f34593ed1de8987875ad0846b4e55a57",
+   "blockId": "3c7ec6a428573ec2958c898509a2e14d5de096bd3e32e0b34c11b0c281b9ba08",
+   "value": 185744390,
+   "index": 0,
+   "globalIndex": 1297238,
+   "creationHeight": 1882031,
+   "settlementHeight": 1882031,
+   "ergoTree": "1005040004000e36100204a00b08cd0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798ea02d192a39a8cc7a701730073011001020402d19683030193a38cc7b2a57300000193c2b2a57301007473027303830108cdeeac93b1a57304",
+   "address": "2iHkR7CWvD1R4j1yZg5bkeDRQavjAaVPeTDFGGLZduHyfWMuYpmhHocX8GJoaieTx78FntzJbCBVL6rf96ocJoZdmWBL2fci7NqWgAirppPQmZ7fN9V6z13Ay6brPriBKYqLp1bT2Fk4FkFLCfdPpe",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "4fd5a7bdec0741c4fd66edf6be358218139ab8743188952f5b2faffcbe15a00a",
+   "mainChain": true
+  }
+ ],
+ "size": 155
+}

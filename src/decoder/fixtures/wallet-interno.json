@@ -1,0 +1,95 @@
+{
+ "id": "c0a601ef25e6cc93833c371f3ae9432a408e4828b91658a8b7bc2c4bff8bc71e",
+ "blockId": "ce71a84562ee7f28e12a996b3398b61581bfb66a3579057fa1b971137e005268",
+ "inclusionHeight": 1881528,
+ "timestamp": 1790421162183,
+ "index": 27,
+ "globalIndex": 285314,
+ "numConfirmations": 720,
+ "inputs": [
+  {
+   "boxId": "db50049ab1d51f15d625bd8365e26a08b895efd8593edc4e99bd36686f03a344",
+   "value": 150000,
+   "index": 0,
+   "outputBlockId": "262845f1202676acb04b8f5f94399fde57e18c809b213b1de086b8936f4ccd67",
+   "outputTransactionId": "39a70ab060480da0c6bbbe4c6fbe3ab60cde0450303c11dcddde834cbc222fbf",
+   "outputIndex": 0,
+   "outputGlobalIndex": 21084056,
+   "outputCreatedAt": 830327,
+   "outputSettledAt": 830329,
+   "ergoTree": "0008cd03708a317c2addacc67a50bc940025e20f3b22fe6ca0f3a19bb31186cfc54ec286",
+   "address": "9hKNNR3SNe148JPyAdxzczpjeu4ht3vb4TNHPRsYL26EddQ7JST",
+   "assets": [
+    {
+     "tokenId": "0cd8c9f416e5b1ca9f986a7f10a84191dfb85941619e49e53c0dc30ebf83324b",
+     "index": 0,
+     "amount": 69,
+     "name": "COMET",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {}
+  },
+  {
+   "boxId": "08458fe5cae2bf49912c9e19b69170a1bf41710e8a67380d0130d39e9d45aa61",
+   "value": 1000000000,
+   "index": 1,
+   "outputBlockId": "14674e6d99c5ca6900517088f449764e0639f696f833ebfbc6fd87d3dea01ba8",
+   "outputTransactionId": "fe6523aec721e888c788ae1af96d429331516afa2036fc0018479e2778123d1b",
+   "outputIndex": 0,
+   "outputGlobalIndex": 1133427,
+   "outputCreatedAt": 1881449,
+   "outputSettledAt": 1881451,
+   "ergoTree": "0008cd032254e3436a79c94ead9a85b393258571c654ea9e44254b82a88f466f53275598",
+   "address": "9giveR3jEGvQS61H2SDQpPdLbpVT1T9JYpvW5yTmocs4ZpUEQ7z",
+   "assets": [],
+   "additionalRegisters": {}
+  }
+ ],
+ "dataInputs": [],
+ "outputs": [
+  {
+   "boxId": "4ac4012ee899e73adbc3513e862019c483116fe060cc0f2c7f059f5fae4bbdc4",
+   "transactionId": "c0a601ef25e6cc93833c371f3ae9432a408e4828b91658a8b7bc2c4bff8bc71e",
+   "blockId": "ce71a84562ee7f28e12a996b3398b61581bfb66a3579057fa1b971137e005268",
+   "value": 999050000,
+   "index": 0,
+   "globalIndex": 1135303,
+   "creationHeight": 1881526,
+   "settlementHeight": 1881528,
+   "ergoTree": "0008cd032254e3436a79c94ead9a85b393258571c654ea9e44254b82a88f466f53275598",
+   "address": "9giveR3jEGvQS61H2SDQpPdLbpVT1T9JYpvW5yTmocs4ZpUEQ7z",
+   "assets": [
+    {
+     "tokenId": "0cd8c9f416e5b1ca9f986a7f10a84191dfb85941619e49e53c0dc30ebf83324b",
+     "index": 0,
+     "amount": 69,
+     "name": "COMET",
+     "decimals": 0,
+     "type": "EIP-004"
+    }
+   ],
+   "additionalRegisters": {},
+   "spentTransactionId": "4d7933f930386a2eb2dbd7d4f62caf6ba619f17110f56d980ddd46cee2cb454e",
+   "mainChain": true
+  },
+  {
+   "boxId": "f9e4785f441df589d7e960e50aca8838ab6d1759adf5b8d1f65232488dc30da1",
+   "transactionId": "c0a601ef25e6cc93833c371f3ae9432a408e4828b91658a8b7bc2c4bff8bc71e",
+   "blockId": "ce71a84562ee7f28e12a996b3398b61581bfb66a3579057fa1b971137e005268",
+   "value": 1100000,
+   "index": 1,
+   "globalIndex": 1135304,
+   "creationHeight": 1881526,
+   "settlementHeight": 1881528,
+   "ergoTree": "1005040004000e36100204a00b08cd0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798ea02d192a39a8cc7a701730073011001020402d19683030193a38cc7b2a57300000193c2b2a57301007473027303830108cdeeac93b1a57304",
+   "address": "2iHkR7CWvD1R4j1yZg5bkeDRQavjAaVPeTDFGGLZduHyfWMuYpmhHocX8GJoaieTx78FntzJbCBVL6rf96ocJoZdmWBL2fci7NqWgAirppPQmZ7fN9V6z13Ay6brPriBKYqLp1bT2Fk4FkFLCfdPpe",
+   "assets": [],
+   "additionalRegisters": {},
+   "spentTransactionId": "9c6778efeb50d676f24b955475cb10e86c11de7e332ff23fe312eed28ed191b5",
+   "mainChain": true
+  }
+ ],
+ "size": 324
+}
