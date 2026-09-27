@@ -1,0 +1,703 @@
+{
+  "measuredAt": "2026-09-27T10:44:28.156Z",
+  "blocks": {
+    "from": 1881201,
+    "to": 1882200,
+    "count": 1000
+  },
+  "transactions": 6469,
+  "recognized": 433,
+  "byKind": {
+    "transfer": 395,
+    "spectrum-n2t": 36,
+    "rosen-in": 2
+  },
+  "byContract": [
+    {
+      "template": "8199d5306547",
+      "txs": 2354,
+      "names": [],
+      "sampleContract": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+      "distinctAddresses": 2,
+      "exampleTx": "438fdc4cffc6fa5aea2a2887a7347830114e98c965603c04049e2ef81b0a33b9"
+    },
+    {
+      "template": "6325ddac6fb9",
+      "txs": 1000,
+      "names": [],
+      "sampleContract": "2Z4YBkDsDvQj8BX7xiySFewjitqp2ge9c99jfes2whbtKitZTxdBYqbrVZUvZvKv6aqn9by4kp3LE1c26LCyosFnVnm6b6U1JYvWpYmL2ZnixJbXLjWAWuBThV1D6dLpqZJYQHYDznJCk49g5TUiS4q8khpag2aNmHwREV7JSsypHdHLgJT7MGaw51aJfNubyzSKxZ4AJXFS27EfXwyCLzW1K6GVqwkJtCoPvrcLqmqwacAWJPkmh78nke9H4oT88XmSbRt2n9aWZjosiZCafZ4osUDxmZcc5QVEeTWn8drSraY3eFKe8Mu9MSCcVU",
+      "distinctAddresses": 1,
+      "exampleTx": "ea67ea71eb83047ac6183c3874f1d300e7a22c79f8ffa2edbc863ebc699b560c"
+    },
+    {
+      "template": "be6e8d574961",
+      "txs": 642,
+      "names": [
+        "Ergo Platform (Miner Fee)"
+      ],
+      "sampleContract": "2iHkR7CWvD1R4j1yZg5bkeDRQavjAaVPeTDFGGLZduHyfWMuYpmhHocX8GJoaieTx78FntzJbCBVL6rf96ocJoZdmWBL2fci7NqWgAirppPQmZ7fN9V6z13Ay6brPriBKYqLp1bT2Fk4FkFLCfdPpe",
+      "distinctAddresses": 1,
+      "exampleTx": "e14d51ad4154516be1c2bb13db3e8cd244796be7f483990b88e56abe2d8a3014"
+    },
+    {
+      "template": "14b9afed2c9f",
+      "txs": 464,
+      "names": [],
+      "sampleContract": "AucEQEJ3Y5Uhmu4o8dsrHy28nRTgX5sVtXvjpMTqdMQzBR3uRVcvCFbv7SeGuPhQ16AXBP7XWdMShDdhRy4cayZgxHSkdAVuTiZRvj6WCfmhXJ4LY2E46CytRAnkiYubCdEroUUX2niMLhjNmDUn4KmXWSrKngrfGwHSaD8RJUMEp5AGADaChRU6kAnh9nstkDN3",
+      "distinctAddresses": 1,
+      "exampleTx": "207c65a86dc4963b77c84fd784217cb0316642c1872778056fcccdb30bf2185e"
+    },
+    {
+      "template": "385cb76c2600",
+      "txs": 299,
+      "names": [],
+      "sampleContract": "22WkKcVUvboYCZJe1urbmvBL3j67LKb5KEAvFhJXqA6ubYvHpSCvbvwvEY3xzUr7QvxpEtqjzMAPMsVdZh1VGWmZphvKoJdVzL1ayhsMftTtEFoA3YYdq3zKeeYXavVrrPUmK3fRXJ2HWEbZexewtBWcgAnHBw5tKvYFy9dEUi645gE2fYMUvVBtbvMExE9mjZ2W9goWkqu1VtThAsMZWZWjHxDjX116HpeQKu9b9neEUBj4kE5sX8QXaV6ZeReXxYHFJFg2rmaTknSPMxHXA8NpQKgzryBwLssp5EJ1QTqn5R6xuvGgFCEUZicCEo8qk8UNbE7e2d4WqW5qzpQPzJkKoPa5UtJEPYDWNhaCKmCpzdSc77",
+      "distinctAddresses": 1,
+      "exampleTx": "9db68b53e1a6e883ae526b64f2e4e5542797f384615046386be18ec001e6f7b3"
+    },
+    {
+      "template": "5b9e345293cc",
+      "txs": 299,
+      "names": [],
+      "sampleContract": "6KxusedL87PBibr1t1f4ggzAyTAmWEPqSpqXbkdoybNwHVw5Nb7cUESBmQw5XK8TyvbQiueyqkR9XMNaUgpWx3jT54p",
+      "distinctAddresses": 1,
+      "exampleTx": "9db68b53e1a6e883ae526b64f2e4e5542797f384615046386be18ec001e6f7b3"
+    },
+    {
+      "template": "c257560e46fe",
+      "txs": 248,
+      "names": [],
+      "sampleContract": "W76SLPLFea",
+      "distinctAddresses": 1,
+      "exampleTx": "ad0daeee370cee9e1e28f04a1ce082fa5e318ca5691bbfab531a238a92578aa4"
+    },
+    {
+      "template": "73575d2cb386",
+      "txs": 172,
+      "names": [],
+      "sampleContract": "PViBL5acX6Pm6nD3FJQ3fZXESZTq8imJ47LJLMWtrhqm2nP5cVwMfXoHoqhnfvxUUKenebtEbLwZFTWPFRXJNsqLYDNWMtYAbvmqWgxCCPeH1fECQYtdZksCMwJrcmpLtNgfeADVEnmcUCPeTee8",
+      "distinctAddresses": 2,
+      "exampleTx": "2e6fac06c944748ee8dde49d564060a07c38ef55925424f93566ce01b43efdec"
+    },
+    {
+      "template": "98241b0e6b64",
+      "txs": 172,
+      "names": [],
+      "sampleContract": "oq3jULmmMxxmwrZ8cxcPUgHKvuyppYFNhhBZrQw3G6ws7CkstXE1EWWe8ykrfspHvqufzzvSkiDsu9SrkuydTwDoApLtr8F36fazW1uX85kBuDMqXJNjG88Gn1aDqKqVstY4b2qzNWqo6cvzWqk8jo5HUhvcDNktpzXzzeFcAmX2YUGnGT615byL1spZ4u2dstoGTRcPuuaXxbneNGPtMz7teZaZUsKS89i2LPeFwURwBiDKQHaFvq1HvbXfYcXc48NKTx6KQGb5zjbh84edfLnACxRZF16p1cSvwLpRVVSQySwBfzhgsu6Hn7B82Wn1sKLht7zZXMcsXuMxQEe8BkQ9L3xuQD9t5xGi6dSEuWNgD5hS4C6Md2RUwr2e88EY1avtxrYWiyAzJVj7jjx3jZonDNtHe8nVFh4soMYbNNd4GVMRnALSKtZVPDpERLXKduEUFEtPHpGG5sc16BQVAwH1u2y5YikBbh3NUUAsABxB8qVjzMW7V4bYDVuhdeCYpAPvQhHRXFQuCkqKCPoicQFucS7ez4zQsDwr6Me6snkP1DFd1fFkg8GvvuuqeUtufVyZ3jdKhf1b2ehKg5oQTguWyHeubPjs52b55hbBHhNJwoc582JPcTASXHkUviUg1Hgpq7E7oCaGFWEGq2vvCJRH6wjNVTTDxSdCvYznzecXjZcbYLWWvF7sZJbUjmatejxXidb6o9m58t8JR1EcYbqRzpeGapHip9uWjmNcmnRzynhXSAzMLg9cP",
+      "distinctAddresses": 2,
+      "exampleTx": "2e6fac06c944748ee8dde49d564060a07c38ef55925424f93566ce01b43efdec"
+    },
+    {
+      "template": "82d756e223ab",
+      "txs": 140,
+      "names": [],
+      "sampleContract": "88dhgzEuTXaSuf5QC1TJDgdxqJMQEQAM6YaTTRqmUDrmPoVky1b16WAK5zMrq3p2mYqpUNKCyi5CLS9V",
+      "distinctAddresses": 13,
+      "exampleTx": "ada530c3a41f5772dbe8a020f4ea3e5f90c7c718a2f1dfdaa99f527090d6c34b"
+    },
+    {
+      "template": "3f10eb0f2e15",
+      "txs": 98,
+      "names": [],
+      "sampleContract": "2Eit2LFRqu2Mo33z3pYTJRHNCPZXtS2f68LNW668eK4nJNwXQZMTEW23dCLCxfBX9CZfhHCCt1AbFaprUWX4wG2LfPVrXjGSpZCB5oX3FQ23WXoS58MGLwDDjrEEyoWCbvS1QN9mAgg44yqcgBQajZp1RRJohTZDfYZT58h7eXMZyWpSqw2TMAjrHSmPgKaHxM5yoGeWsRqTscGxrjvjts9dQWWgAZy7NuKC3zks5GW1dVXFYs9xa1V1JfefjCXW1RWJpWoVc8NqEXKFZF3xh8mgfwbWWmZoo6cJWRn8yMyAjheCCXprsr8uD8zLiJHh2inC34ymhopvGnVVU9wxK9exLNprv2Hgy1TCsxvKJxT1gPX4czEqvv3FfgnbhLF4mStnfUYzwZRCCn6dgjEKBmmQfXzFv88TQWW8AyeagY7Tj9oC3bNi63VutaA4MBCTHkg5xkkqbmmPnyvKrAsXy5SVUuAAzmVDkVrV8MAcjbeiS8SxVqtFKxGSLwEbMLyyDAM4FGmRz4XzhfaT9RHU93iaE54wkM7ApkTDgCpaSnM7hhQgqGRFseEoH5mDJFcNUVL21KJXJ7oufAp5jxAR6XphgaHvSFZqoZhb1mCZEa9ZzJthaKHhKUabcXUxkDs4Ev46VxkxxqhT79JXXmFLg5rNCJEdSwMm324feYFWJodEoEAt9QDd6Tk2itPoCmem7Du1dZ",
+      "distinctAddresses": 2,
+      "exampleTx": "63b5a9eb5458b7d45e3a1a5f90ac911bf5e67b2183c7c86180c62e54c7bef5e1"
+    },
+    {
+      "template": "a77b614f915b",
+      "txs": 96,
+      "names": [],
+      "sampleContract": "3PwDZR2PF9VB7bubVAgfEZdbdNHpdqkU9Nm2e8BuFP72ob6wHg8MBdwwYGy91f3oxHfbaaQfNQofpAoHQgu",
+      "distinctAddresses": 1,
+      "exampleTx": "ffbd62895b41255873afb8e0da77a32888b48a20ea37b63e04473f569f58a748"
+    },
+    {
+      "template": "ca9567d2bd88",
+      "txs": 85,
+      "names": [],
+      "sampleContract": "NTkuk55NdwCXkF1e2nCABxq7bHjtinX3wH13zYPZ6qYT71dCoZBe1gZkh9FAr7GeHo2EpFoibzpNQmoi89atUjKRrhZEYrTapdtXrWU4kq319oY7BEWmtmRU9cMohX69XMuxJjJP5hRM8WQLfFnffbjshhEP3ck9CKVEkFRw1JDYkqVke2JVqoMED5yxLVkScbBUiJJLWq9BSbE1JJmmreNVskmWNxWE6V7ksKPxFMoqh1SVePh3UWAaBgGQRZ7TWf4dTBF5KMVHmRXzmQqEu2Fz2yeSLy23sM3pfqa78VuvoFHnTFXYFFxn3DNttxwq3EU3Zv25SmgrWjLKiZjFcEcqGgH6DJ9FZ1DfucVtTXwyDJutY3ksUBaEStRxoUQyRu4EhDobixL3PUWRcxaRJ8JKA9b64ALErGepRHkAoVmS8DaE6VbroskyMuhkTo7LbrzhTyJbqKurEzoEfhYxus7bMpLTePgKcktgRRyB7MjVxjSpxWzZedvzbjzZaHLZLkWZESk1WtdM25My33wtVLNXiTvficEUbjA23sNd24pv1YQ72nY1aqUHa2",
+      "distinctAddresses": 1,
+      "exampleTx": "f84707342a5e1bc26c059b0a1cbb7eb7f253083b8afd29f01165c3fbfafcf134"
+    },
+    {
+      "template": "3f2e80df8153",
+      "txs": 84,
+      "names": [],
+      "sampleContract": "EfS5abyDe4vKFrJ48K5HnwTqa1ksn238bWFPe84bzVvCGvK1h2B7sgWLETtQuWwzVdBaoRZ1Hcz1i9w5sa4bkSPJMrkFSmcpLeKUEseNYQn3x57xGttnWFjXkLsyE7EDQuga6ic28tMpPrVokJ2d8ZHQhjddRgwxMfhcwvVtoTqjLbDc3YKJLAetd2DcaCWJB6XzHCM8ezDFpCWVVrFeu4SYGSoGJbgPDRvEAcJEN4qu1RwsmZ1MzBfWF2jBJLagWqu2GvevuDG5oTtJrkqwCHRaAshfoM2mQnjLBsajjPN426t3aRZVJVRHm8apmZstnh92kYBVMujvLA1BkR2tqTfYLtmX6ChFSMXSYejkkCQoLdog59iD66oEzAZtg9ZowqDCjfT8G8YLVpEkVd23QH2LhFtEie3R4etCuvzCSyC4UmMmLbvrnUg4LfuP6xv6jckLGH8HkNWeTuuqf2UmVCQfhMMndBciTXF2KfrPCrzmDXw",
+      "distinctAddresses": 1,
+      "exampleTx": "a9327a14bc60d7ccc945b0ed363dd9cb6a55bc7aa99a903731e092211eddd7d9"
+    },
+    {
+      "template": "48beed5f4fb4",
+      "txs": 30,
+      "names": [],
+      "sampleContract": "5yE8z7TPirM2B236wY4X",
+      "distinctAddresses": 1,
+      "exampleTx": "d42df74a44ecb7ae79315731d2cd02a1637c39d9068623a299dbb77597f29d6f"
+    },
+    {
+      "template": "08249d26fa9c",
+      "txs": 26,
+      "names": [],
+      "sampleContract": "4ReSd69SwrHpRYhrU6RBk3ZHaCoYtufnFaygXNKD7gwAnWg5yBqHYy5kg7nTN6bpMgs7kHgqWYYgf4GJs7gTSX3WF3eSLAA3te48rxQchtAJdapuGoyM614kuAbyqQdHBQrYprv1WzHFNmq5dh2hHCQwd3Ms3LNvUARYY2zwW16kpkm7PTUKJV4zMfGMxwaB5gAWWDTs8Pi6S2HoGdtKjEnYotz8NvvwsYTLJbmow19dV82SpNktyht2vDJBLBavQqU2uJRfX7fM49QBVb2x3ENatD6snxU7q2rvo84QGKoov9WkrW2VMBwQyPxBBDjHGpHEwdRV2DbbfLhpWfPQhY9QoSvH1VzeBaeLPM4EF9onjptVmjF6zLcjyopuArondqrfxc72WnuKiNpWdsEPjTQSNtJzzLKW2rhM4m5SZEnZU89rZN6tmDarULAmqNwZRhWGZcrfq76Mw3Pb57bhHeiBcyyR58Hmfd5r6iEN5QXwdNfTtVk2CfHqmQB1qXDxQfvAENhQAgvuREhrBcG1v1EQVs5ZmaDzbMja6yiJZipZVFmv97vNU3uX2R8PzYcpQgpKUPM6KZFHaA8ooYnFS92rK9Ma8kVGinFmw1WUkQbxUUpL9fvGASgRScmr2N9mdPSmc4ECkyQ94bpkA2wZuzErt9kpNWBL2WQJD5rsWXSQFp3n7EFZDxHVnVSGAArTDiP7nhVJXq3ZVwhbmwkB1zaHHSVH9ojeNkbce768oBnDkHVQtJADRJoRi9hoxWCVC9DamBvyKLa6kyDXyEMVa7JK5SgWBvrMwi2NCsXzbSTCSSQxgY3oPbf4jJDpD7PKrds5NqyznG4eqLGPENZwAHR4iqdiUkxMiNdxZkebgwRtBsQwqoMXxB3cU1Uqy9o1hWU3dqMefcDddqrY6vFYewTDpGL5ZNduUadBCcafXiDKpDhMK4jLVxQxwdCWwBETvbX32BxiCCV8o2qYmruCysNCCv18fkHKxpax8QweP9",
+      "distinctAddresses": 1,
+      "exampleTx": "b310d7a13c30202f175659cc4ad7ff73cff5b8e8961cd9f17025d6ca266cdfee"
+    },
+    {
+      "template": "915ccba4ba8c",
+      "txs": 16,
+      "names": [],
+      "sampleContract": "4FC5xSYcrvbLkAD79EvssdzjF2ygjKkhfDUHDJsUDBoewC8gakBzef44QverKuh1jWjkooje",
+      "distinctAddresses": 1,
+      "exampleTx": "8961afeaff07ab4b3461becad52b4691de909d86a070db6f3a050d835b66a706"
+    },
+    {
+      "template": "dd146740cd43",
+      "txs": 15,
+      "names": [],
+      "sampleContract": "JiySNY48TL2v3nZBm3Gpnh8MuoFx6xMSb5u2KjS52Rc95aD",
+      "distinctAddresses": 23,
+      "exampleTx": "d42df74a44ecb7ae79315731d2cd02a1637c39d9068623a299dbb77597f29d6f"
+    },
+    {
+      "template": "33d46c091a4f",
+      "txs": 15,
+      "names": [],
+      "sampleContract": "3gb1RZucekcRdda82TSNS4FZSREhGLoi1FxGDmMZdVeLtYYixPRviEdYireoM9RqC6Jf4kx85Y1jmUg5XzGgqdjpkhHm7kJZdgUR3VBwuLZuyHVqdSNv3eanqpknYsXtUwvUA16HFwNa3HgVRAnGC8zj8U7kksrfjycAM1yb19BB4TYR2BKWN7mpvoeoTuAKcAFH26cM46CEYsDRDn832wVNTLAmzz4Q6FqE29H9euwYzKiebgxQbWUxtupvfSbKaHpQcZAo5Dhyc6PFPyGVFZVRGZZ4Kftgi1NMRnGwKG7NTtXsFMsJP6A7yvLy8UZaMPe69BUAkpbSJdcWem3WpPUE7UpXv4itDkS5KVVaFtVyfx8PQxzi2eotP2uXtfairHuKinbpSFTSFKW3GxmXaw7vQs1JuVd8NhNShX6hxSqCP6sxojrqBxA48T2KcxNrmE3uFk7Pt4vPPdMAS4PW6UU82UD9rfhe3SMytK6DkjCocuRwuNqFoy4k25TXbGauTNgKuPKY3CxgkTpw9WfWsmtei178tLefhUEGJueueXSZo7negPYtmcYpoMhCuv4G1JZc283Q7f3mNXS",
+      "distinctAddresses": 1,
+      "exampleTx": "5ce160e7909f02346ca57c219cc19b53e6f60235b69ecfe5f758af80521049a4"
+    },
+    {
+      "template": "64b314cb7348",
+      "txs": 14,
+      "names": [],
+      "sampleContract": "Ujfv3QVGdnTjkkugQDB5qFowFpiq2uK32aa7efP7ptAA4dAsAamzWS1NS4kWKExYR2N781Cgi49dLmerGrH6hQZXg6xgxkyJRKJgPgq3MKrSjxECyPVtSyqmivuV5TDbsoNGQfA9yb4FLjtX9ovdYGZxz8TcESePcBHdTpUeXYRqsbkQkhNNDuF3HfWKmLFbTQTKUti4rFT4zKLKaoCr1Hq4AfEu91i5yTmxvZ14iyGkwduKrA2M54ynk5bryZqU7QiJJ1eQe4CPY8wnTgWUPniNDMzjUQLxrYZjSjJX1L8W7cVdWoMGqVdDuWv1APZokHypm2qtfoC4yFf8QWj9Phdnh3fzbUuQyk9nphXMnGKaNN6byTsZW63a1DZESwPQkY5hhhuYJuTYoGy9Gf2bdxfEgcXvppTnc4yi2AB2wo8XXsUtmH6L39nfrTfWtqiSuCZutvARjbahAjR9riZ6Xcb8JnpdUgz7ZmoRa2bwEj7pnMEd6HGdZRwDGCQn5Ezt1ZS5QEFqfTkfvz4wyiDUvDjM9knYSs2KGVim7CFvQdWtLPuiY8nkTmrrWgTyChAzFjexeYP5V9EaLDbkRRbSRinoAb9VfL9KCkSMNyA55fNkFnmzf94nF2HHfJNGvKvc2hHL73h5ERWoZ139jBH94ZFs99QnYA8zVqohtk8JYxVZfLg6KdR67DVHguNCtMwy98pdxdiHr6McFMZB7Br6RSQmnXa73bCdKZKydxxnf1vTo2MtkMRuq4QgNYgVLJxhdTL6QpR763jTpbjnVWWqe5PDQ7ghDfYC1AnqQvR7AwpVUj47ut4McE7iSUHruUxNr8jHKBUSv5xTNbqhQhGuhwgfte8otdaG8aYE8ezEHXoNiB1cbcAbuDyTjRAmmXqUw8rBxf3twUi7HqnZPGgoaTf4Qjx2nSonyQsRHJFUp2yE3donK9seHPGAHyjfG2FTCHJneEHNY2BTi4bf7E7Yw",
+      "distinctAddresses": 1,
+      "exampleTx": "bde40e0d94964eebe88e3edbd6133d7d0548507408fe4d52434532350eb72ba2"
+    },
+    {
+      "template": "b47f1fa74eb1",
+      "txs": 10,
+      "names": [],
+      "sampleContract": "USNVj4qoyg7U7C6EpdFGHNzicn48yVmMtDrGYvJMSNjVZF4nforamWoWCMttwKetR58XFDuCvzGdUm2FhzuRvq1MMjBvCfNvAmfBruJ6fuvpCQPmWL7wMndaPvuqW2YFAkrkt6X19YjwLukdV9DToWjcHonvQEiLtJokFGrei9ksNLG3dm3jWFyEGa8AViY5CKcKz7ibH45ZwZ6LGPLfy2GQbTYRUyemWbfjGCy8gdxEspymwCgVtpci1yHbeGs5BHye9snAwyDN16vTNm719EfSQqgu4zKDR99tnbhT12b8FPvwZkRfSwwyL4ghau6i4jzcA9Ghi8tA6Bgi6gEPJEnPSSteF9d6kabuUnbZmmA81QYeZUEToFhCWncjBViwfcYYnFsxcJvxnB4DVtD2oQDZr5z5TRywDWKD6YjnxwLqwF2TFbrbDLdQzu6ayJzAcPYpLxCThQ2EAMwkz8YP4EXCE2rU2ZqjJXgRbpE1",
+      "distinctAddresses": 1,
+      "exampleTx": "e10fb967b3d8f55a9647ffe2bbc8a772b86e54dbfa94c0948ecc99e4b086bf04"
+    },
+    {
+      "template": "dccace327571",
+      "txs": 10,
+      "names": [],
+      "sampleContract": "26tpZU6i6zeBRuzZVo7tr47zjArAxkHP8x7ijiRbbrvLhySvSU84bH8wNPGGG27EwhJfJLe7bvRPv6B1jQFQqrWUQqBX1XJpVGoiNgveance6JFZ4mKv1KkRE8nBSB3jKBGnVJjJF6wR1Z8YXRsUqrTff4bfmtbhaRRjibnDDtKhS71spfjjTBeU1AhhQpitCDg4NFxmTLyV1arE7G2riZKzDryjWnCiEJGzWNxYtVt8uDxd3qNSRE5sHECwcsb98x7rn4q4FyHMvvWrRMPFfVgAQd5wHCAHwhMEdqUrSFQVkmUMavju8CLAgCNcVFjUBKPX4ooEHLUw3QkxS9Jp6fAFAGmzJ6QVD71mAZYMYhoEQnFyUBx1txJjVJjCrcZsW43dimbt5su4ahATJ8qRtWgwat8vTViTVXAcBmUSnqbqhAqTCxcsS5EFS6ApJSfthPHYUyXwtcbTptfdnUx1e5hEiGcwxoQ8ivufNNiZE9xkxi4nsBBrBVBJ7pfSSoHvbodkzLrq91RHYrvuatyLuBSxgJxs198xUQhULqxmWwgthJLrG5VVfVYH",
+      "distinctAddresses": 1,
+      "exampleTx": "e0b7755ea31181945a072fed45aa0fd5be417063a7983628e250dab78b006517"
+    },
+    {
+      "template": "3af561cd7437",
+      "txs": 9,
+      "names": [],
+      "sampleContract": "NY4PEzZ7VfjtpACh7a9NbxyyMQPghQ39LcRZjPmyZ7oPeSXT3E6uNUumgzTjJqx2YQj6Yv949NXmyGPwYSdSTmLdU4k4UuUwUAKS9aGozcX2VzHn7HAgbezL44thy7BiJZLNvW7npvrhvve1K3w56sNB5Q5Cw1Q4vKdD5vktYE72vcu81Ls9Jo3dstmGPFrxzGYZtqYfR5Lyq8JwazKse3Ea7gypuqv3Pv3emVdBwAquXMTATofoAp9aaffrQA8XbsnAbmAHiVxcMmyhf6iCjYxDBKNd3LUCMpy5uHSg8AwijbRDYCaacc2pt2RK9VWmthdtCVcC8XBh1bsXNp1aCeRprg8nmCfb4YkRXXVH2TTWo5D4BvW23gjbNVU8a2SkTR3ZwboiL1QA4sq6JRY5HkZQjSk33W4YcJCbgNNu4Z6cU6xCnNyoiX89FfD8uMq4DZKD3bxD9HBdXpN2xs8BHA9EMtwaovxDANjsL9jxWH6FSN2KrKHsbTHAPSB3Lwzj468BdRetD5VHFfKetRT3qUsvrBXZ1n2UBd6WvhRA4T9erCZDRP3Ui2Wxbx2pVvXKeWLsJMYX5fiX8rX55z1mX5wMfbRPJKMTGtyfwDoy3D6pVra2zvPxR2ME5A1rzWxtUwdUfJZ5oBGYFkV94yjZJKMKws4UtgkSdgeGgqN9eEnzjv3nYp2rZjxZnXeacC5JvQghzKf6jsRzGyzWwJf4CZnAaL9V9Ap3Up8YfxuHvWzTVJSgUq5RD8MSwc51Ctx9GoJ7YBW961NPuuTnJrp2CR67w2izrgEwyQCMvzcxv8rNSacPRybXv9peBJVRuXx2uoNAxEYeHPqW5eF7L8Xc2cKF7AHREKeJAPbZz5aQTSQMhRgV7DSyEFPB9riWyxJM1bbaiVD3R5J4BTzQWffVdXU6JGfabniS51pihUmS3uQQap4bx2QTMSRJYcHDzwikCgNK3bZgB3vYjAojV15s7bvciFrCuLLhF1LhEVUh1oQf1HnZSradFABNhnzwRTn6nrgqyBxeBYSXbcusrD3gUfymv7mrpEEA6r98s77dn6JDrvDo3aRqSFhPAXLXQpkv4MNq1dZkrrgUGwDyohEYXQMqVQdJoAQxiybg6qLiaYnUtKm3CzFaY3eDYzySGWcZXQ2JuLNQKdMUFLQXEWUi7eWH1EaZ8HsYH1J1NTo2ZoJVvxdyL9JpsVk6p5pTdLm3Ucsds5nLQMga7UameEGSxCjUoYiwxQ",
+      "distinctAddresses": 3,
+      "exampleTx": "63b5a9eb5458b7d45e3a1a5f90ac911bf5e67b2183c7c86180c62e54c7bef5e1"
+    },
+    {
+      "template": "04e5914dde7b",
+      "txs": 8,
+      "names": [],
+      "sampleContract": "4T5Phw51x11bWjCaDiLUD42YvopXoVQZsbFtFPqYSTcKn1X9Q5W67xE3g1gDxWJgfRNTH3SkikZuyyq5CJEzW6qhDCYeDGDWMLbVLaE3crZjrcFxJhdJ5Ame2L63SSidJnLSgivz4vhJtMmuSpzzJVGDys2cPuDzCAfVAptjGYHeyXKu6HSeZREEvmTLBrVxiEk4xrV6p5shnFJzeHJh8HnHW97LtBFj4vmNYNZe5x9wnm2aQrr2zaQ5XuGejBm1ftUdYA8vy3EeVzYDwfkfEo8me7uyZLmm6EF7qnfsPxpSWBB8kxCfsu7ZaUxWTHMp3eNWwg3w9eeDMKUJUnqfocLgiEkaD94vxuwCaEcxxKkFu2nkfHuUU6n2aiXPcZRFNWcVyNKD8pVFMSgfxi8iKmy5WC9rhWDvr4FzK1V4ks25S1aW39BkkWmz7mamhFHKeV95cYDoSYnYpcVNgZU4u9x9mUJJY68ibejZ313bcpZ6S35vKXD8TsCmof8uJ33KnMFPsVR6Wx9Ge3QJ3VAHr6xNtP1NSnzs1prkHjXnwqWJNc39q2NAZF4TrC9SvMY4XoW5w9sp1zwXbwQAagtFRa74nCAKSCdf6WUGML1vUNUhPJECtUvfdXKC3P1D3AWPthMFQCZb4BiNjbMHCVPAKQ49GnEXy7TUVunE1UjTw2G4PXWFrP26nC6cnmHmYetyCfKZBoLY17sv84vCUcQMAiPpjQK8FdYcZLdaQezYPDcGc6CKvYwheWYvP58jaL5Nb1G5PFg62WXzjunKzNnxQV8hCAeosQw5vjTPwYCwAxNRYBtP7bN",
+      "distinctAddresses": 1,
+      "exampleTx": "8961afeaff07ab4b3461becad52b4691de909d86a070db6f3a050d835b66a706"
+    },
+    {
+      "template": "489d1222aae7",
+      "txs": 8,
+      "names": [],
+      "sampleContract": "67d7wq2KP495sNBtVThj4m7Xf2awfow9ZhdDqM6ypU5gqfwXq2tuXVem3pSgKrGNV4zwkvG6RVFcKrHN4BGfGguoXrjvEzx574gKf8Nqh677PmQbvDxWiSH6uCmcfG4F5hoBKhCYa6a48eM7cNwzPRnv6thJ9KHK513GHUqkrVckpRkZ8UDRQuhyJh1jxeWFPzQ7F7sQAy4AdASBHnGnQLhBtSa3ALAFicwNB5ZrfU8Mj8KpbxzeVZHjuvLueM4gBoarQhB5k3G6CkV28GB7JamvHC6xGDuYArkoBw2Fuk3fukEhd1iYh6j13HMS967gDcB7LjGemhuBJ1odRzu1WtiYmsgv7onjGdRva1BpjmR69f3mAUtAQCNp9PU3En9Z7xwKbaZb4RdfURN1ETrR7coRUQvwtCqdeGrzd2PxPVYqiMhiA9UhzfUVKatwzC2D5ZT6txa4P29Yi2xVKzAdyr7ggCEc4GiiqzNyt7yMkMSddGvAULvgFrwvkvYafmRpnNo31Kdd5C7NiVXzX5EYNFoDX95EuSAr2YS2L8K5rogmR6sgrNQv84nBJ44vBeEsV87VaFCT8mkq6TjMsLDYfiNnBmTseFEea3KiBqvHtUHeX2VR4EieEJQpXBF237cwQwvudft5E3psNaEFvfVdZ9bswFNPWcc6g54wKuFR6jAByBoBswVjGv3nUxx5S7ch7aoqCrK3CUJdyCoribQpoFXv1keeNMeq852VRfdbHCm5f7oQNZSwJXqjDtCgu3K2CKKY8NyzzHiBdxBfdxdDTW5gbcg3fbxz5iB7sA7wjms87zyUeVEkXUC",
+      "distinctAddresses": 1,
+      "exampleTx": "e5087ab56c46b803bfc73e95fee5742f5271a9d062e9fca8e40175fe546e550a"
+    },
+    {
+      "template": "6f28a3efe0de",
+      "txs": 5,
+      "names": [],
+      "sampleContract": "Dxg1z3EWag6P11PPBdmDAjoj51AEXReLMNqyUDWiWtAMzJVnhye3zfV5ZBfL1njhTbpPoygesELjwGk41ruTZhQUZqqgENQ6MpCCMPQJmVDHPs2gtnuqh9NRsq5BBpyinKNx9quDpn1KQ9fJv5yTMeMqXRUe5nFREvRPJHCaZcqu9PeG2GEeSceY957EqTCJCiDUtxYiF6A2RRWYz4CkVK3zCnphvUQY71nPdcajaFXoKhVEw86VKi8oChNX59gmcsdM7DiPssnMrMVHWSd1zpJFBUZzbWeHQCgtPyN7FA57VasSThx5djEZgS1FbwSoQ5B5pryVwwV8ah6kUSfPXDEn7Q1aLmYabv1Nb9SshwBtkARkiza1veHrevs1bB8cb1cefVuzjk4QhLsXCDkJEb7CWhDVAKABxcXgg4dPTradYHnuSGoU6ecZXL3gVdMKeWPJVizUsVagdBJZCdaEtndXpqqEYGXbw5FnhDLHqCqioAWS7xXxmVYiLyGJYWTWfzsqUAPt4qWdkCFZru4SfTbdPS68WV5MsUoRPX5VyHGicKyTtHo6H2vVgc6EH3esXYenDdYZjBeL3YodZ44uKChWeHiDbRR",
+      "distinctAddresses": 5,
+      "exampleTx": "9f14dabb3010214fd6b0a1eda25ef43beaf3214f3760a8a47e3ae898f85fc26e"
+    },
+    {
+      "template": "d54697dbc8b7",
+      "txs": 4,
+      "names": [],
+      "sampleContract": "SiDFfCzE1MKdUevq1vCRN1vA7ZWNQD3gPBXdGSJ3xxDbh6x1YHb9PRJgFM7kS9YUFNmP5giWuL9NLhsvhYLvvfwLQb8MZ3NM9yvLyYRixmVLnBS7QoiYSYj3ijuHVFnMtp538uGxXLfRF6bsaW68dbnjDuHMVtNccjHYgSTBiWNkWja8sDMSm635rvMeB61ARKpTQmR5Wf1T9NJnVutjazhX9nABq8L46d2jSYgtKVDiSv4cFZPZ4Y5S1fDDJYP2PLnKx3gRFqN89JWHhGWwh5SQgU73Dc2EbHQx3G39Ah6MSntJKc345LW6AnZjqqc2qg8xsNXtdxD6NcuWWnKnYrXABKPR6Tc7isRb4FoGxn7dWPaMDEhxCH2GsTNjM1CdYqdEEXauFkPiA2faRY6qDkVKdZ2G4wDdRcTUcyxK5KCciGi3UgCWpPxuXDp6b3YMBMqPan78xM2ttrDeS4ns1vq9rhPEyJG9Gj3m7epBMEXh6vdjLA5pCwnKMySyHNYviTv7nwCxG1A4bEzFNTxKqoJLHD1gUssBC2xrrkxj3ubgGz3YN6L5jVKmzce16XPVtqZfusiAC611kX34Hd4F9oCU",
+      "distinctAddresses": 1,
+      "exampleTx": "63b5a9eb5458b7d45e3a1a5f90ac911bf5e67b2183c7c86180c62e54c7bef5e1"
+    },
+    {
+      "template": "77f976b7b67f",
+      "txs": 4,
+      "names": [],
+      "sampleContract": "3UXgs4sLcVNbXFFgyefrA3SJvr3",
+      "distinctAddresses": 1,
+      "exampleTx": "c16cb4d779c950139fca309fe70a8ab8dd863f936f9b7d0757a5e144f0986fc7"
+    },
+    {
+      "template": "d129412e8bd6",
+      "txs": 3,
+      "names": [],
+      "sampleContract": "5ivrmzxYZoM5sxBJU4VXQVMgqg6VeSxmYBL8PUPN2YxjtUm4sBj1EMfVLURafE9UEU3aw6E7mgBgPMRKTWYWCSFZL6kH9jWbgjHeBsKLikGkKPvDitXGZFMf4JYdDZaXJPfjS6nPJxZw6Qb7JyvQtMb9LGfRsDaDGJoXwgTZTXUcmHRK1vVSHEWw24s8E49VyXFWmNyRGq674suSBGdHWPpBBYZt7eJQoXbZmXhZaPrWiADA7196Uw8qnkS3SykBLatBGsHRaruq6YBEEjfRFob59Hor35TsgyyY667VC1357wmpCu31SsKy44M2R58Q2ep7WZrizgpyU5vDpP9UNGMf5WNp9k6M9rKXG9YPdk45isAHwAyBi8Y46PwWpBsTzodzDxi5Y7SPAPHp1BDL5SyYKZsHxu5RgdJD1e8ewg8SxyJ1ZGdqmAM3bGp7Y58ucmViKAkBbNEbk7qw1rqDgeYg6tYsb5NNpsuPWrG5CoJBQtL1WRW8uX2gGjhywYHd1KWh32drTDZsEFB7dqDpTZGQuz1qaFgKeM1h43FYwdNzgUmVteDRRq21CAVaoUqrgvEkm2AZ3f72KjRWnc1T5qDEs84zd3Z8EzCi4ovWJavUWJXEB1Pcapak8BNkfexiGWoYoEjJyVGEbSDNmfoVrCRvDeL62yw4KpqoenWwUV845XSi4u7f9Dd3We5zPFrbpwgQLPFAYuBhQiHqkMwopLfVLuL2AsEGswdNaYk8VVX8bPbP1aLCowoye3LwTc12dhNeynFv5PJz33zET42LHihxmi4YMF7KQkESRC1fg6pveXrmWzuRKQpeSaU2Z1SpdXEM5uxuTNnZSEmofdmarDyoiuKTTo67cBBbyRL1WDamfRBKMHv2rWDj5qk1zKFxr5PwCvmRsyq5ASQ5fkzRDY3QFRNMMLyzNJnDncfRcXePpddcK4ctnejsAp4iHMRA4PhgPDmALEcB8X6JLozwoMeWzCGgW2tYEHYFYED1NuBLmLP6aTVa8fMvewCZezyZxm5nrdpQV5rq6dAncMTzrBichRUzZUAFCfyTxJ5F5Nd7aDARbp4mQ5RUfUPrLCCvsGVY1WS2Cnt82aw3mmTbXmLZMkm5AWuZwM3wAYdDkVMoWsL6enpKhkhkmqmtxusLTssbFqaFoHt8qR1AQQVwm3gGoAMtHZ4qdVkwiGnZDsU7c1SW45BKLKk1npDdj9eYq48sQjXiwuhmFUHXWqVCriQeKy3SvmCjJrWoLpbzQbQ7vJthLtJ8N91WrniRZM3UWbXDKm3DFtDKkgyypJPvn",
+      "distinctAddresses": 2,
+      "exampleTx": "91373813dcc145162405b81f90fb49ed9fcfd872aaa40e72745f31a0ec5ac82c"
+    },
+    {
+      "template": "34b47d447c2b",
+      "txs": 2,
+      "names": [],
+      "sampleContract": "HTNVLC7W3r9VmkvmaAesoRrvyxGvVbGKdciL77TN8mWoLjttZxuPiQ7BzRFHV27ThHzCYyaHUc8T4kwqvEdew9qr4e9PF4cDpJujx24PmUtsqv2Btbp8VAewsmacfiB3YgGmENPZJSnwSyP5z6LhtJQALt3ge51kz9ss1zdbhvHf3Kj1GmP4Ef4ppL5oTxAeQydE5P8PNnDu4VKve2x64aFfYpNBF1kJEStvegJtACCdiJ4zuJXtsDebqS9cucdBtizihdmuK9dWgFrpbFn6NndQhp7f1g8KAfBijAedcExAtsWbnR3nDgDXnMsSN4KiE4VJyNeEFzjfRBGvfcRmHS1GggVqJ9nRyAJPDrExSJAMkK4BxgtzpwyVNqsMocGTVjWuuW83G2J8vwPQGuYusQFYk94TyCHsfV4GHJhc1GpDft3o6C7HPBwbUE65YD7JRTHjs9dKxmcBF7es1VZHk4MDJx3mabNfpDVd9Kis1Q2X2VdARkDcScuUvFmmkQtzkWQtoLhcymGwHpXapccsqKSxz3o77x68AkmMh97NSDj9aQe4ekvd961yS4rNpihddTaRYepZfByC6MfRLXMCELy8VGWp6B5P8AypVdkZN5d9gcsSUpxAfkusBiXMvWUTLG4ASkhv6vwYVjDbLQ1WtdkEVe89mvnaztKjbYepksdo5juRB1JJxXJ7yf88suGmSpUj",
+      "distinctAddresses": 2,
+      "exampleTx": "6fdca72ad9d1a9f250a4570030449acf24839f53bf1984fca9609eccd4c79d11"
+    },
+    {
+      "template": "a889c574a9bf",
+      "txs": 2,
+      "names": [],
+      "sampleContract": "HNLdwoHRsUSevguzRajzvy1DLAvUJ9YgQezQq6GGZiY4TmU9VDs2ae8mRpQkfEnLmuUKyJibZD2bXR2yoo1p8T5WCRKPn4rJVJ2VR2LvRBk8ViCmhcume5ubWaySXTUqpftEaaURTM6KSFxe4QbRFbToyPzZ3JJmjoDn4WzHh5ioXZMj7AX6xTwJvFmzPuko9BqDk5z1RJtD1wP4kd8sSsLN9P2YNQxmUGDEBYHaDCoAhY7Pg5oKit6ZyqMynoiycWqctfg1EHhMUKCTJsZNnidU961ri98RaYP4CfEwYQ3d9dRVuC6S1n7J1wPPHYqmUBgJCGWbTULayXUowSSmRuZUkQYGo9vvNaEpB7ManiLsX1n8cBYwN4XoVsY24mCfptBP86P4rZ5fgcr9mYtQ9nG934DMDZBbjs81VzCupB6KVrGCe1WtYSr6c1DwkNAinBMwqcqxTznXZUvfBsjDSCtJzCut44xcc7Zsy9mWz2B2pqhdKsX83BVzMDDM5hnjXTShYfauJGs81",
+      "distinctAddresses": 1,
+      "exampleTx": "5fca1b0a3d4f7143db58d62f2bce8ed3a8bdc982eb696344685faa84c2e8b1d1"
+    },
+    {
+      "template": "f897847153c9",
+      "txs": 2,
+      "names": [],
+      "sampleContract": "2ysN6BW5GJ9W3uXQHHg9JFB1ZXybF9MsPWCqZMGtqaakxivF1PEQgQeVak2sYyfvR37NrZqvdNXmMrL4Zjoi9H6amDhSwjGWEpSvD4X3ytHd1p5GoQE7716rGn3H2YdoJgUVpHkZoQMMZ65rDFDDA4AhUMB4nCWfrZPTsoy8Muy1U7eg1fqkGMdhKCQvvammnqgTWV4HpzuneCFxahPr8tZcnTtcdckGF452VvM1qTkbTV9zaLjyLPsZSYpanXdNB8b2s1shVQn8sYV6UeeZTm1jCts5EhKXhV7YpvKRVJ6YZCMSJvLq2CFJ7xNSHnjoyNowtSTF4G1mYEYcQH7Wd2uy1saqh9jPN8MNNZmU82XXZ3kDhL8fbegDVp2mp481c1xLM1cBcrQQZ2XxUZmUUjc2GoRUjKGz3wXZV1M1xq12kQ2TJT1zVohuKQoG21yBbegg2BDMhwdYt9gyVvbif2UsaTWrGpvRCd4JjaN7p6Tp3DMx79M2tVT9UZRNCawM7HuZmygVoXBxQNKwD481sRicc6SrH8bDsjZcgkiaHZbPrdr2HsJgz9yU6MWFBZDDRsc1RV2A5unrdnBUTrVR3kaQQt",
+      "distinctAddresses": 2,
+      "exampleTx": "5a1866a34bff4c42e44eb6bdcd854a65d36783bbb69ea7c725133218832defb1"
+    },
+    {
+      "template": "534254f0e1d7",
+      "txs": 2,
+      "names": [],
+      "sampleContract": "YvTr2SRVo1guh4xULXzAdNdnUsHtsZ78BVaTPR5MPa26CLt9uKf4t81ED7Z2Uc4e8hhthqAQC4pCKPPLH5A1rPSKLs42cuimek7Vgy9KjtbKGzwkHm1ULmL7stvvsdDVqehCnUjLBjbRt57rKLchj3hqwmcK3UaG26twDfY6nvysWRDFvJ1g3wFusvPe5MrGrkNbk6zbbfKyveWKdYPV7c1a9m6tgnJ9q4MZzm2chzw27NVGxwV1kkbV5e9G2RwB1a9TxR8KbLGorLMmT8hhzJKWBA1jhbLiiYd1KCT3X9rhEAHnYHNawQ8N8T7CFiySpJB5wFs62Ezt6BGceTo4ccsA5RweTX2R6rFv6hceNkrHtkXG2zvxRmtJZGeJtoS3aC9vJTsUsKupoETqcXDPNogeMYoSpqWe22QSztckCdMf5cJE7TLmxnmrQmWtsSCynQ38eX7WsU5tfxJctELJsh79xwEE88i2JmaSd5iZPyNYFmSJeZYpnrLdEpZxSuuFidqAqbjxki6vkPeXYEUB5EVQpya3UquPxvh6urWwNiV6JhwtmKuzYYCQLqp9VNeF5rK9ULrEAR5FZooxrayn2gCTCBbB4kXMXqqg4AtunDHgXKGtCcT38c4Au7XbPhhcqB3Mvt1YVxMKo7xYhzUymyTKcwmycHScsZsw9SrqaZasNSxrBYCrkirBaDJiZ6wL2KzAeU8KQoyMmMY3YHnZ6m1noVZRrSreoijFe6FMJH42k4fbzUbiRd5KUTEozh5ZmGAfVcojfdas8W48YxJPAs12rsXzqXJRYtbbPVgBDFCrse6JGJVURpwQFqUJnPV7DYsNiZ9y7dvXM7iHTzAKo5CavoPagUJJCc6Kc1xPcXzLpUns43SqytB4ZV3jU2DKHG6o182rav2qtGMVZGDHs1Xct26RjX6q3X9a1ieSFJHuFeySbfiSYQRFg6uzVG8y9JNqjfsdhLaPFgNxeGDY3yhnfK4147BDSuFtkrtEu5WkdLrtWBKHehoCBfRf3P61DP3T229auvSQu28DHsVJ5WhUPadAdVhcmqBhQ9vCYLKXgbxDyr31DFHVeo1KyvJvgtFEbpgndN2cdcQkK9vQbLtWNdyB9icCZhqscarG3Na3S9De5yP3SsTax2YwbmhsnKNoczKyY47dSjMuvvS3n8Rtd8HK1jH27p9LwAd6cATXQpTfzekFogqRDrfuBWKdk1uV8fqf5VoBvmsVKUxVE3gYvN9bjPEC7n",
+      "distinctAddresses": 1,
+      "exampleTx": "4b2a7e3b13ab577fe73f49a4f1757c37267606b708fed47e9ade791e324ebeb5"
+    },
+    {
+      "template": "5ed346628d01",
+      "txs": 2,
+      "names": [],
+      "sampleContract": "4YAmjFw1TVnbSFy5BC2N2UkYw4CZnfHnYdXGs9xi94iquTmhTamqNxJaMJNNWShMDtfE7kqH3UC4zWafFF4cAVUXdiuX8vBfNWe7LXo7S9FwvkgH1RMcEY1ELhC8rKRs1wtuCaeYavQvMzRpVR1bNGYNuX1VXuEwYUVqgL2T3Bv7DvHof3QA6q4TqG4wHoCgReVUUHNFGG8opyuVvsZJJZqBuaujqiK4BBbH5hzSvZYA4h6kTVjdsgj29TcXhWbDKGX14PbZPb18Fg2hFPBhY4rTDMfYEkgpGLxTTBhuaZDH7szF2AujaKzx1e8hARxU4NT4V2UrAiL4Mr4vtwSVdUkRPAR1t5B3ccq7Fgvrdeijym9xPGH4Yxhs8DcUrnJDoGrhUNyePF6XK7RNeTyP6qgsEKTUyFouJ5YCLWrHu39bmpSdAauL4d69XpzkGJCttP3cj31gfgiwWoUvdLxW5DGDGoRWrWLPjB7ASd2BeBa4zhhmSwJSYheRcKgz3Acs3kAcAy5evPPYHZg34uL4RPCZaRJ9NB7EVDgLJjDgLw4wLn4UFVn8eWTrCrUBB63LEk7RMzit6iY4PuJiTteuXKNjpchWnTn9Jrug9ZewWR6DM2D2iTDSoyGhhJPdefgT6vJqmrM2Xqdu5BfwDw3miQZanC1wWaVo4tjdpF61CnE8c7ojJPJJitCDfZzcR7RGwSisTPLjk96wrAugxR7TYFnGMWJieWLEsj9a17dGZFX6kH8otKBKv4fYSmy68vTv7gYNwAyyqVQaSps82nYCYJ815CpzVC3rnYv4Ap53WnTCYnVBXLF4z9xEf7Kt5JWv5svv7ruYx1enY94pCpp9sn1ZPtvhpkTAGwuknMNce4T4pUazK9wwftqprKgXsn6DAhgxifUXzYDKbdhevjjqBHyavYf1Ami3v5YRu8GqiAjHa43ZsT",
+      "distinctAddresses": 1,
+      "exampleTx": "4b2a7e3b13ab577fe73f49a4f1757c37267606b708fed47e9ade791e324ebeb5"
+    },
+    {
+      "template": "cacfe58e828b",
+      "txs": 1,
+      "names": [],
+      "sampleContract": "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",
+      "distinctAddresses": 1,
+      "exampleTx": "e26e3fff524dff8037efa2af2d346dd8d5e89daaa4973d4ca944464114883143"
+    },
+    {
+      "template": "e28512b69ab3",
+      "txs": 1,
+      "names": [],
+      "sampleContract": "o9znyCDPMrzr82gnh1prRVkLasDczqxQypefrPidYGEXaiN5A5o24Mj7nLs3M3ww7tnKfu2WTgrbvy6i7TTEKzUutFYHt592Fb2d1ECSMZqoVqxVaUJLqZEhbpvmvwndWU5YbLrmezDLjMjcBNdupUxkzhmbwLNZSSfwKjUuTFoLQveEBUHHAy7bAh4asqqTDb1Z1P6DW1d7afEdCyhtsSSmjNSWaxaDyx1ty3zJofgMtD8iyKXhHYmdvZdTyZ92LZzWMMfDDD35v5UE1iUptS1rqoYL3pxqzW7JpBtrVfX68DfwcfCcn8Bzm6pkhc8V7hUvv1K3U2NFDDSaPvfT9rAKA5rbBdcupmGWcJiBi2XxFvxmFffUiKk1smN63TaMqQ5768C86v6hK6ndpuXZZZzCzbgdFXVs5oVWHERkFrMtgfaq6gJ1AravhZWyasTaXQDZELYbCkv95BNdhxPuauF3Yqcc5vUyQhybCtEbnFCRbyogGzmQ797atuudSs4ecQ1E6RbJ7oYE9GAXHAFoJnnvkGcHv2aHF5aWzDEZQ22XE4WzR2zLv63xhhRgTtAd7Cus62J9QLWEJnRVrupAswshnhWmNfE2xZFPzfWpPB5dSbBrXf6wdtLEFoQnogcXjrksYSwwMwpZ9KPVeDg5nzFbi7qCVdYXcLnWPvjSUKbc7VtfF8vCGYrkTUCoQZVTCq76mxzojSGeJreGEqYSqtF4t8WAjGCB78qkgExXF7yZyLu69hgqP2xBXWxRKG5Lj7Wdw2g1tqhXHJvZWofcFCUN36nQQw4juySEzKpThJeGBBWxfYNVQNQcJgb5h9YyGt4bEqoUFD9ebNdUWv7PGxoQFQpWmZ3tdx5o3umPDKVF3YERD9gR1Tay1ikH63AJnwAu2pxMwwEPQUSL5wmVxEWGwpb5seoAWVjBBk5jWB3dgF6horKVBnqzPy95WZJDHrgfoDQUc3Gr8XmbaEew84FjhyYd5fqYYbNxXP38yGJtcmB79TP47MNMEqZbZ9qetsLPGBvQsYCJBv2bYS9GHhkiYwRVKitySdC3MhzxWk35iALRQiG6RJpcPwHcJ3iJbT5nuYT1a8SkTTokudc7mWNqAtGi4gFoZkYd7Sg",
+      "distinctAddresses": 1,
+      "exampleTx": "5bb3a8e317a15280f915dd2bed53f857be0fcfadc50f1b0a2cc84ba583d36ca6"
+    },
+    {
+      "template": "4fa50c36dc20",
+      "txs": 1,
+      "names": [],
+      "sampleContract": "axU2VUCr9uVWCQoPGNrUBCkcbenpYsdDAwBEN46vmBekw487nYu8jBGnqjLudF4STBKAR9XQDGhL1APbAw9cHpJGAfpq1KwgbAD15rviD2sx8zCYkoZoLW3qxA97fdsXPHEBj5dmYBbHA8Uiu1zXnYUdsbq62wkiuZcZgZSs4mFshLUhGEWcT3L2YURP5DQGf9CJr81ykYG7euz83gcVm6apAcETjmG5Dp1NxLLSNivj3FDVqQeWDAnkBd4Pgb2vaeNSgMEbALtN8j5FNEK8JxvFnReFFRprdSjonjUvZMCAHGCjQ2KQaYqXe6PTPsxhyTEWPwANELgm6Hi5ntpmiqvSNFKAEkWKLVoBvCTJswRHyHfsKtMgY1zSy6BXrB94xw3mE2CsQApiAZMaZohcmpRjVziLFqsqi47L9i6sBWa1VFoRfd71KPzyRmrTVjT5Z6Dh74K7pPLZBd",
+      "distinctAddresses": 1,
+      "exampleTx": "ce500699a51e8ad9d82a65dba06e3f7de8c00e0ab4abfd985883cabe5d736121"
+    },
+    {
+      "template": "e35213dcd0d4",
+      "txs": 1,
+      "names": [],
+      "sampleContract": "prufxZid3SJMyUVh9zC9omBSWF6zeZQG6oNrp7axFF7kVhY5abguBDyL3qYHmGnxKgdgDC287Kow53MhdmrckHTT1x52vo3e9GvsuMtqSptzAemhixMBfCuzBnN2n5FWMPHJXZXNTivnaus4cx4iHjQtnTgsEotWExak8TCPmtT8QpcAKPisAGG5LrBUtiSURWZuNiME7SDcCaeVoLGt",
+      "distinctAddresses": 1,
+      "exampleTx": "7249f9558284fda821e5c942b61e9bbb375837ee90d922bb85b07a9cd02bb857"
+    },
+    {
+      "template": "29773f60dd05",
+      "txs": 1,
+      "names": [],
+      "sampleContract": "M1yvQds3xbkiigZaiS5jBRZJYKTohizCHiPLwthefBQAMeEqhzzSUmQiyHgxz6RwNBrpw4YbMDcN9xD13xPriKQZKh7mp6vYd52JZgr3MjhTgQ7stpwDBeBaarBouzdD2ix896e7J7jBiMikQj6MccustFvn4WQamUbSvAmxG3Ajw1fQoTHQFx2Pv5HmQXsRmUYwka3Jjj4saGJxxmvg7N1bnn46bY5fRigz5eWQRaXUMZLSaXK41J3Nx2KgqhV8qcFDW2qxPFfgxSu1vR3GCQ8NAuBe4RLKgvzmgSxGWCP2vHVNcXxiKrxte8ZLfCrF47CPEXqpkqYfBi1obUGk72LnwCHWig5UBBvnpgxSE5HX6bkwbVRfyxLeysyGtf9bdJyM17G3Juph5F1ZkPEcS65R78ex6DEx64pxEbh1o8pbmz5HacfqvBNfccqcJzFn5XjdwZH1iM4HncT9zGH52cSdLQk2VbE93EfTErTnGzKyG4PveJtG4u5SJ9kocPvorbhMcxFxFYjHJk48gzCQymae9arwcnK8mkAjV4oePswswdjCxDpUGmRpVpgZePRvvuWfbS3Fz9LkUVKmvXMebZyumCa6U4F6KVriUgKuKog95Ze7ycogKD5Q12YhLWdeLQqZJdVWAH6VReobodXfceM2VH8Ci6asP5YjQhiDDzpwFCdKS13ho4vFK1kF4Kd95bvsQDbBeQxQLakWN92LCqr6wFCfARdtj347BtwPGgSAbeRDqmv7sRxGLkgp2k5gB1S4YDz6MuL5SC2WFWBzeQNo4ifoVyuiHVM8EkgY66jm11nLpJEBv57Q1v4HqQJvYxvby5R9M5VEAWNzpGR99xvX4fAvgz8ZGnEzmXowUTFMKZXWEaXVDP9idMmgYTcLX49E8w3Ke5Ac2ZNhge5Z4qquzvz35kK1z2sM2b2feRSzqcnZ1aV9tg5cYtPQAQvQFUha4unzrtCBm42he8F4afXy9TJLasgLKmb3f8nDznbyG5Lg7QZhcRGfurjCFPTtHFvCfwcG8fPrfURFLZTSinoc5KX8JL7d6hBzq6Skk5zTV7pfkoL2S8ReFErGjy7rPPznVtf5SxTdiAEcxYtqETizgEC6jzDFnknVZ6d37boFqAEBruyzpHdSZNxNbzMxzfouTCAkaoQ5sRHnPsQ4ZwyRJ7n455bFerVenXbmHJNdBpfhB88b11oCqmR23akQh7cPXUTBytJqMtkSpYmB5hhQy3rbygghH6awZvLBdHBZ1dkr1t36BXZ7Y4w5rgYuz5nAbArq2gcBddajstcMG1MnPoM6dpvS927FUvBeZLDStB9f5fuYf2ynM9KTwpvuSMVxzSJrJwUkVn",
+      "distinctAddresses": 1,
+      "exampleTx": "56025963ea1116b7505e51c06347c8229fd23597ce9cbd5aed2e4f1d0ee7c7c4"
+    },
+    {
+      "template": "ce052b3717be",
+      "txs": 1,
+      "names": [],
+      "sampleContract": "3dbGv3w6tq3YrswothakLLmiJ5EsWd1PjVXUkeF4eEc5yjxxh4SEYoCfCyP2sfqHA5gBvxbcpQsUsx4ZoUv9F8X2hf9VwhJ5KCbKPrfe9hbxDj886BYTvyoCyNrdjLpdr3aPfyTKeZSemdxpnndZtyCgf4beFvZqV8ohPegmCR5LU9KURNLHAk9aKVx27hmUCk8uybuGpGssC3aT6vbnpUD6okuxx4R6kwZqZPqYH1CGvmphJB2zobcdVNa1Emz1S4ydWUnhesY8isosfmyVb1uUQCjdqpvP2shfszh99s9qRbioEzrX7rTJR5UrUqaqcYKY7p4Gz9RghgTbsKqsdoJU3Mj4fDLLwwpUrAzhbijmmJXUsgySd1C34EKUqDPDzA8GjYRxq2VyVoBajnKrdGLf8ia6mQQwcJNVyhRpCsjPW7vtEfMubPbufvivWcYhZicDMYPi3DxdSatwwXCofsMagt5bBCjR2ZbXixDVEjfMJzT8dJW2ps51iPiuDKE1m7QsgaWsv2RNWtdibtbj3rXF3TQXjri1bBBrgCLVGHKkb5ZkcRFdcxt6RD7meHvQvTLdxB1jFWJ6wfk5cNWqSnbrffXtoZD2LEGLVxQG3xsuBK7ZDcKMpZ5Dt3unQSnUxMyE3QbfKZR8GKE2eUd1CPoVWnYWUwKceF4WXD6Q9Ed3kzrpGqjCiRetnTgciv5nDzqjiYcZtvgFDxN6XjpibJAq67tPzoVWtY44UYo1dXz8pFwmgaWZVC4jbhRA64fGW3oZ7C",
+      "distinctAddresses": 1,
+      "exampleTx": "05a2c19f982dec2939c8d784e38d1e4d7b0bc90fc0d60eaa83aa57468de159cb"
+    }
+  ],
+  "unrecognized": [
+    {
+      "side": "spende",
+      "txs": 2182,
+      "template": "8199d5306547",
+      "names": [],
+      "sampleContract": "2vTHJzWVd7ryXrP3fH9KfEFH2W62Njq1GBzqyvJUvZZAdMsYNN5dbwF9sC3raNEdCUK4xw4Ygjkz41mYRiAWsyFHLeAESUuDxTpbuyG77Y9riUxJN9tMZ6nLCLTpgP5T2XoaYEgGaBkbaf1n5fqUjFUvpoeFr9cLoHRevEEQAiQ6QKEaqsPaWrUq6TbujgvqEw6gB35xug7WKjANyZePMyyrbE1ySthXjLCj6KUGdruDaw63LQdk6XxVNjVdppMW9jHJt6xCGJn93gqtLGUeoErHeX3t3K93KC4Z",
+      "distinctAddresses": 2,
+      "exampleTx": "438fdc4cffc6fa5aea2a2887a7347830114e98c965603c04049e2ef81b0a33b9"
+    },
+    {
+      "side": "spende",
+      "txs": 1000,
+      "template": "6325ddac6fb9",
+      "names": [],
+      "sampleContract": "2Z4YBkDsDvQj8BX7xiySFewjitqp2ge9c99jfes2whbtKitZTxdBYqbrVZUvZvKv6aqn9by4kp3LE1c26LCyosFnVnm6b6U1JYvWpYmL2ZnixJbXLjWAWuBThV1D6dLpqZJYQHYDznJCk49g5TUiS4q8khpag2aNmHwREV7JSsypHdHLgJT7MGaw51aJfNubyzSKxZ4AJXFS27EfXwyCLzW1K6GVqwkJtCoPvrcLqmqwacAWJPkmh78nke9H4oT88XmSbRt2n9aWZjosiZCafZ4osUDxmZcc5QVEeTWn8drSraY3eFKe8Mu9MSCcVU",
+      "distinctAddresses": 1,
+      "exampleTx": "ea67ea71eb83047ac6183c3874f1d300e7a22c79f8ffa2edbc863ebc699b560c"
+    },
+    {
+      "side": "spende",
+      "txs": 642,
+      "template": "be6e8d574961",
+      "names": [
+        "Ergo Platform (Miner Fee)"
+      ],
+      "sampleContract": "2iHkR7CWvD1R4j1yZg5bkeDRQavjAaVPeTDFGGLZduHyfWMuYpmhHocX8GJoaieTx78FntzJbCBVL6rf96ocJoZdmWBL2fci7NqWgAirppPQmZ7fN9V6z13Ay6brPriBKYqLp1bT2Fk4FkFLCfdPpe",
+      "distinctAddresses": 1,
+      "exampleTx": "e14d51ad4154516be1c2bb13db3e8cd244796be7f483990b88e56abe2d8a3014"
+    },
+    {
+      "side": "spende",
+      "txs": 464,
+      "template": "14b9afed2c9f",
+      "names": [],
+      "sampleContract": "AucEQEJ3Y5Uhmu4o8dsrHy28nRTgX5sVtXvjpMTqdMQzBR3uRVcvCFbv7SeGuPhQ16AXBP7XWdMShDdhRy4cayZgxHSkdAVuTiZRvj6WCfmhXJ4LY2E46CytRAnkiYubCdEroUUX2niMLhjNmDUn4KmXWSrKngrfGwHSaD8RJUMEp5AGADaChRU6kAnh9nstkDN3",
+      "distinctAddresses": 1,
+      "exampleTx": "207c65a86dc4963b77c84fd784217cb0316642c1872778056fcccdb30bf2185e"
+    },
+    {
+      "side": "solo wallet",
+      "txs": 369,
+      "template": "p2pk",
+      "names": [],
+      "sampleContract": null,
+      "distinctAddresses": 0,
+      "exampleTx": "b752910e8253f96b16d1b01dbd8f1b481904530d2d333396be52391d5340cc0b"
+    },
+    {
+      "side": "spende",
+      "txs": 299,
+      "template": "385cb76c2600+5b9e345293cc",
+      "names": [],
+      "sampleContract": "22WkKcVUvboYCZJe1urbmvBL3j67LKb5KEAvFhJXqA6ubYvHpSCvbvwvEY3xzUr7QvxpEtqjzMAPMsVdZh1VGWmZphvKoJdVzL1ayhsMftTtEFoA3YYdq3zKeeYXavVrrPUmK3fRXJ2HWEbZexewtBWcgAnHBw5tKvYFy9dEUi645gE2fYMUvVBtbvMExE9mjZ2W9goWkqu1VtThAsMZWZWjHxDjX116HpeQKu9b9neEUBj4kE5sX8QXaV6ZeReXxYHFJFg2rmaTknSPMxHXA8NpQKgzryBwLssp5EJ1QTqn5R6xuvGgFCEUZicCEo8qk8UNbE7e2d4WqW5qzpQPzJkKoPa5UtJEPYDWNhaCKmCpzdSc77",
+      "distinctAddresses": 2,
+      "exampleTx": "9db68b53e1a6e883ae526b64f2e4e5542797f384615046386be18ec001e6f7b3"
+    },
+    {
+      "side": "spende",
+      "txs": 172,
+      "template": "73575d2cb386+8199d5306547+98241b0e6b64",
+      "names": [],
+      "sampleContract": "PViBL5acX6Pm6nD3FJQ3fZXESZTq8imJ47LJLMWtrhqm2nP5cVwMfXoHoqhnfvxUUKenebtEbLwZFTWPFRXJNsqLYDNWMtYAbvmqWgxCCPeH1fECQYtdZksCMwJrcmpLtNgfeADVEnmcUCPeTee8",
+      "distinctAddresses": 6,
+      "exampleTx": "2e6fac06c944748ee8dde49d564060a07c38ef55925424f93566ce01b43efdec"
+    },
+    {
+      "side": "spende",
+      "txs": 140,
+      "template": "82d756e223ab",
+      "names": [],
+      "sampleContract": "88dhgzEuTXaSuf5QC1TJDgdxqJMQEQAM6YaTTRqmUDrmPoVky1b16WAK5zMrq3p2mYqpUNKCyi5CLS9V",
+      "distinctAddresses": 13,
+      "exampleTx": "ada530c3a41f5772dbe8a020f4ea3e5f90c7c718a2f1dfdaa99f527090d6c34b"
+    },
+    {
+      "side": "spende",
+      "txs": 134,
+      "template": "c257560e46fe",
+      "names": [],
+      "sampleContract": "W76SLPLFea",
+      "distinctAddresses": 1,
+      "exampleTx": "ad0daeee370cee9e1e28f04a1ce082fa5e318ca5691bbfab531a238a92578aa4"
+    },
+    {
+      "side": "crea",
+      "txs": 114,
+      "template": "c257560e46fe",
+      "names": [],
+      "sampleContract": "W76SLPLFea",
+      "distinctAddresses": 1,
+      "exampleTx": "604d939be04b0c6340fb62513a8ece50ab5f052ad7cf070a7705ebe0c4e62225"
+    },
+    {
+      "side": "spende",
+      "txs": 95,
+      "template": "3f10eb0f2e15",
+      "names": [],
+      "sampleContract": "2Eit2LFRqu2Mo33z3pYTJRHNCPZXtS2f68LNW668eK4nJNwXQZMTEW23dCLCxfBX9CZfhHCCt1AbFaprUWX4wG2LfPVrXjGSpZCB5oX3FQ23WXoS58MGLwDDjrEEyoWCbvS1QN9mAgg44yqcgBQajZp1RRJohTZDfYZT58h7eXMZyWpSqw2TMAjrHSmPgKaHxM5yoGeWsRqTscGxrjvjts9dQWWgAZy7NuKC3zks5GW1dVXFYs9xa1V1JfefjCXW1RWJpWoVc8NqEXKFZF3xh8mgfwbWWmZoo6cJWRn8yMyAjheCCXprsr8uD8zLiJHh2inC34ymhopvGnVVU9wxK9exLNprv2Hgy1TCsxvKJxT1gPX4czEqvv3FfgnbhLF4mStnfUYzwZRCCn6dgjEKBmmQfXzFv88TQWW8AyeagY7Tj9oC3bNi63VutaA4MBCTHkg5xkkqbmmPnyvKrAsXy5SVUuAAzmVDkVrV8MAcjbeiS8SxVqtFKxGSLwEbMLyyDAM4FGmRz4XzhfaT9RHU93iaE54wkM7ApkTDgCpaSnM7hhQgqGRFseEoH5mDJFcNUVL21KJXJ7oufAp5jxAR6XphgaHvSFZqoZhb1mCZEa9ZzJthaKHhKUabcXUxkDs4Ev46VxkxxqhT79JXXmFLg5rNCJEdSwMm324feYFWJodEoEAt9QDd6Tk2itPoCmem7Du1dZ",
+      "distinctAddresses": 2,
+      "exampleTx": "08faa8535ea0e4ab996d0dde2afdfb0a03301c9a9338651ebcf8a3c08e95657b"
+    },
+    {
+      "side": "spende",
+      "txs": 85,
+      "template": "ca9567d2bd88",
+      "names": [],
+      "sampleContract": "NTkuk55NdwCXkF1e2nCABxq7bHjtinX3wH13zYPZ6qYT71dCoZBe1gZkh9FAr7GeHo2EpFoibzpNQmoi89atUjKRrhZEYrTapdtXrWU4kq319oY7BEWmtmRU9cMohX69XMuxJjJP5hRM8WQLfFnffbjshhEP3ck9CKVEkFRw1JDYkqVke2JVqoMED5yxLVkScbBUiJJLWq9BSbE1JJmmreNVskmWNxWE6V7ksKPxFMoqh1SVePh3UWAaBgGQRZ7TWf4dTBF5KMVHmRXzmQqEu2Fz2yeSLy23sM3pfqa78VuvoFHnTFXYFFxn3DNttxwq3EU3Zv25SmgrWjLKiZjFcEcqGgH6DJ9FZ1DfucVtTXwyDJutY3ksUBaEStRxoUQyRu4EhDobixL3PUWRcxaRJ8JKA9b64ALErGepRHkAoVmS8DaE6VbroskyMuhkTo7LbrzhTyJbqKurEzoEfhYxus7bMpLTePgKcktgRRyB7MjVxjSpxWzZedvzbjzZaHLZLkWZESk1WtdM25My33wtVLNXiTvficEUbjA23sNd24pv1YQ72nY1aqUHa2",
+      "distinctAddresses": 1,
+      "exampleTx": "f84707342a5e1bc26c059b0a1cbb7eb7f253083b8afd29f01165c3fbfafcf134"
+    },
+    {
+      "side": "spende",
+      "txs": 84,
+      "template": "3f2e80df8153",
+      "names": [],
+      "sampleContract": "EfS5abyDe4vKFrJ48K5HnwTqa1ksn238bWFPe84bzVvCGvK1h2B7sgWLETtQuWwzVdBaoRZ1Hcz1i9w5sa4bkSPJMrkFSmcpLeKUEseNYQn3x57xGttnWFjXkLsyE7EDQuga6ic28tMpPrVokJ2d8ZHQhjddRgwxMfhcwvVtoTqjLbDc3YKJLAetd2DcaCWJB6XzHCM8ezDFpCWVVrFeu4SYGSoGJbgPDRvEAcJEN4qu1RwsmZ1MzBfWF2jBJLagWqu2GvevuDG5oTtJrkqwCHRaAshfoM2mQnjLBsajjPN426t3aRZVJVRHm8apmZstnh92kYBVMujvLA1BkR2tqTfYLtmX6ChFSMXSYejkkCQoLdog59iD66oEzAZtg9ZowqDCjfT8G8YLVpEkVd23QH2LhFtEie3R4etCuvzCSyC4UmMmLbvrnUg4LfuP6xv6jckLGH8HkNWeTuuqf2UmVCQfhMMndBciTXF2KfrPCrzmDXw",
+      "distinctAddresses": 1,
+      "exampleTx": "a9327a14bc60d7ccc945b0ed363dd9cb6a55bc7aa99a903731e092211eddd7d9"
+    },
+    {
+      "side": "spende",
+      "txs": 51,
+      "template": "a77b614f915b",
+      "names": [],
+      "sampleContract": "3PwDZR2PF9VB7bubVAgfEZdbdNHpdqkU9Nm2e8BuFP72ob6wHg8MBdwwYGy91f3oxHfbaaQfNQofpAoHQgu",
+      "distinctAddresses": 1,
+      "exampleTx": "e9dda684b0dd941a8608409682dd8b4783c3e8f1487e9e6ca478ff977b79e34e"
+    },
+    {
+      "side": "crea",
+      "txs": 45,
+      "template": "a77b614f915b",
+      "names": [],
+      "sampleContract": "3PwDZR2PF9VB7bubVAgfEZdbdNHpdqkU9Nm2e8BuFP72ob6wHg8MBdwwYGy91f3oxHfbaaQfNQofpAoHQgu",
+      "distinctAddresses": 1,
+      "exampleTx": "ffbd62895b41255873afb8e0da77a32888b48a20ea37b63e04473f569f58a748"
+    },
+    {
+      "side": "spende",
+      "txs": 26,
+      "template": "08249d26fa9c",
+      "names": [],
+      "sampleContract": "4ReSd69SwrHpRYhrU6RBk3ZHaCoYtufnFaygXNKD7gwAnWg5yBqHYy5kg7nTN6bpMgs7kHgqWYYgf4GJs7gTSX3WF3eSLAA3te48rxQchtAJdapuGoyM614kuAbyqQdHBQrYprv1WzHFNmq5dh2hHCQwd3Ms3LNvUARYY2zwW16kpkm7PTUKJV4zMfGMxwaB5gAWWDTs8Pi6S2HoGdtKjEnYotz8NvvwsYTLJbmow19dV82SpNktyht2vDJBLBavQqU2uJRfX7fM49QBVb2x3ENatD6snxU7q2rvo84QGKoov9WkrW2VMBwQyPxBBDjHGpHEwdRV2DbbfLhpWfPQhY9QoSvH1VzeBaeLPM4EF9onjptVmjF6zLcjyopuArondqrfxc72WnuKiNpWdsEPjTQSNtJzzLKW2rhM4m5SZEnZU89rZN6tmDarULAmqNwZRhWGZcrfq76Mw3Pb57bhHeiBcyyR58Hmfd5r6iEN5QXwdNfTtVk2CfHqmQB1qXDxQfvAENhQAgvuREhrBcG1v1EQVs5ZmaDzbMja6yiJZipZVFmv97vNU3uX2R8PzYcpQgpKUPM6KZFHaA8ooYnFS92rK9Ma8kVGinFmw1WUkQbxUUpL9fvGASgRScmr2N9mdPSmc4ECkyQ94bpkA2wZuzErt9kpNWBL2WQJD5rsWXSQFp3n7EFZDxHVnVSGAArTDiP7nhVJXq3ZVwhbmwkB1zaHHSVH9ojeNkbce768oBnDkHVQtJADRJoRi9hoxWCVC9DamBvyKLa6kyDXyEMVa7JK5SgWBvrMwi2NCsXzbSTCSSQxgY3oPbf4jJDpD7PKrds5NqyznG4eqLGPENZwAHR4iqdiUkxMiNdxZkebgwRtBsQwqoMXxB3cU1Uqy9o1hWU3dqMefcDddqrY6vFYewTDpGL5ZNduUadBCcafXiDKpDhMK4jLVxQxwdCWwBETvbX32BxiCCV8o2qYmruCysNCCv18fkHKxpax8QweP9",
+      "distinctAddresses": 1,
+      "exampleTx": "b310d7a13c30202f175659cc4ad7ff73cff5b8e8961cd9f17025d6ca266cdfee"
+    },
+    {
+      "side": "spende",
+      "txs": 17,
+      "template": "48beed5f4fb4",
+      "names": [],
+      "sampleContract": "5yE8z7TPirM2B236wY4X",
+      "distinctAddresses": 1,
+      "exampleTx": "75d6d2b667c14841d6bad5f38e20cd7d074aee95f47310cd6e62d5b492df04c5"
+    },
+    {
+      "side": "spende",
+      "txs": 15,
+      "template": "33d46c091a4f",
+      "names": [],
+      "sampleContract": "3gb1RZucekcRdda82TSNS4FZSREhGLoi1FxGDmMZdVeLtYYixPRviEdYireoM9RqC6Jf4kx85Y1jmUg5XzGgqdjpkhHm7kJZdgUR3VBwuLZuyHVqdSNv3eanqpknYsXtUwvUA16HFwNa3HgVRAnGC8zj8U7kksrfjycAM1yb19BB4TYR2BKWN7mpvoeoTuAKcAFH26cM46CEYsDRDn832wVNTLAmzz4Q6FqE29H9euwYzKiebgxQbWUxtupvfSbKaHpQcZAo5Dhyc6PFPyGVFZVRGZZ4Kftgi1NMRnGwKG7NTtXsFMsJP6A7yvLy8UZaMPe69BUAkpbSJdcWem3WpPUE7UpXv4itDkS5KVVaFtVyfx8PQxzi2eotP2uXtfairHuKinbpSFTSFKW3GxmXaw7vQs1JuVd8NhNShX6hxSqCP6sxojrqBxA48T2KcxNrmE3uFk7Pt4vPPdMAS4PW6UU82UD9rfhe3SMytK6DkjCocuRwuNqFoy4k25TXbGauTNgKuPKY3CxgkTpw9WfWsmtei178tLefhUEGJueueXSZo7negPYtmcYpoMhCuv4G1JZc283Q7f3mNXS",
+      "distinctAddresses": 1,
+      "exampleTx": "5ce160e7909f02346ca57c219cc19b53e6f60235b69ecfe5f758af80521049a4"
+    },
+    {
+      "side": "spende",
+      "txs": 14,
+      "template": "64b314cb7348",
+      "names": [],
+      "sampleContract": "Ujfv3QVGdnTjkkugQDB5qFowFpiq2uK32aa7efP7ptAA4dAsAamzWS1NS4kWKExYR2N781Cgi49dLmerGrH6hQZXg6xgxkyJRKJgPgq3MKrSjxECyPVtSyqmivuV5TDbsoNGQfA9yb4FLjtX9ovdYGZxz8TcESePcBHdTpUeXYRqsbkQkhNNDuF3HfWKmLFbTQTKUti4rFT4zKLKaoCr1Hq4AfEu91i5yTmxvZ14iyGkwduKrA2M54ynk5bryZqU7QiJJ1eQe4CPY8wnTgWUPniNDMzjUQLxrYZjSjJX1L8W7cVdWoMGqVdDuWv1APZokHypm2qtfoC4yFf8QWj9Phdnh3fzbUuQyk9nphXMnGKaNN6byTsZW63a1DZESwPQkY5hhhuYJuTYoGy9Gf2bdxfEgcXvppTnc4yi2AB2wo8XXsUtmH6L39nfrTfWtqiSuCZutvARjbahAjR9riZ6Xcb8JnpdUgz7ZmoRa2bwEj7pnMEd6HGdZRwDGCQn5Ezt1ZS5QEFqfTkfvz4wyiDUvDjM9knYSs2KGVim7CFvQdWtLPuiY8nkTmrrWgTyChAzFjexeYP5V9EaLDbkRRbSRinoAb9VfL9KCkSMNyA55fNkFnmzf94nF2HHfJNGvKvc2hHL73h5ERWoZ139jBH94ZFs99QnYA8zVqohtk8JYxVZfLg6KdR67DVHguNCtMwy98pdxdiHr6McFMZB7Br6RSQmnXa73bCdKZKydxxnf1vTo2MtkMRuq4QgNYgVLJxhdTL6QpR763jTpbjnVWWqe5PDQ7ghDfYC1AnqQvR7AwpVUj47ut4McE7iSUHruUxNr8jHKBUSv5xTNbqhQhGuhwgfte8otdaG8aYE8ezEHXoNiB1cbcAbuDyTjRAmmXqUw8rBxf3twUi7HqnZPGgoaTf4Qjx2nSonyQsRHJFUp2yE3donK9seHPGAHyjfG2FTCHJneEHNY2BTi4bf7E7Yw",
+      "distinctAddresses": 1,
+      "exampleTx": "bde40e0d94964eebe88e3edbd6133d7d0548507408fe4d52434532350eb72ba2"
+    },
+    {
+      "side": "crea",
+      "txs": 13,
+      "template": "48beed5f4fb4+dd146740cd43",
+      "names": [],
+      "sampleContract": "JiySNY48TL2v3nZBm3Gpnh8MuoFx6xMSb5u2KjS52Rc95aD",
+      "distinctAddresses": 14,
+      "exampleTx": "d42df74a44ecb7ae79315731d2cd02a1637c39d9068623a299dbb77597f29d6f"
+    },
+    {
+      "side": "spende",
+      "txs": 10,
+      "template": "b47f1fa74eb1",
+      "names": [],
+      "sampleContract": "USNVj4qoyg7U7C6EpdFGHNzicn48yVmMtDrGYvJMSNjVZF4nforamWoWCMttwKetR58XFDuCvzGdUm2FhzuRvq1MMjBvCfNvAmfBruJ6fuvpCQPmWL7wMndaPvuqW2YFAkrkt6X19YjwLukdV9DToWjcHonvQEiLtJokFGrei9ksNLG3dm3jWFyEGa8AViY5CKcKz7ibH45ZwZ6LGPLfy2GQbTYRUyemWbfjGCy8gdxEspymwCgVtpci1yHbeGs5BHye9snAwyDN16vTNm719EfSQqgu4zKDR99tnbhT12b8FPvwZkRfSwwyL4ghau6i4jzcA9Ghi8tA6Bgi6gEPJEnPSSteF9d6kabuUnbZmmA81QYeZUEToFhCWncjBViwfcYYnFsxcJvxnB4DVtD2oQDZr5z5TRywDWKD6YjnxwLqwF2TFbrbDLdQzu6ayJzAcPYpLxCThQ2EAMwkz8YP4EXCE2rU2ZqjJXgRbpE1",
+      "distinctAddresses": 1,
+      "exampleTx": "e10fb967b3d8f55a9647ffe2bbc8a772b86e54dbfa94c0948ecc99e4b086bf04"
+    },
+    {
+      "side": "spende",
+      "txs": 10,
+      "template": "dccace327571",
+      "names": [],
+      "sampleContract": "26tpZU6i6zeBRuzZVo7tr47zjArAxkHP8x7ijiRbbrvLhySvSU84bH8wNPGGG27EwhJfJLe7bvRPv6B1jQFQqrWUQqBX1XJpVGoiNgveance6JFZ4mKv1KkRE8nBSB3jKBGnVJjJF6wR1Z8YXRsUqrTff4bfmtbhaRRjibnDDtKhS71spfjjTBeU1AhhQpitCDg4NFxmTLyV1arE7G2riZKzDryjWnCiEJGzWNxYtVt8uDxd3qNSRE5sHECwcsb98x7rn4q4FyHMvvWrRMPFfVgAQd5wHCAHwhMEdqUrSFQVkmUMavju8CLAgCNcVFjUBKPX4ooEHLUw3QkxS9Jp6fAFAGmzJ6QVD71mAZYMYhoEQnFyUBx1txJjVJjCrcZsW43dimbt5su4ahATJ8qRtWgwat8vTViTVXAcBmUSnqbqhAqTCxcsS5EFS6ApJSfthPHYUyXwtcbTptfdnUx1e5hEiGcwxoQ8ivufNNiZE9xkxi4nsBBrBVBJ7pfSSoHvbodkzLrq91RHYrvuatyLuBSxgJxs198xUQhULqxmWwgthJLrG5VVfVYH",
+      "distinctAddresses": 1,
+      "exampleTx": "e0b7755ea31181945a072fed45aa0fd5be417063a7983628e250dab78b006517"
+    },
+    {
+      "side": "spende",
+      "txs": 8,
+      "template": "04e5914dde7b+915ccba4ba8c",
+      "names": [],
+      "sampleContract": "4T5Phw51x11bWjCaDiLUD42YvopXoVQZsbFtFPqYSTcKn1X9Q5W67xE3g1gDxWJgfRNTH3SkikZuyyq5CJEzW6qhDCYeDGDWMLbVLaE3crZjrcFxJhdJ5Ame2L63SSidJnLSgivz4vhJtMmuSpzzJVGDys2cPuDzCAfVAptjGYHeyXKu6HSeZREEvmTLBrVxiEk4xrV6p5shnFJzeHJh8HnHW97LtBFj4vmNYNZe5x9wnm2aQrr2zaQ5XuGejBm1ftUdYA8vy3EeVzYDwfkfEo8me7uyZLmm6EF7qnfsPxpSWBB8kxCfsu7ZaUxWTHMp3eNWwg3w9eeDMKUJUnqfocLgiEkaD94vxuwCaEcxxKkFu2nkfHuUU6n2aiXPcZRFNWcVyNKD8pVFMSgfxi8iKmy5WC9rhWDvr4FzK1V4ks25S1aW39BkkWmz7mamhFHKeV95cYDoSYnYpcVNgZU4u9x9mUJJY68ibejZ313bcpZ6S35vKXD8TsCmof8uJ33KnMFPsVR6Wx9Ge3QJ3VAHr6xNtP1NSnzs1prkHjXnwqWJNc39q2NAZF4TrC9SvMY4XoW5w9sp1zwXbwQAagtFRa74nCAKSCdf6WUGML1vUNUhPJECtUvfdXKC3P1D3AWPthMFQCZb4BiNjbMHCVPAKQ49GnEXy7TUVunE1UjTw2G4PXWFrP26nC6cnmHmYetyCfKZBoLY17sv84vCUcQMAiPpjQK8FdYcZLdaQezYPDcGc6CKvYwheWYvP58jaL5Nb1G5PFg62WXzjunKzNnxQV8hCAeosQw5vjTPwYCwAxNRYBtP7bN",
+      "distinctAddresses": 2,
+      "exampleTx": "8961afeaff07ab4b3461becad52b4691de909d86a070db6f3a050d835b66a706"
+    },
+    {
+      "side": "spende",
+      "txs": 8,
+      "template": "489d1222aae7+915ccba4ba8c",
+      "names": [],
+      "sampleContract": "67d7wq2KP495sNBtVThj4m7Xf2awfow9ZhdDqM6ypU5gqfwXq2tuXVem3pSgKrGNV4zwkvG6RVFcKrHN4BGfGguoXrjvEzx574gKf8Nqh677PmQbvDxWiSH6uCmcfG4F5hoBKhCYa6a48eM7cNwzPRnv6thJ9KHK513GHUqkrVckpRkZ8UDRQuhyJh1jxeWFPzQ7F7sQAy4AdASBHnGnQLhBtSa3ALAFicwNB5ZrfU8Mj8KpbxzeVZHjuvLueM4gBoarQhB5k3G6CkV28GB7JamvHC6xGDuYArkoBw2Fuk3fukEhd1iYh6j13HMS967gDcB7LjGemhuBJ1odRzu1WtiYmsgv7onjGdRva1BpjmR69f3mAUtAQCNp9PU3En9Z7xwKbaZb4RdfURN1ETrR7coRUQvwtCqdeGrzd2PxPVYqiMhiA9UhzfUVKatwzC2D5ZT6txa4P29Yi2xVKzAdyr7ggCEc4GiiqzNyt7yMkMSddGvAULvgFrwvkvYafmRpnNo31Kdd5C7NiVXzX5EYNFoDX95EuSAr2YS2L8K5rogmR6sgrNQv84nBJ44vBeEsV87VaFCT8mkq6TjMsLDYfiNnBmTseFEea3KiBqvHtUHeX2VR4EieEJQpXBF237cwQwvudft5E3psNaEFvfVdZ9bswFNPWcc6g54wKuFR6jAByBoBswVjGv3nUxx5S7ch7aoqCrK3CUJdyCoribQpoFXv1keeNMeq852VRfdbHCm5f7oQNZSwJXqjDtCgu3K2CKKY8NyzzHiBdxBfdxdDTW5gbcg3fbxz5iB7sA7wjms87zyUeVEkXUC",
+      "distinctAddresses": 2,
+      "exampleTx": "e5087ab56c46b803bfc73e95fee5742f5271a9d062e9fca8e40175fe546e550a"
+    },
+    {
+      "side": "crea",
+      "txs": 5,
+      "template": "6f28a3efe0de",
+      "names": [],
+      "sampleContract": "Dxg1z3EWag6P11PPBdmDAjoj51AEXReLMNqyUDWiWtAMzJVnhye3zfV5ZBfL1njhTbpPoygesELjwGk41ruTZhQUZqqgENQ6MpCCMPQJmVDHPs2gtnuqh9NRsq5BBpyinKNx9quDpn1KQ9fJv5yTMeMqXRUe5nFREvRPJHCaZcqu9PeG2GEeSceY957EqTCJCiDUtxYiF6A2RRWYz4CkVK3zCnphvUQY71nPdcajaFXoKhVEw86VKi8oChNX59gmcsdM7DiPssnMrMVHWSd1zpJFBUZzbWeHQCgtPyN7FA57VasSThx5djEZgS1FbwSoQ5B5pryVwwV8ah6kUSfPXDEn7Q1aLmYabv1Nb9SshwBtkARkiza1veHrevs1bB8cb1cefVuzjk4QhLsXCDkJEb7CWhDVAKABxcXgg4dPTradYHnuSGoU6ecZXL3gVdMKeWPJVizUsVagdBJZCdaEtndXpqqEYGXbw5FnhDLHqCqioAWS7xXxmVYiLyGJYWTWfzsqUAPt4qWdkCFZru4SfTbdPS68WV5MsUoRPX5VyHGicKyTtHo6H2vVgc6EH3esXYenDdYZjBeL3YodZ44uKChWeHiDbRR",
+      "distinctAddresses": 5,
+      "exampleTx": "9f14dabb3010214fd6b0a1eda25ef43beaf3214f3760a8a47e3ae898f85fc26e"
+    },
+    {
+      "side": "spende",
+      "txs": 4,
+      "template": "3af561cd7437",
+      "names": [],
+      "sampleContract": "NY4PEzZ7VfjtpACh7a9NbxyyMQPghQ39LcRZjPmyZ7oPeSXT3E6uNUumgzTjJqx2YQj6Yv949NXmyGPwYSdSTmLdU4k4UuUwUAKS9aGozcX2VzHn7HAgbezL44thy7BiJZLNvW7npvrhvve1K3w56sNB5Q5Cw1Q4vKdD5vktYE72vcu81Ls9Jo3dstmGPFrxzGYZtqYfR5Lyq8JwazKse3Ea7gypuqv3Pv3emVdBwAquXMTATofoAp9aaffrQA8XbsnAbmAHiVxcMmyhf6iCjYxDBKNd3LUCMpy5uHSg8AwijbRDYCaacc2pt2RK9VWmthdtCVcC8XBh1bsXNp1aCeRprg8nmCfb4YkRXXVH2TTWo5D4BvW23gjbNVU8a2SkTR3ZwboiL1QA4sq6JRY5HkZQjSk33W4YcJCbgNNu4Z6cU6xCnNyoiX89FfD8uMq4DZKD3bxD9HBdXpN2xs8BHA9EMtwaovxDANjsL9jxWH6FSN2KrKHsbTHAPSB3Lwzj468BdRetD5VHFfKetRT3qUsvrBXZ1n2UBd6WvhRA4T9erCZDRP3Ui2Wxbx2pVvXKeWLsJMYX5fiX8rX55z1mX5wMfbRPJKMTGtyfwDoy3D6pVra2zvPxR2ME5A1rzWxtUwdUfJZ5oBGYFkV94yjZJKMKws4UtgkSdgeGgqN9eEnzjv3nYp2rZjxZnXeacC5JvQghzKf6jsRzGyzWwJf4CZnAaL9V9Ap3Up8YfxuHvWzTVJSgUq5RD8MSwc51Ctx9GoJ7YBW961NPuuTnJrp2CR67w2izrgEwyQCMvzcxv8rNSacPRybXv9peBJVRuXx2uoNAxEYeHPqW5eF7L8Xc2cKF7AHREKeJAPbZz5aQTSQMhRgV7DSyEFPB9riWyxJM1bbaiVD3R5J4BTzQWffVdXU6JGfabniS51pihUmS3uQQap4bx2QTMSRJYcHDzwikCgNK3bZgB3vYjAojV15s7bvciFrCuLLhF1LhEVUh1oQf1HnZSradFABNhnzwRTn6nrgqyBxeBYSXbcusrD3gUfymv7mrpEEA6r98s77dn6JDrvDo3aRqSFhPAXLXQpkv4MNq1dZkrrgUGwDyohEYXQMqVQdJoAQxiybg6qLiaYnUtKm3CzFaY3eDYzySGWcZXQ2JuLNQKdMUFLQXEWUi7eWH1EaZ8HsYH1J1NTo2ZoJVvxdyL9JpsVk6p5pTdLm3Ucsds5nLQMga7UameEGSxCjUoYiwxQ",
+      "distinctAddresses": 2,
+      "exampleTx": "b5f7496604df4d136917813019b1b4834db3402becbeaa0f78bf86a93e8f4c42"
+    },
+    {
+      "side": "spende",
+      "txs": 4,
+      "template": "77f976b7b67f",
+      "names": [],
+      "sampleContract": "3UXgs4sLcVNbXFFgyefrA3SJvr3",
+      "distinctAddresses": 1,
+      "exampleTx": "c16cb4d779c950139fca309fe70a8ab8dd863f936f9b7d0757a5e144f0986fc7"
+    },
+    {
+      "side": "spende",
+      "txs": 3,
+      "template": "3af561cd7437+3f10eb0f2e15+d54697dbc8b7",
+      "names": [],
+      "sampleContract": "NY4PEzZ7VfjtpACh7a9NbxyyMQPghQ39LcRZjPmyZ7oPeSXT3E6uNUumgzTjJqx2YQj6Yv949NXmyGPwYSdSTmLdU4k4UuUwUAKS9aGozcX2VzHn7HAgbezL44thy7BiJZLNvW7npvrhvve1K3w56sNB5Q5Cw1Q4vKdD5vktYE72vcu81Ls9Jo3dstmGPFrxzGYZtqYfR5Lyq8JwazKse3Ea7gypuqv3Pv3emVdBwAquXMTATofoAp9aaffrQA8XbsnAbmAHiVxcMmyhf6iCjYxDBKNd3LUCMpy5uHSg8AwijbRDYCaacc2pt2RK9VWmthdtCVcC8XBh1bsXNp1aCeRprg8nmCfb4YkRXXVH2TTWo5D4BvW23gjbNVU8a2SkTR3ZwboiL1QA4sq6JRY5HkZQjSk33W4YcJCbgNNu4Z6cU6xCnNyoiX89FfD8uMq4DZKD3bxD9HBdXpN2xs8BHA9EMtwaovxDANjsL9jxWH6FSN2KrKHsbTHAPSB3Lwzj468BdRetD5VHFfKetRT3qUsvrBXZ1n2UBd6WvhRA4T9erCZDRP3Ui2Wxbx2pVvXKeWLsJMYX5fiX8rX55z1mX5wMfbRPJKMTGtyfwDoy3D6pVra2zvPxR2ME5A1rzWxtUwdUfJZ5oBGYFkV94yjZJKMKws4UtgkSdgeGgqN9eEnzjv3nYp2rZjxZnXeacC5JvQghzKf6jsRzGyzWwJf4CZnAaL9V9Ap3Up8YfxuHvWzTVJSgUq5RD8MSwc51Ctx9GoJ7YBW961NPuuTnJrp2CR67w2izrgEwyQCMvzcxv8rNSacPRybXv9peBJVRuXx2uoNAxEYeHPqW5eF7L8Xc2cKF7AHREKeJAPbZz5aQTSQMhRgV7DSyEFPB9riWyxJM1bbaiVD3R5J4BTzQWffVdXU6JGfabniS51pihUmS3uQQap4bx2QTMSRJYcHDzwikCgNK3bZgB3vYjAojV15s7bvciFrCuLLhF1LhEVUh1oQf1HnZSradFABNhnzwRTn6nrgqyBxeBYSXbcusrD3gUfymv7mrpEEA6r98s77dn6JDrvDo3aRqSFhPAXLXQpkv4MNq1dZkrrgUGwDyohEYXQMqVQdJoAQxiybg6qLiaYnUtKm3CzFaY3eDYzySGWcZXQ2JuLNQKdMUFLQXEWUi7eWH1EaZ8HsYH1J1NTo2ZoJVvxdyL9JpsVk6p5pTdLm3Ucsds5nLQMga7UameEGSxCjUoYiwxQ",
+      "distinctAddresses": 5,
+      "exampleTx": "63b5a9eb5458b7d45e3a1a5f90ac911bf5e67b2183c7c86180c62e54c7bef5e1"
+    },
+    {
+      "side": "spende",
+      "txs": 3,
+      "template": "d129412e8bd6",
+      "names": [],
+      "sampleContract": "5ivrmzxYZoM5sxBJU4VXQVMgqg6VeSxmYBL8PUPN2YxjtUm4sBj1EMfVLURafE9UEU3aw6E7mgBgPMRKTWYWCSFZL6kH9jWbgjHeBsKLikGkKPvDitXGZFMf4JYdDZaXJPfjS6nPJxZw6Qb7JyvQtMb9LGfRsDaDGJoXwgTZTXUcmHRK1vVSHEWw24s8E49VyXFWmNyRGq674suSBGdHWPpBBYZt7eJQoXbZmXhZaPrWiADA7196Uw8qnkS3SykBLatBGsHRaruq6YBEEjfRFob59Hor35TsgyyY667VC1357wmpCu31SsKy44M2R58Q2ep7WZrizgpyU5vDpP9UNGMf5WNp9k6M9rKXG9YPdk45isAHwAyBi8Y46PwWpBsTzodzDxi5Y7SPAPHp1BDL5SyYKZsHxu5RgdJD1e8ewg8SxyJ1ZGdqmAM3bGp7Y58ucmViKAkBbNEbk7qw1rqDgeYg6tYsb5NNpsuPWrG5CoJBQtL1WRW8uX2gGjhywYHd1KWh32drTDZsEFB7dqDpTZGQuz1qaFgKeM1h43FYwdNzgUmVteDRRq21CAVaoUqrgvEkm2AZ3f72KjRWnc1T5qDEs84zd3Z8EzCi4ovWJavUWJXEB1Pcapak8BNkfexiGWoYoEjJyVGEbSDNmfoVrCRvDeL62yw4KpqoenWwUV845XSi4u7f9Dd3We5zPFrbpwgQLPFAYuBhQiHqkMwopLfVLuL2AsEGswdNaYk8VVX8bPbP1aLCowoye3LwTc12dhNeynFv5PJz33zET42LHihxmi4YMF7KQkESRC1fg6pveXrmWzuRKQpeSaU2Z1SpdXEM5uxuTNnZSEmofdmarDyoiuKTTo67cBBbyRL1WDamfRBKMHv2rWDj5qk1zKFxr5PwCvmRsyq5ASQ5fkzRDY3QFRNMMLyzNJnDncfRcXePpddcK4ctnejsAp4iHMRA4PhgPDmALEcB8X6JLozwoMeWzCGgW2tYEHYFYED1NuBLmLP6aTVa8fMvewCZezyZxm5nrdpQV5rq6dAncMTzrBichRUzZUAFCfyTxJ5F5Nd7aDARbp4mQ5RUfUPrLCCvsGVY1WS2Cnt82aw3mmTbXmLZMkm5AWuZwM3wAYdDkVMoWsL6enpKhkhkmqmtxusLTssbFqaFoHt8qR1AQQVwm3gGoAMtHZ4qdVkwiGnZDsU7c1SW45BKLKk1npDdj9eYq48sQjXiwuhmFUHXWqVCriQeKy3SvmCjJrWoLpbzQbQ7vJthLtJ8N91WrniRZM3UWbXDKm3DFtDKkgyypJPvn",
+      "distinctAddresses": 2,
+      "exampleTx": "91373813dcc145162405b81f90fb49ed9fcfd872aaa40e72745f31a0ec5ac82c"
+    },
+    {
+      "side": "spende",
+      "txs": 2,
+      "template": "dd146740cd43",
+      "names": [],
+      "sampleContract": "JiySNY48TL2yxsCLLCuoWEZxfPsa91yj6r8DT7SyBm9memV",
+      "distinctAddresses": 21,
+      "exampleTx": "bc50924d1e6885e96902c531b7dfb153d543b69dabe593953aab42db3eb245b0"
+    },
+    {
+      "side": "crea",
+      "txs": 2,
+      "template": "34b47d447c2b",
+      "names": [],
+      "sampleContract": "HTNVLC7W3r9VmkvmaAesoRrvyxGvVbGKdciL77TN8mWoLjttZxuPiQ7BzRFHV27ThHzCYyaHUc8T4kwqvEdew9qr4e9PF4cDpJujx24PmUtsqv2Btbp8VAewsmacfiB3YgGmENPZJSnwSyP5z6LhtJQALt3ge51kz9ss1zdbhvHf3Kj1GmP4Ef4ppL5oTxAeQydE5P8PNnDu4VKve2x64aFfYpNBF1kJEStvegJtACCdiJ4zuJXtsDebqS9cucdBtizihdmuK9dWgFrpbFn6NndQhp7f1g8KAfBijAedcExAtsWbnR3nDgDXnMsSN4KiE4VJyNeEFzjfRBGvfcRmHS1GggVqJ9nRyAJPDrExSJAMkK4BxgtzpwyVNqsMocGTVjWuuW83G2J8vwPQGuYusQFYk94TyCHsfV4GHJhc1GpDft3o6C7HPBwbUE65YD7JRTHjs9dKxmcBF7es1VZHk4MDJx3mabNfpDVd9Kis1Q2X2VdARkDcScuUvFmmkQtzkWQtoLhcymGwHpXapccsqKSxz3o77x68AkmMh97NSDj9aQe4ekvd961yS4rNpihddTaRYepZfByC6MfRLXMCELy8VGWp6B5P8AypVdkZN5d9gcsSUpxAfkusBiXMvWUTLG4ASkhv6vwYVjDbLQ1WtdkEVe89mvnaztKjbYepksdo5juRB1JJxXJ7yf88suGmSpUj",
+      "distinctAddresses": 2,
+      "exampleTx": "6fdca72ad9d1a9f250a4570030449acf24839f53bf1984fca9609eccd4c79d11"
+    },
+    {
+      "side": "spende",
+      "txs": 2,
+      "template": "a889c574a9bf",
+      "names": [],
+      "sampleContract": "HNLdwoHRsUSevguzRajzvy1DLAvUJ9YgQezQq6GGZiY4TmU9VDs2ae8mRpQkfEnLmuUKyJibZD2bXR2yoo1p8T5WCRKPn4rJVJ2VR2LvRBk8ViCmhcume5ubWaySXTUqpftEaaURTM6KSFxe4QbRFbToyPzZ3JJmjoDn4WzHh5ioXZMj7AX6xTwJvFmzPuko9BqDk5z1RJtD1wP4kd8sSsLN9P2YNQxmUGDEBYHaDCoAhY7Pg5oKit6ZyqMynoiycWqctfg1EHhMUKCTJsZNnidU961ri98RaYP4CfEwYQ3d9dRVuC6S1n7J1wPPHYqmUBgJCGWbTULayXUowSSmRuZUkQYGo9vvNaEpB7ManiLsX1n8cBYwN4XoVsY24mCfptBP86P4rZ5fgcr9mYtQ9nG934DMDZBbjs81VzCupB6KVrGCe1WtYSr6c1DwkNAinBMwqcqxTznXZUvfBsjDSCtJzCut44xcc7Zsy9mWz2B2pqhdKsX83BVzMDDM5hnjXTShYfauJGs81",
+      "distinctAddresses": 1,
+      "exampleTx": "5fca1b0a3d4f7143db58d62f2bce8ed3a8bdc982eb696344685faa84c2e8b1d1"
+    },
+    {
+      "side": "crea",
+      "txs": 2,
+      "template": "f897847153c9",
+      "names": [],
+      "sampleContract": "2ysN6BW5GJ9W3uXQHHg9JFB1ZXybF9MsPWCqZMGtqaakxivF1PEQgQeVak2sYyfvR37NrZqvdNXmMrL4Zjoi9H6amDhSwjGWEpSvD4X3ytHd1p5GoQE7716rGn3H2YdoJgUVpHkZoQMMZ65rDFDDA4AhUMB4nCWfrZPTsoy8Muy1U7eg1fqkGMdhKCQvvammnqgTWV4HpzuneCFxahPr8tZcnTtcdckGF452VvM1qTkbTV9zaLjyLPsZSYpanXdNB8b2s1shVQn8sYV6UeeZTm1jCts5EhKXhV7YpvKRVJ6YZCMSJvLq2CFJ7xNSHnjoyNowtSTF4G1mYEYcQH7Wd2uy1saqh9jPN8MNNZmU82XXZ3kDhL8fbegDVp2mp481c1xLM1cBcrQQZ2XxUZmUUjc2GoRUjKGz3wXZV1M1xq12kQ2TJT1zVohuKQoG21yBbegg2BDMhwdYt9gyVvbif2UsaTWrGpvRCd4JjaN7p6Tp3DMx79M2tVT9UZRNCawM7HuZmygVoXBxQNKwD481sRicc6SrH8bDsjZcgkiaHZbPrdr2HsJgz9yU6MWFBZDDRsc1RV2A5unrdnBUTrVR3kaQQt",
+      "distinctAddresses": 2,
+      "exampleTx": "5a1866a34bff4c42e44eb6bdcd854a65d36783bbb69ea7c725133218832defb1"
+    },
+    {
+      "side": "crea",
+      "txs": 2,
+      "template": "534254f0e1d7+5ed346628d01",
+      "names": [],
+      "sampleContract": "4YAmjFw1TVnbSFy5BC2N2UkYw4CZnfHnYdXGs9xi94iquTmhTamqNxJaMJNNWShMDtfE7kqH3UC4zWafFF4cAVUXdiuX8vBfNWe7LXo7S9FwvkgH1RMcEY1ELhC8rKRs1wtuCaeYavQvMzRpVR1bNGYNuX1VXuEwYUVqgL2T3Bv7DvHof3QA6q4TqG4wHoCgReVUUHNFGG8opyuVvsZJJZqBuaujqiK4BBbH5hzSvZYA4h6kTVjdsgj29TcXhWbDKGX14PbZPb18Fg2hFPBhY4rTDMfYEkgpGLxTTBhuaZDH7szF2AujaKzx1e8hARxU4NT4V2UrAiL4Mr4vtwSVdUkRPAR1t5B3ccq7Fgvrdeijym9xPGH4Yxhs8DcUrnJDoGrhUNyePF6XK7RNeTyP6qgsEKTUyFouJ5YCLWrHu39bmpSdAauL4d69XpzkGJCttP3cj31gfgiwWoUvdLxW5DGDGoRWrWLPjB7ASd2BeBa4zhhmSwJSYheRcKgz3Acs3kAcAy5evPPYHZg34uL4RPCZaRJ9NB7EVDgLJjDgLw4wLn4UFVn8eWTrCrUBB63LEk7RMzit6iY4PuJiTteuXKNjpchWnTn9Jrug9ZewWR6DM2D2iTDSoyGhhJPdefgT6vJqmrM2Xqdu5BfwDw3miQZanC1wWaVo4tjdpF61CnE8c7ojJPJJitCDfZzcR7RGwSisTPLjk96wrAugxR7TYFnGMWJieWLEsj9a17dGZFX6kH8otKBKv4fYSmy68vTv7gYNwAyyqVQaSps82nYCYJ815CpzVC3rnYv4Ap53WnTCYnVBXLF4z9xEf7Kt5JWv5svv7ruYx1enY94pCpp9sn1ZPtvhpkTAGwuknMNce4T4pUazK9wwftqprKgXsn6DAhgxifUXzYDKbdhevjjqBHyavYf1Ami3v5YRu8GqiAjHa43ZsT",
+      "distinctAddresses": 2,
+      "exampleTx": "4b2a7e3b13ab577fe73f49a4f1757c37267606b708fed47e9ade791e324ebeb5"
+    },
+    {
+      "side": "spende",
+      "txs": 1,
+      "template": "cacfe58e828b",
+      "names": [],
+      "sampleContract": "6bCHzPEM33qXUPKc1vtYCfAYGcwfvUCjLvMju47n7aHpjDD8YBKVpRasxMHrYbWG9igtvXw8EdpPAw7Lww2SEzhstpbXHFh64V9VJRtYtCtdTJtDXrzS1byPcKj84xEWKp15gdGjQAJWMDuYX8udHBU8HAtcaT5sGrTyjqijqgL8LyRUDke5viAr3reDdqqNnLcBTyCYLf4HMBnD1X4seceLjEbkYZroMXoZgkro3ggKzFJuxLCzHmDDZKECR3QdsDUbM7Ku3WhsPtpSonivejZ6ZYaL7DPkj6rtjPymwYx9WozLVDUTNKA8d42uumZP8kqhVuYbfhqhnnLvptyAbUaSEKiwSR9YhuMxCx5fs5jMqkVh7j2WRQib8RP59tHBU26uwSZdAcWsb9PWmf9vhdEmLkQLz7cJ2R6kk57PKPoFNVByauybw3MRRfBZNScKkgJbYuwC7hNnf58infSHHHKKLjs47sHHiYHYuNkxLQa1SzMhK4UazRZ9BFSGTWrfRMuXMTBRzM2K9cA5iidtFdSGJfHkyU9ZjtuQFztiGpEcKLzM7G8ESKKcQKAj6gxD6rDJXxP7ST2SfN8eWJYH5N7DeiZ5F5AhWxKU4b8u1tDvQSWPnqGacLJotUFTBYJjNHHja2bXRR2x3MZU8hXENvteAcmLFmJdiuUHKq2S9qLdYW2XWoPuvdy9CCdS6RebEePyvvk5pDWnhfLwvbT5N6csJu9aF1x9y8GjX4Tnnp3b9K6Z8M9VEr6sA6aUnJi9hHUpbdnAvJ6eGWWBR9K5i6CFYnAJjjbLhCHXEzihApgRkgtqZ86Ffo5Tji7zvqjfZEJjGiH2VcxYDNaeFJkXBZ9Chut8APiTdNK9y35JpKPu7pKqhpEomr52TEnUR6YCERnda5exwQ4x46hZDs81Rknj4rd2DmV15VhFipjZtFj9SR1GY8RoTdBGM6BvT7qt7omEVrL7vmUJoxkmVdiamfBXzYsMmnHgBSdp6DjQy1qgA3Zcuf8Sa25QWvsTZxZtSMVEusj8nbDoqTpBiVnBiJMyEynxshYshFY9xBauSgyiyv5kvHXJ6rqogrtbA2YpYoMKQKRFAXNz1gPakxdYuudfhXWuCQyKwceJ2zi4PUrvBiNVio8jZ89JExJ1y7nFGRC5wEUqTnj1s6CdBjZeAjRmwZztBhFmdzdLnS8ZpQpBUTfXbXbL5d8ekmT7L7i4Rm8dom8VjwLmDM3BppZ1UR3L5uFHMRFeNsQy3zk3LYpoUpEmWSKxWCCujon3QsBts3GMhSB7e3rb6yiraVgynZDWscGzJn1qyCfr2U5VtynxkTgrvXWVpFLw3aDaeXsKRpYsKhN4jMoECXSTtBypxcMW746hb7MuGEk8TqPcGob4DFijNN9qKqH6EzpBkt9PfyXZrSM6nMhdpSTWR4Atzo2vmSCLjqiXrwTLEskdcq8XkEAD7iYTPmjAAa1wjm7jmRmjHevcjiZFKDqmWpMvrUShafEkJrbdDrGVXwfSAXMWhh2gBihFHedzWWHtGfrfTDhX9siremBoaHwWUocdPcx5NTbxTzQeuCnkfhqEHyFqkWxijebcWg6zAEHnqwPfmJ7q7ZVjZGparU6ohD9W5Qfm2piT542fxKR95ZiYVtEuuX38tmT4Smu6swCmudkW33TJ2ak1pSCSshLbGFTNLx9V1FYsYxnsf3Hb2UBxSxZq4QEbXPL8UnUzTcm1uwk6B3PCEFVSt51Tsja8vsxqsB5iwQjq7Gm1GzFwvM4zVePzj6jukBxgDvhvPeXdtscvi6Cy81wS1uMuiBDYx2MsGkGfg7NyBad4YV1ouZk3JzCVg4UB1LdVdUC1SbuqKByvUTpRcnxcGncFy9HDEALXuo2ACKjkFirSmvNpJzAc754RxCQnZ8LLdVw44iRHpvHupToGCpeHSoS8Sj1fMs8co1PBmp6qes7yUYexDxM9HTsLbU2mcp1BBHxq6yC7T9urXQ8y9w4Js4dhcFWVxGJv3whKKcYApGhLSV31tXZHELi53UnWgubpFkDkq5tRwxweXJZSvDBgNycqgweH5infArkLKqj5PZKw14ZarJSDwjoVMVEjwjSyYsRHXM4EJQn41WgXQHFCGDj9LqUC2eCWZnHTaAbjwgoTT2Rg1m3q19pq3vVoPxYFPYR2aMQFUx4J9mzuqWLGLRuQdu",
+      "distinctAddresses": 1,
+      "exampleTx": "e26e3fff524dff8037efa2af2d346dd8d5e89daaa4973d4ca944464114883143"
+    },
+    {
+      "side": "spende",
+      "txs": 1,
+      "template": "e28512b69ab3",
+      "names": [],
+      "sampleContract": "o9znyCDPMrzr82gnh1prRVkLasDczqxQypefrPidYGEXaiN5A5o24Mj7nLs3M3ww7tnKfu2WTgrbvy6i7TTEKzUutFYHt592Fb2d1ECSMZqoVqxVaUJLqZEhbpvmvwndWU5YbLrmezDLjMjcBNdupUxkzhmbwLNZSSfwKjUuTFoLQveEBUHHAy7bAh4asqqTDb1Z1P6DW1d7afEdCyhtsSSmjNSWaxaDyx1ty3zJofgMtD8iyKXhHYmdvZdTyZ92LZzWMMfDDD35v5UE1iUptS1rqoYL3pxqzW7JpBtrVfX68DfwcfCcn8Bzm6pkhc8V7hUvv1K3U2NFDDSaPvfT9rAKA5rbBdcupmGWcJiBi2XxFvxmFffUiKk1smN63TaMqQ5768C86v6hK6ndpuXZZZzCzbgdFXVs5oVWHERkFrMtgfaq6gJ1AravhZWyasTaXQDZELYbCkv95BNdhxPuauF3Yqcc5vUyQhybCtEbnFCRbyogGzmQ797atuudSs4ecQ1E6RbJ7oYE9GAXHAFoJnnvkGcHv2aHF5aWzDEZQ22XE4WzR2zLv63xhhRgTtAd7Cus62J9QLWEJnRVrupAswshnhWmNfE2xZFPzfWpPB5dSbBrXf6wdtLEFoQnogcXjrksYSwwMwpZ9KPVeDg5nzFbi7qCVdYXcLnWPvjSUKbc7VtfF8vCGYrkTUCoQZVTCq76mxzojSGeJreGEqYSqtF4t8WAjGCB78qkgExXF7yZyLu69hgqP2xBXWxRKG5Lj7Wdw2g1tqhXHJvZWofcFCUN36nQQw4juySEzKpThJeGBBWxfYNVQNQcJgb5h9YyGt4bEqoUFD9ebNdUWv7PGxoQFQpWmZ3tdx5o3umPDKVF3YERD9gR1Tay1ikH63AJnwAu2pxMwwEPQUSL5wmVxEWGwpb5seoAWVjBBk5jWB3dgF6horKVBnqzPy95WZJDHrgfoDQUc3Gr8XmbaEew84FjhyYd5fqYYbNxXP38yGJtcmB79TP47MNMEqZbZ9qetsLPGBvQsYCJBv2bYS9GHhkiYwRVKitySdC3MhzxWk35iALRQiG6RJpcPwHcJ3iJbT5nuYT1a8SkTTokudc7mWNqAtGi4gFoZkYd7Sg",
+      "distinctAddresses": 1,
+      "exampleTx": "5bb3a8e317a15280f915dd2bed53f857be0fcfadc50f1b0a2cc84ba583d36ca6"
+    },
+    {
+      "side": "spende",
+      "txs": 1,
+      "template": "4fa50c36dc20",
+      "names": [],
+      "sampleContract": "axU2VUCr9uVWCQoPGNrUBCkcbenpYsdDAwBEN46vmBekw487nYu8jBGnqjLudF4STBKAR9XQDGhL1APbAw9cHpJGAfpq1KwgbAD15rviD2sx8zCYkoZoLW3qxA97fdsXPHEBj5dmYBbHA8Uiu1zXnYUdsbq62wkiuZcZgZSs4mFshLUhGEWcT3L2YURP5DQGf9CJr81ykYG7euz83gcVm6apAcETjmG5Dp1NxLLSNivj3FDVqQeWDAnkBd4Pgb2vaeNSgMEbALtN8j5FNEK8JxvFnReFFRprdSjonjUvZMCAHGCjQ2KQaYqXe6PTPsxhyTEWPwANELgm6Hi5ntpmiqvSNFKAEkWKLVoBvCTJswRHyHfsKtMgY1zSy6BXrB94xw3mE2CsQApiAZMaZohcmpRjVziLFqsqi47L9i6sBWa1VFoRfd71KPzyRmrTVjT5Z6Dh74K7pPLZBd",
+      "distinctAddresses": 1,
+      "exampleTx": "ce500699a51e8ad9d82a65dba06e3f7de8c00e0ab4abfd985883cabe5d736121"
+    },
+    {
+      "side": "crea",
+      "txs": 1,
+      "template": "3af561cd7437+e35213dcd0d4",
+      "names": [],
+      "sampleContract": "NY4PEzZ7VfjwPeRTBJ6yQhB4LUXiZZbU7PJURZYhNmQpbqP9LEw4FWJKwEatCZ3D9fnUgHYeFgjfqt8Xi6uQdqXdCvoF331a7z8Bch4Y1URdRefkZ4yydoLwrsBnnM1M1hQsA3DPoaY8NG1qy5AhvgmNcvR6jxpuUA5JignJVg9KCXR7ziBVtLy8whA2FYamK3PEPrhrdBGiQaNB1Ehi2P5z5URN2Eq2MgfnfQLGNdis4GePuk8Ae7wtGqG2bD1aCFmbGQBCXMwdJzPMJuCnWGbXynBJodd2JqT2EqZ9eqxHrYVYvtwqUQtTyGgqwBFXwvB1HviX4dq3drsBKAo1eZ32mfgjGksbhCzmhk6aXKHHqyzttMrgekfKztL6tQDfiAe9S8MDjb3zU1yCXHLTENsvHHENnW1quPHXzCzcbjKAZ8ZfwNdkXsjrqgSMYWY1RnZPkFhCHDq14DrUXDr8MMuxtSNoLBwCVhTh124S6C3ywCUSzZPAu7sNX3ckXfyn9qwZKi5JuQbCDF7cgCNiRjF9aZ6n4wHk28mrLbWyhq7jpu41ZN6yvEix7QSHSVABfWLYqydSUmuByeiawndHrmYJekpMLJad6QqmQ1CdTawGUA358hguG2F92HL6wdsiebHYMTpU1qshTHyuiHvchMNEYkGadsqGKa2MuLHw5n58ERdnRa6ib3zDfsC1n7NuYTqL5r2FNr2ZHaoufyrRYfayQinJJaKCYKse8fDBC6q6opWAK2vtvRXpF6K4jsrEcZuaSvGWVj359gvnpYppSp9RBaKJYeDQzSzqjkKY6VZVqSfFypdAg7t8ALG5trmR8DpRTYWVSDn3psNymvTvWYhxUZRPXnKx6qxt8y77d7sRPNuhFuYsccoCaBwDPTPvZxMNxjok5qiYRCDSxHPhaVAf41ehSzX95awmQCJ72xLVqNdikg1G7t9Wojttxsh1aobsHUazA3qbep4EgCzGcNxCLPWv3hJ7q1CemUZpaaohST2rq7seb53fCSwW4ib5sX76vddqqKv3QN6FGagDFtwUXAzmudw5AUnjasdoKkBYuhECVwD8txbz85kdGyW4SP2imx36haAFxYQY791NPmQLFGdexFdTvz7EkFzZ2Qzw2r23xqDcDDQkMFVg76TCkJfHK7ygp9dwRcUPDWc9f7zMCHF7vqypnpqpKdZ26RLgHYT5ouiMSbRhJVy2cLrU3WjhE3XrcqiC8PYkx1LdJXwrvu9hi8",
+      "distinctAddresses": 2,
+      "exampleTx": "7249f9558284fda821e5c942b61e9bbb375837ee90d922bb85b07a9cd02bb857"
+    },
+    {
+      "side": "spende",
+      "txs": 1,
+      "template": "29773f60dd05",
+      "names": [],
+      "sampleContract": "M1yvQds3xbkiigZaiS5jBRZJYKTohizCHiPLwthefBQAMeEqhzzSUmQiyHgxz6RwNBrpw4YbMDcN9xD13xPriKQZKh7mp6vYd52JZgr3MjhTgQ7stpwDBeBaarBouzdD2ix896e7J7jBiMikQj6MccustFvn4WQamUbSvAmxG3Ajw1fQoTHQFx2Pv5HmQXsRmUYwka3Jjj4saGJxxmvg7N1bnn46bY5fRigz5eWQRaXUMZLSaXK41J3Nx2KgqhV8qcFDW2qxPFfgxSu1vR3GCQ8NAuBe4RLKgvzmgSxGWCP2vHVNcXxiKrxte8ZLfCrF47CPEXqpkqYfBi1obUGk72LnwCHWig5UBBvnpgxSE5HX6bkwbVRfyxLeysyGtf9bdJyM17G3Juph5F1ZkPEcS65R78ex6DEx64pxEbh1o8pbmz5HacfqvBNfccqcJzFn5XjdwZH1iM4HncT9zGH52cSdLQk2VbE93EfTErTnGzKyG4PveJtG4u5SJ9kocPvorbhMcxFxFYjHJk48gzCQymae9arwcnK8mkAjV4oePswswdjCxDpUGmRpVpgZePRvvuWfbS3Fz9LkUVKmvXMebZyumCa6U4F6KVriUgKuKog95Ze7ycogKD5Q12YhLWdeLQqZJdVWAH6VReobodXfceM2VH8Ci6asP5YjQhiDDzpwFCdKS13ho4vFK1kF4Kd95bvsQDbBeQxQLakWN92LCqr6wFCfARdtj347BtwPGgSAbeRDqmv7sRxGLkgp2k5gB1S4YDz6MuL5SC2WFWBzeQNo4ifoVyuiHVM8EkgY66jm11nLpJEBv57Q1v4HqQJvYxvby5R9M5VEAWNzpGR99xvX4fAvgz8ZGnEzmXowUTFMKZXWEaXVDP9idMmgYTcLX49E8w3Ke5Ac2ZNhge5Z4qquzvz35kK1z2sM2b2feRSzqcnZ1aV9tg5cYtPQAQvQFUha4unzrtCBm42he8F4afXy9TJLasgLKmb3f8nDznbyG5Lg7QZhcRGfurjCFPTtHFvCfwcG8fPrfURFLZTSinoc5KX8JL7d6hBzq6Skk5zTV7pfkoL2S8ReFErGjy7rPPznVtf5SxTdiAEcxYtqETizgEC6jzDFnknVZ6d37boFqAEBruyzpHdSZNxNbzMxzfouTCAkaoQ5sRHnPsQ4ZwyRJ7n455bFerVenXbmHJNdBpfhB88b11oCqmR23akQh7cPXUTBytJqMtkSpYmB5hhQy3rbygghH6awZvLBdHBZ1dkr1t36BXZ7Y4w5rgYuz5nAbArq2gcBddajstcMG1MnPoM6dpvS927FUvBeZLDStB9f5fuYf2ynM9KTwpvuSMVxzSJrJwUkVn",
+      "distinctAddresses": 1,
+      "exampleTx": "56025963ea1116b7505e51c06347c8229fd23597ce9cbd5aed2e4f1d0ee7c7c4"
+    },
+    {
+      "side": "spende",
+      "txs": 1,
+      "template": "3af561cd7437+d54697dbc8b7",
+      "names": [],
+      "sampleContract": "NY4PEzZ7VfjtpACh7a9NbxyyMQPghQ39LcRZjPmyZ7oPeSXT3E6uNUumgzTjJqx2YQj6Yv949NXmyGPwYSdSTmLdU4k4UuUwUAKS9aGozcX2VzHn7HAgbezL44thy7BiJZLNvW7npvrhvve1K3w56sNB5Q5Cw1Q4vKdD5vktYE72vcu81Ls9Jo3dstmGPFrxzGYZtqYfR5Lyq8JwazKse3Ea7gypuqv3Pv3emVdBwAquXMTATofoAp9aaffrQA8XbsnAbmAHiVxcMmyhf6iCjYxDBKNd3LUCMpy5uHSg8AwijbRDYCaacc2pt2RK9VWmthdtCVcC8XBh1bsXNp1aCeRprg8nmCfb4YkRXXVH2TTWo5D4BvW23gjbNVU8a2SkTR3ZwboiL1QA4sq6JRY5HkZQjSk33W4YcJCbgNNu4Z6cU6xCnNyoiX89FfD8uMq4DZKD3bxD9HBdXpN2xs8BHA9EMtwaovxDANjsL9jxWH6FSN2KrKHsbTHAPSB3Lwzj468BdRetD5VHFfKetRT3qUsvrBXZ1n2UBd6WvhRA4T9erCZDRP3Ui2Wxbx2pVvXKeWLsJMYX5fiX8rX55z1mX5wMfbRPJKMTGtyfwDoy3D6pVra2zvPxR2ME5A1rzWxtUwdUfJZ5oBGYFkV94yjZJKMKws4UtgkSdgeGgqN9eEnzjv3nYp2rZjxZnXeacC5JvQghzKf6jsRzGyzWwJf4CZnAaL9V9Ap3Up8YfxuHvWzTVJSgUq5RD8MSwc51Ctx9GoJ7YBW961NPuuTnJrp2CR67w2izrgEwyQCMvzcxv8rNSacPRybXv9peBJVRuXx2uoNAxEYeHPqW5eF7L8Xc2cKF7AHREKeJAPbZz5aQTSQMhRgV7DSyEFPB9riWyxJM1bbaiVD3R5J4BTzQWffVdXU6JGfabniS51pihUmS3uQQap4bx2QTMSRJYcHDzwikCgNK3bZgB3vYjAojV15s7bvciFrCuLLhF1LhEVUh1oQf1HnZSradFABNhnzwRTn6nrgqyBxeBYSXbcusrD3gUfymv7mrpEEA6r98s77dn6JDrvDo3aRqSFhPAXLXQpkv4MNq1dZkrrgUGwDyohEYXQMqVQdJoAQxiybg6qLiaYnUtKm3CzFaY3eDYzySGWcZXQ2JuLNQKdMUFLQXEWUi7eWH1EaZ8HsYH1J1NTo2ZoJVvxdyL9JpsVk6p5pTdLm3Ucsds5nLQMga7UameEGSxCjUoYiwxQ",
+      "distinctAddresses": 2,
+      "exampleTx": "1bf19b788c51f138038f172dff77013f42ec712302e0255f58fe4d162b62c273"
+    }
+  ]
+}
