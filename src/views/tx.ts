@@ -45,17 +45,26 @@ function flowCard(m: Movement): string {
     `<span class="tokchip">${esc(formatTokenAmount(t.amount, t.decimals))} <a href="#/token/${esc(t.tokenId)}">${esc(t.name || shortId(t.tokenId, 8))}</a></span>`
   const toks = m.receiverTokens.slice(0, 3).map(chip).join('')
     + (m.receiverTokens.length > 3 ? `<span class="tokchip">+${m.receiverTokens.length - 3} ${L.other_tokens}</span>` : '')
-  const erg = m.ergMoved > 0n ? formatErg(m.ergMoved, 2) : null
+  // Ognuno col SUO netto. Prima i due lati mostravano lo stesso numero (ergMoved):
+  // sull'arrivo Rosen il ricevente risultava +10.001,3 ERG invece di +9.950,99.
+  const dato = m.payerOut > 0n ? formatErg(m.payerOut, 2) : null
+  const avuto = m.receiverIn > 0n ? formatErg(m.receiverIn, 2) : null
+  // La differenza fra i due lati si dice, non si lascia indovinare: o è andata ad
+  // altri indirizzi, o — sul riscatto SigmaUSD, 935,64 → 935,63 — è la commissione.
+  const altri = m.othersIn > 0n && m.othersCount > 0
+    ? `<div class="note">${esc(L.flow_others(formatErg(m.othersIn, 2), m.othersCount))}</div>`
+    : m.fee > 0n && m.payerOut - m.receiverIn === m.fee
+      ? `<div class="note">${esc(L.flow_fee(formatErg(m.fee)))}</div>` : ''
   return `<div class="card"><div class="flow">
     <div class="party"><div class="role">${L.from}</div>
       <div class="pname">${esc(partyName(m.payer))}</div>
-      ${erg ? `<div class="amt out">−${erg}</div>` : ''}</div>
+      ${dato ? `<div class="amt out">−${dato}</div>` : ''}</div>
     <div class="arrow">→</div>
     <div class="party"><div class="role">${L.to}</div>
       <div class="pname">${addrLink(m.receiver)}</div>
-      ${erg ? `<div class="amt in">+${erg}</div>` : ''}
+      ${avuto ? `<div class="amt in">+${avuto}</div>` : ''}
       <div>${toks}</div></div>
-  </div></div>`
+  </div>${altri}</div>`
 }
 
 /** Disegna lo schema UTXO dentro [data-schema] dopo che l'HTML è in pagina. */
