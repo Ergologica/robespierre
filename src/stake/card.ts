@@ -18,7 +18,7 @@ function depositValue(p: StakePosition, price: TokenPrice | undefined, usd: numb
     ? (valErg * usd > 0 && valErg * usd < 1 ? '<1 $' : groupThousands(String(Math.round(valErg * usd))) + ' $')
     : formatPct(valErg, 2) + ' ERG'
   const tip = price.thin ? esc(L.thin_tip(groupThousands(String(Math.round(price.volCumErg))), THIN_POOL_ERG)) : ''
-  return `<div class="s${price.thin ? ' dim' : ''}" title="${tip}">${esc(L.stake_dep_value(v))}${price.thin ? ' <span class="tag">' + L.thin_pool + '</span>' : ''}</div>`
+  return `<span class="s${price.thin ? ' dim' : ''}" title="${tip}">${esc(L.stake_dep_value(v))}${price.thin ? ' <span class="tag">' + L.thin_pool + '</span>' : ''}</span>`
 }
 
 /** PURA: la scheda «In staking». Vuota quando non c'è nulla da dire. */
@@ -29,41 +29,41 @@ export function stakeCardHtml(positions: StakePosition[], prices: Map<string, To
     const dep = formatTokenAmount(p.deposited, p.stakedDecimals)
     const pool = formatTokenAmount(p.poolTotal, p.stakedDecimals)
     return `<div class="stake-pos">
-      <div class="idrow">
+      <div class="idline">
         <h3 class="t-sub">${esc(p.dao)}</h3>
-        <a class="btn-link" href="https://app.paideia.im" target="_blank" rel="noopener">${icons.ext}${L.stake_open}</a>
-        <a class="dim mono" href="#/token/${esc(p.keyId)}" title="${esc(L.opens_card)}">${esc(shortId(p.keyId, 10))}</a>
+        <a class="ext" href="https://app.paideia.im" target="_blank" rel="noopener">${icons.ext}${L.stake_open}</a>
+        <a class="mono" href="#/token/${esc(p.keyId)}" title="${esc(L.opens_card)}">${esc(shortId(p.keyId, 10))}</a>
       </div>
-      <div class="tiles tiles-s">
-        <div class="tile-hero">
-          <div class="k"><span class="help" title="${esc(L.stake_dep_tip)}">${L.stake_dep}</span></div>
-          <div class="v">${esc(dep)} ${esc(nome)}</div>
-          ${depositValue(p, prices.get(p.stakedTokenId), usd) || `<div class="s dim">${L.stake_no_price}</div>`}
+      <div class="ptiles ptiles-3">
+        <div>
+          <span class="k"><span class="help" title="${esc(L.stake_dep_tip)}">${L.stake_dep}</span></span>
+          <span class="v2">${esc(dep)} ${esc(nome)}</span>
+          ${depositValue(p, prices.get(p.stakedTokenId), usd) || `<span class="s dim">${L.stake_no_price}</span>`}
         </div>
         <div>
-          <div class="k">${L.stake_pool}</div>
-          <div class="v">${esc(pool)} ${esc(nome)}</div>
-          <div class="s">${p.poolStakers != null ? esc(L.stake_stakers(p.poolStakers)) : '&nbsp;'}</div>
+          <span class="k">${L.stake_pool}</span>
+          <span class="v2">${esc(pool)} ${esc(nome)}</span>
+          <span class="s">${p.poolStakers != null ? esc(L.stake_stakers(p.poolStakers)) : '&nbsp;'}</span>
         </div>
         <div>
-          <div class="k">${L.stake_first}</div>
-          <div class="v"><span title="${esc(isoUtc(p.since))}">${esc(relativeTime(p.since))}</span></div>
-          <div class="s">${esc(L.stake_ops(p.operations))}</div>
+          <span class="k">${L.stake_first}</span>
+          <span class="v2"><span title="${esc(isoUtc(p.since))}">${esc(relativeTime(p.since))}</span></span>
+          <span class="s">${esc(L.stake_ops(p.operations))}</span>
         </div>
       </div>
     </div>`
   }).join('')
 
   const partial = positions.some(p => p.partial)
-  return `<div class="card" id="staking">
-    <div class="card-head"><h2>${L.stake_h}</h2><p>${esc(L.stake_p)}</p></div>
+  return `<section class="sec" id="staking">
+    <div class="sec-head"><div><h2 class="h2">${L.stake_h} <span class="n">${positions.length}</span></h2><p class="sec-p">${esc(L.stake_p)}</p></div></div>
     ${blocks}
-    <div class="card-pad">
+    <div class="stake-foot">
       <div class="check"><span class="sig info">·</span><span>${esc(L.stake_unknown)}</span></div>
       ${partial ? `<div class="check"><span class="sig warn">⚠</span><span>${esc(L.stake_partial)}</span></div>` : ''}
       <p class="t-cap dim" style="margin:var(--sp-2) 0 0">${esc(L.stake_excluded)} · ${esc(L.stake_checked(MAX_NFT_CHECKED))}</p>
     </div>
-  </div>`
+  </section>`
 }
 
 /** Dopo il render: cerca le chiavi di staking e mostra la scheda solo se ne trova. */
