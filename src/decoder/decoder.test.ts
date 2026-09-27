@@ -617,3 +617,83 @@ describe('staking — quali NFT del wallet si interrogano, e in che ordine', () 
     expect(ordinati.map(t => t.name)).toEqual(['Walrus DAO Membership'])
   })
 })
+
+/* ---------------- la pagina d'errore non indovina ---------------- */
+import { errorBox } from '../views/errorbox'
+import { ApiError } from '../api/explorer'
+
+describe('errore: tre cause diverse, tre risposte diverse', () => {
+  const ID = '0000000000000000000000000000000000000000000000000000000000000000'
+  it('un hash che non esiste NON dice che la fonte è giù, e non offre di riprovare', () => {
+    const h = errorBox(new ApiError(404, '/transactions/' + ID, 'Not found Transaction with id: ' + ID), 'tx', ID)
+    expect(h).toContain(L.gone_tx)
+    expect(h).not.toContain(L.err_hint)     // «la fonte potrebbe essere giù»: qui sarebbe falso
+    expect(h).not.toContain('data-retry')   // riprovare un 404 non serve a niente
+  })
+  it('dice quale cosa non c’è, non un generico «non trovato»', () => {
+    expect(errorBox(new ApiError(404, '/tokens/x'), 'token', ID)).toContain(L.gone_token)
+    expect(errorBox(new ApiError(404, '/blocks/x'), 'block', ID)).toContain(L.gone_block)
+  })
+  it('un id scritto male è un caso a sé: lo dice la catena col checksum', () => {
+    const h = errorBox(new ApiError(400, '/addresses/9nonesiste/balance/confirmed', 'Unknown error: Checksum check fails for 9nonesiste'), 'address', '9nonesiste')
+    expect(h).toContain(L.bad_addr)
+    expect(h).not.toContain(L.gone_any)
+  })
+  it('una fonte che non risponde resta quello che era: avviso e bottone Riprova', () => {
+    const h = errorBox(new Error('Failed to fetch'), 'tx', ID)
+    expect(h).toContain(L.err_hint)
+    expect(h).toContain('data-retry')
+  })
+  it('l’id finisce nella pagina sfuggito, come ogni dato che arriva da fuori', () => {
+    const h = errorBox(new ApiError(404, '/transactions/x'), 'tx', '<img src=x onerror=alert(1)>')
+    expect(h).not.toContain('<img')
+    expect(h).toContain('&lt;img')
+  })
+})
+
+/* ---------------- i riquadri non devono smentire la frase ---------------- */
+import { txMovement } from '../lib/movement'
+import { FEE_ADDRESS } from './recognizers/simple-transfer'
+
+describe('movimento netto: chi ha dato cosa a chi', () => {
+  it('su un mint SigmaUSD il token si è mosso, anche se nessun indirizzo è "nuovo"', () => {
+    // il difetto: banca e wallet compaiono sia in entrata che in uscita, quindi
+    // il conteggio vecchio («token finiti a indirizzi non in entrata») dava ZERO
+    const m = txMovement(rsvMint as never, FEE_ADDRESS)
+    expect(m.tokens.length).toBe(1)
+    expect(m.tokens[0]!.name).toBe('SigRSV')
+    expect(m.tokens[0]!.amount > 0n).toBe(true)
+  })
+  it('il numero grande diventa quello che si è mosso, non quello che sta nella banca', () => {
+    const m = txMovement(rsvMint as never, FEE_ADDRESS)
+    expect(m.ergMoved).toBeLessThan(100n * 10n ** 9n)          // ~7,6 ERG
+    expect(m.totalOut).toBeGreaterThan(1_000_000n * 10n ** 9n) // ~1,7 milioni: c'è, ma come nota
+  })
+  it('su uno swap Spectrum il token mosso si vede', () => {
+    const m = txMovement(swapBuy as never, FEE_ADDRESS)
+    expect(m.tokens.length).toBe(1)
+    expect(m.ergMoved).toBe(3_407_189_732n)      // 3,407189732 ERG → «3,41 ERG» nella frase decodificata
+  })
+  it('su un trasferimento semplice il movimento è l’importo inviato, senza il resto', () => {
+    const m = txMovement(transferSimple as never, FEE_ADDRESS)
+    expect(m.ergMoved).toBe(5000n * 10n ** 9n)   // 5.000 ERG esatti
+    expect(m.totalOut).toBeGreaterThan(m.ergMoved)
+    expect(m.clear).toBe(true)
+  })
+  it('la commissione non entra nel movimento: ha il suo riquadro', () => {
+    const m = txMovement(transferSimple as never, FEE_ADDRESS)
+    expect(m.fee > 0n).toBe(true)
+    expect(m.ergMoved % (10n ** 9n)).toBe(0n)    // 5.000 tondi: la fee è fuori
+  })
+  it('con 57 box in uscita il ricevente principale è comunque uno solo, e si dichiara chiaro', () => {
+    const m = txMovement(bridge as never, FEE_ADDRESS)
+    expect(m.clear).toBe(true)
+    expect(m.receiver).toBeTruthy()
+    expect(m.tokens.length).toBe(3)
+  })
+  it('quando il movimento è sparso su più paganti la pagina non elegge nessuno', () => {
+    const finta = { ...(transferSimple as never as Tx) }
+    finta.outputs = [...finta.outputs]
+    expect(txMovement({ ...finta, inputs: [], outputs: [] } as never, FEE_ADDRESS).clear).toBe(false)
+  })
+})
