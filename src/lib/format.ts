@@ -43,10 +43,16 @@ export function formatTokenAmount(raw: bigint | string | number, decimals: numbe
     dec = maxDecimals
   }
   if (dec === 0) return groupThousands(n.toString())
+  // Il segno si stacca PRIMA di dividere. Su BigInt il resto di un negativo è
+  // negativo, e il codice di prima lo infilava dopo la virgola: -1.984372 usciva
+  // «-1.984,-372», e -0,372 usciva «0,-372» — cioè un importo negativo che
+  // comincia con uno zero. Un numero sbagliato mostrato con sicurezza.
+  const neg = n < 0n
+  const abs = neg ? -n : n
   const base = 10n ** BigInt(dec)
-  const whole = n / base
-  const frac = (n % base).toString().padStart(dec, '0').replace(/0+$/, '')
-  return groupThousands(whole.toString()) + (frac ? DEC + frac : '')
+  const whole = abs / base
+  const frac = (abs % base).toString().padStart(dec, '0').replace(/0+$/, '')
+  return (neg ? '-' : '') + groupThousands(whole.toString()) + (frac ? DEC + frac : '')
 }
 
 /** Separatore delle migliaia (it-IT: punto) su una stringa di cifre. */

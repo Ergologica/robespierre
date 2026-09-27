@@ -75,3 +75,22 @@ describe('importi dei token — tetto ai decimali nelle liste', () => {
     expect(formatTokenAmount(12345n, 2, 8)).toBe('123,45')
   })
 })
+
+describe('importi negativi — il segno sta davanti, non dentro', () => {
+  // Trovato guardando la pagina del hot wallet di Rosen, dove un movimento in
+  // uscita si leggeva «-1.984,-372 eRSN». Su BigInt il resto di un negativo è
+  // negativo, e finiva dopo la virgola.
+  it('parte intera e decimali hanno un segno solo, davanti', () => {
+    expect(formatTokenAmount(-1984372n, 3)).toBe('-1.984,372')
+    expect(formatTokenAmount(-1500n, 3)).toBe('-1,5')
+    expect(formatTokenAmount(-1000n, 3)).toBe('-1')
+  })
+  it('sotto l’unità il segno non si perde: prima usciva «0,-372», cioè quasi uno zero', () => {
+    expect(formatTokenAmount(-372n, 3)).toBe('-0,372')
+    expect(formatTokenAmount(-1n, 9)).toBe('-0,000000001')
+  })
+  it('il positivo resta com’era', () => {
+    expect(formatTokenAmount(1984372n, 3)).toBe('1.984,372')
+    expect(formatTokenAmount(372n, 3)).toBe('0,372')
+  })
+})
