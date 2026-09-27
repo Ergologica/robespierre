@@ -124,6 +124,20 @@ src/
       (emissione, commissioni, incasso delle ricompense, ri-emissione EIP-27): **85,1% del
       totale, 30,7% escluse mining e oracoli**. Il prezzo dell'oro non si mostra: l'unità del
       registro non è stata verificata
+- [x] **Wallet e commissioni (27/09/2026)** — i trasferimenti dicono COSA arriva (prima i
+      token, coi loro decimali; l'ERG solo se non è il minimo del box: prima si leggeva
+      «0 ERG» mentre partivano 2.000 token), più destinatari, movimenti interni
+      (consolidamenti, token bruciati), commissione pura (dai contratti conta fra il mining,
+      da un wallet no). Un token nuovo negli output è un conio: il trasferimento tace.
+      Copertura: **93,8% del totale, 66,4% escluse mining e oracoli**
+- [x] **Fonte di riserva (27/09/2026)** — se l'Explorer API non risponde (rete, 5xx, 429,
+      15 s) transazioni, box, token, movimenti di un indirizzo e `/info` arrivano da
+      sigmaspace, adattati (registri ricostruiti da `serializedValue`) e dichiarati in pagina;
+      lo stato speso/non speso degli output diventa «stato non noto». Guardie sulle due
+      trappole misurate: la transazione finta tutta a zero e l'errore dentro un 200.
+      Saldo, blocchi e ricerca non hanno riserva (`src/api/fallback.ts`, `node scripts/api-compat.mjs`)
+- [x] **Deploy solo quando serve** — i commit dei job in `data/` non ricostruiscono più il sito
+      (`paths-ignore`): il sito li legge da raw.githubusercontent
 - [ ] **Lancio**: post a forum/Telegram con tre link e la domanda "lo usereste, per cosa?"
 
 ## Sistema visivo
