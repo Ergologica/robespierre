@@ -49,6 +49,26 @@ export interface Movement {
   /** Un pagante e un ricevente spiegano quasi tutto il movimento: il flusso si può disegnare.
    *  Quando è falso la pagina TACE invece di eleggere a destinatario un box di resto da 0,02 ERG. */
   clear: boolean
+  /** Il libro mastro della transazione: il saldo netto di OGNI indirizzo che ha
+   *  cambiato qualcosa, prima chi dà (dal più grande), poi chi riceve. È quello che
+   *  la pagina racconta nel tab «Racconto»: niente scelte, solo differenze. */
+  ledger: LedgerRow[]
+  /** Il resto più grande: quanto torna a un indirizzo che compare sia fra gli input
+   *  sia fra gli output. Su una transazione con contratti è quasi tutto il totale dei
+   *  box in uscita, e va detto, perché altrimenti quel totale sembra un pagamento. */
+  returned: Returned | null
+}
+
+/** Un token con il segno: positivo se l'indirizzo lo riceve, negativo se lo dà. */
+export interface SignedToken { tokenId: string; name: string | null; decimals: number; amount: bigint }
+export interface LedgerRow { address: string; erg: bigint; tokens: SignedToken[] }
+export interface Returned { address: string; erg: bigint; tokenKinds: number }
+
+/** Il verso di una riga del libro mastro: decide l'ERG, se non è polvere; altrimenti i token. */
+export function ledgerSide(r: LedgerRow): 'out' | 'in' {
+  const abs = r.erg < 0n ? -r.erg : r.erg
+  if (abs > DUST_NANO || !r.tokens.length) return r.erg < 0n ? 'out' : 'in'
+  return r.tokens[0]!.amount < 0n ? 'out' : 'in'
 }
 
 /** Sopra questa quota un solo indirizzo "è" il pagante (o il ricevente). */
@@ -127,5 +147,39 @@ export function txMovement(tx: Tx, feeAddress: string): Movement {
   const othersIn = altri.reduce((s, [, v]) => s + v, 0n)
   const othersCount = altri.length
 
-  return { ergMoved, totalOut, fee, tokens, payer, receiver, receiverTokens, payerOut, receiverIn, othersIn, othersCount, clear }
+  // libro mastro: ogni indirizzo col suo netto in ERG e in token
+  const tokByAddr = new Map<string, SignedToken[]>()
+  for (const [k, v] of tok) {
+    if (v === 0n) continue
+    const id = k.slice(0, k.indexOf('|')), addr = k.slice(k.indexOf('|') + 1)
+    const a = meta.get(id)
+    const list = tokByAddr.get(addr) ?? []
+    list.push({ tokenId: id, name: a?.name?.trim() || null, decimals: a?.decimals ?? 0, amount: v })
+    tokByAddr.set(addr, list)
+  }
+  const addrs = new Set<string>([...saldi.map(([a]) => a), ...tokByAddr.keys()])
+  const abs = (x: bigint) => (x < 0n ? -x : x)
+  const ledger: LedgerRow[] = [...addrs].map(address => ({
+    address,
+    erg: erg.get(address) ?? 0n,
+    tokens: (tokByAddr.get(address) ?? []).sort((x, y) => (abs(y.amount) > abs(x.amount) ? 1 : -1)),
+  }))
+  const order = (r: LedgerRow) => (ledgerSide(r) === 'out' ? 0 : 1)
+  ledger.sort((x, y) => order(x) - order(y) || (abs(y.erg) > abs(x.erg) ? 1 : abs(y.erg) < abs(x.erg) ? -1 : 0))
+
+  // il resto: quello che torna a un indirizzo che sta da entrambe le parti
+  const inAddr = new Set(tx.inputs.map(b => b.address))
+  const back = new Map<string, { erg: bigint; kinds: Set<string> }>()
+  for (const o of tx.outputs) {
+    if (o.address === feeAddress || !inAddr.has(o.address)) continue
+    const e = back.get(o.address) ?? { erg: 0n, kinds: new Set<string>() }
+    e.erg += BigInt(o.value)
+    for (const a of o.assets ?? []) e.kinds.add(a.tokenId)
+    back.set(o.address, e)
+  }
+  let returned: Returned | null = null
+  for (const [address, e] of back)
+    if (!returned || e.erg > returned.erg) returned = { address, erg: e.erg, tokenKinds: e.kinds.size }
+
+  return { ergMoved, totalOut, fee, tokens, payer, receiver, receiverTokens, payerOut, receiverIn, othersIn, othersCount, clear, ledger, returned }
 }

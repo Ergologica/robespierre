@@ -15,14 +15,39 @@ describe.skipIf(!LIVE)('pagine dal vivo (mainnet)', () => {
     mkdirSync('.live-out', { recursive: true })
   })
 
-  it('rete: altezza e blocchi recenti', async () => {
+  it('home: la promessa misurata, lo stato della rete, il flusso pronto a riempirsi', async () => {
     const { netView } = await import('../views/net')
     const html = await netView()
     writeFileSync('.live-out/net.html', html)
     expect(html).toContain('Stato della rete')
-    expect(html).toMatch(/Altezza/)
-    expect(html).toMatch(/1\.8\d\d\.\d{3}/) // altezza attuale ~1.85M
+    expect(html).toContain('Adesso sulla catena')
+    expect(html).toMatch(/1\.8\d\d\.\d{3}/) // altezza attuale ~1.88M
+    // il titolo viene dal numero misurato, non da una frase scritta a mano
+    expect(html).toMatch(/transazion[ei] su (due|tre|quattro|cinque|sei|sette|otto|nove|dieci), spiegat[ae] in una riga/)
   })
+
+  /* La pre-selezione della routine lavora sui dati LEGGERI del blocco (senza i token
+     degli input). Qui la si mette alla prova sulla catena di oggi: ogni transazione che
+     scarta come routine, scaricata per intero e letta dal decodificatore vero, deve
+     essere davvero mining od oracolo. Se ne nascondesse una vera, il flusso tacerebbe
+     una transazione senza dirlo. */
+  it('flusso: quello che la pre-selezione scarta è davvero mining od oracolo', async () => {
+    const { api } = await import('../api/explorer')
+    const { looksRoutine, categoryOf } = await import('../lib/feed')
+    const { decode } = await import('../decoder/index')
+    const heads = (await api.blocks(3)).items
+    let scartate = 0
+    for (const h of heads) {
+      const b = await api.blockById(h.id)
+      for (const t of b.block.blockTransactions) {
+        if (!looksRoutine(t as never)) continue
+        scartate++
+        const full = await api.tx(t.id)
+        expect(categoryOf(decode(full)?.kind ?? null), t.id).toBe('routine')
+      }
+    }
+    expect(scartate).toBeGreaterThan(0)
+  }, 120_000)
 
   it('transazione semplice: il decodificatore scrive la riga', async () => {
     const { txView } = await import('../views/tx')
@@ -30,7 +55,7 @@ describe.skipIf(!LIVE)('pagine dal vivo (mainnet)', () => {
     writeFileSync('.live-out/tx-simple.html', html)
     expect(html).toContain('Trasferimento:')
     expect(html).toContain('5.000 ERG')
-    expect(html).toContain('lettura certa')
+    expect(html).toContain('Lettura certa')
   })
 
   it('transazione del bridge: decodificata da Rosen, token troncati', async () => {
@@ -62,7 +87,7 @@ describe.skipIf(!LIVE)('pagine dal vivo (mainnet)', () => {
     const html = await txView('3dec9ae3d71ae9fec22bfe6cfc85c7872d32788242cfbe5014fe390d21aa650c')
     writeFileSync('.live-out/tx-sigmausd.html', html)
     expect(html).toContain('SigmaUSD:')
-    expect(html).toContain('lettura certa')
+    expect(html).toContain('Lettura certa')
   })
 
   it('decodifica dal vivo: uno swap Spectrum recente', async () => {
@@ -131,16 +156,19 @@ describe.skipIf(!LIVE)('pagine dal vivo (mainnet)', () => {
     expect(html).toMatch(/Valore mosso<\/span>[^]{0,200}?93[0-9],[0-9]+ ERG/)
   })
 
-  /* Il flusso deve dire la stessa cifra della frase. Prima no (27/09): sulla tx
+  /* Il racconto deve dire la stessa cifra della frase. Prima no (27/09): sulla tx
      del post di lancio la frase diceva «arrivo di 9.950,99 ERG» e il ricevente,
-     nel riquadro sotto, risultava +10.001,3 — lo stesso numero dei due lati. */
-  it('arrivo Rosen: il ricevente nel flusso ha la cifra della frase', async () => {
+     nel riquadro sotto, risultava +10.001,3 — lo stesso numero dei due lati.
+     Col rinnovo il flusso è diventato il libro mastro: la regola resta. */
+  it('arrivo Rosen: nel racconto il ricevente ha la cifra della frase', async () => {
     const { txView } = await import('../views/tx')
     const html = await txView('e06697e0e08c2dc69db3b0fb75e89f3bc665e1c79316657a33c4e7c521bfdca3')
     writeFileSync('.live-out/tx-flusso.html', html)
-    expect(html).toContain('arrivo di 9.950,99 ERG')
-    expect(html).toContain('amt in">+9.950,99 ERG')
-    expect(html).not.toContain('amt in">+10.001')
-    expect(html).toContain('ad altri 4 indirizzi')
+    expect(html).toContain('arrivo di <strong class="amt-b">9.950,99 ERG</strong>')
+    expect(html).toContain('lv in">+9.950,99 ERG')
+    expect(html).not.toContain('lv in">+10.001')
+    expect(html).toMatch(/altri \d+ indirizzi/)          // chi altro ha ricevuto si dice, aggregato
+    expect(html).toContain('Il resto')                    // e il resto che torna al ponte si dichiara
+    expect(html).toContain('riconoscitore <code class="mono">rosen-bridge</code>')
   })
 })

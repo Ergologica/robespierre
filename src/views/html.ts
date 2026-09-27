@@ -14,6 +14,14 @@ export function labelOf(address: string): string | null {
   return l.name ?? null
 }
 
+/** L'etichetta per intero: nome, categoria e FONTE (ogni etichetta ne cita una). */
+export function labelInfo(address: string): { name: string; category: string | null; source: string | null } | null {
+  const l = labels[address]
+  if (!l || typeof l === 'string' || !l.name) return null
+  const x = l as { name: string; category?: string; source?: string }
+  return { name: x.name, category: x.category ?? null, source: x.source ?? null }
+}
+
 import { shortId } from '../lib/format'
 /** Un indirizzo si mostra sempre così: etichetta se nota, altrimenti troncato; link alla sua pagina. */
 export function addrLink(address: string): string {

@@ -25,9 +25,18 @@ const RECOGNIZERS: Recognizer[] = [
 ]
 
 export function decode(tx: Tx): Decoded | null {
+  return decodeWith(tx)?.decoded ?? null
+}
+
+/** Come decode, ma dice anche CHI ha letto la transazione: la pagina lo dichiara
+ *  («riconoscitore rosen-bridge») invece di chiedere fiducia. */
+export function decodeWith(tx: Tx): { decoded: Decoded; recognizer: string } | null {
   for (const r of RECOGNIZERS) {
     const d = r.recognize(tx)
-    if (d) return d
+    if (d) return { decoded: d, recognizer: r.id }
   }
   return null
 }
+
+/** Gli id dei riconoscitori, nell'ordine in cui il motore li prova. */
+export const RECOGNIZER_IDS: readonly string[] = RECOGNIZERS.map(r => r.id)

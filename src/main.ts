@@ -1,19 +1,24 @@
 import './style.css'
 import { icons } from './icons'
 import { errorBox } from './views/errorbox'
-import { netView, mountNetCharts } from './views/net'
-import { networkStats } from './api/explorer'
-import { txView, mountTxSchema } from './views/tx'
+import { homeData, infraShare, stateCard, blocksList } from './views/net'
+import { networkStats, mempoolCount } from './api/explorer'
+import { txView, mountTxSchema, selectTxTab, TX_TABS } from './views/tx'
+import type { TxTab } from './views/tx'
+import { startFeed, advanceFeed, feedClick } from './views/feed'
+import { mempoolView } from './views/mempool'
+import { initPalette } from './views/palette'
+import { shortAgo } from './lib/feed'
 import { addressView, mountWalletChart, mountRentCheck } from './views/address'
 import { mountStakes } from './stake/card'
 import { tokenView, computeHolders, mountHoldersIfCached, mountPrecomputedHolders } from './views/token'
-import { marketsView } from './views/markets'
+import { marketsView, mountMarkets } from './views/markets'
 import { tokensDirView } from './views/tokens-dir'
 import { exportAddressCsv } from './views/address'
 import { protocolsView, mountProtocolCharts } from './views/protocols'
 import { blockView } from './views/block'
 import { api } from './api/explorer'
-import { classifyQuery, shortId } from './lib/format'
+import { relativeTime, groupThousands } from './lib/format'
 import { esc } from './views/html'
 import { L, initLang, setLang, getLang } from './i18n'
 import { newNav, isCurrent, currentNav } from './lib/nav'
@@ -37,6 +42,7 @@ function applyLang(): void {
   })
   const input = document.getElementById('searchInput') as HTMLInputElement | null
   if (input) input.placeholder = L.search_ph
+  document.getElementById('searchBtn')?.setAttribute('aria-label', L.search_open)
   const btn = document.getElementById('langBtn')
   if (btn) btn.textContent = getLang() === 'it' ? 'EN' : 'IT'
 }
@@ -57,8 +63,17 @@ function applyMode() {
   document.querySelectorAll<HTMLDetailsElement>('details.adv-open').forEach(d => { d.open = advanced })
   try { localStorage.setItem('robespierre.mode', advanced ? 'advanced' : 'base') } catch {}
 }
-document.getElementById('modeBase')!.addEventListener('click', () => { advanced = false; applyMode() })
-document.getElementById('modeAdv')!.addEventListener('click', () => { advanced = true; applyMode() })
+/** Base apre la transazione sul Racconto, Avanzato sui Box: è quello che prima faceva
+ *  il riquadro «Dettaglio dei box», aperto o chiuso secondo la modalità. Un tab scelto
+ *  a mano (nell'URL) vince sulla modalità. */
+const defaultTab = (): TxTab => (advanced ? 'box' : 'story')
+function modeClick(adv: boolean): void {
+  advanced = adv; applyMode()
+  const [head, id, tab] = location.hash.replace(/^#\/?/, '').split('/')
+  if (head === 'tx' && id && !tab) selectTxTab(defaultTab(), currentTx)
+}
+document.getElementById('modeBase')!.addEventListener('click', () => modeClick(false))
+document.getElementById('modeAdv')!.addEventListener('click', () => modeClick(true))
 
 /* ----- tema ----- */
 let theme = 'dark'
@@ -71,6 +86,8 @@ document.getElementById('themeBtn')!.addEventListener('click', () => {
 })
 
 /* ----- router hash: URL condivisibili senza configurazione server ----- */
+let currentTx: import('./api/types').Tx | null = null
+let homeGen = -1
 async function route() {
   const gen = newNav()                       // questa navigazione ha un numero…
   const show = (html: string) => {           // …e nessuno scrive se non è più la sua
@@ -79,18 +96,21 @@ async function route() {
   }
   const hash = location.hash.replace(/^#\/?/, '')
   const [head, a, b] = hash.split('/')
+  currentTx = null
   show(`<div class="loading">${L.loading}</div>`)
   try {
     if (!head) {
       document.title = 'Robespierre — ' + L.tagline
-      if (!show(await netView())) return
-      const st = await networkStats()
-      if (st && isCurrent(gen)) mountNetCharts(BigInt(Math.round(st.supply)))
+      const d = await homeData()
+      if (!show(d.html)) return
+      homeGen = gen
+      void startFeed(gen, d.headers, infraShare(d.cov))
     }
     else if (head === 'tx' && a) {
-      if (!show(await txView(a))) return
-      const tx = await api.tx(a)             // già in cache: nessuna seconda chiamata
-      if (isCurrent(gen)) mountTxSchema(tx)
+      const tab: TxTab = (TX_TABS as readonly string[]).includes(b ?? '') ? b as TxTab : defaultTab()
+      if (!show(await txView(a, tab))) return
+      currentTx = await api.tx(a)            // già in cache: nessuna seconda chiamata
+      if (isCurrent(gen) && tab === 'schema') mountTxSchema(currentTx)
     }
     else if (head === 'address' && a) {
       if (!show(await addressView(a, b ? parseInt(b, 10) || 0 : 0))) return
@@ -102,7 +122,13 @@ async function route() {
       if (!show(await tokenView(a))) return
       if (!mountHoldersIfCached(a)) void mountPrecomputedHolders(a, gen)
     }
-    else if (head === 'mercati') { if (!show(await marketsView())) return }
+    else if (head === 'mercati') {
+      let q = ''
+      try { q = a ? decodeURIComponent(a) : '' } catch { q = a ?? '' }
+      if (!show(await marketsView(q))) return
+      mountMarkets()
+    }
+    else if (head === 'mempool') { if (!show(await mempoolView())) return }
     else if (head === 'tokens') { if (!show(await tokensDirView(a ? parseInt(a, 10) || 0 : 0))) return }
     else if (head === 'block' && a) { if (!show(await blockView(a))) return }
     else if (head === 'protocolli') { if (!show(await protocolsView())) return; mountProtocolCharts() }
@@ -112,8 +138,38 @@ async function route() {
     if (!isCurrent(gen)) return              // errore di una pagina abbandonata: non disturba
     app.innerHTML = errorBox(e, head ?? '', hash)
   }
-  if (isCurrent(gen)) { applyMode(); markCurrentNav(head ?? "") }
+  if (isCurrent(gen)) { applyMode(); markCurrentNav(head ?? '') }
 }
+
+/* ----- la home si aggiorna a ogni blocco: una richiesta ogni 30 s, solo se la
+   pagina è quella e la scheda è visibile. Nessun aggiornamento a vuoto. ----- */
+setInterval(async () => {
+  if (!isCurrent(homeGen) || document.visibilityState !== 'visible') return
+  const gen = homeGen
+  try {
+    const [blocks, stats, memp] = await Promise.all([api.blocks(16), networkStats(), mempoolCount()])
+    if (!isCurrent(gen)) return
+    const h = blocks.items[0]?.height
+    const liveH = document.querySelector('[data-live-h]')
+    if (h && liveH && liveH.textContent !== groupThousands(String(h))) {
+      liveH.textContent = groupThousands(String(h))
+      const card = document.querySelector('[data-state]')
+      if (card) card.outerHTML = stateCard(h, blocks.items, stats, memp)
+      const list = document.querySelector('[data-blocks]')
+      if (list) list.innerHTML = blocksList(blocks.items)
+      const ago = document.querySelector('.live [data-ago]') as HTMLElement | null
+      if (ago && blocks.items[0]) ago.dataset.ago = String(blocks.items[0].timestamp)
+      await advanceFeed(gen, blocks.items)
+    }
+  } catch { /* al prossimo giro: un aggiornamento mancato non è un errore da mostrare */ }
+}, 30_000)
+
+/* ----- tempi relativi che restano veri: «38 s fa» non resta 38 s per sempre ----- */
+function tick(): void {
+  document.querySelectorAll<HTMLElement>('[data-ago]').forEach(e => { e.textContent = relativeTime(Number(e.dataset.ago)) })
+  document.querySelectorAll<HTMLElement>('[data-ago-short]').forEach(e => { e.textContent = shortAgo(Number(e.dataset.agoShort)) })
+}
+setInterval(tick, 15_000)
 
 /** La voce di navigazione della sezione aperta si distingue: prima nulla diceva
  *  in che parte del sito ci si trovasse. */
@@ -125,62 +181,10 @@ function markCurrentNav(head: string): void {
     else a.removeAttribute('aria-current')
   })
 }
-window.addEventListener('hashchange', () => { searchHint(null); void route() })
+window.addEventListener('hashchange', () => { void route() })
 
-/* ----- ricerca: riconoscimento del tipo; per il resto, ricerca token per nome ----- */
-function searchHint(msg: string | null, html = false): void {
-  let h = document.getElementById('searchHint')
-  if (!h) {
-    h = document.createElement('div')
-    h.id = 'searchHint'
-    h.className = 'search-hint'
-    document.querySelector('.searchrow')!.appendChild(h)
-  }
-  if (html && msg) h.innerHTML = msg
-  else h.textContent = msg ?? ''
-  h.classList.toggle('hidden', !msg)
-}
-
-/** A2: chi scrive "COMET" non sta sbagliando — sta cercando un token per nome. */
-async function searchByName(q: string): Promise<void> {
-  try {
-    const res = await api.tokenSearch(q)
-    const items = (res.items ?? []).slice(0, 8)
-    if (!items.length) { searchHint(L.search_name_hint + L.search_bad); return }
-    const list = items.map(t =>
-      `<a class="sr" href="#/token/${esc(t.id)}"><strong>${esc(t.name?.trim() || L.unnamed)}</strong>
-       <span class="mono dim">${esc(shortId(t.id, 8))}</span></a>`).join('')
-    searchHint(`<div class="sr-head">${esc(L.search_results)}</div>${list}`, true)
-  } catch {
-    searchHint(L.search_bad)
-  }
-}
-
-const form = document.getElementById('searchForm') as HTMLFormElement
-const input = document.getElementById('searchInput') as HTMLInputElement
-form.addEventListener('submit', async ev => {
-  ev.preventDefault()
-  const q = input.value.trim()
-  if (!q) return
-  const kind = classifyQuery(q)
-  if (kind === 'address') location.hash = '#/address/' + q
-  else if (kind === 'tx-or-token') {
-    // prova come transazione; se non esiste, come token
-    try { await api.tx(q); location.hash = '#/tx/' + q }
-    catch { location.hash = '#/token/' + q }
-  } else if (kind === 'height') {
-    location.hash = '#/block/' + q
-  } else {
-    await searchByName(q)
-    return
-  }
-  searchHint(null)
-  input.value = ''
-})
-document.addEventListener('keydown', e => {
-  if (e.key === '/' && document.activeElement !== input) { e.preventDefault(); input.focus() }
-  if (e.key === 'Escape') searchHint(null)
-})
+/* ----- ricerca: la palette (views/palette.ts) ----- */
+initPalette()
 
 /* ----- deleghe globali: copia, holders, filtri, immagini, retry ----- */
 document.addEventListener('click', e => {
@@ -234,6 +238,27 @@ document.addEventListener('click', e => {
   if (sc) { e.preventDefault(); document.querySelector(sc.getAttribute('href') ?? '')?.scrollIntoView({ behavior: 'smooth' }) }
   const nav = t.closest('[data-nav]') as HTMLElement | null
   if (nav && !nav.hasAttribute('disabled')) location.hash = nav.dataset.nav ?? '#/'
+  const tab = t.closest('[data-tab]') as HTMLElement | null
+  if (tab) chooseTab(tab.dataset.tab as TxTab)
+  if (t.closest('[data-cat],[data-routine],[data-feed-more]')) void feedClick(t, homeGen)
+})
+
+/** Un tab scelto a mano finisce nell'URL (senza ricaricare): il link condiviso apre
+ *  lo stesso livello. Il Racconto è l'indirizzo canonico, senza suffisso. */
+function chooseTab(tab: TxTab): void {
+  selectTxTab(tab, currentTx)
+  const [, id] = location.hash.replace(/^#\/?/, '').split('/')
+  if (id) history.replaceState(null, '', `#/tx/${id}${tab === defaultTab() ? '' : '/' + tab}`)
+}
+/* tastiera nei tab: frecce destra/sinistra, come si aspetta chi usa uno screen reader */
+document.addEventListener('keydown', e => {
+  const t = e.target as HTMLElement
+  if (!t.matches?.('[role="tab"]') || (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft')) return
+  const i = TX_TABS.indexOf(t.dataset.tab as TxTab)
+  const next = TX_TABS[(i + (e.key === 'ArrowRight' ? 1 : TX_TABS.length - 1)) % TX_TABS.length]!
+  chooseTab(next)
+  ;(document.querySelector(`[data-tab="${next}"]`) as HTMLElement | null)?.focus()
+  e.preventDefault()
 })
 
 route()

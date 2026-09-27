@@ -171,6 +171,25 @@ export const RAW_DATA = 'https://raw.githubusercontent.com/Ergologica/robespierr
 export interface SpectrumMarket {
   baseId: string; quoteId: string; baseSymbol?: string; quoteSymbol?: string
   lastPrice: number; baseVolume?: { value?: number }
+  quoteVolume?: { value?: number; units?: { asset?: { decimals?: number } } }
+}
+
+/**
+ * Volume di un mercato nella finestra delle 24 ore, in nanoERG, contando ENTRAMBI i versi.
+ *
+ * Trovato il 27/09/2026 guardando la risposta vera: nella finestra l'API di Spectrum
+ * riporta il volume per VERSO. Chi compra token con ERG fa crescere `baseVolume`
+ * (ERG entrati), chi vende token per ERG fa crescere solo `quoteVolume` (token entrati).
+ * Quel giorno CYPX aveva baseVolume 0 e quoteVolume 15.500 CYPX: contare solo il lato
+ * ERG lo dava «non scambiato» mentre qualcuno lo aveva venduto. Il lato token si porta
+ * in ERG col prezzo del mercato stesso (lastPrice = token per 1 ERG).
+ */
+export function windowVolNano(m: SpectrumMarket): number {
+  const base = m.baseVolume?.value ?? 0
+  const q = m.quoteVolume?.value ?? 0
+  if (!(q > 0) || !(m.lastPrice > 0)) return base
+  const dec = m.quoteVolume?.units?.asset?.decimals ?? 0
+  return base + (q / 10 ** dec / m.lastPrice) * 1e9
 }
 
 /** Tutti i mercati (volume storico, per scegliere il pool) + volumi 24h reali (finestra). */
@@ -190,7 +209,7 @@ export async function spectrumMarketsFull(): Promise<{ all: SpectrumMarket[]; wi
       const best = new Map<string, { vol: number; price: number; sum: number }>()
       for (const m of await winR.json() as SpectrumMarket[]) {
         if (!/^0+$/.test(m.baseId) || !(m.lastPrice > 0)) continue
-        const vol = m.baseVolume?.value ?? 0
+        const vol = windowVolNano(m)                 // entrambi i versi, non solo gli ERG entrati
         const cur = best.get(m.quoteId)
         if (!cur) best.set(m.quoteId, { vol, price: m.lastPrice, sum: vol })
         else { cur.sum += vol; if (vol > cur.vol) { cur.vol = vol; cur.price = m.lastPrice } }
