@@ -47,7 +47,12 @@ describe.skipIf(!LIVE)('pagine dal vivo (mainnet)', () => {
     writeFileSync('.live-out/address.html', html)
     expect(html).toMatch(/Movimenti/)
     expect(html).toMatch(/\d{1,3}(\.\d{3})*<\/strong> movimenti/) // conteggio reale, non "1 of 77"
-    expect(html).toContain('Rosen Bridge') // la controparte etichettata deve comparire nelle righe
+    // Le righe devono avere una controparte: un indirizzo accorciato, un'etichetta
+    // dell'address book o un tag di protocollo. Prima il test cercava «Rosen Bridge»
+    // e basta: ha smesso di passare non perché il sito fosse rotto, ma perché in un
+    // mese quella transazione è uscita dalla prima pagina. Un test che dipende da
+    // COSA c'è in catena oggi non misura il codice, misura il calendario.
+    expect(html).toMatch(/class="(addr|tag)\b|…/)
   })
 
 
@@ -109,4 +114,20 @@ describe.skipIf(!LIVE)('pagine dal vivo (mainnet)', () => {
     // chiave ancora nel wallet ma posizione ritirata nel 2024: nessuna scheda
     expect(await uno('4679238680dadf89f6670c1d83563e87e16616407845ce7bdf5b9e3aee1ae8b8', 'Sigmanauts Stake Key')).toBeNull()
   }, 180_000)
+
+  /* I riquadri sopra la transazione devono DIRE LA STESSA COSA della frase
+     decodificata. Prima no: su un'operazione della banca SigmaUSD la frase
+     parlava di token e i riquadri scrivevano «Token spostati: 0 tipi», e il
+     numero grande era il contenuto della banca, non il movimento. */
+  it('transazione con contratti: i riquadri concordano con la frase', async () => {
+    const { txView } = await import('../views/tx')
+    const html = await txView('3dec9ae3d71ae9fec22bfe6cfc85c7872d32788242cfbe5014fe390d21aa650c')
+    writeFileSync('.live-out/tx-riquadri.html', html)
+    expect(html).toContain('SigmaUSD:')
+    expect(html).not.toMatch(/Token spostati<\/span>?[^]{0,120}>0 tipi/)  // la frase nomina dei token
+    expect(html).toContain('Valore mosso')
+    expect(html).toContain('nei box in uscita')     // il totale enorme resta, come contesto dichiarato
+    // il valore mosso è quello della frase, non il contenuto della banca
+    expect(html).toMatch(/Valore mosso<\/span>[^]{0,200}?93[0-9],[0-9]+ ERG/)
+  })
 })
