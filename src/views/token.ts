@@ -1,11 +1,15 @@
-import { api } from '../api/explorer'
+import { api, ergPrice, tokenSearchAnyCase } from '../api/explorer'
+import type { PrecomputedHolders } from '../api/explorer'
+import { tokenPrices, THIN_POOL_ERG } from '../lib/prices'
+import type { TokenPrice } from '../lib/prices'
+import { fmtPrice } from './markets'
 import { esc, labelOf } from './html'
 import { formatTokenAmount, formatPct, groupThousands, shortId } from '../lib/format'
 import { hbars } from '../charts'
 import { icons } from '../icons'
 import { L } from '../i18n'
 import type { HBar } from '../charts'
-import type { RegValue } from '../api/types'
+import type { RegValue, BoxLike } from '../api/types'
 import { isCurrent } from '../lib/nav'
 
 /** Soglie della pagella: dichiarate qui, discutibili via PR come tutto il resto. */
@@ -54,80 +58,119 @@ export function eip4ImageUrl(regs: Record<string, RegValue> | undefined): string
   return url.startsWith('https://') ? url : null
 }
 
+/** Il file notturno dei detentori si legge una volta per visita: serve alla testata
+ *  (quanti detentori) e al grafico (chi), e sono due momenti diversi della pagina. */
+const preMemo = new Map<string, Promise<PrecomputedHolders | null>>()
+function preFor(tokenId: string): Promise<PrecomputedHolders | null> {
+  let p = preMemo.get(tokenId)
+  if (!p) { p = precomputedHolders(tokenId).catch(() => null); preMemo.set(tokenId, p) }
+  return p
+}
+
 export async function tokenView(id: string): Promise<string> {
-  const t = await api.token(id)
+  preMemo.delete(id)                                  // ogni visita rilegge il file notturno
+  const [t, prices, quote, pre] = await Promise.all([
+    api.token(id), tokenPrices().catch(() => new Map<string, TokenPrice>()), ergPrice(), preFor(id),
+  ])
   const name = t.name?.trim() || null
   document.title = `${name ?? shortId(id)} (token) · Robespierre`
 
-  // omonimi: ricerca per nome sull'API — l'unico controllo anti-imitazione possibile senza indice
+  // omonimi: ricerca per nome in TUTTE le maiuscole (l'API le distingue: vedi
+  // tokenSearchAnyCase) — l'unico controllo anti-imitazione possibile senza indice
   let homonyms: number | null = null
   let homonymsCapped = false
   if (name) {
     try {
-      const s = await api.tokenSearch(name)          // fino a 100 risultati
-      homonyms = countHomonyms(s.items ?? [], name, id)
-      homonymsCapped = (s.total ?? 0) > (s.items?.length ?? 0)  // oltre 100: conteggio per difetto
+      const s = await tokenSearchAnyCase(name)
+      homonyms = countHomonyms(s.items, name, id)
+      homonymsCapped = s.truncated
     } catch { /* il controllo resta "non verificabile" */ }
   }
 
-  // immagine EIP-4: i metadati (registri del box di conio) si leggono subito,
-  // il contenuto di terzi si carica SOLO su richiesta esplicita
+  // box di conio: l'altezza (quando è nato) e l'immagine EIP-4. I metadati si leggono
+  // subito, il contenuto di terzi si carica SOLO su richiesta esplicita
   let imgUrl: string | null = null
+  let mintedAt: number | null = null
   if (t.boxId) {
-    try { imgUrl = eip4ImageUrl((await api.box(t.boxId)).additionalRegisters as Record<string, RegValue> | undefined) }
-    catch { /* nessun box leggibile: semplicemente niente immagine */ }
+    try {
+      const box = await api.box(t.boxId) as BoxLike & { creationHeight?: number; settlementHeight?: number }
+      imgUrl = eip4ImageUrl(box.additionalRegisters as Record<string, RegValue> | undefined)
+      mintedAt = box.settlementHeight ?? box.creationHeight ?? null
+    } catch { /* nessun box leggibile: niente immagine, niente altezza */ }
   }
 
+  const homonymCheck = homonyms == null
+    ? { sig: 'info', text: L.homonyms_na }
+    : homonyms === 0
+      ? { sig: 'ok', text: L.homonyms_zero }
+      : { sig: 'warn', text: homonymsCapped ? L.homonyms_min(homonyms) : L.homonyms_n(homonyms) }
   const checks = [
-    homonyms == null
-      ? { sig: 'info', text: L.homonyms_na }
-      : homonyms === 0
-        ? { sig: 'ok', text: L.homonyms_zero }
-        : { sig: 'warn', text: homonymsCapped ? L.homonyms_min(homonyms) : L.homonyms_n(homonyms) },
+    homonymCheck,
     { sig: 'info', text: L.emission_line(t.emissionAmount != null ? formatTokenAmount(BigInt(t.emissionAmount), t.decimals ?? 0) : '—', t.decimals ?? 0) },
     t.description
       ? { sig: 'info', text: L.desc_unverified }
       : { sig: 'info', text: L.desc_none },
   ]
 
-  return `
-  <div class="card">
-    <div class="idrow" style="padding-top:18px">
-      <h1 class="t-title">${name ? esc(name) : `<span class="dim">${L.unnamed}</span>`}</h1>
-      <span class="mono dim id-beside">${esc(shortId(id, 10, 6))}</span>
-      <button class="copy" data-copy="${esc(id)}">${L.copy_id}</button>
-      ${t.type ? `<span class="tag">${esc(t.type)}</span>` : ''}
-      <span class="grow"></span>
-      <a class="btn-link" href="https://explorer.ergoplatform.com/en/token/${esc(id)}" target="_blank" rel="noopener">${icons.ext}${L.official_explorer}</a>
+  // il prezzo è quello di tutto il sito (lib/prices.ts), con le sue avvertenze
+  const p = prices.get(id)
+  const usd = p && quote ? p.ergPerToken * quote.usd : null
+  const priceBlock = p
+    ? `<div class="pbig"><div class="pbig-top">
+        <span class="pbig-n${p.thin ? ' dim' : ''}">${fmtPrice(p.ergPerToken)} ERG</span>
+        <span class="pbig-s">${L.tok_price}${usd != null ? `<br>≈ ${fmtPrice(usd)} $` : ''}</span></div>
+        ${p.thin ? `<div class="s"><span class="tag">${L.thin_pool}</span> <span class="dim">${esc(L.thin_tip(groupThousands(String(Math.round(p.volCumErg))), THIN_POOL_ERG))}</span></div>` : ''}</div>`
+    : `<p class="ph1-sub dim">${L.tok_no_price}</p>`
+  const preTop = pre?.top?.reduce((s2, h) => s2 + h.pct, 0) ?? null
+
+  return `<div class="page">
+  <nav class="crumb" aria-label="breadcrumb">
+    <a href="#/tokens">${L.nav_tokens}</a><span aria-hidden="true">/</span>
+    <span class="mono" title="${esc(id)}">${esc(shortId(id, 10, 6))}</span>
+    <button class="copy" type="button" data-copy="${esc(id)}">${L.copy_id}</button>
+    ${t.type ? `<span class="tag">${esc(t.type)}</span>` : ''}
+    <span class="grow"></span>
+    <a class="ext" href="https://explorer.ergoplatform.com/en/token/${esc(id)}" target="_blank" rel="noopener">${icons.ext}${L.official_explorer}</a>
+  </nav>
+  <section class="phero">
+    <div class="phero-l">
+      <div class="live"><span class="state-big ${homonymCheck.sig}">${homonymCheck.sig === 'ok' ? '✓' : homonymCheck.sig === 'warn' ? '⚠' : '·'} ${esc(homonymCheck.text)}</span></div>
+      <h1 class="ph1${name ? '' : ' dim'}">${name ? esc(name) : L.unnamed}</h1>
+      ${t.description ? `<p class="lede tok-desc">«${esc(t.description.length > 400 ? t.description.slice(0, 400) + '…' : t.description)}»</p>
+        <p class="t-cap dim" style="margin:0">${L.token_desc}</p>` : `<p class="lede dim">${L.desc_none}</p>`}
     </div>
-    <div class="tiles">
-      <div><div class="k">${L.emission}</div>
-        <div class="v">${t.emissionAmount != null ? formatTokenAmount(BigInt(t.emissionAmount), t.decimals ?? 0) : '—'}</div>
-        <div class="s">${t.decimals ?? 0} ${L.decimals}</div></div>
-      <div style="grid-column:span 3"><div class="k">${L.token_desc}</div>
-        <div class="t-body" style="margin-top:var(--sp-2)">${t.description ? esc(t.description) : `<span class="dim">${L.none_f}</span>`}</div></div>
+    <div class="phero-r">
+      ${priceBlock}
+      <div class="ptiles">
+        <div><span class="k">${L.emission}</span><span class="v2">${t.emissionAmount != null ? formatTokenAmount(BigInt(t.emissionAmount), t.decimals ?? 0) : '—'}</span>
+          <span class="s">${t.decimals ?? 0} ${L.decimals}</span></div>
+        <div><span class="k">${L.tok_minted}</span><span class="v2">${mintedAt ? `<a href="#/block/${mintedAt}">${groupThousands(String(mintedAt))}</a>` : '—'}</span>
+          <span class="s">${L.tok_minted_s}</span></div>
+        <div><span class="k">${L.tok_pool}</span><span class="v2">${p ? groupThousands(String(Math.round(p.volCumErg))) + ' ERG' : '—'}</span>
+          <span class="s">${p ? (p.vol24Erg > 0 ? esc(L.tok_pool_24(groupThousands(String(Math.round(p.vol24Erg))))) : L.tok_pool_s) : L.pal_no_pool}</span></div>
+        <div><span class="k">${L.holders_k}</span><span class="v2">${pre ? groupThousands(String(pre.holders)) : '—'}</span>
+          <span class="s">${pre && preTop != null ? esc(L.tok_top10(formatPct(preTop, 1), pre.at.slice(0, 10).split('-').reverse().join('/'))) : L.tok_holders_later}</span></div>
+      </div>
     </div>
-  </div>
+  </section>
   ${imgUrl ? `
-  <div class="card">
-    <div class="card-head"><h2>${L.img_h}</h2><p>${L.img_note}</p></div>
-    <div class="card-pad" data-img-slot>
-      <button class="copy" data-img="${esc(imgUrl)}">${L.img_show}</button>
-      <span class="dim mono t-cap" style="margin-left:var(--sp-2)">${esc(shortId(imgUrl, 34, 12))}</span>
+  <section class="sec">
+    <div class="sec-head"><div><h2 class="h2">${L.img_h}</h2><p class="sec-p">${L.img_note}</p></div></div>
+    <div class="img-slot" data-img-slot>
+      <button class="btn" data-img="${esc(imgUrl)}" type="button">${L.img_show}</button>
+      <span class="dim mono t-cap">${esc(shortId(imgUrl, 34, 12))}</span>
     </div>
-  </div>` : ''}
-  <div class="card">
-    <div class="card-head"><h2>${L.card_h}</h2>
-      <p>${L.card_p}</p></div>
-    <div class="card-pad" style="padding-top:4px">
-      ${checks.map(c => `<div class="check check-${c.sig}"><span class="sig ${c.sig}">${c.sig === 'ok' ? '✓' : c.sig === 'warn' ? '⚠' : 'i'}</span><span>${esc(c.text)}</span></div>`).join('')}
-      <div class="check check-info"><span class="sig info">i</span>
-        <span>${L.holders_line} <button class="btn btn-sm" data-holders="${esc(id)}">${L.compute_now}</button>
-        <span class="dim">— ${L.holders_note}</span></span></div>
-    </div>
+  </section>` : ''}
+  <section class="sec">
+    <div class="sec-head"><div><h2 class="h2">${L.card_h}</h2><p class="sec-p">${L.card_p}</p></div></div>
+    ${checks.map(c => `<div class="check check-${c.sig}"><span class="sig ${c.sig}">${c.sig === 'ok' ? '✓' : c.sig === 'warn' ? '⚠' : 'i'}</span><span>${esc(c.text)}</span></div>`).join('')}
+    <div class="check check-info"><span class="sig info">i</span>
+      <span>${L.holders_line} <button class="btn btn-sm" data-holders="${esc(id)}">${L.compute_now}</button>
+      <span class="dim">— ${L.holders_note}</span></span></div>
     <div class="chart-wrap hidden" data-holders-chart></div>
     <div class="note hidden" data-holders-note></div>
-  </div>`
+  </section>
+</div>`
 }
 
 /* ---------------- concentrazione dei detentori ---------------- */
@@ -271,7 +314,7 @@ import { precomputedHolders } from '../api/explorer'
 /** Se il job notturno ha già calcolato questo token, mostra subito il risultato
  *  con la sua data. Il bottone resta: "ricalcola dal vivo" è sempre possibile. */
 export async function mountPrecomputedHolders(tokenId: string, gen?: number): Promise<boolean> {
-  const pre = await precomputedHolders(tokenId)
+  const pre = await preFor(tokenId)
   if (!pre?.top?.length) return false
   // la pagina può essere cambiata durante la lettura: i dati di un token
   // non devono MAI comparire sotto la pagella di un altro

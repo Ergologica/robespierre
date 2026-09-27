@@ -1,4 +1,4 @@
-import { api, ApiError } from '../api/explorer'
+import { api, ApiError, tokenSearchAnyCase } from '../api/explorer'
 import { tokenPrices } from '../lib/prices'
 import type { TokenPrice } from '../lib/prices'
 import { classifyQuery, groupThousands, shortId } from '../lib/format'
@@ -74,21 +74,14 @@ async function byName(q: string, my: number): Promise<void> {
   const head = chip(L.pal_kind_name, L.pal_why_name)
   paint(head + `<div class="pal-wait">${L.pal_checking}</div>`, null, [])
   try {
-    // La ricerca dell'API è per PREFISSO e distingue le maiuscole (misurato il 27/09/2026:
-    // «comet» 0 risultati, «COMET» 35, «Comet» 692). Chi scrive in minuscolo non sta
-    // sbagliando: si chiedono le varianti e si uniscono.
-    const variants = [...new Set([q, q.toUpperCase(), q.toLowerCase(), q.charAt(0).toUpperCase() + q.slice(1).toLowerCase()])]
+    // per nome, in tutte le maiuscole: l'API le distingue (vedi tokenSearchAnyCase)
     const [found, prices] = await Promise.all([
-      Promise.allSettled(variants.map(v => api.tokenSearch(v))),
+      tokenSearchAnyCase(q),
       tokenPrices().catch(() => new Map<string, TokenPrice>()),
     ])
     if (my !== seq) return
-    const ok = found.filter((r): r is PromiseFulfilledResult<Awaited<ReturnType<typeof api.tokenSearch>>> => r.status === 'fulfilled')
-    if (!ok.length) throw new Error('ricerca: nessuna risposta')
-    const byId = new Map<string, NonNullable<(typeof ok)[number]['value']['items']>[number]>()
-    for (const r of ok) for (const t of r.value.items ?? []) byId.set(t.id, t)
-    const all = [...byId.values()]
-    const trunc = ok.some(r => (r.value.items?.length ?? 0) >= 100)
+    const all = found.items
+    const trunc = found.truncated
     const key = q.trim().toLowerCase()
     const exact = all.filter(t => (t.name ?? '').trim().toLowerCase() === key)
     const list = (exact.length ? exact : all)

@@ -5,8 +5,7 @@ import { decode } from '../decoder/index'
 import { esc } from './html'
 import { formatErg, formatTokenAmount, formatPct, groupThousands, relativeTime, shortId } from '../lib/format'
 import { L } from '../i18n'
-import { meter, sparkline } from '../charts'
-import { icons } from '../icons'
+import { sparkline } from '../charts'
 import type { Tx } from '../api/types'
 
 /**
@@ -83,8 +82,11 @@ export async function protocolsView(): Promise<string> {
     lastBankOp(), protocolsLog(),
   ])
   sparkPoints = (log ?? []).filter(p => p.ratioOracle != null || p.ratioMarket != null)
+  const usdOf = (nano: bigint) => price ? '≈ ' + groupThousands(String(Math.round(Number(nano / 1_000_000n) / 1000 * price.usd))) + ' $' : '&nbsp;'
 
-  let sigmaSection: string
+  // SigmaUSD: la testata è lo STATO del protocollo detto in una frase, dal tasso letto ora
+  let hero: string
+  let sigmaSecs = ''
   if (bank && usdTok?.emissionAmount != null && rsvTok?.emissionAmount != null) {
     const stats = computeAgeUsd({
       bankErg: BigInt(bank.value),
@@ -100,32 +102,50 @@ export async function protocolsView(): Promise<string> {
       : null
     const oracleErgUsd = oracleNano ? 1e9 / Number(oracleNano) : null
     const ratioShown = oracleRatio ?? stats.reserveRatioPct
-    const state = ratioShown == null ? null
-      : ratioShown < 400 ? { sig: 'warn', text: L.ratio_below }
-      : ratioShown > 800 ? { sig: 'info', text: L.ratio_above }
-      : { sig: 'ok', text: L.ratio_ok }
-    ;(globalThis as Record<string, unknown>).__protoRatio = ratioShown
-    sigmaSection = `
-    <div class="tiles">
-      <div><div class="k">${L.reserve}</div><div class="v">${formatErg(stats.reserveErg, 0)}</div>
-        <div class="s">${price ? '≈ ' + groupThousands(String(Math.round(Number(stats.reserveErg / 1_000_000n) / 1000 * price.usd))) + ' $' : ''}</div></div>
-      <div><div class="k">${L.circ_sig}</div><div class="v">${formatTokenAmount(stats.circUsdUnits, 2)}</div>
-        <div class="s">${L.circ_sig_s}</div></div>
-      <div><div class="k">${L.ratio_market}</div>
-        <div class="v">${stats.reserveRatioPct != null ? stats.reserveRatioPct.toFixed(0) + '%' : '—'}</div>
-        <div class="s">${L.ratio_market_s}</div></div>
+    const state: 'below' | 'ok' | 'above' | null = ratioShown == null ? null
+      : ratioShown < 400 ? 'below' : ratioShown > 800 ? 'above' : 'ok'
+    const stateText = state === 'below' ? L.ratio_below : state === 'above' ? L.ratio_above : state === 'ok' ? L.ratio_ok : ''
+    const sig = state === 'below' ? 'warn' : state === 'ok' ? 'ok' : 'info'
+    const r = ratioShown != null ? ratioShown.toFixed(0) + '%' : '—'
+    // la banda del protocollo disegnata: 400 e 800 come tacche, il tasso come barra
+    const dom = Math.max(1000, Math.ceil((ratioShown ?? 0) / 100) * 100 + 100)
+    const band = ratioShown != null ? `<div class="band" role="img" aria-label="${esc(L.ratio_meter)}: ${r}">
+        <i style="width:${Math.min(100, 100 * ratioShown / dom).toFixed(1)}%"></i>
+        <b style="left:${(100 * 400 / dom).toFixed(1)}%" title="${esc(L.ratio_min)}"></b><b style="left:${(100 * 800 / dom).toFixed(1)}%" title="${esc(L.ratio_max)}"></b></div>
+      <div class="band-lab"><span>0%</span><span>${L.ratio_band_lab}</span><span>${dom}%</span></div>` : ''
+    hero = `<section class="phero">
+    <div class="phero-l">
+      <div class="live"><span class="dot" aria-hidden="true"></span><span>${L.proto_live}${oracleErgUsd ? ` · ${L.oracle_rate} ${formatPct(oracleErgUsd, 3)} $` : ''}</span></div>
+      <h1 class="ph1">${esc(L.proto_h1(r, state))}</h1>
+      <p class="lede">${L.proto_sig_p}</p>
     </div>
-    <div class="chart-wrap" data-ratio></div>
-    ${oracleErgUsd ? `<div class="card-pad t-note dim" style="padding-top:0">${L.ratio_oracle_s} · ${L.oracle_rate} ${formatPct(oracleErgUsd, 3)} $</div>` : ''}
-    ${sparkPoints.length >= 2 ? `<div class="chart-wrap" data-spark></div>
-    <div class="note">${esc(L.spark_note(sparkPoints[0]!.at.slice(0, 10), sparkPoints.length))}</div>` : ''}
-    ${state ? `<div class="card-pad" style="padding-top:0"><div class="check"><span class="sig ${state.sig}">${state.sig === 'ok' ? '✓' : state.sig === 'warn' ? '⚠' : '·'}</span><span>${esc(state.text)}</span></div></div>` : ''}
-    ${lastOp ? `<div class="card-pad" style="padding-top:0"><div class="check"><span class="sig info">·</span>
-      <span>${L.last_op} <a href="#/tx/${esc(lastOp.tx.id)}">${esc(lastOp.headline)}</a>
-      <span class="dim">· ${relativeTime(lastOp.tx.timestamp)}</span></span></div></div>` : ''}
-    <div class="note">${esc(L.sig_note(formatTokenAmount(stats.circRsvUnits, 0)))}</div>`
+    <div class="phero-r">
+      <div class="pbig"><div class="pbig-top"><span class="pbig-n">${r}</span>
+        <span class="pbig-s">${oracleRatio != null ? L.ratio_oracle : L.ratio_market}<br>${oracleRatio != null ? L.ratio_oracle_s : L.ratio_market_s}</span></div>
+        ${band}</div>
+      <div class="ptiles">
+        <div><span class="k">${L.reserve}</span><span class="v2">${formatErg(stats.reserveErg, 0)}</span><span class="s">${usdOf(stats.reserveErg)}</span></div>
+        <div><span class="k">${L.circ_sig}</span><span class="v2">${formatTokenAmount(stats.circUsdUnits, 2)}</span><span class="s">${L.circ_sig_s}</span></div>
+        <div><span class="k">${L.ratio_market}</span><span class="v2">${stats.reserveRatioPct != null ? stats.reserveRatioPct.toFixed(0) + '%' : '—'}</span><span class="s">${L.ratio_market_s}</span></div>
+        <div><span class="k">${L.circ_rsv}</span><span class="v2">${formatTokenAmount(stats.circRsvUnits, 0)}</span><span class="s">${L.circ_sig_s}</span></div>
+      </div>
+    </div>
+  </section>`
+    sigmaSecs = `
+  ${state ? `<section class="sec">
+    <div class="sec-head"><div><h2 class="h2">${L.proto_ops_h}</h2><p class="sec-p">${L.proto_ops_p}</p></div></div>
+    <div class="check"><span class="sig ${sig}">${sig === 'ok' ? '✓' : sig === 'warn' ? '⚠' : '·'}</span><span>${esc(stateText)}</span></div>
+    ${lastOp ? `<div class="check"><span class="sig info">·</span><span>${L.last_op} <a href="#/tx/${esc(lastOp.tx.id)}">${esc(lastOp.headline)}</a>
+      <span class="dim">· <span data-ago="${lastOp.tx.timestamp}">${relativeTime(lastOp.tx.timestamp)}</span></span></span></div>` : ''}
+  </section>` : ''}
+  ${sparkPoints.length >= 2 ? `<section class="sec">
+    <div class="sec-head"><div><h2 class="h2">${L.spark_h}</h2><p class="sec-p">${esc(L.spark_note(sparkPoints[0]!.at.slice(0, 10), sparkPoints.length))}</p></div></div>
+    <div class="chart-wrap" data-spark></div>
+    <div class="note">${esc(L.sig_note(formatTokenAmount(stats.circRsvUnits, 0)))}</div>
+  </section>` : `<section class="sec"><div class="note">${esc(L.sig_note(formatTokenAmount(stats.circRsvUnits, 0)))}</div></section>`}`
   } else {
-    sigmaSection = `<div class="card-pad dim">${L.bank_down}</div>`
+    hero = `<section class="phero"><div class="phero-l">
+      <h1 class="ph1">${L.nav_protocols}</h1><p class="lede dim">${L.bank_down}</p></div></section>`
   }
 
   const rosenErg = BigInt(rosen.nanoErgs)
@@ -133,34 +153,27 @@ export async function protocolsView(): Promise<string> {
     .slice()
     .sort((a, b) => (BigInt(b.amount) > BigInt(a.amount) ? 1 : -1))
     .slice(0, 8)
-  const rosenList = rosenTokens.map(t =>
-    `<div class="arow"><span><a href="#/token/${esc(t.tokenId)}">${esc(t.name?.trim() || shortId(t.tokenId, 8))}</a></span>
-     <span>${formatTokenAmount(BigInt(t.amount), t.decimals ?? 0, 2)}</span></div>`).join('')
+  const rosenRows = rosenTokens.map(t =>
+    `<tr><td><a class="mk-sym" href="#/token/${esc(t.tokenId)}">${esc(t.name?.trim() || shortId(t.tokenId, 8))}</a></td>
+     <td class="num">${formatTokenAmount(BigInt(t.amount), t.decimals ?? 0, 2)}</td></tr>`).join('')
 
-  return `
-  <div class="card">
-    <div class="card-head"><h2>${icons.bank}SigmaUSD</h2>
-      <p>${L.proto_sig_p}</p></div>
-    ${sigmaSection}
-  </div>
-  <div class="card">
-    <div class="card-head"><h2>${icons.bridge}${L.rosen_h}</h2>
-      <p>${L.rosen_p}</p></div>
-    <div class="tiles">
-      <div><div class="k">${L.rosen_erg}</div><div class="v">${formatErg(rosenErg, 0)}</div>
-        <div class="s">${price ? '≈ ' + groupThousands(String(Math.round(Number(rosenErg / 1_000_000n) / 1000 * price.usd))) + ' $' : ''}</div></div>
-      <div><div class="k">${L.held_tokens}</div><div class="v">${rosen.tokens?.length ?? 0} ${L.kind_many}</div>
-        <div class="s">${L.in_transit}</div></div>
+  return `<div class="page">
+  ${hero}
+  ${sigmaSecs}
+  <section class="sec">
+    <div class="sec-head"><div><h2 class="h2">${L.rosen_h}</h2><p class="sec-p">${L.rosen_p}</p></div>
+      <div class="sec-r"><a class="ext" href="#/address/${esc(ROSEN.hotWallet)}">${L.open_page} ›</a></div></div>
+    <div class="ptiles ptiles-3 proto-rosen">
+      <div><span class="k">${L.rosen_erg}</span><span class="v2">${formatErg(rosenErg, 0)}</span><span class="s">${usdOf(rosenErg)}</span></div>
+      <div><span class="k">${L.held_tokens}</span><span class="v2">${rosen.tokens?.length ?? 0} ${L.kind_many}</span><span class="s">${L.in_transit}</span></div>
+      <div><span class="k">${L.address_k}</span><span class="v2 mono t-note">${esc(shortId(ROSEN.hotWallet, 12, 6))}</span>
+        <span class="s"><button class="copy" type="button" data-copy="${esc(ROSEN.hotWallet)}">${L.copy}</button></span></div>
     </div>
-    <div class="card-pad addr-row" style="padding-bottom:0">
-      <span class="k">${L.address_k}</span>
-      <span class="mono dim t-note">${esc(shortId(ROSEN.hotWallet, 16, 10))}</span>
-      <a class="btn-link" href="#/address/${esc(ROSEN.hotWallet)}">${L.open_page}</a>
-      <button class="copy" data-copy="${esc(ROSEN.hotWallet)}">${L.copy}</button>
-    </div>
-    ${rosenList ? `<div class="card-pad"><div class="k" style="margin-bottom:var(--sp-2)">${L.biggest}</div>${rosenList}</div>` : ''}
-  </div>
-  <div class="warnbox">${L.proto_warn}</div>`
+    ${rosenRows ? `<h3 class="t-sub proto-h3">${L.biggest}</h3>
+    <div class="flat"><table><thead><tr><th>${L.th_name}</th><th class="num">${L.th_qty}</th></tr></thead><tbody>${rosenRows}</tbody></table></div>` : ''}
+  </section>
+  <div class="pnote">${L.proto_warn}</div>
+</div>`
 }
 
 let sparkPoints: ProtocolPoint[] = []
@@ -169,18 +182,6 @@ export function mountProtocolCharts(): void {
   const sHost = document.querySelector('[data-spark]') as HTMLElement | null
   if (sHost && sparkPoints.length >= 2) {
     sparkline(sHost, sparkPoints.map(p => ({ t: Date.parse(p.at), v: (p.ratioOracle ?? p.ratioMarket)! })),
-      { label: L.spark_h, unit: '%', band: [400, 800] })
+      { label: L.spark_h, unit: '%', band: [400, 800], noLabel: true })
   }
-  const host = document.querySelector('[data-ratio]') as HTMLElement | null
-  const ratio = (globalThis as Record<string, unknown>).__protoRatio as number | null
-  if (!host || ratio == null) return
-  meter(host, {
-    label: L.ratio_meter,
-    big: ratio.toFixed(0) + '%',
-    pct: Math.min(1, ratio / 800),
-    left: L.ratio_min,
-    right: L.ratio_max,
-    tipTitle: L.ratio_tip,
-    tipLine: L.ratio_tip_s,
-  })
 }

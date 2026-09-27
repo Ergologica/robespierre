@@ -261,7 +261,7 @@ export function sparkDomain(values: number[], band?: [number, number]): { y0: nu
   return { y0, y1, bandVisible }
 }
 
-export function sparkline(host: HTMLElement, pts: SparkPoint[], o: { label: string; unit?: string; band?: [number, number] }): void {
+export function sparkline(host: HTMLElement, pts: SparkPoint[], o: { label: string; unit?: string; band?: [number, number]; noLabel?: boolean }): void {
   if (pts.length < 2) return
   const W = hostWidth(host, 460, 1000), H = 132, L0 = 46, R = 74, T = 30, B = 22
   const u = o.unit ?? ''
@@ -272,7 +272,8 @@ export function sparkline(host: HTMLElement, pts: SparkPoint[], o: { label: stri
   const X = (t: number) => L0 + (t - x0) / (x1 - x0 || 1) * (W - L0 - R)
   const Y = (v: number) => T + (1 - (v - y0) / (y1 - y0)) * (H - T - B)
 
-  s.appendChild(fit(el('text', { x: 0, y: 14, class: 'c-lab' }, o.label), W - 8))
+  // l'etichetta si disegna solo se la sezione non ha già un titolo che dice lo stesso
+  if (o.label && !o.noLabel) s.appendChild(fit(el('text', { x: 0, y: 14, class: 'c-lab' }, o.label), W - 8))
   // banda di riferimento: solo la parte che cade nella scala dei dati
   if (bandVisible) {
     s.appendChild(el('rect', { x: L0, y: Y(bandVisible[1]), width: W - L0 - R,

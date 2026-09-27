@@ -8,6 +8,7 @@ import { esc } from './html'
 import { shortId, groupThousands } from '../lib/format'
 import { isCurrent } from '../lib/nav'
 import { L } from '../i18n'
+import { pool } from '../lib/pool'
 
 /**
  * «Adesso sulla catena» — il flusso della home, dal vivo.
@@ -44,15 +45,6 @@ const st = {
   failed: false,
   expanded: false,
   infraShare: null as string | null,
-}
-
-async function pool<T, R>(items: T[], n: number, fn: (x: T) => Promise<R>): Promise<R[]> {
-  const out: R[] = new Array(items.length)
-  let next = 0
-  await Promise.all(Array.from({ length: Math.min(n, items.length) }, async () => {
-    while (next < items.length) { const i = next++; out[i] = await fn(items[i]!) }
-  }))
-  return out
 }
 
 function toItem(tx: Tx, height: number): Item {
@@ -94,7 +86,7 @@ async function loadBlocks(headers: BlockHeader[]): Promise<void> {
 
 /* ----------------------------- disegno ----------------------------- */
 
-function rowHtml(it: Item): string {
+function rowHtml(it: Item, lead?: string): string {
   const read = it.headline != null
   const text = read
     ? markAmounts(esc(it.headline), it.units)
@@ -103,13 +95,19 @@ function rowHtml(it: Item): string {
     : it.confidence === 'probabile' ? `<span class="rd rd-prob"><i></i>${L.reading_prob}</span>`
     : `<span class="rd rd-none"><i></i>${L.read_none}</span>`
   return `<a class="frow${read ? '' : ' frow-raw'}" href="#/tx/${esc(it.id)}">
-    <span class="ftime" data-ago-short="${it.ts}">${shortAgo(it.ts)}</span>
+    ${lead != null ? `<span class="ftime">${lead}</span>` : `<span class="ftime" data-ago-short="${it.ts}">${shortAgo(it.ts)}</span>`}
     <span class="fmain">
       <span class="fline"><span class="ftag">${L[tagKeyOf(it.kind)]}</span><span class="ftext">${text}</span></span>
       <span class="fmeta"><span class="mono">${esc(shortId(it.id))}</span><span aria-hidden="true">·</span>${rd}</span>
     </span>
     <span class="fchev" aria-hidden="true">›</span>
   </a>`
+}
+
+/** Una transazione come riga del flusso, fuori dalla home (pagina del blocco). */
+export function txRow(tx: Tx, height: number, lead?: string): { html: string; kind: string | null } {
+  const it = toItem(tx, height)
+  return { html: rowHtml(it, lead), kind: it.kind }
 }
 
 function visible(): Item[] {
@@ -139,7 +137,7 @@ export function renderFeed(): void {
 
   const shown = st.cat === 'all' ? all : all.filter(i => i.cat === st.cat)
   const cut = st.expanded ? shown.length : FIRST_ROWS
-  list.innerHTML = (shown.length ? shown.slice(0, cut).map(rowHtml).join('')
+  list.innerHTML = (shown.length ? shown.slice(0, cut).map(it => rowHtml(it)).join('')
     : `<div class="fempty">${st.cat === 'all' ? L.feed_empty : L.feed_empty_cat}</div>`)
     + (shown.length > cut ? `<button type="button" class="feed-more" data-feed-more>${L.feed_more(shown.length - cut)}</button>` : '')
 

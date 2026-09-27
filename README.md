@@ -13,7 +13,7 @@ npm install
 npm run dev       # sviluppo su http://localhost:5173
 npm test          # vitest: conversioni e decodificatore su fixture reali
 npm run build     # typecheck + build statica in dist/
-npm run check:ui  # dopo build: nessun testo fuori dai grafici, nessuno scroll di lato (9 pagine × 2 temi × 2 larghezze)
+npm run check:ui  # dopo build: nessun testo fuori dai grafici, nessuno scroll di lato (11 pagine × 2 temi × 2 larghezze)
                   # (una volta sola: npm i -D playwright && npx playwright install chromium)
 LIVE=1 npx vitest run src/live   # verifica contro la mainnet (serve rete)
 npm run coverage  # quante tx degli ultimi 1.000 blocchi il decodificatore spiega → data/coverage.json
@@ -74,7 +74,7 @@ src/
    `charts.ts`, misurato con `getComputedTextLength()` dopo l'inserimento).
    Nasce da un difetto vero: nella ciambella «61,6%» usciva a sinistra e si
    leggeva «1,6%» — un numero sbagliato, non un problema estetico.
-   `npm run check:ui` lo verifica su 9 pagine × 2 temi × 2 larghezze.
+   `npm run check:ui` lo verifica su 11 pagine × 2 temi × 2 larghezze.
 11. **Nessuna frase scritta a mano su un numero che cambia.** Il titolo della home
    («Quasi due transazioni su tre, spiegate in una riga») si calcola dalla copertura
    misurata ogni domenica (`fractionOf` in `lib/feed.ts`): la frazione più semplice
@@ -164,6 +164,20 @@ src/
       tessere, filtri, ordinamento, volume 24 h come barra e volume storico come colonna.
       Corretti per strada: il volume 24 h contava un solo verso degli scambi; «N simboli
       condivisi» contava righe; «+0 GIF» su un importo che non è zero
+- [x] **Tutte le pagine nello stile «Cronaca» (27/09/2026)** — indirizzo, token, lista dei
+      token, blocco, protocolli, mempool ed errori hanno la stessa grammatica della home: riga di
+      contesto, testata aperta (il nome o la frase, e il numero che conta), tessere piatte,
+      sezioni separate da una riga. Il **blocco** racconta le sue transazioni come il flusso; i
+      **movimenti** di un indirizzo dicono cosa è successo quando il decodificatore lo sa; la
+      **pagella** mostra il prezzo (lo stesso del resto del sito), l'altezza di conio e i detentori;
+      **Protocolli** apre con lo stato di SigmaUSD detto in una frase. Corretti per strada:
+      la pagina di un'**altezza mostrava l'ultimo blocco** (l'API ignora `minHeight/maxHeight`: ora
+      `/blocks/at/{h}` e controllo dell'altezza); la pagella dava **«nessun altro token usa questo
+      nome» a COMET** mentre esistono dei «Comet» (ricerca in tutte le maiuscole,
+      `tokenSearchAnyCase`); la mempool poteva dire **«vuota»** quando l'API dichiarava 12
+      transazioni senza restituirle; sotto il 400% il sito diceva «i riscatti restano aperti», ma il
+      **riscatto di SigRSV è chiuso** (solo quello di SigUSD resta aperto); CoinGecko senza risposta
+      teneva ferma la pagina Protocolli (ora si rinuncia dopo 6 s)
 - [ ] **Lancio**: post a forum/Telegram con tre link e la domanda "lo usereste, per cosa?"
 
 ## Come si misura la copertura
