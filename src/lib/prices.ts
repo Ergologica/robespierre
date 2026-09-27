@@ -74,6 +74,17 @@ export function buildPrices(markets: SpectrumMarket[], win24: Map<string, Win24>
 let cache: { at: number; map: Map<string, TokenPrice> } | null = null
 const TTL_MS = 60_000
 
+/** Quando sono stati letti i prezzi in cache: la pagina lo dichiara («aggiornati 40 s fa»). */
+export function pricesFetchedAt(): number | null { return cache?.at ?? null }
+
+/** Quanti SIMBOLI sono usati da più di un token. Prima la pagina contava le RIGHE
+ *  con un omonimo e le chiamava simboli: con RSN usato da due token, «2 simboli». */
+export function sharedSymbolCount(rows: Iterable<TokenPrice>): number {
+  const seen = new Set<string>()
+  for (const r of rows) if (r.sharedName > 0) seen.add(r.symbol.trim().toLowerCase())
+  return seen.size
+}
+
 export async function tokenPrices(): Promise<Map<string, TokenPrice>> {
   if (cache && Date.now() - cache.at < TTL_MS) return cache.map
   const mk = await spectrumMarketsFull()
