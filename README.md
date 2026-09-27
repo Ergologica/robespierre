@@ -16,6 +16,8 @@ npm run build     # typecheck + build statica in dist/
 npm run check:ui  # dopo build: nessun testo fuori dai grafici, nessuno scroll di lato
                   # (una volta sola: npm i -D playwright && npx playwright install chromium)
 LIVE=1 npx vitest run src/live   # verifica contro la mainnet (serve rete)
+npm run coverage  # quante tx degli ultimi 1.000 blocchi il decodificatore spiega → data/coverage.json
+node scripts/api-compat.mjs      # API ufficiale contro sigmaspace, endpoint per endpoint
 ```
 
 Il sito è statico: si pubblica su GitHub Pages con la Action inclusa
@@ -115,6 +117,13 @@ src/
       illeggibile** (AvlTree) e la posizione resta FUORI dal valore totale.
       Chi ha ritirato tutto tiene la chiave ma non ha una posizione: non compare
       nessuna scheda. Verificato dal vivo su quattro DAO
+- [x] **Copertura misurata (27/09/2026)** — `npm run coverage`, ripetuta ogni domenica dalla
+      Action `coverage.yml` e mostrata in home con DUE numeri: sul totale, e escluse mining e
+      oracoli (che sono quasi l'80% del traffico e da soli gonfierebbero il primo). Prima misura
+      6,7%; con i riconoscitori `oracle` (pool v1 di SigmaUSD, pool v2 USD e oro) e `mining`
+      (emissione, commissioni, incasso delle ricompense, ri-emissione EIP-27): **85,1% del
+      totale, 30,7% escluse mining e oracoli**. Il prezzo dell'oro non si mostra: l'unità del
+      registro non è stata verificata
 - [ ] **Lancio**: post a forum/Telegram con tre link e la domanda "lo usereste, per cosa?"
 
 ## Sistema visivo
