@@ -1,28 +1,28 @@
 {
-  "measuredAt": "2026-09-27T11:14:54.895Z",
+  "measuredAt": "2026-09-27T11:39:12.250Z",
   "blocks": {
-    "from": 1881222,
-    "to": 1882221,
+    "from": 1881232,
+    "to": 1882231,
     "count": 1000
   },
   "summary": {
-    "total": 6462,
-    "recognized": 5500,
-    "infra": 5073,
-    "rest": 1389,
-    "restRecognized": 427,
+    "total": 6445,
+    "recognized": 5487,
+    "infra": 5066,
+    "rest": 1379,
+    "restRecognized": 421,
     "skipped": 0
   },
   "byKind": {
-    "oracle-datapoint": 2647,
+    "oracle-datapoint": 2646,
     "mining-emission": 1000,
-    "mining-fees": 645,
-    "transfer": 389,
+    "mining-fees": 643,
+    "transfer": 383,
     "mining-reemission": 299,
-    "oracle-refresh": 174,
-    "mining-reward": 138,
-    "oracle-v1-collect": 85,
+    "oracle-refresh": 172,
+    "mining-reward": 137,
     "oracle-v1-epoch": 85,
+    "oracle-v1-collect": 84,
     "spectrum-n2t": 36,
     "rosen-in": 2
   },
@@ -45,11 +45,11 @@
     },
     {
       "template": "a77b614f915b",
-      "txs": 91,
+      "txs": 93,
       "names": [],
       "sampleContract": "3PwDZR2PF9VB7bubVAgfEZdb…",
       "distinctAddresses": 1,
-      "exampleTx": "93cb06ae8b56dd8035949002ee7300d9fb0fde50d76a39fce26d9131ce600c42"
+      "exampleTx": "8d706b7dbc6cfe7c12b2f5a8d001a2961fe3b343ffc15ddecdd159622c9f09af"
     },
     {
       "template": "48beed5f4fb4",
@@ -100,6 +100,14 @@
       "exampleTx": "bde40e0d94964eebe88e3edbd6133d7d0548507408fe4d52434532350eb72ba2"
     },
     {
+      "template": "3af561cd7437",
+      "txs": 10,
+      "names": [],
+      "sampleContract": "NY4PEzZ7VfjvYJJazKf6SWPJ…",
+      "distinctAddresses": 3,
+      "exampleTx": "dbf1ebf507b5b52f88111a8edfe2ce223f16abc86d8c5880c3c3b4b2b32d727b"
+    },
+    {
       "template": "b47f1fa74eb1",
       "txs": 10,
       "names": [],
@@ -114,14 +122,6 @@
       "sampleContract": "26tpZU6i6zeBRuzZVo7tr47z…",
       "distinctAddresses": 1,
       "exampleTx": "e0b7755ea31181945a072fed45aa0fd5be417063a7983628e250dab78b006517"
-    },
-    {
-      "template": "3af561cd7437",
-      "txs": 9,
-      "names": [],
-      "sampleContract": "NY4PEzZ7VfjtpACh7a9Nbxyy…",
-      "distinctAddresses": 3,
-      "exampleTx": "63b5a9eb5458b7d45e3a1a5f90ac911bf5e67b2183c7c86180c62e54c7bef5e1"
     },
     {
       "template": "04e5914dde7b",
@@ -191,12 +191,12 @@
   "unrecognized": [
     {
       "side": "solo wallet",
-      "txs": 362,
+      "txs": 358,
       "template": "p2pk",
       "names": [],
       "sampleContract": null,
       "distinctAddresses": 0,
-      "exampleTx": "43d17265de3631bbcaf2f221fe6fbeb97db60ec787e29698331d8ad640f8feac"
+      "exampleTx": "7c8caf1f188c0b07bf39fbc9229ad121504c13d4e420887eeb54227b248bc30b"
     },
     {
       "side": "spende",
@@ -227,21 +227,21 @@
     },
     {
       "side": "spende",
-      "txs": 49,
+      "txs": 50,
       "template": "a77b614f915b",
       "names": [],
       "sampleContract": "3PwDZR2PF9VB7bubVAgfEZdb…",
       "distinctAddresses": 1,
-      "exampleTx": "93cb06ae8b56dd8035949002ee7300d9fb0fde50d76a39fce26d9131ce600c42"
+      "exampleTx": "b5f15b89b4a57013ff74a7df7df63de0672081adcf4550c8aadc7026c3ace8f5"
     },
     {
       "side": "crea",
-      "txs": 42,
+      "txs": 43,
       "template": "a77b614f915b",
       "names": [],
       "sampleContract": "3PwDZR2PF9VB7bubVAgfEZdb…",
       "distinctAddresses": 1,
-      "exampleTx": "ffbd62895b41255873afb8e0da77a32888b48a20ea37b63e04473f569f58a748"
+      "exampleTx": "8d706b7dbc6cfe7c12b2f5a8d001a2961fe3b343ffc15ddecdd159622c9f09af"
     },
     {
       "side": "spende",
@@ -325,6 +325,15 @@
       "exampleTx": "e5087ab56c46b803bfc73e95fee5742f5271a9d062e9fca8e40175fe546e550a"
     },
     {
+      "side": "spende",
+      "txs": 5,
+      "template": "3af561cd7437",
+      "names": [],
+      "sampleContract": "NY4PEzZ7VfjvYJJazKf6SWPJ…",
+      "distinctAddresses": 2,
+      "exampleTx": "dbf1ebf507b5b52f88111a8edfe2ce223f16abc86d8c5880c3c3b4b2b32d727b"
+    },
+    {
       "side": "crea",
       "txs": 5,
       "template": "6f28a3efe0de",
@@ -341,15 +350,6 @@
       "sampleContract": "2vTHJzWVd7ryXrP3fH9KfEFG…",
       "distinctAddresses": 1,
       "exampleTx": "b3e481071e80b0ba47d8a8fe6bdf4307f65b0f930895d8e732765c6914e9f377"
-    },
-    {
-      "side": "spende",
-      "txs": 4,
-      "template": "3af561cd7437",
-      "names": [],
-      "sampleContract": "NY4PEzZ7VfjtpACh7a9Nbxyy…",
-      "distinctAddresses": 2,
-      "exampleTx": "b5f7496604df4d136917813019b1b4834db3402becbeaa0f78bf86a93e8f4c42"
     },
     {
       "side": "spende",
