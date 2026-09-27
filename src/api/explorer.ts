@@ -87,20 +87,58 @@ export const api = {
     get<Paged<Tx>>(`/addresses/${addr}/transactions?offset=${offset}&limit=${limit}`),
   token: (id: string) => get<TokenInfo>(`/tokens/${id}`),
   box: (id: string) => get<BoxLike>(`/boxes/${id}`, 300_000),
-  /** Header di lista a una data altezza (portano nome e indirizzo del minatore). */
-  blocksRange: (height: number) =>
-    get<Paged<BlockHeader>>(`/blocks?minHeight=${height}&maxHeight=${height}`, 60_000),
-  /** Blocco per altezza: prima l'header nell'intervallo, poi il blocco completo. */
+  /** Blocco per altezza. `/api/v1/blocks?minHeight=&maxHeight=` IGNORA i due filtri
+   *  (misurato il 27/09/2026: restituisce gli ultimi blocchi), e la pagina di un'altezza
+   *  mostrava il blocco più recente. Si usa l'endpoint v0 `/blocks/at/{h}` → [id] (CORS
+   *  aperto), e si CONTROLLA che l'altezza torni: un blocco diverso da quello chiesto
+   *  non si mostra mai. */
   blockAt: async (height: number): Promise<FullBlock | null> => {
-    const page = await get<Paged<BlockHeader>>(`/blocks?minHeight=${height}&maxHeight=${height}`, 60_000)
-    const id = page.items?.[0]?.id
-    return id ? get<FullBlock>(`/blocks/${id}`, 60_000) : null
+    const r = await fetch(`https://api.ergoplatform.com/blocks/at/${height}`)
+    if (!r.ok) throw new ApiError(r.status, `/blocks/at/${height}`)
+    const ids = await r.json() as string[]
+    if (!Array.isArray(ids) || !ids[0]) return null
+    const full = await get<FullBlock>(`/blocks/${ids[0]}`, 60_000)
+    return full?.block?.header?.height === height ? full : null
+  },
+  /** L'header di lista di un'altezza (porta nome e indirizzo del minatore), per SCARTO
+   *  dalla cima: la paginazione funziona, i filtri per altezza no. Il blocco nuovo che
+   *  arriva fra le due chiamate sposta lo scarto di uno: si riprova, e si controlla. */
+  headerAt: async (height: number): Promise<BlockHeader | null> => {
+    const tip = (await get<NetworkInfo>('/info', 10_000)).height
+    for (let extra = 0; extra < 3; extra++) {
+      const off = tip - height + extra
+      if (off < 0) return null
+      const p = await get<Paged<BlockHeader>>(`/blocks?offset=${off}&limit=1&sortBy=height&sortDirection=desc`, 60_000)
+      const h = p.items?.[0]
+      if (h?.height === height) return h
+      if (!h || h.height < height) return null
+    }
+    return null
   },
   blockById: (id: string) => get<FullBlock>(`/blocks/${id}`, 60_000),
   tokenSearch: (q: string, limit = 100) => get<Paged<TokenInfo>>(`/tokens/search?query=${encodeURIComponent(q)}&limit=${limit}`, 60_000),
 }
 
 
+
+/** Ricerca di token per nome che non dipende dalle maiuscole. L'API cerca per PREFISSO
+ *  e distingue le maiuscole (27/09/2026: «comet» 0 risultati, «COMET» 35, «Comet» 692):
+ *  la pagella di COMET diceva «nessun altro token usa questo nome» mentre due «Comet»
+ *  esistevano. Si chiedono le varianti e si uniscono per id. `truncated` = almeno una
+ *  variante ha riempito la pagina da 100: i conteggi sono allora un minimo. */
+export async function tokenSearchAnyCase(q: string): Promise<{ items: TokenInfo[]; truncated: boolean }> {
+  const t = q.trim()
+  const variants = [...new Set([t, t.toUpperCase(), t.toLowerCase(), t.charAt(0).toUpperCase() + t.slice(1).toLowerCase()])]
+  const res = await Promise.allSettled(variants.map(v => api.tokenSearch(v)))
+  const ok = res.filter((r): r is PromiseFulfilledResult<Paged<TokenInfo>> => r.status === 'fulfilled')
+  if (!ok.length) throw (res[0] as PromiseRejectedResult).reason
+  const byId = new Map<string, TokenInfo>()
+  for (const r of ok) for (const it of r.value.items ?? []) byId.set(it.id, it)
+  return {
+    items: [...byId.values()],
+    truncated: ok.some(r => (r.value.items?.length ?? 0) >= 100 || (r.value.total ?? 0) > (r.value.items?.length ?? 0)),
+  }
+}
 
 /** Statistiche del nodo (supply, hashrate, media transazioni): endpoint v0 /info. */
 export interface NetworkStats { supply: number; hashRate: number; transactionAverage: number }
@@ -155,7 +193,8 @@ export async function spectrumTokenPerErg(): Promise<Map<string, number>> {
 /** Prezzo ERG in USD/EUR: opzionale per definizione — se fallisce, il sito mostra i soli ERG. */
 export async function ergPrice(): Promise<{ usd: number; eur: number } | null> {
   try {
-    const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ergo&vs_currencies=usd,eur')
+    // prezzo opzionale per definizione: dopo 6 s si rinuncia, e la pagina mostra i soli ERG
+    const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ergo&vs_currencies=usd,eur', { signal: AbortSignal.timeout(6000) })
     if (!r.ok) return null
     const j = await r.json()
     return j?.ergo ?? null
@@ -224,7 +263,7 @@ export async function spectrumMarketsFull(): Promise<{ all: SpectrumMarket[]; wi
 export interface ErgQuote { usd: number; eur: number; usdChange24h: number | null }
 export async function ergQuote(): Promise<ErgQuote | null> {
   try {
-    const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ergo&vs_currencies=usd,eur&include_24hr_change=true')
+    const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ergo&vs_currencies=usd,eur&include_24hr_change=true', { signal: AbortSignal.timeout(6000) })
     if (!r.ok) return null
     const j = (await r.json())?.ergo
     return j ? { usd: j.usd, eur: j.eur, usdChange24h: typeof j.usd_24h_change === 'number' ? j.usd_24h_change : null } : null
