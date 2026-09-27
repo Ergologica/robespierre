@@ -47,6 +47,10 @@ const it = {
   of_which_out: (tot: string) => `su ${tot} nei box in uscita`,
   tokens_moved: 'Token spostati', kind_one: 'tipo', kind_many: 'tipi', fee: 'Commissione', block: 'Blocco',
   from: 'Da', to: 'A', no_label: "nessuna etichetta nell'address book",
+  flow_others: (amt: string, n: number) => n === 1
+    ? `nella stessa transazione, ${amt} sono andati a un altro indirizzo`
+    : `nella stessa transazione, ${amt} sono andati ad altri ${n} indirizzi`,
+  flow_fee: (amt: string) => `la differenza fra i due lati è la commissione della rete, ${amt}`,
   schema_h: 'Come si muove il valore — schema UTXO',
   schema_p: 'Una transazione Ergo consuma dei box e ne crea di nuovi: quello che non va al destinatario torna indietro come resto. È il motivo per cui il totale in uscita è più grande dell’importo inviato.',
   schema_in: 'BOX CONSUMATI (INPUT)', schema_tx: 'TRANSAZIONE', schema_out: 'BOX CREATI (OUTPUT)',
@@ -226,6 +230,10 @@ const en: Dict = {
   of_which_out: (tot: string) => `of ${tot} in output boxes`,
   tokens_moved: 'Tokens moved', kind_one: 'kind', kind_many: 'kinds', fee: 'Fee', block: 'Block',
   from: 'From', to: 'To', no_label: 'no label in the address book',
+  flow_others: (amt: string, n: number) => n === 1
+    ? `in the same transaction, ${amt} went to one other address`
+    : `in the same transaction, ${amt} went to ${n} other addresses`,
+  flow_fee: (amt: string) => `the gap between the two sides is the network fee, ${amt}`,
   schema_h: 'How value moves — UTXO diagram',
   schema_p: 'An Ergo transaction consumes boxes and creates new ones: whatever does not go to the recipient returns as change. That is why total out exceeds the amount sent.',
   schema_in: 'CONSUMED BOXES (INPUTS)', schema_tx: 'TRANSACTION', schema_out: 'CREATED BOXES (OUTPUTS)',
