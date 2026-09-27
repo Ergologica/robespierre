@@ -874,3 +874,88 @@ describe('registri Long: stessa lettura da renderedValue e da serializedValue', 
     expect(dec(t)!.headline).toContain('0,3336 $')
   })
 })
+
+/* ---------------- movimenti fra wallet: la frase dice COSA arriva ---------------- */
+// Il difetto (27/09): con dei token il trasferimento diceva solo l'ERG. «Trasferimento:
+// A → B, 0 ERG» mentre partivano 2.000 token; «0,001 ERG» mentre partivano 320.000 SigRSV.
+// Misurato su 1.000 blocchi: 95 trasferimenti «certi» così. Tutte fixture reali.
+import { feeOnly } from './recognizers/fee-only'
+import { simpleTransfer } from './recognizers/simple-transfer'
+import tSigRsv from './fixtures/transfer-token-sigrsv.json'
+import tNoErg from './fixtures/transfer-token-senza-erg.json'
+import tDec from './fixtures/transfer-token-decimali.json'
+import tMany from './fixtures/transfer-molti.json'
+import wReorg from './fixtures/wallet-consolida.json'
+import wInternal from './fixtures/wallet-interno.json'
+import wBurn from './fixtures/wallet-brucia.json'
+import fTrue from './fixtures/feeonly-true.json'
+import f3p from './fixtures/feeonly-3pwdzr.json'
+import f5y from './fixtures/feeonly-5ye8z.json'
+import fWallet from './fixtures/feeonly-wallet.json'
+
+describe('trasferimenti: i token prima, l’ERG solo se non è il minimo del box', () => {
+  it('320.000 SigRSV, non «0,001 ERG»', () => {
+    const h = dec(tSigRsv)!.headline
+    expect(h).toContain('320.000 SigRSV')
+    expect(h).not.toContain('0,001 ERG')
+  })
+  it('2.000 Mi Goreng, non «0 ERG»', () => {
+    const h = dec(tNoErg)!.headline
+    expect(h).toContain('2.000 Mi Goreng')
+    expect(h).not.toMatch(/\b0 ERG/)
+  })
+  it('i decimali del token contano: 270 unità di ergopad (2 decimali) = 2,7; e l’ERG sopra 0,01 si dice', () => {
+    expect(dec(tDec)!.headline).toContain('2,7 ergopad + 0,0161 ERG')
+  })
+  it('più di due destinatari non è più «troppo»: si dice quanti', () => {
+    const d = dec(tMany)!
+    expect(d.kind).toBe('transfer')
+    expect(d.headline).toContain('6 destinatari')
+  })
+  it('i trasferimenti di sempre non cambiano', () => {
+    expect(dec(transferSimple)!.headline).toBe('Trasferimento: 9gnhfapS…S345 → 9hcPxnnp…HbJD, 5.000 ERG')
+  })
+  it('un token che non era negli input è un CONIO: il riconoscitore dei trasferimenti tace', () => {
+    const t = clone(tSigRsv) as unknown as Tx
+    t.outputs[0]!.assets = [...(t.outputs[0]!.assets ?? []), { tokenId: 'ff'.repeat(32), amount: 1, name: 'Nuovo', decimals: 0 }]
+    expect(simpleTransfer.recognize(t)).toBeNull()
+  })
+})
+
+describe('movimenti interni: nessun destinatario esterno', () => {
+  it('un solo wallet che divide o riunisce i suoi box', () => {
+    const d = dec(wReorg)!
+    expect(d.kind).toBe('wallet-internal')
+    expect(d.headline).toContain('riorganizza i propri box: 1 → 2')
+  })
+  it('più indirizzi, il valore resta fra loro', () => {
+    expect(dec(wInternal)!.headline).toContain('2 box da 2 indirizzi diventano 1')
+  })
+  it('i token che spariscono si dicono bruciati, coi loro decimali', () => {
+    expect(dec(wBurn)!.headline).toContain('e brucia 500 WT_ADA, 25 WT_ERG')
+  })
+})
+
+describe('commissione pura: tutto ai minatori', () => {
+  it('dal contratto «sempre vero» (ErgoTree 0008d3): conta fra il mining, e si dice che può spenderlo chiunque', () => {
+    const d = dec(fTrue)!
+    expect(d.kind).toBe('mining-tip')
+    expect(d.headline).toContain('può spenderlo chiunque')
+  })
+  it('da altri contratti: stessa lettura, senza dire chi può spenderli', () => {
+    for (const fx of [f3p, f5y]) {
+      const d = dec(fx)!
+      expect(d.kind).toBe('mining-tip')
+      expect(d.headline).not.toContain('chiunque')
+    }
+  })
+  it('da un wallet: NON è mining, conta fra le transazioni di persone', () => {
+    const d = dec(fWallet)!
+    expect(d.kind).toBe('fee-only')
+    expect(d.headline).toContain('ai minatori, senza altri destinatari')
+  })
+  it('la raccolta delle commissioni del minatore resta mining-fees, e un trasferimento non è commissione pura', () => {
+    expect(dec(mFees)!.kind).toBe('mining-fees')
+    expect(feeOnly.recognize(transferSimple as never)).toBeNull()
+  })
+})

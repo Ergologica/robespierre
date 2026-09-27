@@ -6,6 +6,7 @@ import { spectrumN2T } from './recognizers/spectrum-n2t'
 import { rosenBridge } from './recognizers/rosen-bridge'
 import { mining } from './recognizers/mining'
 import { oracle } from './recognizers/oracle'
+import { feeOnly } from './recognizers/fee-only'
 
 /**
  * Il motore: prova i riconoscitori in ordine, si ferma al primo che risponde.
@@ -19,6 +20,7 @@ const RECOGNIZERS: Recognizer[] = [
   mining,            // NFT dell'emissione e della ri-emissione, forma del contratto delle ricompense
   spectrumN2T,       // contratto condiviso dei pool N2T
   rosenBridge,       // hot wallet etichettato
+  feeOnly,           // tutto in commissione: prima del caso generico, che lo leggerebbe come «interno»
   simpleTransfer,    // sempre ultimo: è il caso generico
 ]
 
