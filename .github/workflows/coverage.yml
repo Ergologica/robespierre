@@ -1,0 +1,28 @@
+# La copertura del decodificatore, una volta a settimana: quante transazioni degli
+# ultimi 1.000 blocchi Robespierre sa spiegare (scripts/coverage.ts). Settimanale e non
+# notturna: sono ~6.500 richieste all'API pubblica, la stessa di cui il sito ha bisogno.
+name: coverage
+on:
+  schedule: [{ cron: '41 4 * * 0' }]   # domenica 04:41 UTC, lontano dagli altri job
+  workflow_dispatch:
+permissions: { contents: write }
+concurrency: { group: coverage, cancel-in-progress: false }
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60                  # da qui ci ha messo una dozzina di minuti
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run coverage
+        env: { CONC: '4', COV_CACHE: /tmp/coverage-cache }
+      - name: commit
+        run: |
+          git config user.name 'robespierre-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add data/coverage.json
+          git diff --cached --quiet || git commit -m "copertura $(date -u +%F)"
+          git pull --rebase --autostash origin main
+          git push
