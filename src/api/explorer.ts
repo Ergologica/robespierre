@@ -15,6 +15,25 @@ const BASES = [
 const cache = new Map<string, { at: number; data: unknown }>()
 const TTL_MS = 30_000
 
+/**
+ * Errore che si ricorda COSA è andato storto, non solo che è andato storto.
+ * Serviva: un hash inesistente e una fonte irraggiungibile producevano la
+ * stessa frase, «la fonte potrebbe essere momentaneamente giù» — cioè il sito
+ * indovinava, e quasi sempre sbagliava. Verificato sull'Explorer API il
+ * 27/09/2026: una transazione o un token inesistenti danno 404, un indirizzo
+ * scritto male dà 400 con «Checksum check fails».
+ */
+export class ApiError extends Error {
+  constructor(readonly status: number, readonly path: string, readonly reason?: string) {
+    super('HTTP ' + status + ' su ' + path + (reason ? ' — ' + reason : ''))
+    this.name = 'ApiError'
+  }
+  /** La cosa cercata non c'è: non è un guasto, è una risposta. */
+  get notFound(): boolean { return this.status === 404 }
+  /** L'id è scritto male: lo dice la catena, non lo indovino io. */
+  get malformed(): boolean { return this.status === 400 && /checksum/i.test(this.reason ?? '') }
+}
+
 async function get<T>(path: string, ttl = TTL_MS): Promise<T> {
   const hit = cache.get(path)
   if (hit && Date.now() - hit.at < ttl) return hit.data as T
@@ -22,7 +41,10 @@ async function get<T>(path: string, ttl = TTL_MS): Promise<T> {
   for (const base of BASES) {
     try {
       const r = await fetch(base + path)
-      if (!r.ok) throw new Error('HTTP ' + r.status + ' su ' + path)
+      if (!r.ok) {
+        const reason = await r.text().then(t => { try { return JSON.parse(t).reason as string } catch { return undefined } }).catch(() => undefined)
+        throw new ApiError(r.status, path, reason)
+      }
       const data = (await r.json()) as T
       cache.set(path, { at: Date.now(), data })
       return data
