@@ -162,18 +162,18 @@ export async function marketsView(q = ''): Promise<string> {
   const chgHtml = chg != null
     ? `<span class="mk-chg ${chg >= 0 ? 'in' : 'out'}">${chg >= 0 ? '+' : '−'}${formatPct(Math.abs(chg), 1)}% ${L.th_change24}</span>` : ''
   // ERG si scrive con 4 decimali: sei («0,328168 $») sono rumore su un prezzo da exchange
-  const title = quote ? `<h1 class="mk-h1">1 ERG = ${formatPct(quote.usd, quote.usd >= 100 ? 2 : 4)} $ ${chgHtml}</h1>` : `<h1 class="mk-h1">${L.mk_h}</h1>`
+  const title = quote ? `<h1 class="ph1-num">1 ERG = ${formatPct(quote.usd, quote.usd >= 100 ? 2 : 4)} $ ${chgHtml}</h1>` : `<h1 class="ph1-num">${L.mk_h}</h1>`
   const th = (k: MkSort, label: string, cls = '') =>
     `<th class="${cls}" data-mk-sort="${k}" aria-sort="none"><button type="button" title="${esc(L.mk_sort(label))}">${label}<span class="ar" aria-hidden="true"></span></button></th>`
 
-  return `<div class="page-mk">
-  <section class="mk-hero">
-    <div class="mk-hero-l">
+  return `<div class="page page-mk">
+  <section class="phero">
+    <div class="phero-l">
       <div class="live"><span class="dot" aria-hidden="true"></span><span>${quote ? L.mk_live(age) : L.mk_live_noerg(age)}</span></div>
       ${title}
       <p class="lede">${L.mk_lede}</p>
     </div>
-    <div class="mk-tiles">
+    <div class="ptiles">
       <div><span class="k">${L.mk_t_vol24}</span><span class="v2">${ergFmt(vol24)}</span><span class="s">${L.mk_t_vol24_s}</span></div>
       <div><span class="k">${L.mk_t_traded}</span><span class="v2">${groupThousands(String(traded))} <small>${esc(L.mk_t_traded_of(groupThousands(String(rows.length))))}</small></span><span class="s">${L.mk_t_traded_s}</span></div>
       <div><span class="k">${L.mk_t_thin}</span><span class="v2">${groupThousands(String(thinN))}</span><span class="s">${esc(L.mk_t_thin_s(THIN_POOL_ERG))}</span></div>
@@ -191,14 +191,14 @@ export async function marketsView(q = ''): Promise<string> {
     <label class="mk-filter"><span class="dim" aria-hidden="true">⌕</span>
       <input type="search" data-mk-q value="${esc(q)}" placeholder="${esc(L.mk_filter_ph)}" aria-label="${esc(L.mk_filter_ph)}" autocomplete="off" spellcheck="false"></label>
   </div>
-  <div class="mk-table">
+  <div class="flat">
     <table>
       <thead><tr>${th('sym', L.th_token)}${th('price', L.th_price_erg, 'num')}<th class="num">${L.th_price_usd}</th>${th('vol24', L.th_vol24, 'num mk-vol-h')}${th('volcum', L.th_volcum, 'num')}</tr></thead>
       <tbody data-mk-body></tbody>
     </table>
   </div>
   <button type="button" class="btn mk-more" data-mk-more hidden></button>
-  <div class="mk-foot">
+  <div class="pfoot">
     <div><h3>${L.mk_foot_src_h}</h3><p>${L.mk_foot_src_p}</p></div>
     <div><h3>${L.mk_foot_thin_h}</h3><p>${esc(L.mk_foot_thin_p(THIN_POOL_ERG))}</p></div>
     <div><h3 class="warn">${L.mk_foot_dup_h}</h3><p>${L.mk_foot_dup_p}</p></div>

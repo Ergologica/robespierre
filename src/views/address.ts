@@ -1,6 +1,7 @@
 import { api, ergPrice, ergHistoryUsd } from '../api/explorer'
 import { tokenPrices } from '../lib/prices'
-import { esc, addrLink, labelOf } from './html'
+import { esc, addrLink, labelInfo } from './html'
+import { markAmounts, tagKeyOf } from '../lib/feed'
 import { icons } from '../icons'
 import { donut } from '../charts'
 import { L, getLang } from '../i18n'
@@ -139,9 +140,10 @@ export async function addressView(addr: string, offset = 0): Promise<string> {
   // un solo prezzo in tutto il sito: la mappa è la stessa dei Mercati
   const perErg = new Map([...prices].map(([id, p]) => [id, 1 / p.ergPerToken]))
   const nano = BigInt(balance.nanoErgs)
-  const usd = price ? ` <span class="fiat">≈ ${(Number(nano / 1_000_000n) / 1000 * price.usd).toLocaleString(loc(), { maximumFractionDigits: 2 })} $</span>` : ''
   const tokens = balance.tokens ?? []
-  const label = labelOf(addr)
+  const info = labelInfo(addr)
+  const label = info?.name ?? null
+  const p2pk = addr.startsWith('9') && addr.length === 51
 
   // solo per ORDINARE i token per grandezza percepita: la precisione qui non conta
   const unitMag = (t: TokenDelta) => Math.abs(Number(t.delta)) / 10 ** t.decimals
@@ -156,16 +158,17 @@ export async function addressView(addr: string, offset = 0): Promise<string> {
     const dom = !ergVisible && deltas.length ? deltas[0]! : null
     const incoming = dom ? dom.delta > 0n : net > 0n
     const d = decode(tx)
-    const proto = d ? protoLabel(d.kind) : undefined
 
-    // movimento: per i protocolli riconosciuti il tag batte l'indirizzo del contratto
-    const isSwap = d?.kind === 'spectrum-n2t'
-    const arrow = isSwap ? '<span class="a swap">⇄</span>'
-      : `<span class="a ${incoming ? 'in' : 'out'}">${incoming ? '↓' : '↑'}</span>`
+    // movimento: se il decodificatore ha letto la transazione, la sua frase; se no, da chi
+    // o verso chi. La frase racconta la transazione intera, l'importo a destra è il netto
+    // di QUESTO indirizzo: due cose diverse, e ognuna al suo posto.
     const cp = counterparty(tx, addr, incoming)
-    const who = proto
-      ? `<span class="tag proto" title="${esc(d!.headline)}">${proto}</span>`
-      : `${incoming ? L.from_w : L.to_w} ${cp ? addrLink(cp) : `<span class="dim">${L.many_parties}</span>`}`
+    const arrow = `<span class="a ${incoming ? 'in' : 'out'}" aria-hidden="true">${incoming ? '↓' : '↑'}</span>`
+    const units = [...tx.inputs, ...tx.outputs].flatMap(b => (b.assets ?? []).map(x => x.name?.trim() ?? '')).filter(Boolean)
+    const movement = d
+      ? `<div class="mv"><div class="mv-line"><span class="ftag">${L[tagKeyOf(d.kind)]}</span>
+          <a class="mv-text" href="#/tx/${esc(tx.id)}" style="color:inherit">${markAmounts(esc(d.headline), units)}</a></div></div>`
+      : `<div class="mv"><div class="mv-line dir">${arrow} <span>${incoming ? L.from_w : L.to_w} ${cp ? addrLink(cp) : `<span class="dim">${L.many_parties}</span>`}</span></div></div>`
 
     // importo: la cosa più grande in evidenza, il resto in piccolo — mai un "+0 ERG" muto
     const main = dom
@@ -178,8 +181,8 @@ export async function addressView(addr: string, offset = 0): Promise<string> {
       : ''
 
     return `<tr data-dir="${incoming ? 'in' : 'out'}">
-      <td class="when" title="${isoUtc(tx.timestamp)}"><a href="#/tx/${esc(tx.id)}" class="dim">${relativeTime(tx.timestamp)}</a></td>
-      <td class="dir">${arrow} ${who}</td>
+      <td class="when" title="${isoUtc(tx.timestamp)}"><a href="#/tx/${esc(tx.id)}" data-ago="${tx.timestamp}">${relativeTime(tx.timestamp)}</a></td>
+      <td>${movement}</td>
       <td class="num">${main}${sub}</td>
     </tr>`
   }).join('')
@@ -193,12 +196,12 @@ export async function addressView(addr: string, offset = 0): Promise<string> {
     : formatPct(comp.totalErg, 2) + ' ERG'
   const showComposition = comp.pricedCount >= 1 && comp.slices.length >= 2
   lastComposition = showComposition ? { comp, usd: price?.usd ?? null } : null
-  const compositionCard = showComposition ? `
-  <div class="card"><div class="card-head"><h2>${L.composition}</h2>
-      <p>${L.composition_p1}
-      ${comp.unpricedCount ? `${comp.unpricedCount} ${L.composition_p2}` : ''}</p></div>
+  const compositionSec = showComposition ? `
+  <section class="sec">
+    <div class="sec-head"><div><h2 class="h2">${L.composition}</h2>
+      <p class="sec-p">${L.composition_p1} ${comp.unpricedCount ? `${comp.unpricedCount} ${L.composition_p2}` : ''}</p></div></div>
     <div class="chart-wrap" data-composition></div>
-  </div>` : ''
+  </section>` : ''
 
   const page = Math.floor(offset / PAGE) + 1
   const pages = Math.max(1, Math.ceil(txs.total / PAGE))
@@ -222,60 +225,87 @@ export async function addressView(addr: string, offset = 0): Promise<string> {
     return `<td class="${cls}" title="${tip}">${pStr}${p.thin ? ' <span class="tag">' + L.thin_pool + '</span>' : ''}</td><td class="${cls}">${v}</td>`
   }
   const tokenRow = (t: typeof tokens[number], hidden: boolean) =>
-    `<tr${hidden ? ' class="tok-extra hidden"' : ''}><td><a href="#/token/${esc(t.tokenId)}" title="${esc(L.opens_card)}">${esc(t.name?.trim() || shortId(t.tokenId, 8))}</a>${t.name?.trim() ? '' : ` <span class="tag">${L.unnamed}</span>`}</td>
+    `<tr${hidden ? ' class="tok-extra hidden"' : ''}><td><a class="mk-sym" href="#/token/${esc(t.tokenId)}" title="${esc(L.opens_card)}">${esc(t.name?.trim() || shortId(t.tokenId, 8))}</a>${t.name?.trim() ? '' : ` <span class="tag">${L.unnamed}</span>`}</td>
      <td class="num">${formatTokenAmount(BigInt(t.amount), t.decimals ?? 0)}</td>${priceCells(t)}</tr>`
   const tokenRows = sorted.map((t, i) => tokenRow(t, i >= TOKENS_COLLAPSED)).join('')
   const unpricedN = tokens.filter(t => !prices.has(t.tokenId)).length
   const thinN = tokens.filter(t => prices.get(t.tokenId)?.thin).length
 
-  return `
-  <div class="card">
-    <div class="idrow" style="padding-top:18px">
-      <h1 class="t-title ${label ? '' : 'mono'}">${label ? esc(label) : esc(shortId(addr, 12, 6))}</h1>
-      <button class="copy" data-copy="${esc(addr)}">${L.copy}</button>
-      <a class="btn-link" href="https://explorer.ergoplatform.com/en/addresses/${esc(addr)}" target="_blank" rel="noopener">${icons.ext}${L.verify_official}</a>
-      ${label ? `<span class="dim mono">${esc(shortId(addr, 10))}</span>` : `<span class="dim">${L.no_label}</span>`}
+  // il saldo si legge a colpo d'occhio: due decimali sopra i 10 ERG, quelli che servono sotto
+  const bigDec = nano >= 10_000_000_000n ? 2 : nano >= 10_000_000n ? 4 : 9
+  const usdBal = price ? (Number(nano / 1_000_000n) / 1000 * price.usd).toLocaleString(loc(), { maximumFractionDigits: 2 }) + ' $' : null
+  const last = txs.items[0]
+  const who = info
+    ? `<span title="${esc(info.source ?? '')}">${esc(L.led_labeled(L.led_cat(info.category ?? '')))}</span>`
+    : `<span>${p2pk ? L.led_wallet : L.led_contract}</span>`
+
+  return `<div class="page">
+  <nav class="crumb" aria-label="breadcrumb">
+    <a href="#/">${L.nav_net}</a><span aria-hidden="true">/</span><span>${p2pk ? L.addr_kind : L.contract_kind}</span>
+    <span class="mono" title="${esc(addr)}">${esc(shortId(addr, 10))}</span>
+    <button class="copy" type="button" data-copy="${esc(addr)}">${L.copy}</button>
+    <span class="grow"></span>
+    <a class="ext" href="https://explorer.ergoplatform.com/en/addresses/${esc(addr)}" target="_blank" rel="noopener">${icons.ext}${L.verify_official}</a>
+  </nav>
+  <section class="phero">
+    <div class="phero-l">
+      <div class="live">${who}</div>
+      <h1 class="ph1${label ? '' : ' mono'}">${label ? esc(label) : esc(shortId(addr, 12, 6))}</h1>
+      <p class="lede">${esc(L.addr_lede(groupThousands(String(txs.total)), last ? relativeTime(last.timestamp) : null,
+        tokens.length, comp.pricedCount, groupThousands(String(tokens.length))))}</p>
     </div>
-    <div class="tiles tiles-w">
-      <div class="tile-hero"><div class="k">${L.balance}</div><div class="v">${formatErg(nano)}</div><div class="s">${usd || '&nbsp;'}</div></div>
-      ${comp.pricedCount > 0 ? `<div class="tile-total"><div class="k"><span class="help" title="${esc(L.total_tip)}">${L.total_value}</span></div>
-        <div class="v">≈ ${totalStr}</div>
-        <div class="s">${esc(L.total_sub(comp.pricedCount, comp.unpricedCount))}</div></div>` : ''}
-      <div><div class="k">${L.tokens_h}</div><div class="v">${tokens.length} ${L.tokens_n}</div><div class="s"><a href="#tokens" data-scroll>${L.to_list}</a></div></div>
-      <div><div class="k">${L.movements}</div><div class="v">${groupThousands(String(txs.total))}</div>
-        <div class="s">${txs.items[0] ? L.last + ' ' + relativeTime(txs.items[0].timestamp) : ''}</div></div>
+    <div class="phero-r">
+      <div class="pbig"><div class="pbig-top">
+        <span class="pbig-n" title="${esc(formatErg(nano, 9))}">${formatErg(nano, bigDec)}</span>
+        <span class="pbig-s">${L.balance}${usdBal ? `<br>≈ ${usdBal}` : ''}</span></div></div>
+      <div class="ptiles">
+        <div><span class="k"><span class="help" title="${esc(L.total_tip)}">${L.total_value}</span></span>
+          <span class="v2 tile-total-v">${totalUsd != null || comp.pricedCount ? '≈ ' + totalStr : '—'}</span>
+          <span class="s">${esc(L.total_sub(comp.pricedCount, comp.unpricedCount))}</span></div>
+        <div><span class="k">${L.tokens_h}</span><span class="v2">${groupThousands(String(tokens.length))}</span>
+          <span class="s">${tokens.length ? `<a href="#tokens" data-scroll>${L.to_list}</a>` : '&nbsp;'}</span></div>
+        <div><span class="k">${L.movements}</span><span class="v2">${groupThousands(String(txs.total))}</span>
+          <span class="s"><a href="#movements" data-scroll>${L.to_list}</a></span></div>
+        <div><span class="k">${L.last_move}</span><span class="v2">${last ? `<span data-ago="${last.timestamp}">${relativeTime(last.timestamp)}</span>` : '—'}</span>
+          <span class="s">${last ? isoUtc(last.timestamp).slice(0, 10) : '&nbsp;'}</span></div>
+      </div>
     </div>
-  </div>
-  ${compositionCard}
-  ${tokens.length ? `<div class="card" id="tokens"><div class="card-head" style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h2>${L.tokens_h} — ${tokens.length}</h2>
-      <span class="dim t-note">${L.opens_card}${unpricedN ? ' · ' + L.wallet_priced_note(unpricedN) : ''}${thinN ? ' · ' + esc(L.wallet_thin_note(thinN)) : ''}</span></div>
-    <table><thead><tr><th>${L.th_name}</th><th class="num">${L.th_qty}</th><th class="num">${L.price_w}</th><th class="num">${L.value_w}</th></tr></thead><tbody>${tokenRows}</tbody></table>
-    ${tokens.length > TOKENS_COLLAPSED ? `<div class="card-pad" style="padding-top:10px">
-      <button class="btn" data-toggle-tokens data-full="${L.show_all} ${tokens.length} ${L.tokens_w}" type="button">${icons.down}<span data-label>${L.show_all} ${tokens.length} ${L.tokens_w}</span></button></div>` : ''}</div>` : ''}
+  </section>
+  ${compositionSec}
+  ${tokens.length ? `<section class="sec" id="tokens">
+    <div class="sec-head"><div><h2 class="h2">${L.tokens_h} <span class="n">${groupThousands(String(tokens.length))}</span></h2>
+      <p class="sec-p">${L.opens_card}${unpricedN ? ' · ' + L.wallet_priced_note(unpricedN) : ''}${thinN ? ' · ' + esc(L.wallet_thin_note(thinN)) : ''}</p></div></div>
+    <div class="flat"><table class="tok-table"><thead><tr><th>${L.th_name}</th><th class="num">${L.th_qty}</th><th class="num">${L.price_w}</th><th class="num">${L.value_w}</th></tr></thead><tbody>${tokenRows}</tbody></table></div>
+    ${tokens.length > TOKENS_COLLAPSED ? `<button class="btn flat-more" data-toggle-tokens data-full="${L.show_all} ${tokens.length} ${L.tokens_w}" type="button">${icons.down}<span data-label>${L.show_all} ${tokens.length} ${L.tokens_w}</span></button>` : ''}
+  </section>` : ''}
   <div data-stake></div>
   <div data-rent></div>
-  <div class="card">
-    <div class="card-pad chips" style="padding-bottom:0">
-      <button class="chip" aria-pressed="true" data-mov="all" type="button">${L.mov_all}</button>
-      <button class="chip" aria-pressed="false" data-mov="in" type="button">${L.mov_in}</button>
-      <button class="chip" aria-pressed="false" data-mov="out" type="button">${L.mov_out}</button>
-      <span class="dim t-cap">${L.mov_note}</span>
-      <span class="grow"></span>
-      <button class="btn" data-export="${esc(addr)}" type="button">${icons.down}<span data-export-label>${L.export_csv}</span></button>
+  <section class="sec" id="movements">
+    <div class="sec-head">
+      <div><h2 class="h2">${L.movements} <span class="n">${groupThousands(String(txs.total))}</span></h2>
+        <p class="sec-p">${L.mov_p}</p></div>
+      <div class="sec-r">
+        <div class="chips">
+          <button class="chip" aria-pressed="true" data-mov="all" type="button">${L.mov_all}</button>
+          <button class="chip" aria-pressed="false" data-mov="in" type="button">${L.mov_in}</button>
+          <button class="chip" aria-pressed="false" data-mov="out" type="button">${L.mov_out}</button>
+        </div>
+        <button class="btn" data-export="${esc(addr)}" type="button">${icons.down}<span data-export-label>${L.export_csv}</span></button>
+      </div>
     </div>
-    <table>
-      <thead><tr><th style="width:130px">${L.th_when}</th><th>${L.th_mov}</th><th class="num" style="width:190px">${L.th_net}</th></tr></thead>
+    <div class="flat"><table class="mov-table">
+      <thead><tr><th style="width:120px">${L.th_when}</th><th>${L.th_mov}</th><th class="num" style="width:200px">${L.th_net}</th></tr></thead>
       <tbody>${rows || `<tr><td colspan="3" class="dim">${L.no_movements}</td></tr>`}</tbody>
-    </table>
-    <div class="pager">
-      <span><strong>${groupThousands(String(txs.total))}</strong> ${L.movements.toLowerCase()}
-        <span class="dim">· ${L.page_k} ${page} ${L.of} ${groupThousands(String(pages))}</span></span>
+    </table></div>
+    <div class="pager pager-flat">
+      <span><span class="dim">${L.mov_note} · ${L.page_k} ${page} ${L.of} ${groupThousands(String(pages))}</span></span>
       <span style="display:flex;gap:10px">
         <button data-nav="#/address/${esc(addr)}/${Math.max(0, offset - PAGE)}" ${offset === 0 ? 'disabled' : ''}>${L.more_recent}</button>
         <button data-nav="#/address/${esc(addr)}/${offset + PAGE}" ${offset + PAGE >= txs.total ? 'disabled' : ''}>${L.older}</button>
       </span>
     </div>
-  </div>`
+  </section>
+</div>`
 }
 
 /* ---------------- affitto di deposito (storage rent) ---------------- */
@@ -324,9 +354,9 @@ export async function mountRentCheck(addr: string, gen?: number): Promise<void> 
       ? L.rent_warn(paying, formatErg(RENT.typicalBoxNano, 2))
       : L.rent_soon(soon)
     const partial = total > heights.length ? ` <span class="dim">(${L.rent_partial(groupThousands(String(heights.length)), groupThousands(String(total)))})</span>` : ''
-    slot.outerHTML = `<div class="card"><div class="card-head"><h2>${L.rent_h}</h2><p>${esc(L.rent_p)}</p></div>
-      <div class="card-pad" style="padding-top:0"><div class="check"><span class="sig ${paying ? 'warn' : 'info'}">${paying ? '⚠' : '·'}</span>
-      <span>${esc(line)}${partial}</span></div></div></div>`
+    slot.outerHTML = `<section class="sec"><div class="sec-head"><div><h2 class="h2">${L.rent_h}</h2><p class="sec-p">${esc(L.rent_p)}</p></div></div>
+      <div class="check"><span class="sig ${paying ? 'warn' : 'info'}">${paying ? '⚠' : '·'}</span>
+      <span>${esc(line)}${partial}</span></div></section>`
   } catch { /* niente da dire: la card semplicemente non appare */ }
 }
 
