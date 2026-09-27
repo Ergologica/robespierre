@@ -136,13 +136,19 @@ const txIds = (await pool(headers, CONC, async h => {
 process.stderr.write(`transazioni: ${txIds.length}\n`)
 
 /* ---- 2. ogni transazione per intero (servono gli asset degli input) ---- */
-const txs = await pool(txIds, CONC, async id => {
+// Una transazione che non si scarica (l'API a volte risponde 503 anche dopo i tentativi) non
+// ferma la misura, ma si conta e si DICHIARA: la copertura è calcolata su quelle scaricate.
+let skipped = 0
+const txs = (await pool(txIds, CONC, async id => {
   const f = join(CACHE, `t-${id}.json`)
   if (existsSync(f)) return JSON.parse(readFileSync(f, 'utf8')) as Tx
-  const t = await get<Tx>(`/transactions/${id}`)
-  writeFileSync(f, JSON.stringify(t))
-  return t
-})
+  try {
+    const t = await get<Tx>(`/transactions/${id}`)
+    writeFileSync(f, JSON.stringify(t))
+    return t
+  } catch (e) { skipped++; process.stderr.write(`  saltata ${id}: ${(e as Error).message}\n`); return null }
+})).filter((t): t is Tx => t !== null)
+if (skipped > txIds.length * 0.02) throw new Error(`troppe transazioni non scaricate (${skipped}): misura non pubblicata`)
 
 /* ---- 3. decodifica e raggruppamento ---- */
 const label = (a: string): string | null => {
@@ -213,20 +219,28 @@ for (const [t, e] of perT.slice(0, 20)) {
 }
 
 mkdirSync('data', { recursive: true })
+// Due numeri, non uno. Oracoli e mining sono l'80% del traffico e si riconoscono con poco:
+// da solo il totale diventerebbe un numero di vetrina. Il secondo conta solo il resto —
+// tutto quello che NON è stato riconosciuto come mining od oracolo.
+const infraKinds = [...byKind].filter(([k]) => k.startsWith('mining-') || k.startsWith('oracle-'))
+const infra = infraKinds.reduce((s, [, n]) => s + n, 0)
+const summary = { total, recognized, infra, rest: total - infra, restRecognized: recognized - infra, skipped }
+console.log(`\nescluse mining e oracoli: ${summary.restRecognized} su ${summary.rest} (${(100 * summary.restRecognized / summary.rest).toFixed(1).replace('.', ',')}%)`)
+
+const short = (a: string | null) => a && a.length > 24 ? a.slice(0, 24) + '…' : a
 writeFileSync('data/coverage.json', JSON.stringify({
   measuredAt: new Date().toISOString(),
   blocks: { from: bottom, to: top, count: headers.length },
-  transactions: total,
-  recognized,
+  summary,
   byKind: Object.fromEntries([...byKind].sort((a, b) => b[1] - a[1])),
-  // solo contratti e transazioni d'esempio: niente indirizzi personali (P2PK)
-  byContract: perT.slice(0, 40).map(([t, e]) => ({
-    template: t, txs: e.txs, names: [...e.names], sampleContract: e.sample || null,
+  // solo contratti (accorciati) e transazioni d'esempio: niente indirizzi personali (P2PK)
+  byContract: perT.slice(0, 20).map(([t, e]) => ({
+    template: t, txs: e.txs, names: [...e.names], sampleContract: short(e.sample || null),
     distinctAddresses: e.addresses.size, exampleTx: e.example,
   })),
-  unrecognized: ranking.slice(0, 40).map(g => ({
+  unrecognized: ranking.slice(0, 20).map(g => ({
     side: g.side, txs: g.txs, template: g.key.split(':')[1],
-    names: [...g.names], sampleContract: isP2PK(g.sample) ? null : g.sample || null,
+    names: [...g.names], sampleContract: isP2PK(g.sample) ? null : short(g.sample || null),
     distinctAddresses: g.addresses.size, exampleTx: g.example,
   })),
 }, null, 2) + '\n')
