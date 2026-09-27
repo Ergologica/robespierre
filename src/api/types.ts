@@ -11,6 +11,9 @@ export interface BoxLike {
   spentTransactionId?: string | null
   /** presente su /boxes/{id}: la transazione che ha creato il box */
   transactionId?: string
+  /** l'albero del contratto, in esadecimale: serve a riconoscere un contratto che ha un
+   *  indirizzo diverso per ogni utente (es. le ricompense dei minatori) */
+  ergoTree?: string
 }
 
 export interface Tx {

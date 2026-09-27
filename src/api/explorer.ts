@@ -236,3 +236,18 @@ export async function protocolsLog(): Promise<ProtocolPoint[] | null> {
     return r.ok ? await r.json() : null
   } catch { return null }
 }
+
+/** La copertura del decodificatore, misurata da scripts/coverage.ts (settimanale). */
+export interface CoverageSummary {
+  measuredAt: string
+  blocks: { from: number; to: number; count: number }
+  summary: { total: number; recognized: number; infra: number; rest: number; restRecognized: number }
+}
+export async function coverageSummary(): Promise<CoverageSummary | null> {
+  try {
+    const r = await fetch(`${RAW_DATA}/coverage.json`, { cache: 'no-store' })
+    if (!r.ok) return null
+    const j = await r.json() as CoverageSummary
+    return j.summary && j.summary.total > 0 && j.summary.rest > 0 ? j : null   // il vecchio formato non ha summary: si tace
+  } catch { return null }
+}
