@@ -348,7 +348,7 @@ describe('formato dei prezzi', () => {
   })
   it('cifre sensate secondo la grandezza, zeri finali via, mai notazione scientifica', () => {
     expect(fmtPrice(0.269528)).toBe('0,269528')
-    expect(fmtPrice(1234.5)).toBe('1234,5')
+    expect(fmtPrice(1234.5)).toBe('1.234,5')          // le migliaia si separano: «95051,04 $» non si leggeva
     expect(fmtPrice(0.000001234)).toBe('0,000001234')
     expect(fmtPrice(2)).toBe('2')
     expect(fmtPrice(3.5e-7)).not.toContain('e')
