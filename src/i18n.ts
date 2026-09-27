@@ -132,6 +132,35 @@ const it = {
   dec_redeem_rsv: (amt: string, erg: string) => `SigmaUSD: riscatto di ${amt} per ${erg}`,
   dec_rosen_in: (amt: string, tok: string, to: string) => `Rosen Bridge: arrivo di ${amt}${tok} a ${to}`,
   dec_rosen_out: (amt: string) => `Verso Rosen Bridge: ${amt} al hot wallet del bridge`,
+  dec_emission: (h: string, erg: string, re: string | null) => re
+    ? `Emissione: ricompensa del blocco ${h} — ${erg} al minatore, di cui ${re} vincolati alla ri-emissione (EIP-27)`
+    : `Emissione: ricompensa del blocco ${h} — ${erg} al minatore`,
+  dec_fees: (erg: string, n: number) => `Il minatore raccoglie le commissioni del blocco: ${erg} da ${n} ${n === 1 ? 'commissione' : 'commissioni'}`,
+  dec_reward: (erg: string, n: number, re: string | null, to: number) =>
+    `Il minatore incassa ${n === 1 ? 'una ricompensa matura' : n + ' ricompense mature'}: ${erg}`
+    + (re ? `, di cui ${re} versati alla ri-emissione (EIP-27)` : '')
+    + (to > 2 ? (re ? `, e invia il resto a ${to} indirizzi` : `, e li invia a ${to} indirizzi`) : ''),
+  dec_reemission: (n: number, erg: string) => `Ri-emissione (EIP-27): ${n} ${n === 1 ? 'versamento' : 'versamenti'} dei minatori, ${erg} entrano nel contratto`,
+  tag_mining: 'Mining', tag_oracle: 'Oracolo',
+  cov_h: 'Quanto spiega il decodificatore',
+  cov_p: 'Le transazioni degli ultimi 1.000 blocchi che Robespierre sa raccontare in una riga. Le altre restano come sono: dati, senza interpretazione.',
+  cov_all: 'Tutte le transazioni', cov_rest: 'Escluse mining e oracoli',
+  cov_all_s: (a: string, b: string) => `${a} su ${b}`,
+  cov_rest_s: (a: string, b: string) => `${a} su ${b}: il numero che conta`,
+  cov_note: (from: string, to: string, day: string) => `Blocchi ${from}–${to}, misura del ${day}, ripetuta ogni settimana. Mining e oracoli sono quasi l'80% del traffico e si riconoscono facilmente: per questo il secondo numero li lascia fuori.`,
+  oracle_usd_name: 'Oracolo ERG/USD (pool v2)',
+  oracle_gold_name: 'Oracolo oro (pool v2)',
+  oracle_v1_name: 'Oracolo ERG/USD di SigmaUSD (pool v1)',
+  dec_oracle_datapoint: (name: string, price: string | null) => price
+    ? `${name}: un operatore pubblica il prezzo, 1 ERG = ${price}`
+    : `${name}: un operatore pubblica un nuovo prezzo`,
+  dec_oracle_refresh: (name: string, price: string | null, n: number) => price
+    ? `${name}: nuovo prezzo di riferimento, 1 ERG = ${price}, da ${n} operatori`
+    : `${name}: nuovo prezzo di riferimento, da ${n} operatori`,
+  dec_oracle_v1_collect: (price: string | null, n: number) => price
+    ? `Oracolo ERG/USD di SigmaUSD (pool v1): chiusura dell'epoca, nuovo prezzo 1 ERG = ${price} da ${n} operatori`
+    : `Oracolo ERG/USD di SigmaUSD (pool v1): chiusura dell'epoca, da ${n} operatori`,
+  dec_oracle_v1_epoch: 'Oracolo ERG/USD di SigmaUSD (pool v1): si apre una nuova epoca di raccolta dei prezzi',
   // mercati e lista token
   nav_markets: 'Mercati', nav_tokens: 'Token',
   mk_h: 'Mercati', mk_p: 'Prezzi dai pool di Spectrum (per ogni token, il pool col volume storico maggiore). Indicativi per natura: la profondità dei pool è quella che è.',
@@ -311,6 +340,35 @@ const en: Dict = {
   dec_redeem_rsv: (amt: string, erg: string) => `SigmaUSD: redemption of ${amt} for ${erg}`,
   dec_rosen_in: (amt: string, tok: string, to: string) => `Rosen Bridge: arrival of ${amt}${tok} to ${to}`,
   dec_rosen_out: (amt: string) => `To Rosen Bridge: ${amt} to the bridge hot wallet`,
+  dec_emission: (h: string, erg: string, re: string | null) => re
+    ? `Emission: reward for block ${h} — ${erg} to the miner, of which ${re} bound to re-emission (EIP-27)`
+    : `Emission: reward for block ${h} — ${erg} to the miner`,
+  dec_fees: (erg: string, n: number) => `The miner collects the block's fees: ${erg} from ${n} ${n === 1 ? 'fee' : 'fees'}`,
+  dec_reward: (erg: string, n: number, re: string | null, to: number) =>
+    `The miner collects ${n === 1 ? 'a matured reward' : n + ' matured rewards'}: ${erg}`
+    + (re ? `, of which ${re} paid into re-emission (EIP-27)` : '')
+    + (to > 2 ? (re ? `, the rest sent on to ${to} addresses` : `, sent on to ${to} addresses`) : ''),
+  dec_reemission: (n: number, erg: string) => `Re-emission (EIP-27): ${n} miner ${n === 1 ? 'payment' : 'payments'}, ${erg} enter the contract`,
+  tag_mining: 'Mining', tag_oracle: 'Oracle',
+  cov_h: 'How much the decoder explains',
+  cov_p: 'The transactions of the last 1,000 blocks that Robespierre can tell in one line. The rest stay as they are: data, without interpretation.',
+  cov_all: 'All transactions', cov_rest: 'Excluding mining and oracles',
+  cov_all_s: (a: string, b: string) => `${a} of ${b}`,
+  cov_rest_s: (a: string, b: string) => `${a} of ${b}: the number that matters`,
+  cov_note: (from: string, to: string, day: string) => `Blocks ${from}–${to}, measured on ${day}, repeated every week. Mining and oracles are almost 80% of the traffic and are easy to recognize: that is why the second number leaves them out.`,
+  oracle_usd_name: 'ERG/USD oracle (pool v2)',
+  oracle_gold_name: 'Gold oracle (pool v2)',
+  oracle_v1_name: 'SigmaUSD ERG/USD oracle (pool v1)',
+  dec_oracle_datapoint: (name: string, price: string | null) => price
+    ? `${name}: an operator publishes the price, 1 ERG = ${price}`
+    : `${name}: an operator publishes a new price`,
+  dec_oracle_refresh: (name: string, price: string | null, n: number) => price
+    ? `${name}: new reference price, 1 ERG = ${price}, from ${n} operators`
+    : `${name}: new reference price, from ${n} operators`,
+  dec_oracle_v1_collect: (price: string | null, n: number) => price
+    ? `SigmaUSD ERG/USD oracle (pool v1): epoch closed, new price 1 ERG = ${price} from ${n} operators`
+    : `SigmaUSD ERG/USD oracle (pool v1): epoch closed, from ${n} operators`,
+  dec_oracle_v1_epoch: 'SigmaUSD ERG/USD oracle (pool v1): a new price-collection epoch opens',
   nav_markets: 'Markets', nav_tokens: 'Tokens',
   mk_h: 'Markets', mk_p: 'Prices from Spectrum pools (per token, the pool with the highest historical volume). Indicative by nature: pool depth is what it is.',
   mk_note: 'Volume 24h = trades in the last 24 hours in the chosen pool; empty = no trade in the window. ERG is priced by CoinGecko.',
