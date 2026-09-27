@@ -7,6 +7,8 @@ import { icons } from '../icons'
 import { L } from '../i18n'
 import type { SchemaNode } from '../charts'
 import { formatErg, formatTokenAmount, groupThousands, relativeTime, isoUtc, shortId , formatPct } from '../lib/format'
+import { txMovement } from '../lib/movement'
+import type { Movement } from '../lib/movement'
 import type { BoxLike } from '../api/types'
 
 const MAX_TOKENS_SHOWN = 8
@@ -32,24 +34,27 @@ function partyName(addr: string): string {
   return labelOf(addr) ?? shortId(addr, 10)
 }
 
-/** Il flusso mittente → destinatario, aggregato. Solo quando la lettura è affidabile. */
-function flowCard(tx: import('../api/types').Tx): string {
-  const inputAddrs = new Set(tx.inputs.map(i => i.address))
-  const recipients = tx.outputs.filter(o => o.address !== FEE_ADDRESS && !inputAddrs.has(o.address))
-  if (!recipients.length) return ''
-  const main = recipients.reduce((a, b) => (BigInt(a.value) >= BigInt(b.value) ? a : b))
-  const from = tx.inputs.reduce((a, b) => (BigInt(a.value) >= BigInt(b.value) ? a : b))
-  const toTokens = (main.assets ?? []).slice(0, 3)
-  const amount = BigInt(main.value)
+/** Il flusso mittente → destinatario, dai SALDI per indirizzo. Solo quando è chiaro.
+ *  Prima si prendeva «il box in uscita più grosso verso un indirizzo nuovo»: su una
+ *  transazione con contratti quello è spesso un resto da 0,02 ERG, e la pagina lo
+ *  presentava come il destinatario. Se i saldi non indicano un pagante e un
+ *  ricevente dominanti, qui non si disegna niente: tacere è previsto. */
+function flowCard(m: Movement): string {
+  if (!m.clear || !m.payer || !m.receiver) return ''
+  const chip = (t: { tokenId: string; name: string | null; decimals: number; amount: bigint }) =>
+    `<span class="tokchip">${esc(formatTokenAmount(t.amount, t.decimals))} <a href="#/token/${esc(t.tokenId)}">${esc(t.name || shortId(t.tokenId, 8))}</a></span>`
+  const toks = m.receiverTokens.slice(0, 3).map(chip).join('')
+    + (m.receiverTokens.length > 3 ? `<span class="tokchip">+${m.receiverTokens.length - 3} ${L.other_tokens}</span>` : '')
+  const erg = m.ergMoved > 0n ? formatErg(m.ergMoved, 2) : null
   return `<div class="card"><div class="flow">
     <div class="party"><div class="role">${L.from}</div>
-      <div class="pname">${esc(partyName(from.address))}</div>
-      <div class="amt out">−${formatErg(amount, 2)}</div></div>
+      <div class="pname">${esc(partyName(m.payer))}</div>
+      ${erg ? `<div class="amt out">−${erg}</div>` : ''}</div>
     <div class="arrow">→</div>
     <div class="party"><div class="role">${L.to}</div>
-      <div class="pname">${addrLink(main.address)}</div>
-      <div class="amt in">+${formatErg(amount, 2)}</div>
-      <div>${toTokens.map(a => `<span class="tokchip">${esc(formatTokenAmount(BigInt(a.amount), a.decimals ?? 0))} <a href="#/token/${esc(a.tokenId)}">${esc(a.name?.trim() || shortId(a.tokenId, 8))}</a></span>`).join('')}${(main.assets ?? []).length > 3 ? `<span class="tokchip">+${(main.assets ?? []).length - 3} altri</span>` : ''}</div></div>
+      <div class="pname">${addrLink(m.receiver)}</div>
+      ${erg ? `<div class="amt in">+${erg}</div>` : ''}
+      <div>${toks}</div></div>
   </div></div>`
 }
 
@@ -95,15 +100,7 @@ export async function txView(id: string): Promise<string> {
   const decoded = decode(tx)
   const hasContract = [...tx.inputs, ...tx.outputs].some(b => !b.address.startsWith('9') && b.address !== FEE_ADDRESS)
 
-  const totalOut = tx.outputs.reduce((s, o) => s + BigInt(o.value), 0n)
-  const fee = tx.outputs.filter(o => o.address === FEE_ADDRESS).reduce((s, o) => s + BigInt(o.value), 0n)
-  // contano i token DIRETTI a destinatari: quelli nel box di resto non si sono "spostati"
-  const inputAddrs = new Set(tx.inputs.map(i => i.address))
-  const tokenIds = new Set(
-    tx.outputs
-      .filter(o => o.address !== FEE_ADDRESS && !inputAddrs.has(o.address))
-      .flatMap(o => (o.assets ?? []).map(a => a.tokenId)),
-  )
+  const mov = txMovement(tx, FEE_ADDRESS)
   const conf = tx.numConfirmations ?? 0
 
   const headline = decoded
@@ -128,15 +125,17 @@ export async function txView(id: string): Promise<string> {
       <a class="btn-link" href="https://explorer.ergoplatform.com/en/transactions/${esc(id)}" target="_blank" rel="noopener">${icons.ext}${L.official_explorer}</a></div>
     ${headline}
     <div class="tiles" style="margin-top:14px">
-      <div><div class="k"><span class="help" title="${esc(L.out_total_tip)}">${L.out_total}</span></div><div class="v">${formatErg(totalOut)}</div>
-        <div class="s">${L.out_total_s}</div></div>
-      <div><div class="k">${L.tokens_moved}</div><div class="v">${tokenIds.size} ${tokenIds.size === 1 ? L.kind_one : L.kind_many}</div><div class="s">&nbsp;</div></div>
-      <div><div class="k">${L.fee}</div><div class="v">${formatErg(fee)}</div><div class="s">&nbsp;</div></div>
+      <div class="tile-hero"><div class="k"><span class="help" title="${esc(L.moved_tip)}">${L.moved}</span></div>
+        <div class="v">${formatErg(mov.ergMoved)}</div>
+        <div class="s">${esc(L.of_which_out(formatErg(mov.totalOut)))}</div></div>
+      <div><div class="k">${L.tokens_moved}</div><div class="v">${mov.tokens.length} ${mov.tokens.length === 1 ? L.kind_one : L.kind_many}</div>
+        <div class="s">${mov.tokens.length ? esc(formatTokenAmount(mov.tokens[0]!.amount, mov.tokens[0]!.decimals) + ' ' + (mov.tokens[0]!.name || shortId(mov.tokens[0]!.tokenId, 6))) : '&nbsp;'}</div></div>
+      <div><div class="k">${L.fee}</div><div class="v">${formatErg(mov.fee)}</div><div class="s">&nbsp;</div></div>
       <div><div class="k">${L.block}</div><div class="v">${tx.inclusionHeight ? groupThousands(String(tx.inclusionHeight)) : '—'}</div>
         <div class="s">${tx.size ? formatPct(tx.size / 1024) + ' kB' : ''}</div></div>
     </div>
   </div>
-  ${flowCard(tx)}
+  ${flowCard(mov)}
   <div class="card">
     <div class="card-head"><h2>${L.schema_h}</h2>
       <p>${L.schema_p}</p></div>
