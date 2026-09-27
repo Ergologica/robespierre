@@ -71,7 +71,7 @@ describe.skipIf(!LIVE)('pagine dal vivo (mainnet)', () => {
     const html = await addressView('9gnhfapSW2RtUYXR7DukoaSZfZpNazzcuyUhay5mjBW91qHS345')
     writeFileSync('.live-out/address.html', html)
     expect(html).toMatch(/Movimenti/)
-    expect(html).toMatch(/\d{1,3}(\.\d{3})*<\/strong> movimenti/) // conteggio reale, non "1 of 77"
+    expect(html).toMatch(/\d{1,3}(\.\d{3})* movimenti, l’ultimo/) // conteggio reale, non "1 of 77"
     // Le righe devono avere una controparte: un indirizzo accorciato, un'etichetta
     // dell'address book o un tag di protocollo. Prima il test cercava «Rosen Bridge»
     // e basta: ha smesso di passare non perché il sito fosse rotto, ma perché in un
@@ -154,6 +154,27 @@ describe.skipIf(!LIVE)('pagine dal vivo (mainnet)', () => {
     expect(html).toContain('nei box in uscita')     // il totale enorme resta, come contesto dichiarato
     // il valore mosso è quello della frase, non il contenuto della banca
     expect(html).toMatch(/Valore mosso<\/span>[^]{0,200}?93[0-9],[0-9]+ ERG/)
+  })
+
+  /* L'API ignora minHeight/maxHeight e restituisce gli ultimi blocchi: la pagina di
+     un'altezza mostrava il blocco più recente. Deve essere QUEL blocco, o nessuno. */
+  it('blocco per altezza: è quello chiesto, non l’ultimo', async () => {
+    const { api } = await import('../api/explorer')
+    const b = await api.blockAt(1_882_300)
+    expect(b?.block.header.height).toBe(1_882_300)
+    expect(b?.block.header.id.startsWith('85045b9b3e')).toBe(true)
+    const h = await api.headerAt(1_882_300)
+    expect(h?.id).toBe(b?.block.header.id)
+    expect(h?.miner?.name).toBeTruthy()
+  })
+
+  /* La ricerca per nome dell'API distingue le maiuscole: la pagella di COMET diceva
+     «nessun altro token usa questo nome» mentre esistevano dei «Comet». */
+  it('omonimi: la ricerca per nome non dipende dalle maiuscole', async () => {
+    const { tokenSearchAnyCase } = await import('../api/explorer')
+    const { countHomonyms } = await import('../views/token')
+    const r = await tokenSearchAnyCase('comet')
+    expect(countHomonyms(r.items, 'COMET', '0cd8c9f416e5b1ca9f986a7f10a84191dfb85941619e49e53c0dc30ebf83324b')).toBeGreaterThanOrEqual(2)
   })
 
   /* Il racconto deve dire la stessa cifra della frase. Prima no (27/09): sulla tx
