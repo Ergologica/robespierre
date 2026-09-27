@@ -46,7 +46,8 @@ for (const h of ['api.ergoplatform.com', 'api.spectrum.fi', 'api.coingecko.com',
     try { const q = await fetch(url); return r.fulfill({ status: q.status, body: await q.text(), contentType: 'application/json' }) }
     catch { return r.fulfill({ status: 500, body: '{}' , contentType: 'application/json'}) }
   })
-const PAGINE = ['#/', '#/mercati', '#/protocolli', '#/mempool',
+const PAGINE = ['#/', '#/mercati', '#/protocolli', '#/mempool', '#/tokens',
+  '#/block/1882300',                                                                 // per altezza: deve essere QUEL blocco
   '#/tx/3dec9ae3d71ae9fec22bfe6cfc85c7872d32788242cfbe5014fe390d21aa650c',          // riscatto SigmaUSD: frase, libro mastro, resto
   '#/tx/e06697e0e08c2dc69db3b0fb75e89f3bc665e1c79316657a33c4e7c521bfdca3/schema',   // arrivo Rosen, 57 output: lo schema UTXO
   '#/token/0cd8c9f416e5b1ca9f986a7f10a84191dfb85941619e49e53c0dc30ebf83324b',
