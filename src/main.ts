@@ -1,5 +1,6 @@
 import './style.css'
 import { icons } from './icons'
+import { errorBox } from './views/errorbox'
 import { netView, mountNetCharts } from './views/net'
 import { networkStats } from './api/explorer'
 import { txView, mountTxSchema } from './views/tx'
@@ -109,10 +110,7 @@ async function route() {
       <p class="muted"><span class="mono">${esc(hash)}</span></p></div>`)
   } catch (e) {
     if (!isCurrent(gen)) return              // errore di una pagina abbandonata: non disturba
-    app.innerHTML = `<div class="errorbox"><h2>${L.err_title}</h2>
-      <p class="muted">${esc(e instanceof Error ? e.message : String(e))}</p>
-      <p class="dim">${L.err_hint}</p>
-      <p><button class="btn" data-retry type="button">${icons.net}${L.retry}</button></p></div>`
+    app.innerHTML = errorBox(e, head ?? '', hash)
   }
   if (isCurrent(gen)) { applyMode(); markCurrentNav(head ?? "") }
 }
