@@ -1,16 +1,21 @@
 import type { NetworkInfo, BlockHeader, Tx, AddressBalance, Paged, TokenInfo, BoxLike, FullBlock } from './types'
+import { FALLBACK_BASE, fallbackAllowed, worthFallingBack, errorInBody, isPhantomTx, adaptFallback } from './fallback'
 
 /**
  * Client dell'Explorer API.
- * - lista di basi con scorrimento al primo errore (un explorer che muore
- *   quando muore la sua fonte non è un explorer);
+ * - fonte principale l'Explorer API ufficiale; se non risponde (rete, 5xx, 429, 15 s),
+ *   ripiego su sigmaspace SOLO per gli endpoint dove la misura del 27/09/2026 ha trovato
+ *   gli stessi valori (vedi fallback.ts). Un 404 o un 400 sono risposte: niente ripiego;
  * - cache in memoria con TTL, per non rifare la stessa chiamata
  *   durante la stessa visita.
  */
-const BASES = [
-  'https://api.ergoplatform.com/api/v1',
-  // aggiungere qui eventuali mirror/nodi propri
-]
+const PRIMARY = 'https://api.ergoplatform.com/api/v1'
+// La riserva (sigmaspace) vive in fallback.ts, con la lista degli endpoint dove si può usare
+// e le guardie per le sue due trappole. Qui si decide solo QUANDO chiamarla.
+
+/** Le risposte arrivate dalla riserva, per dirlo in pagina (WeakMap: niente campi aggiunti ai dati). */
+const fromReserve = new WeakSet<object>()
+export const cameFromFallback = (x: unknown): boolean => !!x && typeof x === 'object' && fromReserve.has(x)
 
 const cache = new Map<string, { at: number; data: unknown }>()
 const TTL_MS = 30_000
@@ -37,20 +42,38 @@ export class ApiError extends Error {
 async function get<T>(path: string, ttl = TTL_MS): Promise<T> {
   const hit = cache.get(path)
   if (hit && Date.now() - hit.at < ttl) return hit.data as T
-  let lastErr: unknown
-  for (const base of BASES) {
-    try {
-      const r = await fetch(base + path)
-      if (!r.ok) {
-        const reason = await r.text().then(t => { try { return JSON.parse(t).reason as string } catch { return undefined } }).catch(() => undefined)
-        throw new ApiError(r.status, path, reason)
-      }
+
+  const reserve = fallbackAllowed(path)
+  let primaryErr: unknown, status: number | null = null
+  try {
+    // con una riserva disponibile non si aspetta all'infinito: 15 secondi, poi si ripiega
+    const r = await fetch(PRIMARY + path, reserve ? { signal: AbortSignal.timeout(15_000) } : undefined)
+    if (r.ok) {
       const data = (await r.json()) as T
       cache.set(path, { at: Date.now(), data })
       return data
-    } catch (e) { lastErr = e }
+    }
+    status = r.status
+    const reason = await r.text().then(t => { try { return JSON.parse(t).reason as string } catch { return undefined } }).catch(() => undefined)
+    primaryErr = new ApiError(r.status, path, reason)
+  } catch (e) { primaryErr = e }
+
+  if (!reserve || !worthFallingBack(status)) throw primaryErr instanceof Error ? primaryErr : new Error(String(primaryErr))
+  try {
+    const r = await fetch(FALLBACK_BASE + path, { signal: AbortSignal.timeout(15_000) })
+    const body = await r.json() as unknown
+    const inBody = errorInBody(body)
+    if (!r.ok || inBody) throw new ApiError(inBody?.status ?? r.status, path, inBody?.reason)
+    if (/^\/transactions\//.test(path) && isPhantomTx(body)) throw new ApiError(404, path, 'transazione a zero dalla fonte di riserva')
+    const data = adaptFallback(path, body) as T
+    fromReserve.add(data as object)
+    cache.set(path, { at: Date.now(), data })
+    return data
+  } catch (e) {
+    // una risposta certa della riserva (404, id malformato) vale; un suo guasto no: resta l'errore di prima
+    if (e instanceof ApiError) throw e
+    throw primaryErr instanceof Error ? primaryErr : new Error(String(primaryErr))
   }
-  throw lastErr instanceof Error ? lastErr : new Error(String(lastErr))
 }
 
 export const api = {

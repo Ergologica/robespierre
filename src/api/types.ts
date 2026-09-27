@@ -24,6 +24,9 @@ export interface Tx {
   size?: number
   inputs: BoxLike[]
   outputs: BoxLike[]
+  /** vero quando la transazione arriva dalla fonte di riserva: i suoi output non dicono
+   *  se sono stati spesi, e la pagina non deve scrivere «non speso» */
+  spentUnknown?: boolean
 }
 
 export interface NetworkInfo { lastBlockId: string; height: number }
