@@ -60,6 +60,18 @@ for (const w of [1180, 390]) {
       await page.waitForTimeout(1500)
       const bad = await page.evaluate(() => {
         const out = []
+        // Ogni voce del menu deve essere raggiungibile SENZA scoprire che si
+        // scorre: a 390 px se ne vedevano due su quattro e «Protocolli» — la
+        // pagina più utile del sito — non compariva su nessun telefono.
+        const nav = document.querySelector('.topnav')
+        if (nav) {
+          const nr = nav.getBoundingClientRect()
+          for (const a of nav.querySelectorAll('a')) {
+            const r = a.getBoundingClientRect()
+            if (r.left < nr.left - 1 || r.right > nr.right + 1)
+              out.push(`voce di menu fuori vista: «${a.innerText.trim()}»`)
+          }
+        }
         for (const s of document.querySelectorAll('svg')) {
           const vb = s.viewBox.baseVal; if (!vb.width) continue
           for (const el of s.querySelectorAll('text')) {
