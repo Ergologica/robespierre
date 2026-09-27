@@ -4,6 +4,8 @@ import { simpleTransfer } from './recognizers/simple-transfer'
 import { sigmaUsd } from './recognizers/sigmausd'
 import { spectrumN2T } from './recognizers/spectrum-n2t'
 import { rosenBridge } from './recognizers/rosen-bridge'
+import { mining } from './recognizers/mining'
+import { oracle } from './recognizers/oracle'
 
 /**
  * Il motore: prova i riconoscitori in ordine, si ferma al primo che risponde.
@@ -13,6 +15,8 @@ import { rosenBridge } from './recognizers/rosen-bridge'
  */
 const RECOGNIZERS: Recognizer[] = [
   sigmaUsd,          // Bank NFT nel box: il più specifico
+  oracle,            // NFT e gettoni dei pool oracolo (v1 e v2)
+  mining,            // NFT dell'emissione e della ri-emissione, forma del contratto delle ricompense
   spectrumN2T,       // contratto condiviso dei pool N2T
   rosenBridge,       // hot wallet etichettato
   simpleTransfer,    // sempre ultimo: è il caso generico

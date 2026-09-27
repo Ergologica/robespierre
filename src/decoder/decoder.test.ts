@@ -747,3 +747,130 @@ describe('flusso: la differenza fra i due lati ha sempre un nome', () => {
     expect(m.receiverIn + m.othersIn).toBe(m.ergMoved)
   })
 })
+
+/* ---------------- mining e oracoli: l'80% del traffico, finalmente spiegato ---------------- */
+// Misura del 27/09/2026 su 1.000 blocchi: oracoli 46,2%, mining 32,2%. Tutte fixture reali.
+import { mining, isMinerReward } from './recognizers/mining'
+import { oracle } from './recognizers/oracle'
+import { decodeLong, longReg } from './regs'
+import mEmission from './fixtures/mining-emission.json'
+import mFees from './fixtures/mining-fees.json'
+import mReward from './fixtures/mining-reward.json'
+import mPayout from './fixtures/mining-payout.json'
+import mReem from './fixtures/mining-reemission.json'
+import oUsdDp from './fixtures/oracle-usd-datapoint.json'
+import oUsdRef from './fixtures/oracle-usd-refresh.json'
+import oGoldDp from './fixtures/oracle-gold-datapoint.json'
+import oGoldRef from './fixtures/oracle-gold-refresh.json'
+import oV1Dp from './fixtures/oracle-v1-datapoint.json'
+import oV1Col from './fixtures/oracle-v1-collect.json'
+import oV1Ep from './fixtures/oracle-v1-epoch.json'
+
+const dec = (fx: unknown) => decode(fx as Tx)
+const clone = <T>(x: T): T => JSON.parse(JSON.stringify(x))
+
+describe('mining: le transazioni che fa la rete da sola', () => {
+  it('emissione: 12 ERG al minatore, 9 vincolati alla ri-emissione, col numero del blocco', () => {
+    const d = dec(mEmission)!
+    expect(d.kind).toBe('mining-emission')
+    expect(d.headline).toContain('blocco 1.881.538')
+    expect(d.headline).toContain('12 ERG al minatore')
+    expect(d.headline).toContain('9 ERG vincolati alla ri-emissione')
+    expect(d.confidence).toBe('certa')
+  })
+  it('commissioni: tutti gli input nel contratto delle commissioni, un solo output alla ricompensa', () => {
+    const d = dec(mFees)!
+    expect(d.kind).toBe('mining-fees')
+    expect(d.headline).toContain('1 commissione')
+  })
+  it('incasso semplice: ricompense senza gettoni di ri-emissione, niente versamento da dichiarare', () => {
+    const d = dec(mReward)!
+    expect(d.kind).toBe('mining-reward')
+    expect(d.headline).toContain('2 ricompense mature')
+    expect(d.headline).not.toContain('ri-emissione')
+  })
+  it('incasso di una pool: 36,02 ERG, 27 versati alla ri-emissione, inviati a 12 indirizzi', () => {
+    const d = dec(mPayout)!
+    expect(d.kind).toBe('mining-reward')
+    expect(d.headline).toContain('36,02 ERG')
+    expect(d.headline).toContain('27 ERG versati alla ri-emissione')
+    expect(d.headline).toContain('12 indirizzi')
+  })
+  it('ri-emissione: i versamenti entrano nel contratto, e si dice quanto', () => {
+    const d = dec(mReem)!
+    expect(d.kind).toBe('mining-reemission')
+    expect(d.headline).toContain('2 versamenti')
+    expect(d.headline).toContain('155,99 ERG')
+  })
+  it('se il versamento alla ri-emissione non torna col vincolo, il riconoscitore TACE', () => {
+    const t = clone(mPayout) as unknown as Tx
+    const v = t.outputs.find(o => o.address.startsWith('6Kxused'))!
+    v.value = String(BigInt(v.value) - 1n)            // un nanoERG in meno: non è la forma che conosciamo
+    expect(mining.recognize(t)).toBeNull()
+  })
+  it('il contratto delle ricompense si riconosce dalla forma esatta: un byte in più e non lo è', () => {
+    const box = (mEmission as unknown as Tx).outputs.find(isMinerReward)!
+    expect(isMinerReward(box)).toBe(true)
+    expect(isMinerReward({ ...box, ergoTree: box.ergoTree!.replace('cd', 'cd00') })).toBe(false)
+    expect(isMinerReward({ ...box, ergoTree: undefined })).toBe(false)
+  })
+})
+
+describe('oracoli: chi porta il prezzo in catena', () => {
+  it('pool v2 USD, datapoint: 1 ERG = 0,3336 $ (R6 = nanoERG per dollaro)', () => {
+    const d = dec(oUsdDp)!
+    expect(d.kind).toBe('oracle-datapoint')
+    expect(d.headline).toBe('Oracolo ERG/USD (pool v2): un operatore pubblica il prezzo, 1 ERG = 0,3336 $')
+  })
+  it('pool v2 USD, refresh: nuovo prezzo e numero di operatori', () => {
+    const d = dec(oUsdRef)!
+    expect(d.kind).toBe('oracle-refresh')
+    expect(d.headline).toContain('1 ERG = 0,3277 $')
+    expect(d.headline).toContain('da 8 operatori')
+  })
+  it('pool oro: si dice che il prezzo è stato pubblicato, NON quale (unità non verificata)', () => {
+    expect(dec(oGoldDp)!.headline).toBe('Oracolo oro (pool v2): un operatore pubblica un nuovo prezzo')
+    const r = dec(oGoldRef)!
+    expect(r.kind).toBe('oracle-refresh')
+    expect(r.headline).not.toMatch(/\$/)
+  })
+  it('pool v1 (quello di SigmaUSD): datapoint, chiusura dell’epoca, apertura', () => {
+    expect(dec(oV1Dp)!.headline).toContain('1 ERG = 0,327 $')
+    const c = dec(oV1Col)!
+    expect(c.kind).toBe('oracle-v1-collect')
+    expect(c.headline).toContain('da 4 operatori')
+    expect(dec(oV1Ep)!.kind).toBe('oracle-v1-epoch')
+  })
+  it('un operatore che sposta il suo gettone su un altro indirizzo NON pubblica un prezzo', () => {
+    const t = clone(oUsdDp) as unknown as Tx
+    const op = t.outputs.find(o => (o.assets ?? []).some(a => a.tokenId.startsWith('74fa4aee')))!
+    op.address = '9gnhfapSW2RtUYXR7DukoaSZfZpNazzcuyUhay5mjBW91qHS345'
+    expect(oracle.recognize(t)).toBeNull()
+  })
+  it('la banca SigmaUSD legge l’oracolo come dataInput: resta una transazione SigmaUSD', () => {
+    expect(dec(redeem)!.kind).toBe('sigmausd')
+    expect(dec(rsvMint)!.kind).toBe('sigmausd')
+  })
+  it('uno swap di DORT (il gettone-ricompensa degli oracoli) resta uno swap', () => {
+    expect(dec(swapBuy)!.kind).toBe('spectrum-n2t')
+  })
+})
+
+describe('registri Long: stessa lettura da renderedValue e da serializedValue', () => {
+  it('05ce89e8aa16 → 2.997.682.791', () => expect(decodeLong('05ce89e8aa16')).toBe(2_997_682_791n))
+  it('zig-zag: 03 → -2, 04 → 2', () => { expect(decodeLong('0503')).toBe(-2n); expect(decodeLong('0504')).toBe(2n) })
+  it('tipo sbagliato, byte avanzati, VLQ troncato → null, mai un numero inventato', () => {
+    expect(decodeLong('04d6d303')).toBeNull()
+    expect(decodeLong('05ce89e8aa1600')).toBeNull()
+    expect(decodeLong('05ce89')).toBeNull()
+  })
+  it('senza renderedValue (come risponde sigmaspace) il prezzo è lo stesso', () => {
+    const t = clone(oUsdDp) as unknown as Tx
+    const out = t.outputs.find(o => (o.additionalRegisters as Record<string, unknown> | undefined)?.R6)!
+    const r6 = (out.additionalRegisters as Record<string, { renderedValue?: string; serializedValue?: string }>).R6!
+    const atteso = longReg(out, 'R6')
+    delete r6.renderedValue
+    expect(longReg(out, 'R6')).toBe(atteso)
+    expect(dec(t)!.headline).toContain('0,3336 $')
+  })
+})
