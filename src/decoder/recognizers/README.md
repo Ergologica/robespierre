@@ -11,3 +11,11 @@
 
 In coda per la Fase 2: `spectrum-swap` (il codice di ricognizione DEX di ergo-bot
 si porta qui quasi intatto), `sigmausd` (mint/redeem), `rosen-bridge` (in/out).
+
+## Quali riconoscitori mancano
+
+Non si indovina: lo dice la misura. `npm run coverage` scarica le transazioni degli ultimi
+1.000 blocchi, le passa al decodificatore e mette in fila i contratti che restano muti,
+raggruppati per modello di ErgoTree (lo stesso contratto con costanti diverse — la chiave
+di chi ha fatto l'ordine, quella del minatore — conta una volta). Il prossimo
+riconoscitore si sceglie dalla cima di quella classifica, in `data/coverage.json`.
