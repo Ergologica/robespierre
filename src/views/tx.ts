@@ -53,7 +53,7 @@ function flowCard(m: Movement): string {
   // altri indirizzi, o — sul riscatto SigmaUSD, 935,64 → 935,63 — è la commissione.
   const altri = m.othersIn > 0n && m.othersCount > 0
     ? `<div class="note">${esc(L.flow_others(formatErg(m.othersIn, 2), m.othersCount))}</div>`
-    : m.fee > 0n && m.payerOut - m.receiverIn === m.fee
+    : m.fee > 0n && m.payerOut - m.receiverIn === m.fee && dato !== avuto   // se a 2 decimali i lati coincidono, non c'è niente da spiegare
       ? `<div class="note">${esc(L.flow_fee(formatErg(m.fee)))}</div>` : ''
   return `<div class="card"><div class="flow">
     <div class="party"><div class="role">${L.from}</div>
