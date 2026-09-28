@@ -54,26 +54,11 @@ document.getElementById('langBtn')!.addEventListener('click', () => {
   void route() // la pagina corrente si ridisegna nella nuova lingua
 })
 
-/* ----- modalità Base/Avanzato: ricordata, riflessa nel DOM ----- */
-let advanced = false
-try { advanced = localStorage.getItem('robespierre.mode') === 'advanced' } catch {}
-function applyMode() {
-  document.getElementById('modeBase')!.setAttribute('aria-pressed', String(!advanced))
-  document.getElementById('modeAdv')!.setAttribute('aria-pressed', String(advanced))
-  document.querySelectorAll<HTMLDetailsElement>('details.adv-open').forEach(d => { d.open = advanced })
-  try { localStorage.setItem('robespierre.mode', advanced ? 'advanced' : 'base') } catch {}
-}
-/** Base apre la transazione sul Racconto, Avanzato sui Box: è quello che prima faceva
- *  il riquadro «Dettaglio dei box», aperto o chiuso secondo la modalità. Un tab scelto
- *  a mano (nell'URL) vince sulla modalità. */
-const defaultTab = (): TxTab => (advanced ? 'box' : 'story')
-function modeClick(adv: boolean): void {
-  advanced = adv; applyMode()
-  const [head, id, tab] = location.hash.replace(/^#\/?/, '').split('/')
-  if (head === 'tx' && id && !tab) selectTxTab(defaultTab(), currentTx)
-}
-document.getElementById('modeBase')!.addEventListener('click', () => modeClick(false))
-document.getElementById('modeAdv')!.addEventListener('click', () => modeClick(true))
+/* Il selettore Base/Avanzato è stato tolto il 28/09/2026. Dopo il rinnovo decideva solo
+ * su quale tab si apriva una transazione (Racconto o Box); i riquadri che apriva e chiudeva
+ * non esistevano più. Nel resto del sito il pulsante non cambiava niente. Ora una transazione
+ * apre sempre sul Racconto, gli altri livelli sono a un clic e il tab scelto resta nell'URL. */
+const DEFAULT_TAB: TxTab = 'story'
 
 /* ----- tema ----- */
 let theme = 'dark'
@@ -107,7 +92,7 @@ async function route() {
       void startFeed(gen, d.headers, infraShare(d.cov))
     }
     else if (head === 'tx' && a) {
-      const tab: TxTab = (TX_TABS as readonly string[]).includes(b ?? '') ? b as TxTab : defaultTab()
+      const tab: TxTab = (TX_TABS as readonly string[]).includes(b ?? '') ? b as TxTab : DEFAULT_TAB
       if (!show(await txView(a, tab))) return
       currentTx = await api.tx(a)            // già in cache: nessuna seconda chiamata
       if (isCurrent(gen) && tab === 'schema') mountTxSchema(currentTx)
@@ -138,7 +123,7 @@ async function route() {
     if (!isCurrent(gen)) return              // errore di una pagina abbandonata: non disturba
     app.innerHTML = errorBox(e, head ?? '', hash)
   }
-  if (isCurrent(gen)) { applyMode(); markCurrentNav(head ?? '') }
+  if (isCurrent(gen)) markCurrentNav(head ?? '')
 }
 
 /* ----- la home si aggiorna a ogni blocco: una richiesta ogni 30 s, solo se la
@@ -248,7 +233,7 @@ document.addEventListener('click', e => {
 function chooseTab(tab: TxTab): void {
   selectTxTab(tab, currentTx)
   const [, id] = location.hash.replace(/^#\/?/, '').split('/')
-  if (id) history.replaceState(null, '', `#/tx/${id}${tab === defaultTab() ? '' : '/' + tab}`)
+  if (id) history.replaceState(null, '', `#/tx/${id}${tab === DEFAULT_TAB ? '' : '/' + tab}`)
 }
 /* tastiera nei tab: frecce destra/sinistra, come si aspetta chi usa uno screen reader */
 document.addEventListener('keydown', e => {
