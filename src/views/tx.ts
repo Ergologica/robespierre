@@ -23,7 +23,7 @@ import type { BoxLike, Tx } from '../api/types'
  *   Racconto — chi ha dato cosa a chi, per differenza (lib/movement.ts)
  *   Schema   — il modello UTXO disegnato
  *   Box      — il dettaglio tecnico, com'è
- * Il livello si sceglie coi tab; «Avanzato» apre direttamente i Box.
+ * Il livello si sceglie coi tab, e il tab scelto finisce nell'URL.
  */
 
 export type TxTab = 'story' | 'schema' | 'box'

@@ -27,7 +27,6 @@ const it = {
   bad_addr: 'La catena rifiuta questo indirizzo: il codice di controllo non torna. Non è che non esiste — è che non può esistere.',
   bad_hint: 'Succede quasi sempre copiando a metà o cambiando un carattere.',
   notfound_title: 'Pagina non trovata',
-  base: 'Base', adv: 'Avanzato', technical: 'tecnico',
   // rete
   net_state: 'Stato della rete', net_state_p: 'I numeri che dicono se la catena sta funzionando, prima di qualunque classifica.',
   height: 'Altezza', last_block: 'ultimo blocco', tx_daily: 'Transazioni · media giornaliera', tx_src: "fonte: nodo dell'explorer",
@@ -419,7 +418,6 @@ const en: Dict = {
   bad_addr: 'The chain rejects this address: the checksum does not match. It is not that it does not exist — it cannot exist.',
   bad_hint: 'Usually a half-copied string or one changed character.',
   notfound_title: 'Page not found',
-  base: 'Basic', adv: 'Advanced', technical: 'technical',
   net_state: 'Network state', net_state_p: 'The numbers that tell whether the chain is working, before any leaderboard.',
   height: 'Height', last_block: 'last block', tx_daily: 'Transactions · daily average', tx_src: 'source: explorer node',
   hashrate: 'Hash rate', hashrate_s: 'network computing power', mempool_tile: 'Pending · mempool', mempool_s: 'unconfirmed transactions',

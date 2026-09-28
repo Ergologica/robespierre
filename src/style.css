@@ -399,16 +399,17 @@ svg text.c-node{fill:var(--text);font-size:var(--fs-xs);font-weight:var(--fw-med
   header .wrap{flex-wrap:wrap;height:auto;padding:10px 12px 8px;gap:6px}
   .brand .nm{font-size:15px}
   .brand{gap:8px}
-  /* interruzione di riga esplicita: senza, nav e modalità si stipano nella
-     riga 1 e la navigazione si riduce a 60 px */
+  /* interruzione di riga esplicita: senza, la navigazione si stipa nella riga 1
+     e si riduce a 60 px */
   header .wrap::after{content:'';flex-basis:100%;height:0;order:7}
   /* La navigazione SCORREVA in orizzontale, con una sfumatura sul bordo a dire
      «continua». Misurato su telefono: a 390 px si vedevano due voci su quattro,
      a 320 px una. «Protocolli» — la pagina più matura del sito — non compariva
      su NESSUNA larghezza da telefono. Ora le voci vanno a capo invece di scorrere. */
   .topnav{order:8;flex:0 1 auto;min-width:0;margin-left:0;gap:0;flex-wrap:wrap}
-  /* 7 px e non 8: a 390 px la riga nav + modalità stava in 371 px su 366 (misurato) */
-  .topnav a{white-space:nowrap;padding:9px 7px;font-size:13.5px}
+  /* senza il selettore Base/Avanzato (tolto il 28/09/2026) la riga è tutta della
+     navigazione: 4 voci in ~244 px, anche a 320 px (misurato) */
+  .topnav a{white-space:nowrap;padding:9px 8px;font-size:13.5px}
   .seg{order:9;flex:0 0 auto;margin-left:auto}
   .seg button{padding:10px 8px;font-size:12.5px}
   .ghost{min-height:40px;min-width:40px;padding:0 9px}

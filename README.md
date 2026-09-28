@@ -157,7 +157,7 @@ src/
       `#/mempool`. **Transazione**: la frase è il titolo, sotto chi l'ha letta
       (riconoscitore, confidenza, fixture, link al sorgente), poi tre livelli —
       Racconto (libro mastro per differenza e resto dichiarato) · Schema UTXO · Box;
-      «Avanzato» apre sui Box, il tab scelto finisce nell'URL. **Ricerca**: palette
+      il tab scelto finisce nell'URL. **Ricerca**: palette
       (`/` o ⌘K) che dice cosa ha riconosciuto; un id da 64 caratteri si chiede alla
       catena (tx, token o blocco); i nomi si cercano in tutte le maiuscole, perché l'API
       distingue («comet» 0 risultati, «COMET» 35). **Mercati**: ERG come titolo, quattro
@@ -178,6 +178,9 @@ src/
       transazioni senza restituirle; sotto il 400% il sito diceva «i riscatti restano aperti», ma il
       **riscatto di SigRSV è chiuso** (solo quello di SigUSD resta aperto); CoinGecko senza risposta
       teneva ferma la pagina Protocolli (ora si rinuncia dopo 6 s)
+- [x] **Tolto il selettore Base/Avanzato (28/09/2026)** — dopo il rinnovo decideva solo su quale
+      tab si apriva una transazione; nel resto del sito non cambiava niente. Ora la transazione
+      apre sul Racconto, Schema e Box sono a un clic e il tab scelto resta nell'URL
 - [ ] **Lancio**: post a forum/Telegram con tre link e la domanda "lo usereste, per cosa?"
 
 ## Come si misura la copertura
