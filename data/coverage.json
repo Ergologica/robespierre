@@ -1,114 +1,153 @@
 {
-  "measuredAt": "2026-10-11T11:07:14.944Z",
+  "measuredAt": "2026-10-18T09:14:25.608Z",
   "blocks": {
-    "from": 1891225,
-    "to": 1892224,
+    "from": 1896175,
+    "to": 1897174,
     "count": 1000
   },
   "summary": {
-    "total": 7417,
-    "recognized": 6809,
-    "infra": 5592,
-    "rest": 1825,
-    "restRecognized": 1217,
+    "total": 8246,
+    "recognized": 6065,
+    "infra": 5121,
+    "rest": 3125,
+    "restRecognized": 944,
     "skipped": 0
   },
   "byKind": {
-    "oracle-datapoint": 3244,
+    "oracle-datapoint": 2757,
     "mining-emission": 1000,
-    "mining-fees": 740,
-    "wallet-internal": 672,
-    "transfer": 487,
-    "oracle-refresh": 190,
-    "oracle-v1-epoch": 140,
-    "oracle-v1-collect": 139,
-    "mining-reward": 130,
-    "spectrum-n2t": 50,
-    "mining-tip": 9,
-    "rosen-in": 3,
-    "rosen-out": 3,
-    "fee-only": 2
+    "mining-fees": 815,
+    "transfer": 394,
+    "spectrum-n2t": 326,
+    "wallet-internal": 218,
+    "oracle-refresh": 195,
+    "mining-reward": 140,
+    "oracle-v1-epoch": 105,
+    "oracle-v1-collect": 104,
+    "mining-tip": 5,
+    "rosen-in": 5,
+    "fee-only": 1
   },
   "byContract": [
     {
-      "template": "d0914dbc92bc",
-      "txs": 171,
+      "template": "f42eb2743e9e",
+      "txs": 897,
       "names": [],
-      "sampleContract": "4MQyMKvMbnCJG3aJ",
+      "sampleContract": "WvonkGz7pj74cH7K3ZQvkwp9…",
       "distinctAddresses": 1,
-      "exampleTx": "09eab6391dc4c6fea01e63987772805a12cec227f0bb62367ad30642743efa2b"
-    },
-    {
-      "template": "224a885cc927",
-      "txs": 160,
-      "names": [],
-      "sampleContract": null,
-      "distinctAddresses": 0,
-      "exampleTx": "b98d20d56aef841060873034758fde3b5a0497635f0689be3cb9cd7a502f531a"
-    },
-    {
-      "template": "633fca7a2f8a",
-      "txs": 158,
-      "names": [],
-      "sampleContract": "5dvtLSZsZvnb1Atoe1S2Wqxs…",
-      "distinctAddresses": 2,
-      "exampleTx": "ce08614b26699bd6e501522eb019c962da5af958d647ec1de959f91a919ab2ec"
-    },
-    {
-      "template": "3f10eb0f2e15",
-      "txs": 139,
-      "names": [],
-      "sampleContract": "2Eit2LFRqu2Mo33z3pYTJRHN…",
-      "distinctAddresses": 1,
-      "exampleTx": "1ff27e9ca19fd501699d74c40f21a3685aa8e1fafd25656b4a21efcd0664f632"
+      "exampleTx": "2b2b84b68370629ef240d08de709dbcd641cfe8ccb3d4ba72f109136d75c79b4"
     },
     {
       "template": "e50cf660a7c4",
-      "txs": 31,
+      "txs": 652,
       "names": [],
       "sampleContract": "3VaP5ZZQFaC1ucEnpUue1Zfg…",
       "distinctAddresses": 1,
-      "exampleTx": "01a50848c6c450d1d71d6329edf4b8953a1684827904f8c67b30c81fb62716d1"
+      "exampleTx": "02b23af8fcb84328976c211fd005bcc1f19d49d08e477a5f1233140b47283bb0"
     },
     {
-      "template": "915ccba4ba8c",
-      "txs": 16,
+      "template": "3f10eb0f2e15",
+      "txs": 212,
       "names": [],
-      "sampleContract": "4FC5xSYcrvbLkAD79Evssdzj…",
-      "distinctAddresses": 1,
-      "exampleTx": "3bac951f9a561185eeb5920b0e8ec9b7f0b09ced95af0bba41379a746aeaa64f"
+      "sampleContract": "2Eit2LFRqu2Mo33z3pYTJRHN…",
+      "distinctAddresses": 2,
+      "exampleTx": "2e1f40313ffc494a483dc5c032d99eac104a66aadd73475e5bb207a1692c9261"
     },
     {
-      "template": "b47f1fa74eb1",
-      "txs": 11,
+      "template": "8592b8bdad09",
+      "txs": 108,
       "names": [],
-      "sampleContract": "USNVj4qoyg7U7C6EpdFGHNzi…",
+      "sampleContract": "5r7K4icftQcNMNrkL5g8hCCr…",
       "distinctAddresses": 1,
-      "exampleTx": "271b6c4b914d6821051b73738173e173d4ad01af46cd22d8e7939e5ac1c4c88b"
+      "exampleTx": "5ec705875c30ce47076ccaecb48e62d8b43f02bb904d51965b32e32ef6794a88"
     },
     {
-      "template": "3af561cd7437",
+      "template": "394220188790",
+      "txs": 75,
+      "names": [],
+      "sampleContract": "4bvZT5H4tkhhnLxPzyp7MooT…",
+      "distinctAddresses": 1,
+      "exampleTx": "5ec705875c30ce47076ccaecb48e62d8b43f02bb904d51965b32e32ef6794a88"
+    },
+    {
+      "template": "6e44e34d8360",
+      "txs": 74,
+      "names": [],
+      "sampleContract": "foqgf3Ys6E6JCr9CA4KQM3H9…",
+      "distinctAddresses": 1,
+      "exampleTx": "f6eaa221d52f79b8ab0dfd501bbaef3f327a83860a1875776d6147e9c60d238f"
+    },
+    {
+      "template": "1cee292189f3",
+      "txs": 64,
+      "names": [],
+      "sampleContract": "4CXJ3oDs6zN1V62Z2JoJjQbg…",
+      "distinctAddresses": 1,
+      "exampleTx": "7f5ff75fb46b534d34e702a4ed12bb949fa1603a2acee2e299f99a936489cf24"
+    },
+    {
+      "template": "33d46c091a4f",
+      "txs": 24,
+      "names": [],
+      "sampleContract": "3gb1RZucekcRdda82TSNS4FZ…",
+      "distinctAddresses": 1,
+      "exampleTx": "f92ed69100a537e5593316b3f8e74c8dc3c6f587dea0b6f9bb5473380ea8f3f1"
+    },
+    {
+      "template": "782ae094ff88",
+      "txs": 22,
+      "names": [],
+      "sampleContract": "2GnSaqJAonuAqdBmVDb15otC…",
+      "distinctAddresses": 2,
+      "exampleTx": "31b8e4a81f7c52792a7c0d95c21d5a0d000b9b6cdd3062a2524857e7b489910f"
+    },
+    {
+      "template": "6f28a3efe0de",
+      "txs": 19,
+      "names": [],
+      "sampleContract": "faqaWPZi7tKa8oj2JSZ1UaLR…",
+      "distinctAddresses": 19,
+      "exampleTx": "b6e9914e6cd0af7128a89f6b23dd4597a51fb7947a73a70c4eff4c4414dab02e"
+    },
+    {
+      "template": "633fca7a2f8a",
+      "txs": 18,
+      "names": [],
+      "sampleContract": "5dvtLSZsZvnb1Atoe1S2Wqxs…",
+      "distinctAddresses": 2,
+      "exampleTx": "ff1165048549b7c070f9a0609b62ea1d5e0eed847cf8c32cee0339ac04f5c8f4"
+    },
+    {
+      "template": "2d76c922173e",
+      "txs": 18,
+      "names": [],
+      "sampleContract": "4B8vRwhxhAJb8TuN4RZpBeLm…",
+      "distinctAddresses": 1,
+      "exampleTx": "ffe32e46aac1af33063d1aeb329d2a6532518770acfae0da951721c232676404"
+    },
+    {
+      "template": "e8d97bc899a5",
+      "txs": 18,
+      "names": [],
+      "sampleContract": "2kpyq1fiKFRACqTBYLqT4BNG…",
+      "distinctAddresses": 1,
+      "exampleTx": "ffe32e46aac1af33063d1aeb329d2a6532518770acfae0da951721c232676404"
+    },
+    {
+      "template": "4f633f48b660",
       "txs": 10,
       "names": [],
-      "sampleContract": "NY4PEzZ7VfjxH2v4bXAdi6zE…",
-      "distinctAddresses": 2,
-      "exampleTx": "6169b4b21b334ccb48f890f72c75c4dbf20121bbed5d5d3e0d398151d5280fd7"
-    },
-    {
-      "template": "c257560e46fe",
-      "txs": 9,
-      "names": [],
-      "sampleContract": "W76SLPLFea",
+      "sampleContract": "8D5yrk3J6uxm7L7dDs8py4NA…",
       "distinctAddresses": 1,
-      "exampleTx": "e3671d272b9b6c10227f38d2a58c75ce185f26d3ccbf99df66b5ed285f07936f"
+      "exampleTx": "9839a0de6efbae9232d62748339f0947b1da53f04470e66cc10323e1a09f6c70"
     },
     {
-      "template": "489d1222aae7",
+      "template": "d0914dbc92bc",
       "txs": 8,
       "names": [],
-      "sampleContract": "67d7wq2KP495sNBtVThj4m7X…",
-      "distinctAddresses": 1,
-      "exampleTx": "3bac951f9a561185eeb5920b0e8ec9b7f0b09ced95af0bba41379a746aeaa64f"
+      "sampleContract": null,
+      "distinctAddresses": 0,
+      "exampleTx": "86fcb70f9a7c1d8865c53938179744e5905f37edadd330e8f7e5ab25f75fb801"
     },
     {
       "template": "04e5914dde7b",
@@ -116,171 +155,158 @@
       "names": [],
       "sampleContract": "4T5Phw51x11bWjCaDiLUD42Y…",
       "distinctAddresses": 1,
-      "exampleTx": "aea8b62767dbee325d476ffd4698d62f1a1d3a8e8d96c72b4b5435911fd7d55d"
+      "exampleTx": "06015444c66e11fc33d6c595fc540d3b78e25574fe56d83df5f73e6edf2752d9"
     },
     {
-      "template": "dccace327571",
-      "txs": 6,
+      "template": "915ccba4ba8c",
+      "txs": 8,
       "names": [],
-      "sampleContract": "26tpZU6i6zeBRuzZVo7tr47z…",
+      "sampleContract": "4FC5xSYcrvbLkAD79Evssdzj…",
       "distinctAddresses": 1,
-      "exampleTx": "446af60408a76e72387d5f009d2b5ac3c508283704a2c703bfda6a56949006c6"
+      "exampleTx": "06015444c66e11fc33d6c595fc540d3b78e25574fe56d83df5f73e6edf2752d9"
     },
     {
-      "template": "1cee292189f3",
-      "txs": 6,
+      "template": "534254f0e1d7",
+      "txs": 8,
       "names": [],
-      "sampleContract": "4CXJ3oDs6zN1V62Z2JoJjQbg…",
+      "sampleContract": "YvTr2TEydgpGTEHynyEY7GBL…",
       "distinctAddresses": 1,
-      "exampleTx": "050806d0866f68c9637c9fd3f35c1dab4b4d1e6fddb42adb6f1798ba133c5c00"
+      "exampleTx": "f7e77ae00b7b6680fe56f67b3cbfabb3a1bb86333fe3bd93bc26f8a304c13c74"
     },
     {
-      "template": "d54697dbc8b7",
-      "txs": 5,
+      "template": "5ed346628d01",
+      "txs": 8,
       "names": [],
-      "sampleContract": "SiDFfCzE1MKdUevq1vCRN1vA…",
+      "sampleContract": "4YAmjFw1TVnaaAXDyG5DR1U9…",
       "distinctAddresses": 1,
-      "exampleTx": "1ff27e9ca19fd501699d74c40f21a3685aa8e1fafd25656b4a21efcd0664f632"
+      "exampleTx": "f7e77ae00b7b6680fe56f67b3cbfabb3a1bb86333fe3bd93bc26f8a304c13c74"
     },
     {
-      "template": "2a08c20cc7a8",
-      "txs": 4,
+      "template": "3af561cd7437",
+      "txs": 8,
       "names": [],
-      "sampleContract": "7fcz1gR14KgzKKzbkQcJR8RZ…",
-      "distinctAddresses": 1,
-      "exampleTx": "7c6e493f3c7ce9652aca90a01f61f4df5666976787a7f532770361c6b12d9280"
-    },
-    {
-      "template": "eb0a874edc0d",
-      "txs": 4,
-      "names": [],
-      "sampleContract": "6r333qYnughofT9yZTC3Xdwb…",
-      "distinctAddresses": 1,
-      "exampleTx": "020ab26c175035102d537b4e9b22e724f4ff36b9faa108afa7cb1d4f29848673"
-    },
-    {
-      "template": "6f28a3efe0de",
-      "txs": 4,
-      "names": [],
-      "sampleContract": "zCkAGbp4Tog8MBcLWhqQXTQ6…",
-      "distinctAddresses": 4,
-      "exampleTx": "91914fb569e2631af84da0de97d89b3f6e83f0b00b7ed790c2c52012d75dfdd3"
-    },
-    {
-      "template": "d129412e8bd6",
-      "txs": 4,
-      "names": [],
-      "sampleContract": "5ivrmzxYa2fPRuSMsFA3at4R…",
-      "distinctAddresses": 1,
-      "exampleTx": "836cd772e4f463a1f9a2d9cc63739a927c07bab5c2724980a93f2a87de5bd163"
-    },
-    {
-      "template": "782ae094ff88",
-      "txs": 4,
-      "names": [],
-      "sampleContract": "2GnSaqJAoibwcSS57AoSo6f4…",
+      "sampleContract": "NY4PEzZ7VfjpAkcdJesLYFRh…",
       "distinctAddresses": 2,
-      "exampleTx": "41dae0aa867a62b37584bdd9194e151b66d5b67119b46e5ecbc305cded54a6b1"
-    },
-    {
-      "template": "6d49a15a9416",
-      "txs": 3,
-      "names": [],
-      "sampleContract": "BpQ1xs4hioRWFjt1p7BwyTeQ…",
-      "distinctAddresses": 1,
-      "exampleTx": "955a5ebcea81bf73474445e7d94c49ce97682ac266890c3f51a30be9bc29af6f"
+      "exampleTx": "2e1f40313ffc494a483dc5c032d99eac104a66aadd73475e5bb207a1692c9261"
     }
   ],
   "unrecognized": [
     {
       "side": "spende",
-      "txs": 135,
-      "template": "3f10eb0f2e15",
+      "txs": 897,
+      "template": "f42eb2743e9e",
       "names": [],
-      "sampleContract": "2Eit2LFRqu2Mo33z3pYTJRHN…",
+      "sampleContract": "WvonkGz7pj74cH7K3ZQvkwp9…",
       "distinctAddresses": 1,
-      "exampleTx": "0873640770c1ef74fdb6d845b9f255242533bdb80cedc7ba3454750b8d24f889"
-    },
-    {
-      "side": "crea",
-      "txs": 86,
-      "template": "d0914dbc92bc",
-      "names": [],
-      "sampleContract": "4MQyMKvMbnCJG3aJ",
-      "distinctAddresses": 1,
-      "exampleTx": "09eab6391dc4c6fea01e63987772805a12cec227f0bb62367ad30642743efa2b"
-    },
-    {
-      "side": "crea",
-      "txs": 80,
-      "template": "224a885cc927",
-      "names": [],
-      "sampleContract": "4MQyMKvMbnCJG3aJ",
-      "distinctAddresses": 1,
-      "exampleTx": "b98d20d56aef841060873034758fde3b5a0497635f0689be3cb9cd7a502f531a"
+      "exampleTx": "2b2b84b68370629ef240d08de709dbcd641cfe8ccb3d4ba72f109136d75c79b4"
     },
     {
       "side": "spende",
-      "txs": 80,
-      "template": "224a885cc927+633fca7a2f8a",
-      "names": [],
-      "sampleContract": "5dvtLSZsZvnb1Atoe1S2Wqxs…",
-      "distinctAddresses": 2,
-      "exampleTx": "4346e699deebb39585372393ef00a4f494851f82f35b5f9d8fe3fa56f124f788"
-    },
-    {
-      "side": "spende",
-      "txs": 75,
-      "template": "633fca7a2f8a+d0914dbc92bc",
-      "names": [],
-      "sampleContract": "5dvtLSZsZvnb1Atoe1S2Wqxs…",
-      "distinctAddresses": 2,
-      "exampleTx": "ba67a2b02c4a640b4b416b91b50b6c7d8bb6a389f65420c67758d83fb1fce58e"
-    },
-    {
-      "side": "spende",
-      "txs": 31,
+      "txs": 652,
       "template": "e50cf660a7c4",
       "names": [],
       "sampleContract": "3VaP5ZZQFaC1ucEnpUue1Zfg…",
       "distinctAddresses": 1,
-      "exampleTx": "01a50848c6c450d1d71d6329edf4b8953a1684827904f8c67b30c81fb62716d1"
+      "exampleTx": "02b23af8fcb84328976c211fd005bcc1f19d49d08e477a5f1233140b47283bb0"
     },
     {
       "side": "spende",
-      "txs": 11,
-      "template": "b47f1fa74eb1",
+      "txs": 208,
+      "template": "3f10eb0f2e15",
       "names": [],
-      "sampleContract": "USNVj4qoyg7U7C6EpdFGHNzi…",
-      "distinctAddresses": 1,
-      "exampleTx": "271b6c4b914d6821051b73738173e173d4ad01af46cd22d8e7939e5ac1c4c88b"
+      "sampleContract": "2Eit2LFRqu2Mo33z3pYTJRHN…",
+      "distinctAddresses": 2,
+      "exampleTx": "0d963a5393bfe0f6490322dda4026bc06f4c907b1258815a4370877abc1c4b51"
     },
     {
       "side": "spende",
-      "txs": 10,
-      "template": "d0914dbc92bc",
+      "txs": 75,
+      "template": "394220188790+8592b8bdad09",
       "names": [],
-      "sampleContract": "4MQyMKvMbnCJG3aJ",
+      "sampleContract": "5r7K4icftQcNMNrkL5g8hCCr…",
+      "distinctAddresses": 2,
+      "exampleTx": "5ec705875c30ce47076ccaecb48e62d8b43f02bb904d51965b32e32ef6794a88"
+    },
+    {
+      "side": "spende",
+      "txs": 74,
+      "template": "6e44e34d8360",
+      "names": [],
+      "sampleContract": "foqgf3Ys6E6JCr9CA4KQM3H9…",
       "distinctAddresses": 1,
-      "exampleTx": "dbc155ac307f77eaa6010dc4794f87c286cb6a8f3bf42a3936d89e6329b4097a"
+      "exampleTx": "f6eaa221d52f79b8ab0dfd501bbaef3f327a83860a1875776d6147e9c60d238f"
+    },
+    {
+      "side": "spende",
+      "txs": 64,
+      "template": "1cee292189f3",
+      "names": [],
+      "sampleContract": "4CXJ3oDs6zN1V62Z2JoJjQbg…",
+      "distinctAddresses": 1,
+      "exampleTx": "7f5ff75fb46b534d34e702a4ed12bb949fa1603a2acee2e299f99a936489cf24"
+    },
+    {
+      "side": "spende",
+      "txs": 33,
+      "template": "8592b8bdad09",
+      "names": [],
+      "sampleContract": "5r7K4icftQcNMNrkL5g8hCCr…",
+      "distinctAddresses": 1,
+      "exampleTx": "6d878161dc3521b30184fb28f99a6393e1f02b05d343c3c2a83f37a898a4713f"
+    },
+    {
+      "side": "spende",
+      "txs": 22,
+      "template": "33d46c091a4f",
+      "names": [],
+      "sampleContract": "3gb1RZucekcRdda82TSNS4FZ…",
+      "distinctAddresses": 1,
+      "exampleTx": "03babd3dde1a5d3a2a34ec60323c8aaa27b59c468a1a49c01d3de379f0f57a50"
     },
     {
       "side": "crea",
-      "txs": 9,
-      "template": "c257560e46fe",
+      "txs": 19,
+      "template": "6f28a3efe0de",
       "names": [],
-      "sampleContract": "W76SLPLFea",
-      "distinctAddresses": 1,
-      "exampleTx": "e3671d272b9b6c10227f38d2a58c75ce185f26d3ccbf99df66b5ed285f07936f"
+      "sampleContract": "faqaWPZi7tKa8oj2JSZ1UaLR…",
+      "distinctAddresses": 19,
+      "exampleTx": "b6e9914e6cd0af7128a89f6b23dd4597a51fb7947a73a70c4eff4c4414dab02e"
+    },
+    {
+      "side": "spende",
+      "txs": 19,
+      "template": "782ae094ff88",
+      "names": [],
+      "sampleContract": "2GnSaqJAonuAqdBmVDb15otC…",
+      "distinctAddresses": 2,
+      "exampleTx": "fa3beabb9d48dc859f4c11945483f86c92bf4a1efcca575fe60b4aaf438413dd"
+    },
+    {
+      "side": "spende",
+      "txs": 9,
+      "template": "2d76c922173e+e8d97bc899a5",
+      "names": [],
+      "sampleContract": "2kpyq1fiKFRACqTBYLqT4BNG…",
+      "distinctAddresses": 2,
+      "exampleTx": "ffe32e46aac1af33063d1aeb329d2a6532518770acfae0da951721c232676404"
+    },
+    {
+      "side": "spende",
+      "txs": 9,
+      "template": "2d76c922173e+4f633f48b660+e8d97bc899a5",
+      "names": [],
+      "sampleContract": "8D5yrk3J6uxm7L7dDs8py4NA…",
+      "distinctAddresses": 3,
+      "exampleTx": "9839a0de6efbae9232d62748339f0947b1da53f04470e66cc10323e1a09f6c70"
     },
     {
       "side": "spende",
       "txs": 8,
-      "template": "489d1222aae7+915ccba4ba8c",
+      "template": "633fca7a2f8a",
       "names": [],
-      "sampleContract": "67d7wq2KP495sNBtVThj4m7X…",
+      "sampleContract": "5dvtLSZsZvnb1Atoe1S2Wqxs…",
       "distinctAddresses": 2,
-      "exampleTx": "3bac951f9a561185eeb5920b0e8ec9b7f0b09ced95af0bba41379a746aeaa64f"
+      "exampleTx": "f5c6057659c7b1e8e7140032d6b4314c50f738c7ec13bf6ef4b7209a0093f6c9"
     },
     {
       "side": "spende",
@@ -289,88 +315,61 @@
       "names": [],
       "sampleContract": "4T5Phw51x11bWjCaDiLUD42Y…",
       "distinctAddresses": 2,
-      "exampleTx": "aea8b62767dbee325d476ffd4698d62f1a1d3a8e8d96c72b4b5435911fd7d55d"
+      "exampleTx": "06015444c66e11fc33d6c595fc540d3b78e25574fe56d83df5f73e6edf2752d9"
     },
     {
       "side": "spende",
-      "txs": 6,
-      "template": "dccace327571",
+      "txs": 7,
+      "template": "d129412e8bd6",
       "names": [],
-      "sampleContract": "26tpZU6i6zeBRuzZVo7tr47z…",
-      "distinctAddresses": 1,
-      "exampleTx": "446af60408a76e72387d5f009d2b5ac3c508283704a2c703bfda6a56949006c6"
-    },
-    {
-      "side": "spende",
-      "txs": 6,
-      "template": "1cee292189f3",
-      "names": [],
-      "sampleContract": "4CXJ3oDs6zN1V62Z2JoJjQbg…",
-      "distinctAddresses": 1,
-      "exampleTx": "050806d0866f68c9637c9fd3f35c1dab4b4d1e6fddb42adb6f1798ba133c5c00"
-    },
-    {
-      "side": "spende",
-      "txs": 5,
-      "template": "3af561cd7437",
-      "names": [],
-      "sampleContract": "NY4PEzZ7VfjxH2v4bXAdi6zE…",
+      "sampleContract": "5ivrmzxYZWMXWzecVWbdQrMU…",
       "distinctAddresses": 2,
-      "exampleTx": "6169b4b21b334ccb48f890f72c75c4dbf20121bbed5d5d3e0d398151d5280fd7"
-    },
-    {
-      "side": "spende",
-      "txs": 4,
-      "template": "eb0a874edc0d",
-      "names": [],
-      "sampleContract": "6r333qYnughofT9yZTC3Xdwb…",
-      "distinctAddresses": 1,
-      "exampleTx": "020ab26c175035102d537b4e9b22e724f4ff36b9faa108afa7cb1d4f29848673"
+      "exampleTx": "a763ded3aecf8adafcf7af31293a7a62eef8a9a0188d5747b49e1fb3a156cce8"
     },
     {
       "side": "crea",
-      "txs": 4,
-      "template": "6f28a3efe0de",
+      "txs": 6,
+      "template": "34b47d447c2b",
       "names": [],
-      "sampleContract": "zCkAGbp4Tog8MBcLWhqQXTQ6…",
-      "distinctAddresses": 4,
-      "exampleTx": "91914fb569e2631af84da0de97d89b3f6e83f0b00b7ed790c2c52012d75dfdd3"
+      "sampleContract": "2FamCWNa1rTBgCd8vEHcu5sN…",
+      "distinctAddresses": 6,
+      "exampleTx": "b28ac874a9da5ed516c517f9a7a82b264f81852581a58aad72b71ea957baa3e4"
     },
     {
       "side": "spende",
-      "txs": 4,
-      "template": "3af561cd7437+3f10eb0f2e15+d54697dbc8b7",
+      "txs": 6,
+      "template": "b47f1fa74eb1",
       "names": [],
-      "sampleContract": "NY4PEzZ7VfjxH2v4bXAdi6zE…",
-      "distinctAddresses": 3,
-      "exampleTx": "1ff27e9ca19fd501699d74c40f21a3685aa8e1fafd25656b4a21efcd0664f632"
-    },
-    {
-      "side": "spende",
-      "txs": 4,
-      "template": "d129412e8bd6",
-      "names": [],
-      "sampleContract": "5ivrmzxYa2fPRuSMsFA3at4R…",
+      "sampleContract": "USNVj4qoyg7U7C6EpdFGHNzi…",
       "distinctAddresses": 1,
-      "exampleTx": "836cd772e4f463a1f9a2d9cc63739a927c07bab5c2724980a93f2a87de5bd163"
+      "exampleTx": "65cdb04ca0703f521cbdec564a8da8e8037afa49686a9ca00b2b64cedcc86ba7"
     },
     {
-      "side": "spende",
-      "txs": 3,
-      "template": "2a08c20cc7a8",
+      "side": "crea",
+      "txs": 5,
+      "template": "48beed5f4fb4+dd146740cd43",
       "names": [],
-      "sampleContract": "7fcz1gR14KgzKKzbkQcJR8RZ…",
-      "distinctAddresses": 1,
-      "exampleTx": "7c6e493f3c7ce9652aca90a01f61f4df5666976787a7f532770361c6b12d9280"
+      "sampleContract": "JiySNY48TL2yWvtWeQh9KLMH…",
+      "distinctAddresses": 6,
+      "exampleTx": "5cc6e4cee97cf668fb30d34500e7aa1c2d2db60488519802238cb11d4d526c1d"
     },
     {
-      "side": "spende",
-      "txs": 3,
-      "template": "8199d5306547",
+      "side": "crea",
+      "txs": 5,
+      "template": "534254f0e1d7+5ed346628d01",
       "names": [],
-      "sampleContract": "2vTHJzWVd7ryXrP3fH9KfEFG…",
-      "distinctAddresses": 1,
-      "exampleTx": "0852f6bc9aa9139f5d86a4f7446d15a62a02441dd0d596e7ead463011e973fe3"
+      "sampleContract": "4YAmjFw1TVnaaAXDyG5DR1U9…",
+      "distinctAddresses": 2,
+      "exampleTx": "f7e77ae00b7b6680fe56f67b3cbfabb3a1bb86333fe3bd93bc26f8a304c13c74"
+    },
+    {
+      "side": "crea",
+      "txs": 5,
+      "template": "f897847153c9",
+      "names": [],
+      "sampleContract": "2ysN6BW5GJ9Rsr4SBLqob21z…",
+      "distinctAddresses": 5,
+      "exampleTx": "efd7c690617723b528f25e5d9abd97eea1046d399623026ef96273a68d7dfe1d"
     }
   ]
 }
